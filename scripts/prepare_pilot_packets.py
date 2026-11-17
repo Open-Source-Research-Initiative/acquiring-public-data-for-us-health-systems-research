@@ -87,11 +87,11 @@ def build():
         assert re.fullmatch(r"[0-9a-f]{40}", revision), case_id
         packet = {
             "schema_version": "draft-1", "case_id": case_id,
-            "status": "draft_not_authorized", "system": d["system"],
+            "status": "draft_pending_qualification_and_lock", "system": d["system"],
             "repository": repo, "source_commit": revision,
             "workflow": selection["selected"], "task": task,
             "setup": install, "permitted_public_documentation": docs,
-            "rules": "selection-rules.md; approvals, resource controls and isolation remain pending",
+            "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
             "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
             "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
         }

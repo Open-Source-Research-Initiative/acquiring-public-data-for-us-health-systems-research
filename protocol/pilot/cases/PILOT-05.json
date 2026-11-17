@@ -1,11 +1,11 @@
 {
-  "status": "proposed; not locked, approved, or authorized for execution",
+  "status": "preparation_in_progress_not_locked",
   "observation_date": "2026-11-17",
   "selection_seed_prefix": "OSRI-health-data-pilot-v1|",
   "workflow_selection_rule": "Sort qualifying native health-data acquisition workflow IDs; interpret first 16 hexadecimal characters of SHA-256 of UTF-8 prefix plus case ID as a base-16 integer, modulo count; zero-based index. Metadata-only functions and parameter variants are not separate health-data acquisition workflows.",
-  "execution_limits": "At most 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network; proposed separate $10 compute/network and $10 model ceilings authorize no spending. One transient retry OR one diagnostic repeat; preserve initial outcome.",
-  "execution_safety": "No execution authorized; future disposable unprivileged isolation and access/safety review required; no source patches, alternate source, maintainer contact, or protected records.",
-  "executor_supervisor_freeze": "Not appointed; documentation, model, tools, output location, reference window and human authorization remain to be frozen.",
+  "execution_limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "execution_safety": "Disposable unprivileged isolation and access/safety qualification required before attempts; no source patches, alternate source, maintainer contact or protected records.",
+  "executor_supervisor_freeze": "Executor assignment, documentation, model, tools, output location and reference window remain to be frozen by the coordinator; major scientific claims require human review.",
   "assessment": "Independent assessment and oracle not prepared; kept outside this executor-facing case file. No health payload obtained.",
   "case_id": "PILOT-05",
   "system": "CMU Delphi COVIDcast Python client",
@@ -47,7 +47,7 @@
   "runtime": {
     "requirements": "Python >=3.6, pandas, requests, delphi-epidata>=0.0.7, geopandas, matplotlib, numpy, descartes, imageio-ffmpeg, imageio, tqdm, epiweeks per tagged setup.py; exact compatible environment unverified.",
     "documented_install": "pip install covidcast",
-    "revision_constraint": "Pinned installation is a proposed reproducibility configuration requiring prior human safety/authorization; dependency versions remain unfrozen. Upstream docs show floating pip install.",
+    "revision_constraint": "Pinned installation is coordinator-managed environment configuration; dependency versions remain unfrozen. Upstream docs show floating pip install.",
     "conditional_pinned_install": "python -m pip install \"covidcast @ git+https://github.com/cmu-delphi/covidcast.git@9f16cfc0c0975a978c4d53ed2e092ee089550b81#subdirectory=Python-packages/covidcast-py\""
   },
   "source_identity": {

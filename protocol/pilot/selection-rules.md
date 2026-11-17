@@ -1,6 +1,6 @@
-# Proposed pilot selection and execution rules
+# Pilot selection and execution rules
 
-17 November 2026. These clarify the draft protocol and produce the attached eight-case proposal. They are not a protocol lock or execution authorization. The historical candidate record is unchanged. Corrections to draft workflow/example inventories are retained in the case records; none followed an execution outcome.
+17 November 2026. The coordinator applies these rules under the human lead's delegation of routine feasibility decisions. They do not establish a completed packet lock or technical qualification. The historical candidate record is unchanged. Corrections to draft workflow/example inventories are retained in the case records; none followed an execution outcome.
 
 ## Systems and source families
 
@@ -14,7 +14,7 @@ The proposal adopts a **GitHub-source-first observation frame** for this pilot. 
 
 Use revision-matched documentation. Registry releases such as CRAN are alternate distributions, not silent substitutes for the source revision. A material contradiction in release ordering or identity requires correction before lock. Pagination, API rate limits and unavailable dates remain explicit evidence limits; an observed tag is not proof of its complete historical release chronology.
 
-**Recommended amendment for human approval:** allow immutable checkout and install references as environment configuration. They must identify the selected source, change no source logic, and retain the package lock or installed dependency manifest. A package-manager installation must resolve to the selected source commit or stop with a mismatch. Dependencies are not yet frozen; resolve and record them in isolated setup before health-data acquisition. Record setup failure as a disposition, not permission to upgrade the selected system.
+**Coordinator implementation rule:** allow immutable checkout and install references as environment configuration. They must identify the selected source, change no source logic, and retain the package lock or installed dependency manifest. A package-manager installation must resolve to the selected source commit or stop with a mismatch. Dependencies are not yet frozen; resolve and record them in isolated setup before health-data acquisition. Record setup failure as a disposition, not permission to upgrade the selected system.
 
 ## Workflows and tasks
 
@@ -26,7 +26,7 @@ Use a complete documented default invocation when one exists, including its nati
 
 ## Fixed attempt conditions
 
-Use the original proposed per-case limits: three active executor hours, six elapsed hours, four VM-hours, at most four vCPUs, 16 GiB RAM, 100 GiB disk and 20 GiB transferred data. Software setup, primary execution and independent reference capture consume the same case meters; distinguish their contributions in reporting. The proposed monetary ceilings are $10 compute/network and $10 model use per case, **$160 total maximum across eight cases**; they are not spending authorization and do not include unlimited external services. Any paid requirement beyond them is blocked pending a separate decision.
+Use the original proposed per-case limits: three active executor hours, six elapsed hours, four VM-hours, at most four vCPUs, 16 GiB RAM, 100 GiB disk and 20 GiB transferred data. Software setup, primary execution and independent reference capture consume the same case meters; distinguish their contributions in reporting.
 
 Preserve the first outcome. Permit either one justified transient retry or one later diagnostic repeat, not both; the repeat stays within the same caps. No code patches, alternate provider, hidden troubleshooting, maintainer contact or protected data. A compatible workspace-backed path inside the isolated environment may satisfy a documented absolute path without a source patch; it does not authorize host writes to `/data0` or new system mounts/services.
 
@@ -34,4 +34,4 @@ Task-specific outputs must be retained in an original native format, with a docu
 
 ## Lock still required
 
-Before an attempt: confirm eligibility and software identity; approve the global configuration/task rules and budget; freeze dependencies and permitted documentation; select the executor model/tools; qualify the executor boundary and resource controls; prepare an independent source reference or document its absence; set source observation windows and lock both packets with hashes. The coordinator may resolve routine documented details, but cannot invent a completed reference, reviewer, runtime qualification or human decision.
+Before an attempt: confirm eligibility and software identity; apply and document the global configuration/task rules; freeze dependencies and permitted documentation; select the executor model/tools; qualify the executor boundary and resource controls; prepare an independent source reference or document its absence; set source observation windows and lock both packets with hashes. The coordinator may resolve routine documented details, but cannot invent a completed reference, reviewer, runtime qualification or human decision.

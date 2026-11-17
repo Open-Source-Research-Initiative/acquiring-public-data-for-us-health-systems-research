@@ -1,11 +1,11 @@
 {
-  "status": "proposed; not locked, approved, or authorized for execution",
+  "status": "preparation_in_progress_not_locked",
   "observation_date": "2026-11-17",
   "selection_seed_prefix": "OSRI-health-data-pilot-v1|",
   "workflow_selection_rule": "Sort qualifying native health-data acquisition workflow IDs; interpret first 16 hexadecimal characters of SHA-256 of UTF-8 prefix plus case ID as a base-16 integer, modulo count; zero-based index. Metadata-only functions and parameter variants are not separate health-data acquisition workflows.",
-  "execution_limits": "At most 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network; proposed separate $10 compute/network and $10 model ceilings authorize no spending. One transient retry OR one diagnostic repeat; preserve initial outcome.",
-  "execution_safety": "No execution authorized; future disposable unprivileged isolation and access/safety review required; no source patches, alternate source, maintainer contact, or protected records.",
-  "executor_supervisor_freeze": "Not appointed; documentation, model, tools, output location, reference window and human authorization remain to be frozen.",
+  "execution_limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "execution_safety": "Disposable unprivileged isolation and access/safety qualification required before attempts; no source patches, alternate source, maintainer contact or protected records.",
+  "executor_supervisor_freeze": "Executor assignment, documentation, model, tools, output location and reference window remain to be frozen by the coordinator; major scientific claims require human review.",
   "assessment": "Independent assessment and oracle not prepared; kept outside this executor-facing case file. No health payload obtained.",
   "case_id": "PILOT-06",
   "system": "CDC EPHTrackR",
@@ -47,7 +47,7 @@
   "runtime": {
     "requirements": "R >=3.5.0; httr >=1.4.0, dplyr >=0.8.0.1, purrr >=0.3.0, jsonlite >=1.5, lifecycle. Exact compatible package versions and size unverified.",
     "documented_install": "devtools::install_github(\"CDCgov/EPHTrackR\", dependencies=TRUE)",
-    "revision_constraint": "Pinned installation is a proposed reproducibility configuration requiring prior human safety/authorization; dependency versions remain unfrozen. README uses floating default branch; tagged DESCRIPTION version mismatch retained.",
+    "revision_constraint": "Pinned installation is coordinator-managed environment configuration; dependency versions remain unfrozen. README uses floating default branch; tagged DESCRIPTION version mismatch retained.",
     "conditional_pinned_install": "devtools::install_github(\"CDCgov/EPHTrackR@6893d31c60a76dec366b92d1c11c5c8a1f9b15fd\", dependencies=TRUE)"
   },
   "source_identity": {

@@ -1,7 +1,7 @@
 {
   "schema_version": "draft-1",
   "case_id": "PILOT-08",
-  "status": "draft_not_authorized",
+  "status": "draft_pending_qualification_and_lock",
   "system": "PricePortal acquisition pipeline",
   "repository": "https://github.com/iupui-soic/mrf-pricing-research",
   "source_commit": "8bae12afc38cb528438fdccb02242a56b916316f",
@@ -13,14 +13,14 @@
   },
   "setup": {
     "requirements": "Python 3 and requests; prerequisite hospital list requires pandas. Full repository requirements are in requirements.txt. No installation or execution was performed.",
-    "conditional_pinned_install": "If subsequently authorized in a disposable environment and workspace-backed working directory: git clone https://github.com/iupui-soic/mrf-pricing-research.git; git -C mrf-pricing-research checkout --detach 8bae12afc38cb528438fdccb02242a56b916316f; cd mrf-pricing-research; python3 -m venv .venv; .venv/bin/pip install -r requirements.txt. The README documents venv and requirements installation; dependency versions, network and safety need preflight."
+    "conditional_pinned_install": "After technical qualification in a disposable environment and workspace-backed working directory: git clone https://github.com/iupui-soic/mrf-pricing-research.git; git -C mrf-pricing-research checkout --detach 8bae12afc38cb528438fdccb02242a56b916316f; cd mrf-pricing-research; python3 -m venv .venv; .venv/bin/pip install -r requirements.txt. The README documents venv and requirements installation; dependency versions, network and safety need preflight."
   },
   "permitted_public_documentation": [
     "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/README.md",
     "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/lookup_nppes.py",
     "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/build_hospital_list.py"
   ],
-  "rules": "selection-rules.md; approvals, resource controls and isolation remain pending",
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
   "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
   "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
 }

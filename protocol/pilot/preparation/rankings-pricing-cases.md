@@ -1,6 +1,6 @@
 # Preparation memo: countyhealthR and PricePortal
 
-Status: proposed, not approved or locked. Inspection 2026-11-17 UTC; metadata, documentation and source code only. No selected software was executed and no underlying health payload was downloaded. Human lead and independent qualified reviewer must adjudicate eligibility, enumeration, task, isolation and reference plan before any authorization or packet freeze. No actual expected values, selected comparison records, fixtures or checker results have been prepared. This memo is a preparation plan, not a sealed assessment packet or access-control mechanism.
+Status: proposed, not approved or locked. Inspection 2026-11-17 UTC; metadata, documentation and source code only. No selected software was executed and no underlying health payload was downloaded. The coordinator resolves eligibility, enumeration, task, isolation and reference preparation before packet freeze. Major scientific claims require human review; independent human review is not presumed. No actual expected values, selected comparison records, fixtures or checker results have been prepared. This memo is a preparation plan, not a sealed assessment packet or access-control mechanism.
 
 ## PILOT-07: countyhealthR
 

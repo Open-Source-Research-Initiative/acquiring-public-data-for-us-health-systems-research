@@ -1,7 +1,7 @@
 {
   "schema_version": "draft-1",
   "case_id": "PILOT-01",
-  "status": "draft_not_authorized",
+  "status": "draft_pending_qualification_and_lock",
   "system": "asacarny/hospital-cost-reports",
   "repository": "https://github.com/asacarny/hospital-cost-reports",
   "source_commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
@@ -27,7 +27,7 @@
     "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/download_source.sh",
     "https://github.com/asacarny/hospital-cost-reports/releases"
   ],
-  "rules": "selection-rules.md; approvals, resource controls and isolation remain pending",
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
   "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
   "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
 }

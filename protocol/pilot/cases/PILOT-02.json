@@ -1,16 +1,16 @@
 {
   "schema_version": "0.1.0",
-  "status": "proposed; selection and eligibility not locked; human review pending",
-  "execution_authorization": "not authorized; preparation only",
+  "status": "preparation_in_progress_not_locked",
+  "execution_authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
   "observation_date": "2026-11-17",
   "human_lead": "Cole Lyons",
   "workflow_rule": "Sort workflow IDs; SHA256 UTF-8 of OSRI-health-data-pilot-v1|CASE-ID; interpret first 16 hex digits as integer; modulo workflow count gives zero-based index.",
   "packet_boundary": "Execution-facing fields only: no reference-selected records, expected values, fixture, checker output or feedback.",
   "assessment": "Independent reference and assessment packet not yet prepared; kept outside this execution-facing record.",
-  "limits": "Proposed protocol ceilings: 3 active hours, 6 elapsed hours, 4 VM-hours / 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network; compute/network $10 and model $10 caps do not authorize spending. Stop for safety or resource limit. One justified transient retry OR separately logged diagnostic repeat, not both.",
+  "limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
   "executor": "Not appointed; environment and supervisor must be frozen before any authorized execution.",
   "output_lock": "Location and custodian not assigned; primary log and output must be locked before unsealing assessment.",
-  "review": "Human eligibility, workflow enumeration, version, environment, access and safety review pending.",
+  "review": "Coordinator verifies eligibility, inventory, version, environment and access; major claims and independent-human-review assertions remain subject to human review.",
   "case_id": "PILOT-02",
   "system": "adesigns/nppes-api",
   "identity_and_eligibility": "Public source-specific PHP client requests CMS NPI Registry provider information, which is non-patient data; provisional system distinct from provider-data-tools fork.",
@@ -18,7 +18,7 @@
   "revision": {
     "commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
     "tag": "v1.0.6",
-    "choice": "Latest stable semantic version among GitHub git ls-remote tags v1.0.0\u2013v1.0.6; tag points to current master. Publication timestamp and release API were unavailable due to 403; confirm historical cutoff before locking.",
+    "choice": "Latest stable semantic version among GitHub git ls-remote tags v1.0.0–v1.0.6; tag points to current master. Publication timestamp and release API were unavailable due to 403; confirm historical cutoff before locking.",
     "cutoff": "2026-11-17T00:17:56Z"
   },
   "workflows": [
@@ -56,7 +56,7 @@
       "version": "2.1"
     },
     "note": "README example value is documented input, not an expected reference record. No evidence it exists; empty output or error cannot by itself establish a verified empty publisher response. Construction and autoload follow example.php; default constructor is retained. Source inspection raises a TLS peer-verification concern requiring safety preflight before any authorized attempt.",
-    "installation_note": "Composer request specifies exact package version 1.0.6. Verify resolved package source reference against 2b6a830d608885dd3a814952fbf18575431b5cf5 and retain composer.lock; transitive dependency versions are not frozen here. If resolution differs, stop for protocol review."
+    "installation_note": "Composer request specifies exact package version 1.0.6. Verify resolved package source reference against 2b6a830d608885dd3a814952fbf18575431b5cf5 and retain composer.lock; transitive dependency versions are not frozen here. If resolution differs, record the mismatch and resolve it before execution."
   },
   "source": {
     "publisher": "CMS",
@@ -84,6 +84,6 @@
     "selected_index_zero_based": 0,
     "selected_workflow": "nppes-registry-api"
   },
-  "configuration": "The decision on conditional source pinning is a global human protocol decision, pending; no per-case exception is granted.",
+  "configuration": "Coordinator applies immutable source pinning as environment configuration; no source patches or silent version changes.",
   "safety_preflight": "Pinned NPPESApi.php sets CURLOPT_SSL_VERIFYPEER using (int) $verifySsl === true ? 1 : 0; the strict comparison appears to compare an integer with a boolean, potentially disabling peer verification even with the default constructor. This is a static source observation, not runtime confirmation. Apply the global safety profile; do not execute until reviewed and cleared, patch code, or silently mitigate."
 }

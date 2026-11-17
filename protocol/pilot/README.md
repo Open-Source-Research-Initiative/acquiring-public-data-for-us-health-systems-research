@@ -1,6 +1,6 @@
-# Eight-case pilot prepared for review
+# Eight-case pilot prepared for feasibility work
 
-17 November 2026. **Eight proposed cases and draft execution packets are prepared; no case has run.** Actual reference fixtures, dependency environments and executor qualification are not complete. The [decision brief](../../governance/protocol-decisions.md) presents the remaining human choices.
+17 November 2026. **Eight proposed cases and draft execution packets are prepared; no case has run.** Actual reference fixtures, dependency environments and executor qualification are not complete. The [delegation record](../../governance/protocol-decisions.md) assigns routine implementation to the coordinator and reserves major scientific review for Cole.
 
 The systems were purposively selected from earlier reconnaissance to exercise different source programs, languages and documentation conditions. They are not a representative sample. Within systems, recorded workflow/example inventories and fixed hashes determine the proposed tasks. [Selection rules](selection-rules.md) explain the choices; the [manifest](manifest.json) records exact source commits, seeds, packet hashes and status.
 
@@ -31,6 +31,6 @@ Rebuild the drafts with `python3 scripts/prepare_pilot_packets.py` from the repo
 
 ## Before execution
 
-Accept the global decisions; qualify a constrained executor and resource meters; resolve installation and transport concerns without source patches; freeze dependencies, documentation and actual tasks; prepare references privately and separately; then lock inputs and packet hashes. Missing reference evidence is retained as a limitation, not manufactured. Independent human review is required for the claimed independent adjudication and later main-study progression, not for continuing this preparation.
+Qualify a constrained executor and resource meters; resolve installation and transport concerns without source patches; freeze dependencies, documentation and actual tasks; prepare references privately and separately; then lock inputs and packet hashes. Missing reference evidence is retained as a limitation, not manufactured. Independent human review is required for the claimed independent adjudication and later main-study progression, not for continuing this preparation.
 
-No pilot readiness or progression gate has passed. Existing criteria still require eight eligible selected cases, actual comparisons in at least three cases across two source families, the other reference/disposition thresholds, effort within limits and independent human review.
+No pilot readiness or progression gate has passed. Existing criteria still require eight eligible selected cases, actual comparisons in at least three cases across two source families, the other reference/disposition thresholds, technical limits and independent human review.

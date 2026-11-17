@@ -1,6 +1,6 @@
 {
   "case_id": "PILOT-03",
-  "status": "proposed_not_approved_or_locked",
+  "status": "preparation_in_progress_not_locked",
   "observed_utc_date": "2026-11-17",
   "system": "brendensm/CDCPLACES",
   "software_selection": {
@@ -39,16 +39,15 @@
   },
   "installation": {
     "documented": "devtools::install_github(\"brendensm/CDCPLACES\")",
-    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"brendensm/CDCPLACES@d35fe95a3170a1a3f840373e54a2ad4a992cc9a1\"). Recommend classifying as environmental configuration, not a source patch; pending global human decision.",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"brendensm/CDCPLACES@d35fe95a3170a1a3f840373e54a2ad4a992cc9a1\"). Coordinator treats the immutable pin as environment configuration, not a source patch; qualification and dependency freeze remain pending.",
     "dependencies": "R >=4.1.0; curl, yyjsonr, tigris, sf, stats; system dependencies unverified",
     "source": "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/DESCRIPTION"
   },
   "reference_strategy": "Independent later capture of version-matched CDC 2025 county data and dictionary; compare independently selected keys and values, missingness, value type, geography and source/update identity after output lock. Assess completeness separately; no expected values prepared.",
-  "estimate": "Proposed 4\u20138 human hours inclusive of preparation/review; unmeasured.",
   "barriers": [
-    "Dependency, full default query cost and endpoint availability not tested",
+    "Dependency, full default query transfer scope and endpoint availability not tested",
     "Reference identity and API pagination unresolved",
     "Independent human reviewer not appointed"
   ],
-  "execution": "not authorized or performed"
+  "execution": "Not performed; technical qualification and packet lock pending."
 }

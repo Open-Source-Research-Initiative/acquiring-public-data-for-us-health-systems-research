@@ -1,6 +1,6 @@
 {
   "case_id": "PILOT-04",
-  "status": "proposed_not_approved_or_locked",
+  "status": "preparation_in_progress_not_locked",
   "observed_utc_date": "2026-11-17",
   "system": "hrbrmstr/cdcfluview",
   "software_selection": {
@@ -41,17 +41,16 @@
   },
   "installation": {
     "documented": "remotes::install_github(\"hrbrmstr/cdcfluview\")",
-    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"hrbrmstr/cdcfluview@cc1791b79b492d305a3619b97e416207ecfd2887\"). Recommend classifying as environmental configuration, not a source patch; pending global human decision.",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"hrbrmstr/cdcfluview@cc1791b79b492d305a3619b97e416207ecfd2887\"). Coordinator treats the immutable pin as environment configuration, not a source patch; qualification and dependency freeze remain pending.",
     "dependencies": "R >=3.5.0; httr, progress, tools, dplyr, jsonlite, tibble, stats, utils, sf, xml2, purrr, readr, MMWRweek, units >=0.4-6; system dependencies unverified",
     "source": "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/DESCRIPTION"
   },
   "reference_strategy": "Independent contemporaneous matching CDC FluView observations, selected national season/week and clinical versus public-health laboratory fields; compare source identities, types and missingness after output lock, document mismatched revisions and pagination. No expected values prepared.",
-  "estimate": "Proposed 5\u20139 human hours inclusive of preparation/review; unmeasured and may exceed median target.",
   "barriers": [
     "Default requests all available seasons; size and runtime unknown",
     "Old GIS API availability and current semantic correspondence untested",
     "Independent publisher observation may not match package API fields",
     "Independent human reviewer not appointed"
   ],
-  "execution": "not authorized or performed"
+  "execution": "Not performed; technical qualification and packet lock pending."
 }

@@ -1,9 +1,9 @@
 {
-  "status": "proposed; not approved, not locked; do not execute",
+  "status": "preparation_in_progress_not_locked",
   "observation_utc": "2026-11-17T00:18:54Z",
   "selection_rule": "Sort eligible native acquisition entrypoint/source-path identifiers as UTF-8 strings; index = int(first 16 hexadecimal digits of SHA-256(UTF-8(\"OSRI-health-data-pilot-v1|\" + case_id)), 16) modulo number of workflows; zero based.",
-  "authorization": "Research and preparation only. No software execution or health-payload download authorized.",
-  "resource_policy": "Proposed limits: 3 active executor hours, 6 elapsed, 4 VM-hours, 4 vCPU, 16 GiB memory, 100 GiB storage, 20 GiB network, $10 compute/network plus $10 model; no spending authorization. Include reference collection in resource meters and pilot staff budget.",
+  "authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
+  "resource_policy": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
   "reference_values": "Not prepared. Execution record contains no fixture, expected records, checker outputs or assessment answers.",
   "independent_human_review": "Pending; no reviewer appointed.",
   "provenance": "Prepared by GPT-6 agent using public documentation and source-code inspection; no agent result constitutes independent human review.",
@@ -64,7 +64,6 @@
     "The NPI Registry can include individual providers; selected implementation requests NPI-2 organizational records only. Confirm allowed fields and non-patient boundaries before authorized execution.",
     "Reference is not prepared; output matches use fuzzy matching, and a match does not independently establish identity or linkage validity."
   ],
-  "estimated_human_effort": "Planning assumption 4\u20138 hours inclusive of setup, preparation and checking; unmeasured and constrained by overall 80 staff-hour pilot cap.",
   "superseded_workflow_enumeration": {
     "rule": "Revision README names acquisition entrypoints returning external non-patient health or associated data; URL discovery/HEAD validation and cache-only rsync excluded. The linked Census scripts are included as documented population-health context; eligibility adjudication for each workflow remains pending.",
     "sorted": [
@@ -84,10 +83,10 @@
   "superseded_task": {
     "description": "Native documented default downloads all nine specified CMS Medicare MPFS, OPPS and IPPS ZIP files, extracts ZIPs and writes a ledger. Do not silently choose one file or resume cached artifacts.",
     "command": ".venv/bin/python medicare/download_medicare.py",
-    "source_release": "Fixed per-file source URLs and years in selected revision: 2024\u20132026 MPFS, 2025\u20132026 OPPS and FY 2025\u20132026 IPPS. Confirm exact links in revision-matched code.",
+    "source_release": "Fixed per-file source URLs and years in selected revision: 2024–2026 MPFS, 2025–2026 OPPS and FY 2025–2026 IPPS. Confirm exact links in revision-matched code.",
     "documentation": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/README.md",
     "source_family": "CMS Medicare fee schedules MPFS/OPPS/IPPS",
     "source_metadata": "https://www.cms.gov/medicare/payment/fee-schedules/physician/pfs-relative-value-files"
   },
-  "conditional_pinned_install": "If subsequently authorized in a disposable environment and workspace-backed working directory: git clone https://github.com/iupui-soic/mrf-pricing-research.git; git -C mrf-pricing-research checkout --detach 8bae12afc38cb528438fdccb02242a56b916316f; cd mrf-pricing-research; python3 -m venv .venv; .venv/bin/pip install -r requirements.txt. The README documents venv and requirements installation; dependency versions, network and safety need preflight."
+  "conditional_pinned_install": "After technical qualification in a disposable environment and workspace-backed working directory: git clone https://github.com/iupui-soic/mrf-pricing-research.git; git -C mrf-pricing-research checkout --detach 8bae12afc38cb528438fdccb02242a56b916316f; cd mrf-pricing-research; python3 -m venv .venv; .venv/bin/pip install -r requirements.txt. The README documents venv and requirements installation; dependency versions, network and safety need preflight."
 }

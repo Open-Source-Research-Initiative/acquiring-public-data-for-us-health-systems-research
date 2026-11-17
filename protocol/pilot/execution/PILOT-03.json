@@ -1,7 +1,7 @@
 {
   "schema_version": "draft-1",
   "case_id": "PILOT-03",
-  "status": "draft_not_authorized",
+  "status": "draft_pending_qualification_and_lock",
   "system": "brendensm/CDCPLACES",
   "repository": "https://github.com/brendensm/CDCPLACES",
   "source_commit": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
@@ -22,7 +22,7 @@
   },
   "setup": {
     "documented": "devtools::install_github(\"brendensm/CDCPLACES\")",
-    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"brendensm/CDCPLACES@d35fe95a3170a1a3f840373e54a2ad4a992cc9a1\"). Recommend classifying as environmental configuration, not a source patch; pending global human decision.",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"brendensm/CDCPLACES@d35fe95a3170a1a3f840373e54a2ad4a992cc9a1\"). Coordinator treats the immutable pin as environment configuration, not a source patch; qualification and dependency freeze remain pending.",
     "dependencies": "R >=4.1.0; curl, yyjsonr, tigris, sf, stats; system dependencies unverified",
     "source": "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/DESCRIPTION"
   },
@@ -30,7 +30,7 @@
     "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/R/get_places.R",
     "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/DESCRIPTION"
   ],
-  "rules": "selection-rules.md; approvals, resource controls and isolation remain pending",
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
   "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
   "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
 }

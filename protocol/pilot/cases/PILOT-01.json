@@ -1,16 +1,16 @@
 {
   "schema_version": "0.1.0",
-  "status": "proposed; selection and eligibility not locked; human review pending",
-  "execution_authorization": "not authorized; preparation only",
+  "status": "preparation_in_progress_not_locked",
+  "execution_authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
   "observation_date": "2026-11-17",
   "human_lead": "Cole Lyons",
   "workflow_rule": "Sort workflow IDs; SHA256 UTF-8 of OSRI-health-data-pilot-v1|CASE-ID; interpret first 16 hex digits as integer; modulo workflow count gives zero-based index.",
   "packet_boundary": "Execution-facing fields only: no reference-selected records, expected values, fixture, checker output or feedback.",
   "assessment": "Independent reference and assessment packet not yet prepared; kept outside this execution-facing record.",
-  "limits": "Proposed protocol ceilings: 3 active hours, 6 elapsed hours, 4 VM-hours / 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network; compute/network $10 and model $10 caps do not authorize spending. Stop for safety or resource limit. One justified transient retry OR separately logged diagnostic repeat, not both.",
+  "limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
   "executor": "Not appointed; environment and supervisor must be frozen before any authorized execution.",
   "output_lock": "Location and custodian not assigned; primary log and output must be locked before unsealing assessment.",
-  "review": "Human eligibility, workflow enumeration, version, environment, access and safety review pending.",
+  "review": "Coordinator verifies eligibility, inventory, version, environment and access; major claims and independent-human-review assertions remain subject to human review.",
   "case_id": "PILOT-01",
   "system": "asacarny/hospital-cost-reports",
   "identity_and_eligibility": "Public implementation downloads external CMS hospital cost-report files; non-patient facility/report data; eligibility provisional. Distinct from CMS publisher and other HCRIS tools.",
@@ -18,7 +18,7 @@
   "revision": {
     "commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
     "tag": null,
-    "choice": "Default master HEAD; read-only git ls-remote returned no tags and GitHub releases page reported no published releases. API releases request was rate-limited 403; release check remains subject to human reconfirmation.",
+    "choice": "Default master HEAD; read-only git ls-remote returned no tags and GitHub releases page reported no published releases. API releases request was rate-limited 403; release check remains subject to coordinator verification before lock.",
     "cutoff": "2026-11-17T00:17:56Z"
   },
   "workflows": [
@@ -30,7 +30,7 @@
   ],
   "workflow_enumeration_limits": "README and named downloader inspected; project also offers manually downloadable processed results and transformation scripts, not separate implemented external acquisition workflows. Full tree and hidden undocumented paths not exhaustively audited.",
   "selected_task": {
-    "scope": "Full documented script default 1996\u20132024, source 2552-96 for years <=2011 and 2552-10 for years >=2010. Both versions requested in 2010 and 2011.",
+    "scope": "Full documented script default 1996–2024, source 2552-96 for years <=2011 and 2552-10 for years >=2010. Both versions requested in 2010 and 2011.",
     "command": "bash download_source.sh",
     "parameters": {
       "STARTYEAR": 1996,
@@ -71,5 +71,5 @@
     "selected_index_zero_based": 0,
     "selected_workflow": "hcris-download"
   },
-  "configuration": "The decision on conditional source pinning is a global human protocol decision, pending; no per-case exception is granted."
+  "configuration": "Coordinator applies immutable source pinning as environment configuration; no source patches or silent version changes."
 }

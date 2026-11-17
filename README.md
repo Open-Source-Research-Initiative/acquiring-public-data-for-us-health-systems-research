@@ -12,9 +12,9 @@ The initial scope covers non-patient-level public U.S. data, including provider/
 
 The lead authorized repository setup and feasibility research in November 2026. This covers contribution research, candidate/code inspection, protocol development, and preparation for an exploratory eight-system pilot. It does not authorize the main evaluation or establish independent human scientific review.
 
-The proposed pilot ceiling is **80 total staff hours**, including reference preparation, execution and review, with a planning review on **23 November 2026 (America/New_York)** or sooner at the ceiling. This date is a planning checkpoint, not a scheduled meeting. The estimate is a proposed ceiling to confirm before execution; no paid resources or third-party workflows have been run by this repository setup.
+Routine feasibility decisions are delegated to the research coordinator. Cole reviews major scientific claims, material design changes and progression beyond feasibility. Runtime and isolation controls remain prerequisites for attempts.
 
-- [Research log](research/README.md): completed work, limits and effort accounting.
+- [Research log](research/README.md): completed work and evidence limits.
 - [Research protocol](protocol.md): scope, selection rules, pilot progression and limits.
 - [Admission record](governance/admission.md): authorized scope and human-review status.
 - [Related-work research](research/related-work/): new empirical-overlap search and limitations.
@@ -23,9 +23,9 @@ The proposed pilot ceiling is **80 total staff hours**, including reference prep
 - [Contributions](contributions.md): human responsibility, agent assistance and checks.
 - [Data and sharing policy](data/README.md).
 
-## Prepared for protocol review
+## Current research package
 
-The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. Review the [four protocol decisions](governance/protocol-decisions.md). A synthetic probe found that the current agent/tool boundary is inadequate for held-out assessment; no pilot case has run.
+The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. The [delegation and review boundaries](governance/protocol-decisions.md) distinguish routine work from major scientific decisions. A synthetic probe found that the current agent/tool boundary is inadequate for held-out assessment; no pilot case has run.
 
 ## First task
 
