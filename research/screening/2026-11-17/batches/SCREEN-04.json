@@ -1,0 +1,391 @@
+{
+  "batch_id": "SCREEN-04",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/9",
+  "performed_by": "GPT-6.1 Terra",
+  "started_utc": "2026-11-17T14:01:00Z",
+  "finished_utc": "2026-11-17T14:04:48.055837+00:00",
+  "limitations": [
+    "First-pass source inspection only; no candidate execution, package installation, or health-payload acquisition. Affiliation unknown unless established; no independent human review. Direct original P20 and P21 URLs returned 403 and 202 respectively."
+  ],
+  "records": [
+    {
+      "id": "P17",
+      "title": "NYC Environment and Health Data Portal",
+      "seed_url": "https://a816-dohbesp.nyc.gov/IndicatorPublic/about/advanced-tools/",
+      "canonical_system": "NYC Environment and Health Data Portal Data Explorer",
+      "classification": "eligible",
+      "reason": "Implemented browser acquisition loads separately published NYC indicator files; this is a portal client of its publisher data repository.",
+      "acquisition_entrypoint": "loadIndicatorData in assets/js/data-explorer/data.js uses aq.loadJSON for indicator JSON under data_repo.",
+      "us_scope": "New York City, United States",
+      "data_level": "Geographic environmental and health indicators",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Portal and EHDP-data are NYC Health components; do not count data repository as another system.",
+      "evidence": [
+        {
+          "url": "https://a816-dohbesp.nyc.gov/IndicatorPublic/about/advanced-tools/",
+          "accessed_utc": "2026-11-17T14:04:44.833943+00:00",
+          "observation": "Official page links public source code and NYC indicator data repository and describes geographic downloads.",
+          "revision": null,
+          "path": null,
+          "sha256": "e3800360fdaac3c8ab57d9251081665ddf78f7caa4629b75dc885729d62c8922",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/nychealth/EH-dataportal/8993a4fc5d73342a9cf2ee4aaac558d04de8820c/assets/js/data-explorer/data.js",
+          "accessed_utc": "2026-11-17T14:04:45.458116+00:00",
+          "observation": "loadIndicatorData builds indicator data URL and loads JSON.",
+          "revision": "8993a4fc5d73342a9cf2ee4aaac558d04de8820c",
+          "path": "assets/js/data-explorer/data.js",
+          "sha256": "b0a37f9a4d1d3ffce61fd655934e2a0959c0db7bb7e35e5b12671b3f585da520",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Whether the same-publisher data repository meets the intended external-source boundary requires cross-check; no upstream source ingestion was established."
+      ]
+    },
+    {
+      "id": "P18",
+      "title": "CDC COVID case privacy review",
+      "seed_url": "https://github.com/CDCgov/covid_case_privacy_review",
+      "canonical_system": "CDC COVID-19 Case Privacy Review",
+      "classification": "companion",
+      "reason": "Disclosure-control review operates on independently acquired local data; documentation says files must be fetched separately.",
+      "acquisition_entrypoint": "R/review_public.R reads local data; no acquisition entrypoint established.",
+      "us_scope": "CDC case surveillance",
+      "data_level": "Individual case records",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Distinct from source datasets.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/covid_case_privacy_review/92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4/readme.md",
+          "accessed_utc": "2026-11-17T14:04:45.532113+00:00",
+          "observation": "Explicitly says data files must be fetched independently and placed in data/raw; review checks privacy controls.",
+          "revision": "92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4",
+          "path": "readme.md",
+          "sha256": "0017ef9815afb6b54a4af761a833ff15995cdf8403538648f44052c7d002daf9",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/covid_case_privacy_review/92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4/R/review_public.R",
+          "accessed_utc": "2026-11-17T14:04:45.601125+00:00",
+          "observation": "Review script operates on local file and produces privacy report.",
+          "revision": "92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4",
+          "path": "R/review_public.R",
+          "sha256": "4dafd57858b8c4903635bdf5472dd77a487372317a5776bcb667f3f586efb153",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No exhaustive inspection of every script."
+      ]
+    },
+    {
+      "id": "P20",
+      "title": "OpenPrescribing",
+      "seed_url": "https://openprescribing.net/about/",
+      "canonical_system": "OpenPrescribing",
+      "classification": "excluded",
+      "reason": "England GP prescribing is outside the U.S. source boundary.",
+      "acquisition_entrypoint": "Not established in this pass; geography independently resolves exclusion.",
+      "us_scope": "England, not U.S.",
+      "data_level": "Practice-level prescribing aggregates",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Hospital platform is related but recorded as separate seed P21.",
+      "evidence": [
+        {
+          "url": "https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/general-practice-data-hub/practice-level-prescribing",
+          "accessed_utc": "2026-11-17T14:04:45.675447+00:00",
+          "observation": "NHS England links OpenPrescribing and describes prescribing data for practices in England.",
+          "revision": null,
+          "path": null,
+          "sha256": "03c81c8e6b7e15cf59d4f4934b4731edd8d2c48da066bfa939e0c3d761028a4f",
+          "access_status": "HTTP 403"
+        },
+        {
+          "url": "https://openprescribing.net/about/",
+          "accessed_utc": "2026-11-17T14:04:45.830908+00:00",
+          "observation": "Original about page direct request returned HTTP 403; no content relied upon.",
+          "revision": null,
+          "path": null,
+          "sha256": "0ba4d13bac8d5f324bc017bc30bbc6da1aa7f479cb130eeb40440a3193b93237",
+          "access_status": "HTTP 403"
+        }
+      ],
+      "uncertainties": [
+        "No code inspection or U.S. coverage search beyond the specified platform."
+      ]
+    },
+    {
+      "id": "P21",
+      "title": "OpenPrescribing Hospitals",
+      "seed_url": "https://formative.jmir.org/2026/1/e92041/",
+      "canonical_system": "OpenPrescribing Hospitals",
+      "classification": "excluded",
+      "reason": "Hospital medicines data are for NHS Trusts across England, outside U.S. scope.",
+      "acquisition_entrypoint": "Not established in this pass; geography independently resolves exclusion.",
+      "us_scope": "England, not U.S.",
+      "data_level": "Hospital trust medicine-use data",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Related to OpenPrescribing P20; do not treat as U.S. independent candidate.",
+      "evidence": [
+        {
+          "url": "https://hospitals.openprescribing.net/",
+          "accessed_utc": "2026-11-17T14:04:45.916789+00:00",
+          "observation": "Project homepage describes hospital medicines data from NHS Trusts across England.",
+          "revision": null,
+          "path": null,
+          "sha256": "79b123079be7778965573206f7167a97dd4fb86ec81b34c0ab76d6f65619aaad",
+          "access_status": "HTTP 403"
+        },
+        {
+          "url": "https://formative.jmir.org/2026/1/e92041/",
+          "accessed_utc": "2026-11-17T14:04:46.095792+00:00",
+          "observation": "Paper URL direct request returned HTTP 202; no body relied upon.",
+          "revision": null,
+          "path": null,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "access_status": "HTTP 202"
+        }
+      ],
+      "uncertainties": [
+        "Code and any alternative geographies not assessed."
+      ]
+    },
+    {
+      "id": "P23",
+      "title": "CDC EPHTrackR",
+      "seed_url": "https://github.com/CDCgov/EPHTrackR",
+      "canonical_system": "CDC EPHTrackR",
+      "classification": "eligible",
+      "reason": "Implemented CDC Tracking API requests include annual state and county asthma hospitalization measures.",
+      "acquisition_entrypoint": "get_data constructs getCoreHolder API calls in R/get_data.R.",
+      "us_scope": "U.S. states and counties",
+      "data_level": "Aggregate health measures",
+      "pilot_case": "PILOT-06",
+      "team_authored": null,
+      "lineage_notes": "Pilot system; exclude from future nonpilot frame.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/EPHTrackR/4a2072302757d8665d7617c4c9a3039ce0761507/R/get_data.R",
+          "accessed_utc": "2026-11-17T14:04:46.233650+00:00",
+          "observation": "get_data builds Tracking Network getCoreHolder requests.",
+          "revision": "4a2072302757d8665d7617c4c9a3039ce0761507",
+          "path": "R/get_data.R",
+          "sha256": "a10e63d4dfdf48b6d054149effad1970a7351d16201295fb7cb2c9c6255dabf3",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/EPHTrackR/4a2072302757d8665d7617c4c9a3039ce0761507/README.md",
+          "accessed_utc": "2026-11-17T14:04:46.311045+00:00",
+          "observation": "Describes CDC Tracking API and annual state/county asthma hospitalization counts.",
+          "revision": "4a2072302757d8665d7617c4c9a3039ce0761507",
+          "path": "README.md",
+          "sha256": "29adbb0faecb8654c211b1da68cdadef52fb73a57f59aa5ddf0d79120e712012",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Latest source revision differs from pilot pin; diagnostic failure does not negate scope or implementation."
+      ]
+    },
+    {
+      "id": "P24",
+      "title": "CARA",
+      "seed_url": "https://github.com/jdn63/CARA/blob/main/README.md",
+      "canonical_system": "CARA",
+      "classification": "eligible",
+      "reason": "Code requests Wisconsin DHS county immunization CSV and parses county vaccination rates.",
+      "acquisition_entrypoint": "utils/dhs_data.py::_fetch_mmr_county_data uses requests.get and pandas.read_csv.",
+      "us_scope": "Wisconsin, United States",
+      "data_level": "County vaccination rates",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "CARA includes multiple sources; one system with source-specific paths.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/jdn63/CARA/abfde00524d1ba7084be5f876993bb793e220b55/utils/dhs_data.py",
+          "accessed_utc": "2026-11-17T14:04:46.386465+00:00",
+          "observation": "Defines Wisconsin DHS CSV URL, HTTP GET, parsing and county MMR rate retrieval.",
+          "revision": "abfde00524d1ba7084be5f876993bb793e220b55",
+          "path": "utils/dhs_data.py",
+          "sha256": "11710f07b90792688f5f815c33838cd1c75637bea01087e4413e2efb4723f756",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jdn63/CARA/abfde00524d1ba7084be5f876993bb793e220b55/utils/source_registry.py",
+          "accessed_utc": "2026-11-17T14:04:46.459678+00:00",
+          "observation": "Registers county MMR and other county data sources.",
+          "revision": "abfde00524d1ba7084be5f876993bb793e220b55",
+          "path": "utils/source_registry.py",
+          "sha256": "b88e5c7c1c5d126221ca9474ae67dbaa2727edcb5199a0d3bf68b465da0c29d7",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Cache-only controls and fallback estimates affect actual behavior; no runtime verification or source terms assessment."
+      ]
+    },
+    {
+      "id": "P25",
+      "title": "Unofficial CDC MCP",
+      "seed_url": "https://github.com/openpharma-org/cdc-mcp",
+      "canonical_system": "openpharma CDC MCP",
+      "classification": "eligible",
+      "reason": "Implemented Socrata client and PLACES dataset IDs establish aggregate CDC acquisition path.",
+      "acquisition_entrypoint": "src/cdc-client.ts axios GET; constants.ts maps PLACES county dataset.",
+      "us_scope": "U.S. county PLACES",
+      "data_level": "County prevalence estimates",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Unofficial client; distinct codebase from CDCPLACES but shares source family.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/openpharma-org/cdc-mcp/e312481d65026ffcd58eb15d6a32cc577a8e2e47/src/cdc-client.ts",
+          "accessed_utc": "2026-11-17T14:04:46.544551+00:00",
+          "observation": "Axios client issues GET requests with query parameters.",
+          "revision": "e312481d65026ffcd58eb15d6a32cc577a8e2e47",
+          "path": "src/cdc-client.ts",
+          "sha256": "bfb1bd229f000dd3118e600be236f1a769cc80f703cc3d888583ebc5a9214253",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/openpharma-org/cdc-mcp/e312481d65026ffcd58eb15d6a32cc577a8e2e47/src/constants.ts",
+          "accessed_utc": "2026-11-17T14:04:46.620496+00:00",
+          "observation": "Defines CDC Socrata host and PLACES county IDs.",
+          "revision": "e312481d65026ffcd58eb15d6a32cc577a8e2e47",
+          "path": "src/constants.ts",
+          "sha256": "92a89c67f1119f6769ef3dc03cbc81ae99cec5fa6f2c6f585ca256073f872329",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/openpharma-org/cdc-mcp/e312481d65026ffcd58eb15d6a32cc577a8e2e47/README.md",
+          "accessed_utc": "2026-11-17T14:04:46.690809+00:00",
+          "observation": "Documents PLACES county measures and query interface.",
+          "revision": "e312481d65026ffcd58eb15d6a32cc577a8e2e47",
+          "path": "README.md",
+          "sha256": "6ca4f25893e537e57771922fc9e8fac5f4cbf81e7ac48af213b4f3c85b8c6efa",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Dataset labels and release mappings require publisher validation; no call executed."
+      ]
+    },
+    {
+      "id": "P26",
+      "title": "nhanesA",
+      "seed_url": "https://github.com/cran/nhanesA",
+      "canonical_system": "nhanesA",
+      "classification": "excluded",
+      "reason": "Code downloads NHANES survey tables; respondent-level survey microdata falls outside scope.",
+      "acquisition_entrypoint": "nhanes in R/nhanes.R builds CDC XPT URL and calls download.file.",
+      "us_scope": "U.S. NHANES",
+      "data_level": "Individual survey microdata",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "CRAN mirror of upstream package; not a separate system.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/cran/nhanesA/a70f888d508bf51835143a04871726d28940259e/R/nhanes.R",
+          "accessed_utc": "2026-11-17T14:04:46.759512+00:00",
+          "observation": "Downloads NHANES XPT directly from CDC as-is.",
+          "revision": "a70f888d508bf51835143a04871726d28940259e",
+          "path": "R/nhanes.R",
+          "sha256": "7ebc8ca91fa47e7ebce1f02690434a2a7cc567b6f25eca78315e73a3fa2243c8",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://www.cdc.gov/nchs/nhanes/about/index.html",
+          "accessed_utc": "2026-11-17T14:04:46.828824+00:00",
+          "observation": "CDC describes NHANES examination and interview survey of U.S. people.",
+          "revision": null,
+          "path": null,
+          "sha256": "3823a3b582b1198bd2457bb811846ce859f2173e603346b30b431a9fe21f1050",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Some metadata and summaries may be available; screened acquisition path concerns survey records."
+      ]
+    },
+    {
+      "id": "P27",
+      "title": "brfssdata",
+      "seed_url": "https://github.com/muntasirmasum/brfssdata",
+      "canonical_system": "brfssdata",
+      "classification": "excluded",
+      "reason": "Explicitly returns one row per respondent; individual survey microdata is out of scope.",
+      "acquisition_entrypoint": "data-raw/01_download.R download_year uses curl_download for CDC annual XPT zips; runtime read_brfss uses cache.",
+      "us_scope": "U.S. BRFSS",
+      "data_level": "Respondent-level survey microdata",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Prepared parquet distribution and direct-source build script are parts of one package.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/muntasirmasum/brfssdata/e7164c3798989562df0075b6a3e67fdbe4bbce6f/R/read_brfss.R",
+          "accessed_utc": "2026-11-17T14:04:47.779511+00:00",
+          "observation": "Documents one row per respondent and cache acquisition.",
+          "revision": "e7164c3798989562df0075b6a3e67fdbe4bbce6f",
+          "path": "R/read_brfss.R",
+          "sha256": "eef86847c1bbb89052bd0b0005d9aad48cf3b027fe650425fb7dfc7bfd7911fb",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/muntasirmasum/brfssdata/e7164c3798989562df0075b6a3e67fdbe4bbce6f/data-raw/01_download.R",
+          "accessed_utc": "2026-11-17T14:04:47.849476+00:00",
+          "observation": "Build script constructs CDC annual_data URL and uses curl_download.",
+          "revision": "e7164c3798989562df0075b6a3e67fdbe4bbce6f",
+          "path": "data-raw/01_download.R",
+          "sha256": "d928bbf8e053324e1c3d6667c5ac2b63e84609c9b94254e2e28bdedf66b89636",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Release cache is not itself direct CDC delivery; not tested."
+      ]
+    },
+    {
+      "id": "P28",
+      "title": "CDCPLACES",
+      "seed_url": "https://github.com/brendensm/CDCPLACES",
+      "canonical_system": "CDCPLACES",
+      "classification": "eligible",
+      "reason": "Implemented GET requests for CDC PLACES geographically aggregated measures.",
+      "acquisition_entrypoint": "get_places uses curl_fetch_memory and parse_request.",
+      "us_scope": "U.S. county, place, tract and ZCTA",
+      "data_level": "Geographic prevalence estimates",
+      "pilot_case": "PILOT-03",
+      "team_authored": null,
+      "lineage_notes": "Pilot system; exclude from future nonpilot frame. Shared source family with P25.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/brendensm/CDCPLACES/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/R/get_places.R",
+          "accessed_utc": "2026-11-17T14:04:47.911680+00:00",
+          "observation": "get_places defines geography and release and fetches and parses requests.",
+          "revision": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+          "path": "R/get_places.R",
+          "sha256": "f696757c4600ef9540ff3684a44064b1aeb17f766d9dac94847cbbf67a6633dd",
+          "access_status": "HTTP 200"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/brendensm/CDCPLACES/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/README.md",
+          "accessed_utc": "2026-11-17T14:04:47.982286+00:00",
+          "observation": "Describes CDC PLACES and API queries at county, tract, ZCTA and place levels.",
+          "revision": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+          "path": "README.md",
+          "sha256": "aec14019c8c8fd2949cff75a369f9f4f93aabbf1d15089c0567696c73e24abad",
+          "access_status": "HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "Pilot reported limited returned scope; eligibility is separate from completeness."
+      ]
+    }
+  ]
+}

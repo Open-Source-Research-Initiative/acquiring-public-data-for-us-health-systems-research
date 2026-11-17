@@ -1,0 +1,19 @@
+{
+  "date_utc": "2026-11-17",
+  "context": "The probe ran while the primary case was active, before the instruction to defer benchmarking arrived. It lasted approximately 18 seconds and used the same host and workspace storage, so it may have contended with the primary case. It did not access the case ledger, candidate inputs or outputs.",
+  "method": "Synthetic 8 MiB HTTP body from an IPv4 loopback server through the actual Unix-socket EgressBroker parser and relay. Two runs used a separate freshly created durable CaseBudget ledger with an open time reservation; two omitted the ledger. Order was without, with, with, without. Broker deadline was 8 seconds per request; the entire command had a 20-second outer timeout. A local resolver mapped example.test to loopback; no health URL or public data was used.",
+  "observations": [
+    {"mode":"without_ledger", "seconds":0.003294, "response_bytes_including_headers":8388671, "complete":true},
+    {"mode":"with_ledger", "seconds":8.005442, "response_bytes_including_headers":7055359, "broker_and_ledger_debited_bytes":7071736, "complete":false, "reason":"broker request deadline"},
+    {"mode":"with_ledger", "seconds":8.012125, "response_bytes_including_headers":6380607, "broker_and_ledger_debited_bytes":6396984, "complete":false, "reason":"broker request deadline"},
+    {"mode":"without_ledger", "seconds":0.00485, "response_bytes_including_headers":8388671, "complete":true}
+  ],
+  "interpretation": "The completed response without durable accounting was much faster than the ledger runs, which delivered approximately 0.84 and 0.76 MiB/s including headers and reached the broker deadline before delivering the complete body. Static inspection shows each upstream chunk, up to 16 KiB, invokes the shared budget and commits its SQLite debit with synchronous FULL. This is consistent with a durable transaction bottleneck in the synthetic setup; the magnitude cannot be attributed solely to it or extrapolated directly to the live case.",
+  "limitations": [
+    "Both measurements were concurrent with the active primary case and can affect or be affected by its host I/O and CPU load.",
+    "HTTP loopback does not include TLS, external network, a real remote server, filesystem writes of fetched data, or the native candidate; it is not an end-to-end performance estimate.",
+    "Only two runs per mode were made in a fixed nonrandom order. Timings omit broker startup, shutdown and ledger creation.",
+    "Byte counts include HTTP headers and request accounting; ledger debit can exceed delivered bytes because a chunk is charged before forwarding.",
+    "The earlier transient console calculation used the full requested 8 MiB as numerator for the incomplete runs; its displayed 0.999 and 0.998 MiB/s values are invalid. The interpretation above uses actual delivered bytes."
+  ]
+}

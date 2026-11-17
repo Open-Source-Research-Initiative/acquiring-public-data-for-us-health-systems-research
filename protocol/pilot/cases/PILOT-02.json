@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1.0",
+  "status": "preparation_in_progress_not_locked",
+  "execution_authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
+  "observation_date": "2026-11-17",
+  "human_lead": "Cole Lyons",
+  "workflow_rule": "Sort workflow IDs; SHA256 UTF-8 of OSRI-health-data-pilot-v1|CASE-ID; interpret first 16 hex digits as integer; modulo workflow count gives zero-based index.",
+  "packet_boundary": "Execution-facing fields only: no reference-selected records, expected values, fixture, checker output or feedback.",
+  "assessment": "Independent reference and assessment packet not yet prepared; kept outside this execution-facing record.",
+  "limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "executor": "Not appointed; environment and supervisor must be frozen before any authorized execution.",
+  "output_lock": "Location and custodian not assigned; primary log and output must be locked before unsealing assessment.",
+  "review": "Coordinator verifies eligibility, inventory, version, environment and access; major claims and independent-human-review assertions remain subject to human review.",
+  "case_id": "PILOT-02",
+  "system": "adesigns/nppes-api",
+  "identity_and_eligibility": "Public source-specific PHP client requests CMS NPI Registry provider information, which is non-patient data; provisional system distinct from provider-data-tools fork.",
+  "repository": "https://github.com/adesigns/nppes-api",
+  "revision": {
+    "commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+    "tag": "v1.0.6",
+    "choice": "Latest stable semantic version among GitHub git ls-remote tags v1.0.0–v1.0.6; tag points to current master. Publication timestamp and release API were unavailable due to 403; confirm historical cutoff before locking.",
+    "cutoff": "2026-11-17T00:17:56Z"
+  },
+  "workflows": [
+    {
+      "id": "nppes-registry-api",
+      "path": "src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+      "description": "search(parameters) issues a registry request; searchByNumber delegates to search with number and limit=1. Group these documented method examples as parameterizations of one source path."
+    }
+  ],
+  "workflow_enumeration_limits": "README, example.php, composer.json and NPPESApi.php inspected; no claim of exhaustive hidden undocumented entrypoints. README shows two examples; no default selected.",
+  "selected_task": {
+    "scope": "Single documented API example; a bounded query, not full NPPES acquisition. A legitimate empty result is possible.",
+    "example_selection": {
+      "hierarchy": "Native defaults first if complete; otherwise a unique canonical quickstart; otherwise choose among equivalent documented examples using the dedicated example seed. No complete default or uniquely designated canonical quickstart was found in the pinned README.",
+      "sorted_identifiers": [
+        "search-last-name",
+        "searchByNumber"
+      ],
+      "seed_input": "OSRI-health-data-pilot-v1|PILOT-02|example",
+      "sha256": "e44fa9de4e2c185d326f0f66dff2723879f67f049ac38c90a2339b86f6a2bb28",
+      "first_16_hex": "e44fa9de4e2c185d",
+      "first_16_integer": 16451554736067057757,
+      "modulo": 2,
+      "selected_index_zero_based": 1,
+      "selected_identifier": "searchByNumber",
+      "previous_proposal": "Previously used the workflow seed for choosing among examples; that superseded method also selected searchByNumber. The selected input did not change."
+    },
+    "commands": [
+      "composer require adesigns/nppes-api:1.0.6",
+      "php -r 'require \"vendor/autoload.php\"; $client = new AlbanyDesigns\\NPPESApi\\NPPESApi(); var_dump($client->searchByNumber(1234567890));'"
+    ],
+    "parameters": {
+      "number": "1234567890",
+      "limit": 1,
+      "version": "2.1"
+    },
+    "note": "README example value is documented input, not an expected reference record. No evidence it exists; empty output or error cannot by itself establish a verified empty publisher response. Construction and autoload follow example.php; default constructor is retained. Source inspection raises a TLS peer-verification concern requiring safety preflight before any authorized attempt.",
+    "installation_note": "Composer request specifies exact package version 1.0.6. Verify resolved package source reference against 2b6a830d608885dd3a814952fbf18575431b5cf5 and retain composer.lock; transitive dependency versions are not frozen here. If resolution differs, record the mismatch and resolve it before execution."
+  },
+  "source": {
+    "publisher": "CMS",
+    "type": "NPPES NPI Registry public read API",
+    "endpoint": "https://npiregistry.cms.hhs.gov/api/",
+    "release": "Current snapshot; observation window not yet set.",
+    "documentation": "https://npiregistry.cms.hhs.gov/api-page",
+    "documentation_access": "CMS API page returned no readable text via browser extraction; operational terms, version requirements and access conditions unresolved."
+  },
+  "runtime": "PHP ^7.4 or ^8.0; Composer; dependencies tcdent/php-restclient ^0.1.7 and netresearch/jsonmapper ^1.3|^2|^3|^4; network and PHP cURL required by implementation. No account shown in README; not independently confirmed. Dependency resolution and environment untested.",
+  "documentation": [
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/README.md",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/composer.json",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/example.php",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/src/AlbanyDesigns/NPPESApi/NPPESApi.php"
+  ],
+  "risks": "No software or API payload obtained. Verify selected package source reference before any authorized attempt. The README numbered input may be invalid; empty output or an error alone does not verify an empty publisher response. TLS peer verification requires source-informed safety preflight.",
+  "workflow_selection": {
+    "seed_sha256": "a21f41decc8ceec5775a08d89792af25f5af844243b40a9858e6c6b151fc9960",
+    "first_16_hex": "a21f41decc8ceec5",
+    "first_16_integer": 11682128383592689349,
+    "sorted_workflow_ids": [
+      "nppes-registry-api"
+    ],
+    "selected_index_zero_based": 0,
+    "selected_workflow": "nppes-registry-api"
+  },
+  "configuration": "Coordinator applies immutable source pinning as environment configuration; no source patches or silent version changes.",
+  "safety_preflight": "Pinned NPPESApi.php sets CURLOPT_SSL_VERIFYPEER using (int) $verifySsl === true ? 1 : 0; the strict comparison appears to compare an integer with a boolean, potentially disabling peer verification even with the default constructor. This is a static source observation, not runtime confirmation. Apply the global safety profile; do not execute until reviewed and cleared, patch code, or silently mitigate."
+}

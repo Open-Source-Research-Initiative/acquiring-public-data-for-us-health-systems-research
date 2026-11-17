@@ -1,0 +1,75 @@
+{
+  "round_id": "2026-11-17-seed-screen",
+  "created_utc": "2026-11-17T14:00:28.425698+00:00",
+  "status": "model_work_complete_PI_unsigned",
+  "seed_path": "research/candidates/historical-candidate-adjudication-2026-11-16.json",
+  "seed_sha256": "6172db0ca1787f40a8e9666dbe52b895576874320f1c0e4217b9262a5a3824f0",
+  "seed_count": 33,
+  "batches": [
+    {
+      "batch_id": "SCREEN-01",
+      "title": "Provider, facility and financial acquisition",
+      "candidate_ids": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05",
+        "P06",
+        "P07",
+        "P22",
+        "P32"
+      ],
+      "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/6"
+    },
+    {
+      "batch_id": "SCREEN-02",
+      "title": "Pricing, rankings and quality resources",
+      "candidate_ids": [
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P15",
+        "P16",
+        "P19",
+        "P33"
+      ],
+      "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/7"
+    },
+    {
+      "batch_id": "SCREEN-03",
+      "title": "Surveillance and infectious-disease aggregates",
+      "candidate_ids": [
+        "P12",
+        "P13",
+        "P14",
+        "P29",
+        "P30",
+        "P31"
+      ],
+      "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/8"
+    },
+    {
+      "batch_id": "SCREEN-04",
+      "title": "Population and environmental health resources",
+      "candidate_ids": [
+        "P17",
+        "P18",
+        "P20",
+        "P21",
+        "P23",
+        "P24",
+        "P25",
+        "P26",
+        "P27",
+        "P28"
+      ],
+      "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/9"
+    }
+  ],
+  "model": "gpt-6.1-terra",
+  "human_review": "final_PI_signoff_pending",
+  "search_scope": "Fixed historical seed; separate gap search does not alter seed denominator.",
+  "completed_utc": "2026-11-17T14:10:16.124325+00:00"
+}

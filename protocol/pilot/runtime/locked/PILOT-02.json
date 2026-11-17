@@ -1,0 +1,94 @@
+{
+  "case_id": "PILOT-02",
+  "inputs": [
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/composer.json",
+      "target": "/inputs/composer.json",
+      "sha256": "519fe889c1992b622718441ec23129cd01f55a90ad20831841e519775e57e627"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/composer.lock",
+      "target": "/inputs/composer.lock",
+      "sha256": "f59708adf5b289411fe604a5406d0da729834dfc13725ff4e94db2689af57d84"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/composer.phar",
+      "target": "/inputs/composer.phar",
+      "sha256": "dd158c0afd41d15fac89e1b4e47b5d42911fe316c3687cd5edac98319b25d028"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/package-1.zip",
+      "target": "/inputs/package-1.zip",
+      "sha256": "aada76579539c7b6d0fdb1dede04d777df8615fe24631ec3ba60a45ef4ec3f12"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/package-2.zip",
+      "target": "/inputs/package-2.zip",
+      "sha256": "69c24086421ba5513e8132effb96ede0a733de67606835eb271b703b5a7b18ea"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/package-3.zip",
+      "target": "/inputs/package-3.zip",
+      "sha256": "0ab17785a335625f8332b33d0d6cf3c244d040cdf10785ef5c3909664a6ba507"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/php-curl.so",
+      "target": "/tools/php-curl.so",
+      "sha256": "649cfbf705cb93477e7fa6e58474e5e08adc8d8c1ecf40ac9bde3845208f72d3"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/php-iconv.so",
+      "target": "/tools/php-iconv.so",
+      "sha256": "c62e850bdfb2678b68baedfa5f4a21f587f605e4e9fcfa8146b0e38b996b22f6"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/php-phar.so",
+      "target": "/tools/php-phar.so",
+      "sha256": "cf6a5e95c7e6b255ad55d1ac57cce186fce5ebe6b8ffe8d15484ca61ee6c01be"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/php8.3",
+      "target": "/tools/php8.3",
+      "sha256": "7f1ac2fe89d267364311651c0e7e6651d32ea006c9a701c0cab68eb2394a67d7"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/runner.php",
+      "target": "/inputs/runner.php",
+      "sha256": "389950b03e3cb634c1a1d1544cec1c4e9c8f922453e51734a2d1ea8a42c4dc1a"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/setup.sh",
+      "target": "/inputs/setup.sh",
+      "sha256": "9ed8653792a8f3f469bd0581194201d2fa00ed291c4198ac1c19901473de0f27"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs/unzip",
+      "target": "/tools/unzip",
+      "sha256": "b582f2d782989a4d0105284b8032b076222eb29a6c141b5c53b792c864199396"
+    }
+  ],
+  "hosts": [
+    "npiregistry.cms.hhs.gov"
+  ],
+  "guest_aliases": {},
+  "staging": [],
+  "directories": [
+    "setup",
+    "cache",
+    "composer-home"
+  ],
+  "env": {
+    "PATH": "/tools:/usr/bin:/bin"
+  },
+  "setup_shell_commands": [
+    "/usr/bin/bash /inputs/setup.sh"
+  ],
+  "native_shell_command": "cd /work/setup && exec /tools/php8.3 -n -d extension=/tools/php-curl.so /inputs/runner.php",
+  "installation_roots": [
+    "setup/vendor"
+  ],
+  "additional_output_roots": [],
+  "reference_adapter": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/assessment-private/capture_cases_02_08.py",
+  "reference_adapter_sha256": "2af3ba6730976543ff5af38fba14adad409cbcdfee685c3b8e4c754c678cc533",
+  "known_input_payload_predebit": 10406938
+}

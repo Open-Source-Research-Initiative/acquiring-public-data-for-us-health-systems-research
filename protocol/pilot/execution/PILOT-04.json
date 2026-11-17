@@ -1,0 +1,30 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-04",
+  "status": "draft_pending_qualification_and_lock",
+  "system": "hrbrmstr/cdcfluview",
+  "repository": "https://github.com/hrbrmstr/cdcfluview",
+  "source_commit": "cc1791b79b492d305a3619b97e416207ecfd2887",
+  "workflow": "who_nrevss",
+  "task": {
+    "entrypoint": "cdcfluview::who_nrevss()",
+    "scope": "Complete function defaults: region national (first match.arg choice), years NULL (all available seasons); full returned scope, no silent downsampling.",
+    "parameters": {
+      "region": "national",
+      "years": null
+    }
+  },
+  "setup": {
+    "documented": "remotes::install_github(\"hrbrmstr/cdcfluview\")",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"hrbrmstr/cdcfluview@cc1791b79b492d305a3619b97e416207ecfd2887\"). Coordinator treats the immutable pin as environment configuration, not a source patch; qualification and dependency freeze remain pending.",
+    "dependencies": "R >=3.5.0; httr, progress, tools, dplyr, jsonlite, tibble, stats, utils, sf, xml2, purrr, readr, MMWRweek, units >=0.4-6; system dependencies unverified",
+    "source": "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/DESCRIPTION"
+  },
+  "permitted_public_documentation": [
+    "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/R/who-nrvess.r",
+    "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/DESCRIPTION"
+  ],
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

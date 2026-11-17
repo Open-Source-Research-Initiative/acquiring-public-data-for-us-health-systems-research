@@ -1,0 +1,28 @@
+{
+  "case_id": "PILOT-04",
+  "status": "provisional_bundle_not_qualified",
+  "runtime_archive": {
+    "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/r-runtime.tar.gz",
+    "sha256": "96905b47a8268e07688a09ecf7a80f21f60241daeee1ddbf14eb2f5cc82f5e16",
+    "guest_extraction": "/work/runtime",
+    "guest_alias": "/workspace/cache/builderbob/medsci-runtime/20261111/r"
+  },
+  "candidate_archive": {
+    "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/sources/PILOT-04.tar.gz",
+    "sha256": "f0b0f7467972f03df6f5790ecec0d612c9894b8c51f6cf3c02e88eaf05cb1f55",
+    "package": "cdcfluview"
+  },
+  "additional_sources": [
+    {
+      "name": "MMWRweek",
+      "version": "0.1.3",
+      "sha256": "1aa8b687dc3340c3f277689eb0ca529e0064a4a3a66868137f2f8ab209d133d0",
+      "retained_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/sources/MMWRweek_0.1.3.tar.gz"
+    }
+  ],
+  "limitations": [
+    "Dependency versions, native ABI, and candidate setup have not been qualified.",
+    "Guarded archive extraction and R 4.5.3 version smoke passed; dependency loading, native ABI and package setup remain untested.",
+    "Coordinator selected R CMD INSTALL from pinned archive as immutable-source configuration; recorded setup differs from documented devtools/remotes GitHub installer."
+  ]
+}

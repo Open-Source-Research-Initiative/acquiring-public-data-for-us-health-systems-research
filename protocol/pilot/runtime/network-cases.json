@@ -1,0 +1,152 @@
+{
+  "status": "static_inventory_pending_case_qualification",
+  "scope": "PILOT-02 to PILOT-08; no candidate execution or health payload",
+  "tls": "Approved instrumented inspection baseline; verified upstream TLS hop, not end-to-end TLS.",
+  "global": [
+    "Hosts are prospective and not proof of source reachability, redirect targets, authorization or data fitness.",
+    "Avoid universal 15-second request deadline; qualify timeouts and streaming per case within the case budget.",
+    "Keep HTTP errors, policy blocks, network failures and genuine empty results distinct.",
+    "Forwarded application-byte metering excludes DNS, TLS and TCP/IP overhead; complete network cap remains unqualified."
+  ],
+  "connectivity_probe": {
+    "cases": [
+      "PILOT-03",
+      "PILOT-07"
+    ],
+    "host": "captive.apple.com",
+    "scheme": "http",
+    "path": "/hotspot-detect.html",
+    "status": "prospectively permitted as dependency connectivity probe only if frozen curl implementation confirms this check; not a data source",
+    "basis": "Current installed curl::has_internet inspects DNS first and, with proxy configured, GETs this URL and checks for Success. Frozen curl dependency remains unverified. Do not allow direct DNS or simulate DNS via google/cloudflare hosts."
+  },
+  "cases": {
+    "PILOT-02": {
+      "commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+      "hosts": [
+        "npiregistry.cms.hhs.gov"
+      ],
+      "requests": [
+        "HTTPS GET /api/ with number=1234567890, version=2.1, limit=1; precise serialization belongs to pinned RestClient"
+      ],
+      "content_type": "no body",
+      "timeout": "No explicit timeout found in candidate; dependency implementation unverified.",
+      "redirects": "Unverified; each target requires independent policy.",
+      "finding": "Pinned strict int/boolean comparison can disable peer verification; broker verifies the independent upstream TLS hop."
+    },
+    "PILOT-03": {
+      "commit": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+      "hosts": [
+        "data.cdc.gov"
+      ],
+      "requests": [
+        "HTTPS GET /resource/swc5-untb.json?$query=SELECT%20*%20 ; check_api fetches once then function fetches again; default branch adds no LIMIT"
+      ],
+      "content_type": "no body",
+      "timeout": "No explicit timeout; curl_fetch_memory buffers full result.",
+      "redirects": "Unverified.",
+      "finding": "Pinned sysdata.rda maps 2025 county to swc5-untb; geometry FALSE avoids tigris geometry retrieval. The dependency connectivity probe precedes source fetch."
+    },
+    "PILOT-04": {
+      "commit": "cc1791b79b492d305a3619b97e416207ecfd2887",
+      "hosts": [
+        "gis.cdc.gov"
+      ],
+      "requests": [
+        "HTTPS GET /grasp/flu2/GetPhase02InitApp?appVersion=Public",
+        "HTTPS POST /grasp/flu2/PostPhase02DataDownload: AppVersion=Public, DatasourceDT=[{ID:1,Name:WHO_NREVSS}], RegionTypeId=3, SubRegionsDT=[{ID:0,Name:''}], SeasonsDT constructed from all metadata season IDs"
+      ],
+      "content_type": "application/json; httr encode=json",
+      "timeout": "POST httr timeout 120 seconds; ZIP streamed to disk. Metadata GET has no explicit timeout.",
+      "redirects": "Unverified.",
+      "finding": "Season IDs are data-dependent and not known from static code."
+    },
+    "PILOT-05": {
+      "commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+      "hosts": [
+        "api.covidcast.cmu.edu"
+      ],
+      "requests": [
+        "At import, frozen delphi_epidata 4.1.44 performs HTTPS GET https://pypi.org/pypi/delphi-epidata/json (version check); errors caught and logged. This is a dependency check, not a source host; default-deny policy applies.",
+        "Candidate assigns Epidata.BASE_URL=https://api.covidcast.cmu.edu/epidata/api.php. Frozen wheel appends /covidcast_meta/ for metadata then /covidcast/ for daily observations, producing https://api.covidcast.cmu.edu/epidata/api.php/covidcast_meta/ and https://api.covidcast.cmu.edu/epidata/api.php/covidcast/. GET query parameters: data_source=fb-survey, signals=smoothed_cli, time_type=day, geo_type=state, time_values=each YYYYMMDD from 2020-05-01 to metadata-derived maximum, geo_value=*; as_of/issues/lag omitted."
+      ],
+      "content_type": "GET query by default; on HTTP 414 requests.post(url, params) sends parameters as form body; exact headers from frozen requests.",
+      "timeout": "Version check timeout 5 seconds; selected API calls specify no timeout. Exception retry up to two attempts.",
+      "redirects": "Unverified.",
+      "finding": "Candidate BASE_URL override applies to wheel 4.1.44 and yields legacy api.php followed by v4-style path; endpoint compatibility unverified. Do not repair URL or infer emptiness from a failure. Wheel SHA-256 9c6275b94df87c4917eb2b4c24cfc15da339e2bf3a97c8245b40d8ecf49f1c66.",
+      "dependency_probe_hosts": [
+        "pypi.org"
+      ],
+      "dependency_probe_policy": "Import-time version check; default deny and retain failure; separate from source and setup mirrors."
+    },
+    "PILOT-06": {
+      "commit": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+      "hosts": [
+        "ephtracking.cdc.gov"
+      ],
+      "requests": [
+        "HTTPS GET /apigateway/api/v1/geographicTypes/99 then /stratificationlevel/99/{geographicTypeId}/0",
+        "HTTPS GET /apigateway/api/v1/temporalItems/99/{geographicTypeId}/ALL/ALL (fallback metadata-derived form) and /geographicItems/99/{geographicTypeId}/{rollup}",
+        "HTTPS POST /apigateway/api/v1/getCoreHolder/99/{stratificationLevelId}/0/0 with geographicTypeIdFilter, geographicItemsFilter, temporalTypeIdFilter, temporalItemsFilter derived from metadata; optional advanced-strata query is data-dependent"
+      ],
+      "content_type": "application/json; httr encode=json; Accept application/json",
+      "timeout": "No explicit timeout on selected calls; response may be large.",
+      "redirects": "Unverified.",
+      "finding": "Anonymous mode; preserve empty TRACKING_API_TOKEN environment. Exact geographies, strata, time IDs and final body depend on returned metadata."
+    },
+    "PILOT-07": {
+      "commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+      "hosts": [
+        "zenodo.org"
+      ],
+      "requests": [
+        "HTTPS GET /records/18332002/files/{t_category.csv,t_factor.csv,t_focus_area.csv,t_measure_years.csv,t_measure.csv}?download=1 for get_measure_map; default year is most recent 2025",
+        "HTTPS GET /records/18331995/files/t_measure_data_years_2024.csv?download=1; function reads twice but uses cache with refresh=FALSE"
+      ],
+      "content_type": "no body",
+      "timeout": "httr GET timeout 300 seconds and up to three attempts; annual data may be large.",
+      "redirects": "Storage redirect targets unverified; keep blocked redirects as such.",
+      "finding": "Corrects historical case packet: 18157793 applies only when year=NULL explicitly; selected measure-map calls omit year and use 2025 record 18332002. Annual selected release remains 2024 record 18331995. Connectivity probe precedes downloads."
+    },
+    "PILOT-08": {
+      "commit": "8bae12afc38cb528438fdccb02242a56b916316f",
+      "hosts": [
+        "data.cms.gov",
+        "npiregistry.cms.hhs.gov"
+      ],
+      "requests": [
+        "HTTPS GET /provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1770163599/Hospital_General_Information.csv via urlretrieve when cache absent",
+        "HTTPS GET /api/ with version=2.1, enumeration_type=NPI-2, limit=20 plus optional organization_name, state, postal_code first five digits, taxonomy_description from candidate strategy and hospital rows"
+      ],
+      "content_type": "no body",
+      "timeout": "requests.get timeout=20 seconds per NPPES query; CMS urlretrieve no explicit timeout.",
+      "redirects": "urllib and requests follow redirects; targets unverified.",
+      "finding": "query_nppes maps non-200 and requests exceptions to []; do not infer a genuine empty response. Native /data0 requires isolated mapping."
+    }
+  },
+  "setup_mirrors": {
+    "github": {
+      "hosts": [
+        "github.com",
+        "api.github.com",
+        "codeload.github.com"
+      ],
+      "status": "Possible source/distribution infrastructure; exact setup redirects and required hosts unverified. Case 02 staged offline ZIPs avoid install network."
+    },
+    "cran": {
+      "hosts": [
+        "cloud.r-project.org"
+      ],
+      "cases": [
+        "PILOT-03",
+        "PILOT-04",
+        "PILOT-06",
+        "PILOT-07"
+      ],
+      "status": "Previously observed metadata mirror only; dependency lock and compatibility unresolved."
+    },
+    "python_and_composer": {
+      "hosts": [],
+      "status": "Dependency mirrors not frozen; no host inferred or added to source allowlists."
+    }
+  }
+}

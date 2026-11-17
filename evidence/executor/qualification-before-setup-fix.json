@@ -1,0 +1,54 @@
+{
+  "status": "qualified_for_bounded_feasibility",
+  "created_utc": "2026-11-17T01:27:18.418931+00:00",
+  "performer": "Codex coordinating agent; implementation assistance from eight GPT-6.1 Terra subagents",
+  "allowed_cases": [
+    "PILOT-01"
+  ],
+  "allowed_schemes": [
+    "http",
+    "https"
+  ],
+  "human_transport_decision": "Cole approved controlled HTTPS baseline in conversation; proxy certificate validation is not attributed to candidate",
+  "tests": {
+    "count": 65,
+    "failures": 0,
+    "skipped": 0,
+    "additional_checks": "updated launch-gate regression: 2 passed; final guarded live Terra model action and cleanup passed; external example.com HTTPS request returned200 through isolated broker",
+    "log_sha256": "2a0f418246dd552dd74c436f1de7d0b9bb0e868b23c5809449a9eb2da6e7b35d"
+  },
+  "open_blockers": [],
+  "file_sha256": {
+    "executor/coordinator_guard.py": "dc5004e649ce4bd59bd671405348c6c81047b2bf256e359f6cc4bcf0f563b492",
+    "executor/egress.py": "1f6989b9b89ed03a6199d4fd68873d351dd582aa10e75e0bc84a0c760ca11d9c",
+    "executor/model_runtime.py": "29e7cbe5cb56968eda7f8c86a3922d062cf31cdaac961b0ce11e2882b4aa9d26",
+    "executor/pilot.py": "9884be0f2bd906f123fa9fef0cb42684170b5762da51a2a0bfb4c42708cc1266",
+    "executor/quota_fs.py": "21c0faef34aab51d65fb1babbeefb83294297b73168d68caa3c2912736a5e662",
+    "executor/sandbox.py": "9e244ebd0c9f90121835401c4c12613b2fbfea19c4b839293fdbaae4198aaabb",
+    "executor/session.py": "97ebf800e6a12f726e0c5be58ff6ff7d42749a0f881c19fe0dd46d0d95252a45",
+    "executor/supervisor.py": "08124cd44847a8b32ad1069f6fef7c565a0295c020777fb3d8502195c784ecb0",
+    "protocol/pilot/executor-conditions.md": "ed426789b02c2a48fcd0d945f194cb7a5bd39dfde715907fb8e1cbe5b5a9dc26",
+    "protocol/pilot/runtime/PILOT-01.json": "4b6f8450ae888e12d996d1561dd87422b81e80b910100ab58f4bb31ad352daf1",
+    "tests/executor/guarded_model_probe.py": "78f03da8d3f16e16ebd9bab091c586c5028fd2be5c5eeb01e4618afd0d717d94",
+    "tests/executor/test_boundary_adversarial.py": "9c94a180f4d30cbba5866c8d77b3aa3c8306a5b96bb9246a7e419149845d8244",
+    "tests/executor/test_coordinator_guard.py": "649bee27ccc936f7c8b3d3eaa4dbd7ca7c624a0bf8658aa3dce9c73787989f1d",
+    "tests/executor/test_egress.py": "66044d5fd52e3f5227e8f7a8e49e6120ea4546ec4b71e0b07800d5361dc8ea24",
+    "tests/executor/test_model_runtime.py": "418e934bab78b15d9576a862cb59aa5581da1a340a0bf2f46a4c7c314b73497f",
+    "tests/executor/test_pilot.py": "ff205960d5cb23d0d36f3147c91d53961833a9a6fae096942d033ead059b0529",
+    "tests/executor/test_quota_fs.py": "d3792b4d8348f27c1bdabc250a049dc263aab8cc2815ebd979797ee42d85e5fc",
+    "tests/executor/test_sandbox.py": "306fae544a3af8bc439fe7e39bf69e76bcdb39db56e5a4ccb46714f127ba8894",
+    "tests/executor/test_session.py": "584c31516160b01bd2268c172d8be78187a4bbe0f0e2b901d691e2eaa57d578f",
+    "tests/executor/test_supervisor.py": "7acb3ec5469343ff7ee7127da410905891b565d6a0418670a63348350c5ea0bb"
+  },
+  "limitations": [
+    "Scoped qualification for exploratory case01, not a general security certification or independent human review.",
+    "System runtime is a read-only bind of trusted host paths with a full pre/post manifest check; trusted host mutation and kernel vulnerabilities are outside demonstrated boundary.",
+    "Native model-route probes demonstrate disabled code-mode dispatch and rejection of attempted native actions; not an exhaustive inventory of all possible future hosted routes.",
+    "Shared network meter is forwarded HTTP application bytes, not whole-wire bytes; case conditions define the measurement.",
+    "48GiB workload image plus48GiB retained outputs plus4GiB runtime/control allocation; fixed writer bounds rather than a control filesystem quota.",
+    "2GiB trusted coordinator plus14GiB serial candidate scopes; same four CPUs and trusted coordinator serialization.",
+    "Source references absent at initial lock; captures and later comparisons remain separate, with no verified-acquisition claim yet.",
+    "Original separate-agent review found CONNECT flaw; follow-up review failed hardware-key authentication. Parent and implementation-agent regression results do not constitute completed independent follow-up review.",
+    "Cases02-08 dependency/runtime locks remain incomplete; they are not authorized by this receipt."
+  ]
+}

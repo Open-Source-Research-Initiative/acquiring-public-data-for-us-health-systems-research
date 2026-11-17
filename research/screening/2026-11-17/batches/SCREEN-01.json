@@ -1,0 +1,273 @@
+{
+  "batch_id": "SCREEN-01",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/6",
+  "performed_by": "GPT-6.1 Terra",
+  "started_utc": "2026-11-17T14:00:00Z",
+  "finished_utc": "2026-11-17T14:04:36.250985+00:00",
+  "limitations": [
+    "First-pass source inspection only; no execution, payload acquisition, exhaustive absence search, ownership verification, or independent human review. Evidence timestamps represent inspection interval ending 14:03:14 UTC; exact request times not retained. Response hashes unavailable."
+  ],
+  "records": [
+    {
+      "id": "P01",
+      "title": "Sacarny hospital cost reports",
+      "seed_url": "https://github.com/asacarny/hospital-cost-reports",
+      "canonical_system": "asacarny/hospital-cost-reports",
+      "classification": "eligible",
+      "reason": "wget obtains CMS HCRIS hospital archives",
+      "acquisition_entrypoint": "download_source.sh",
+      "us_scope": "United States CMS Medicare cost reports",
+      "data_level": "Hospital cost reports; non-patient",
+      "pilot_case": "PILOT-01",
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/download_source.sh",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "Lines 38 and 54 download HOSPFY and HOSP10FY CMS archives",
+          "revision": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+          "path": "download_source.sh",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Pilot excluded from future primary sample; endpoint not tested"
+      ]
+    },
+    {
+      "id": "P02",
+      "title": "McCarthy HCRIS",
+      "seed_url": "https://github.com/imccart/HCRIS",
+      "canonical_system": "imccart/HCRIS",
+      "classification": "companion",
+      "reason": "README instructs download first; primary script sources local analysis scripts",
+      "acquisition_entrypoint": null,
+      "us_scope": "United States CMS Medicare cost reports",
+      "data_level": "Hospital cost reports; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/imccart/HCRIS/blob/7666d7f8984e47ddfcda7ed77d0673cf1ff3283e/README.md",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "After downloading flat files scripts extract selected hospital variables",
+          "revision": "7666d7f8984e47ddfcda7ed77d0673cf1ff3283e",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "No network acquisition established; exhaustive absence search not claimed"
+      ]
+    },
+    {
+      "id": "P03",
+      "title": "HealthParse HCRIS parser",
+      "seed_url": "https://github.com/HealthParse-io/us-health-data-tools/blob/main/README.md",
+      "canonical_system": "HealthParse-io/us-health-data-tools",
+      "classification": "companion",
+      "reason": "Parser reads already acquired local files",
+      "acquisition_entrypoint": null,
+      "us_scope": "United States CMS Medicare cost reports",
+      "data_level": "Hospital cost reports; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/HealthParse-io/us-health-data-tools/blob/7f280856c1a6200c25a473bd7e561db50aa12fbd/hcris/parse-hcris.mjs",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "Source states no network and uses createReadStream on input CSV paths",
+          "revision": "7f280856c1a6200c25a473bd7e561db50aa12fbd",
+          "path": "hcris/parse-hcris.mjs",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Hosted service backend uninspected"
+      ]
+    },
+    {
+      "id": "P04",
+      "title": "Rush HCRIS app",
+      "seed_url": "https://github.com/klocey/hcris-app",
+      "canonical_system": "klocey/hcris-app",
+      "classification": "eligible",
+      "reason": "Application obtains externally published hospital cost report CSVs from another repository",
+      "acquisition_entrypoint": "app.py",
+      "us_scope": "United States CMS Medicare cost reports",
+      "data_level": "Hospital cost reports; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/klocey/hcris-app/blob/7d5caf755f49b4f410fa6539f79da58fd9959104/app.py",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "Lines 1352 and 1384 construct HCRIS-databuilder provider_data raw GitHub URLs and read CSV; line 48 loads local pickle",
+          "revision": "7d5caf755f49b4f410fa6539f79da58fd9959104",
+          "path": "app.py",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Third-party processed publication rather than CMS files; upstream lineage and availability unverified"
+      ]
+    },
+    {
+      "id": "P05",
+      "title": "Provider Data Tools",
+      "seed_url": "https://github.com/videntity/provider-data-tools",
+      "canonical_system": "videntity/provider-data-tools",
+      "classification": "eligible",
+      "reason": "Implemented scripts request CMS provider enrollment and NPPES files",
+      "acquisition_entrypoint": "pdt/pull_pecos.py",
+      "us_scope": "United States CMS NPPES or enrollment",
+      "data_level": "Public provider and organization records; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown. Fork of usbrandon/provider-data-tools.",
+      "evidence": [
+        {
+          "url": "https://github.com/videntity/provider-data-tools/blob/03dc94a17bbeb0716c04cb1173bd6e377e829eb6/pdt/pull_pecos.py",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "Opens CMS provider enrollment page and invokes CSV downloads through CMS API",
+          "revision": "03dc94a17bbeb0716c04cb1173bd6e377e829eb6",
+          "path": "pdt/pull_pecos.py",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        },
+        {
+          "url": "https://api.github.com/repos/videntity/provider-data-tools",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "fork true; parent and source usbrandon/provider-data-tools",
+          "revision": "03dc94a17bbeb0716c04cb1173bd6e377e829eb6",
+          "path": null,
+          "sha256": null,
+          "access_status": "accessed: GitHub API metadata"
+        }
+      ],
+      "uncertainties": [
+        "GitHub metadata reports fork parent and source usbrandon/provider-data-tools; deduplicate lineage. Endpoint untested"
+      ]
+    },
+    {
+      "id": "P06",
+      "title": "NPI Registry Scraper",
+      "seed_url": "https://github.com/logiover/npi-registry-scraper",
+      "canonical_system": "logiover/npi-registry-scraper",
+      "classification": "companion",
+      "reason": "Documentation-only repository describes hosted scraper with no implementation present",
+      "acquisition_entrypoint": null,
+      "us_scope": "United States CMS NPPES or enrollment",
+      "data_level": "Public provider and organization records; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/logiover/npi-registry-scraper/blob/c5f492067ff607e2d2e892db51b5a25922bd7d74/README.md",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "README explicitly says hosted Apify actor source is absent",
+          "revision": "c5f492067ff607e2d2e892db51b5a25922bd7d74",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Implementation public availability elsewhere not established; no actor run"
+      ]
+    },
+    {
+      "id": "P07",
+      "title": "medicare R package",
+      "seed_url": "https://cloud.r-project.org/web/packages/medicare/medicare.pdf",
+      "canonical_system": "robertgambrel/medicare",
+      "classification": "companion",
+      "reason": "Inspected package extraction code operates on supplied datasets",
+      "acquisition_entrypoint": null,
+      "us_scope": "United States CMS Medicare cost reports",
+      "data_level": "Hospital cost reports; non-patient",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/robertgambrel/medicare/blob/f633bea82b785b1fefde1e282105522a5d0b0c0e/R/cr_extract.R",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "cr_extract accepts a cost report dataset and subsets worksheet row and column",
+          "revision": "f633bea82b785b1fefde1e282105522a5d0b0c0e",
+          "path": "R/cr_extract.R",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Development HEAD equivalence to CRAN release unverified; no exhaustive absence search"
+      ]
+    },
+    {
+      "id": "P22",
+      "title": "HFS HCRIS website",
+      "seed_url": "https://hcris.hfssoft.com/default.aspx",
+      "canonical_system": "Health Financial Systems HCRIS website",
+      "classification": "companion",
+      "reason": "Hosted website offers processed CMS cost reports; acquisition code not established",
+      "acquisition_entrypoint": null,
+      "us_scope": "United States CMS",
+      "data_level": "Facility Medicare cost reports",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Publisher Health Financial Systems; team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://hcris.hfssoft.com/default.aspx",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "Publisher describes access to CMS public use Medicare cost report data.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "accessed: public publisher page via search"
+        }
+      ],
+      "uncertainties": [
+        "Site access does not establish implementation or payload access."
+      ]
+    },
+    {
+      "id": "P32",
+      "title": "adesigns NPPES PHP client",
+      "seed_url": "https://github.com/adesigns/nppes-api",
+      "canonical_system": "adesigns/nppes-api",
+      "classification": "eligible",
+      "reason": "PHP implementation issues requests to CMS NPI Registry API",
+      "acquisition_entrypoint": "src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+      "us_scope": "United States CMS NPPES or enrollment",
+      "data_level": "Public provider and organization records; non-patient",
+      "pilot_case": "PILOT-02",
+      "team_authored": null,
+      "lineage_notes": "Research-team affiliation unknown.",
+      "evidence": [
+        {
+          "url": "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+          "accessed_utc": "2026-11-17T14:03:14Z",
+          "observation": "BASE_URL targets CMS NPI Registry and search issues GET with parameters",
+          "revision": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+          "path": "src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+          "sha256": null,
+          "access_status": "accessed: GitHub API content"
+        }
+      ],
+      "uncertainties": [
+        "Pilot excluded from future primary sample; endpoint untested; static TLS concern for preflight"
+      ]
+    }
+  ]
+}

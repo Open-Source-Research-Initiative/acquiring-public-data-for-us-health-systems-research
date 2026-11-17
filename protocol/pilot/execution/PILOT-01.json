@@ -1,0 +1,33 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-01",
+  "status": "draft_pending_qualification_and_lock",
+  "system": "asacarny/hospital-cost-reports",
+  "repository": "https://github.com/asacarny/hospital-cost-reports",
+  "source_commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+  "workflow": "hcris-download",
+  "task": {
+    "scope": "Full documented script default 1996–2024, source 2552-96 for years <=2011 and 2552-10 for years >=2010. Both versions requested in 2010 and 2011.",
+    "command": "bash download_source.sh",
+    "parameters": {
+      "STARTYEAR": 1996,
+      "ENDYEAR": 2024,
+      "OUTFOLDER": "./source"
+    },
+    "output": "Extracted and renamed CSV files in ./source; script removes downloaded ZIPs.",
+    "source_checkout_commands": [
+      "git clone https://github.com/asacarny/hospital-cost-reports.git",
+      "git -C hospital-cost-reports checkout --detach 5a3d57c0af24c2e77cf36e576850fdee16ae8c40"
+    ],
+    "command_working_directory": "hospital-cost-reports"
+  },
+  "setup": "Bash, wget, unzip, network and filesystem storage; script does not state account requirement. Output size, endpoint availability, terms and safety/resource fit unknown. Full downstream processing additionally requires R and related dependencies.",
+  "permitted_public_documentation": [
+    "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/README.md",
+    "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/download_source.sh",
+    "https://github.com/asacarny/hospital-cost-reports/releases"
+  ],
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

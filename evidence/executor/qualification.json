@@ -1,0 +1,61 @@
+{
+  "status": "qualified_for_bounded_feasibility",
+  "created_utc": "2026-11-17T01:47:23.443065+00:00",
+  "performer": "Codex coordinating agent; implementation assistance from eight GPT-6.1 Terra subagents",
+  "allowed_cases": [
+    "PILOT-01"
+  ],
+  "allowed_schemes": [
+    "http",
+    "https"
+  ],
+  "human_transport_decision": "Cole approved controlled HTTPS baseline in conversation; proxy certificate validation is not attributed to candidate",
+  "tests": {
+    "count": 71,
+    "failures": 0,
+    "skipped": 0,
+    "command": "PILOT_FUSE_RUNTIME=<workspace extracted runtime> python3 -m unittest discover -s tests/executor -v",
+    "log_sha256": "2436e72e4b58f97353cbf8fc5682ea4c0ff4b09810ea90aa874c7f8bdd7b7509",
+    "performance": "Two post-batching 8MiB synthetic transfers completed; see throughput-prepaid-probe.json. No native candidate performance inference."
+  },
+  "open_blockers": [],
+  "file_sha256": {
+    "executor/coordinator_guard.py": "dc5004e649ce4bd59bd671405348c6c81047b2bf256e359f6cc4bcf0f563b492",
+    "executor/egress.py": "8fc90147d70f540f044ece902b50c4c81e1962ecd42c99dfa726d2e36fb2e161",
+    "executor/model_runtime.py": "29e7cbe5cb56968eda7f8c86a3922d062cf31cdaac961b0ce11e2882b4aa9d26",
+    "executor/pilot.py": "4c7670a05b1dfc50c2ece7cff057b2290e905d14f6e55e27031f815e92b22458",
+    "executor/quota_fs.py": "21c0faef34aab51d65fb1babbeefb83294297b73168d68caa3c2912736a5e662",
+    "executor/sandbox.py": "67758369ec1b1753e43e208408e19765aaf5b958c164ece094b376ec358051e6",
+    "executor/session.py": "7bb65225e466886e0dd108c178ebc084a4b01e316837dc91977d41543f12b68f",
+    "executor/supervisor.py": "5a968bc36bbc675021aa178ecaea8bcb598dc4d765516131c1cd78f14195d8dd",
+    "protocol/pilot/executor-conditions.md": "093a68605f67f4393a1e2f94ae3362a02f82b26a4fc1572266061d75ce2b9557",
+    "protocol/pilot/runtime/PILOT-01.json": "4b6f8450ae888e12d996d1561dd87422b81e80b910100ab58f4bb31ad352daf1",
+    "tests/executor/guarded_model_probe.py": "78f03da8d3f16e16ebd9bab091c586c5028fd2be5c5eeb01e4618afd0d717d94",
+    "tests/executor/test_boundary_adversarial.py": "9c94a180f4d30cbba5866c8d77b3aa3c8306a5b96bb9246a7e419149845d8244",
+    "tests/executor/test_coordinator_guard.py": "649bee27ccc936f7c8b3d3eaa4dbd7ca7c624a0bf8658aa3dce9c73787989f1d",
+    "tests/executor/test_egress.py": "daebdd7333377807439b1ff65cba315378a536e584e6eee37d9fb5d3ffadb4af",
+    "tests/executor/test_model_runtime.py": "418e934bab78b15d9576a862cb59aa5581da1a340a0bf2f46a4c7c314b73497f",
+    "tests/executor/test_pilot.py": "5a93ce319beccb95f746e9eba88c5a546d4872bc24ace63c264f89bf23df89ab",
+    "tests/executor/test_quota_fs.py": "d3792b4d8348f27c1bdabc250a049dc263aab8cc2815ebd979797ee42d85e5fc",
+    "tests/executor/test_sandbox.py": "80f2dcd434c8e70433c627e3e6b3845981791bda55c7f284905a0d3366e49ef8",
+    "tests/executor/test_session.py": "cf886d4583c53e02ab454546f3e688961d31d80c9733e8a1dc995f43cf9866a1",
+    "tests/executor/test_supervisor.py": "5d10cdb216faa2fdbcf49978f92b471e9a4ff41b4ea9cf2d7d8ac45e727ac800"
+  },
+  "limitations": [
+    "Scoped qualification for post-lock source reference capture, not a general security certification or independent human review.",
+    "System runtime is a read-only bind of trusted host paths with a full pre/post manifest check; trusted host mutation and kernel vulnerabilities are outside demonstrated boundary.",
+    "Native model-route probes demonstrate disabled code-mode dispatch and rejection of attempted native actions; not an exhaustive inventory of all possible future hosted routes.",
+    "Shared network meter is forwarded HTTP application bytes, not whole-wire bytes; case conditions define the measurement.",
+    "48GiB workload image plus48GiB retained outputs plus4GiB runtime/control allocation; fixed writer bounds rather than a control filesystem quota.",
+    "2GiB trusted coordinator plus14GiB serial candidate scopes; same four CPUs and trusted coordinator serialization.",
+    "Source references absent at initial lock; captures and later comparisons remain separate, with no verified-acquisition claim yet.",
+    "Original separate-agent review found CONNECT flaw; follow-up review failed hardware-key authentication. Parent and implementation-agent regression results do not constitute completed independent follow-up review.",
+    "Cases02-08 dependency/runtime locks remain incomplete; they are not authorized by this receipt."
+  ],
+  "setup_amendment": "Before any model, candidate command or source request: staged unzip package had nlink>1 and was rejected. Resume uses a verified byte-identical single-link copy, preserves the initial records and shared ledger, and permits no second native primary invocation. Launch-gate regression retested:2 passed.",
+  "allowed_phases": [
+    "reference_capture",
+    "synthetic"
+  ],
+  "version_note": "v2 prepaid durable credits and live transfer authority. Case01 primary is closed; this receipt permits only synthetic checks and separately prepared reference capture. It does not authorize another native primary."
+}

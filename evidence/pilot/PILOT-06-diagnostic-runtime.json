@@ -1,0 +1,190 @@
+{
+  "case_id": "PILOT-06",
+  "recorded_utc": "2026-11-17T13:52:31.012115+00:00",
+  "phase": "exploratory_diagnostic",
+  "coordinator_status": "diagnostic_finished_pending_assessment",
+  "native_invocations": 1,
+  "native_results": [
+    {
+      "returncode": 1,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "elapsed_seconds": 3.807011798999156
+    }
+  ],
+  "setup_histories": 0,
+  "runtime_postcheck": "matched_frozen_manifest",
+  "resources": {
+    "elapsed_seconds": 63.6767702319994,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 21536.323229768,
+    "vm_charged_seconds": 63.362077761019464,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 14336.63792223898,
+    "active_charged_seconds": 30.062998063011037,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10769.937001936989,
+    "max_next_active_seconds": 10769.937001936989,
+    "max_next_inactive_seconds": 14336.63792223898,
+    "network_bytes": 1019215225,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 20455621255,
+    "open_reservations": 0
+  },
+  "lock": {
+    "case_id": "PILOT-06",
+    "locked_utc": "2026-11-17T13:51:11.513454+00:00",
+    "spec_sha256": "30f8200927e30c74b455844e06df10638c3172cb13aa500fda3ee0846cad7ecb",
+    "packet_sha256": "8594c7ce489a6c73a5f0f735d53b958a67c7af13504d5bddae93c193c894ac31",
+    "qualification_sha256": "78a206009ca15dea2cab24da74923813e691fe805d4055480c4290a271cfee39",
+    "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+    "model": "gpt-6.1-terra",
+    "phase": "diagnostic",
+    "native_argv": [
+      "bash",
+      "-c",
+      "cd /work && { ( \"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/Rscript\" /inputs/PILOT-06.R ) > /work/output/native.stdout 2> /work/output/native.stderr; rc=$?; tail -c 3000 /work/output/native.stdout; tail -c 3000 /work/output/native.stderr >&2; exit \"$rc\"; }"
+    ],
+    "retry": "none",
+    "setup_resume": false,
+    "input_debit": "full input sizes debited on each setup including any explicit resume",
+    "prompt_sha256": "e838013ec81ffa52e137cfaf4fe85c335d9079f65771f2d4eba5047d6f7fadc0"
+  },
+  "reference_observations": {
+    "before": "blocked_failed_or_non_200",
+    "after": "blocked_failed_or_non_200"
+  },
+  "retained_artifacts": [
+    {
+      "path": "command-log.json",
+      "bytes": 2586,
+      "sha256": "0b627f3267aa15e5c7b052093840ef1a76b913b3c2bc263b8690207a1fe9a837"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 568,
+      "sha256": "08852447b782e6977b2570c3df2396e45c29668ef9ee2df959ddc3dc4f554b4e"
+    },
+    {
+      "path": "installed-manifest.json",
+      "bytes": 6275,
+      "sha256": "219fbe5f53d7c41fa7766739e2bbdad183b6a997f1e075b6db860820d939aacf"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1045,
+      "sha256": "c4a6b5db042ebfdbae1250dfd2f43aa303fd6728c484501d19b693121aec11ac"
+    },
+    {
+      "path": "model-packet.txt",
+      "bytes": 2394,
+      "sha256": "e838013ec81ffa52e137cfaf4fe85c335d9079f65771f2d4eba5047d6f7fadc0"
+    },
+    {
+      "path": "native-logs/output/native.stderr",
+      "bytes": 1376,
+      "sha256": "56ea6033a784f3a7d42bfe935e9dac99679ab42394d67d14cd72471bc05933cb"
+    },
+    {
+      "path": "native-logs/output/native.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-start.json",
+      "bytes": 398,
+      "sha256": "fe58606c0ea145281b146c88bd14e12287544f735f7548197c7d3e1ed1f12f41"
+    },
+    {
+      "path": "predebit.json",
+      "bytes": 121,
+      "sha256": "ee724c8c87575ee2563468128c5816d74da75a654a12d519829edc8462ae8545"
+    },
+    {
+      "path": "primary-preservation-after.json",
+      "bytes": 3304,
+      "sha256": "cdc976b9e40ad8ba56d40df320dccef905a1a826f273af8cabfa57df90938c7c"
+    },
+    {
+      "path": "primary-preservation-before.json",
+      "bytes": 3304,
+      "sha256": "cdc976b9e40ad8ba56d40df320dccef905a1a826f273af8cabfa57df90938c7c"
+    },
+    {
+      "path": "primary.json",
+      "bytes": 3654,
+      "sha256": "3eddb69b4d214634ffb4a3743cb9f604af9b7f3c778ea468c5c1fd850039094e"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 4725,
+      "sha256": "78a206009ca15dea2cab24da74923813e691fe805d4055480c4290a271cfee39"
+    },
+    {
+      "path": "reference/meta-rr4eNILk/tracking-api-help.body",
+      "bytes": 10052,
+      "sha256": "8bf5a615e92f8ea9da37dc4fb4e11dd7a821555b1303eb27e8b7c03a29dbb359"
+    },
+    {
+      "path": "reference/meta-rr4eNILk/tracking-api-help.headers",
+      "bytes": 1102,
+      "sha256": "8e442fb538f239432f7b8e4c1406506d562dde33c8b0b53bd89571ee1bbd359c"
+    },
+    {
+      "path": "reference/meta-zcRaH40z/tracking-api-help.body",
+      "bytes": 10052,
+      "sha256": "8bf5a615e92f8ea9da37dc4fb4e11dd7a821555b1303eb27e8b7c03a29dbb359"
+    },
+    {
+      "path": "reference/meta-zcRaH40z/tracking-api-help.headers",
+      "bytes": 1102,
+      "sha256": "f60e9de98d16e011a297e598346bd8de1f5b8fcb64811c5828fa0e85b63d4876"
+    },
+    {
+      "path": "reference-after.json",
+      "bytes": 2248,
+      "sha256": "9b265ddca8986e5c4b0bcb4c7f781d0294fff9ed895fbe9a4272c28fe8cd81d6"
+    },
+    {
+      "path": "reference-before.json",
+      "bytes": 2247,
+      "sha256": "eb74a038a4539f537752f68be318e186a3da6763e88348b546b24eb4aa2b3a7a"
+    },
+    {
+      "path": "setup-log.json",
+      "bytes": 1550,
+      "sha256": "ccab0fce0b71fb49600c7cb02869986fb7f46f21d78acfcb71391e2318a6a468"
+    },
+    {
+      "path": "spec.json",
+      "bytes": 2550,
+      "sha256": "30f8200927e30c74b455844e06df10638c3172cb13aa500fda3ee0846cad7ecb"
+    },
+    {
+      "path": "staging-00.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "path": "status.json",
+      "bytes": 23596,
+      "sha256": "31798008ad4c8ca12d99e55966f98b66a21111ce1243bb56762d312ba6ca18f3"
+    }
+  ],
+  "mutable_ledger": "Separate diagnostic ledger; original ledger remains unchanged. Resources are timestamped snapshots, not immutable SQLite identity claims.",
+  "limitations": [
+    "Metadata inventory of locally retained evidence; raw payloads and private assessments are not published here.",
+    "Process exit, coordinator status and hashes do not establish acquisition, completeness, fidelity or research fitness.",
+    "Resource ledger preserves conservative charges; application-byte accounting excludes unknown historical preparation traffic.",
+    "Independent human scientific review is pending."
+  ],
+  "diagnostic_id": "PILOT-06-diagnostic-20261117",
+  "original_primary_manifest_sha256": "cdc976b9e40ad8ba56d40df320dccef905a1a826f273af8cabfa57df90938c7c",
+  "original_primary_replaced": false,
+  "diagnostic_output_locked_utc": "2026-11-17T13:52:09.324054+00:00",
+  "primary_preservation": {
+    "before_sha256": "cdc976b9e40ad8ba56d40df320dccef905a1a826f273af8cabfa57df90938c7c",
+    "after_sha256": "cdc976b9e40ad8ba56d40df320dccef905a1a826f273af8cabfa57df90938c7c",
+    "unchanged": true
+  }
+}

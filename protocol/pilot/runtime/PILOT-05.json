@@ -1,0 +1,51 @@
+{
+  "status": "staged_not_qualified_not_locked",
+  "case_id": "PILOT-05",
+  "source_commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+  "python": "/usr/bin/python3 (3.12.3 host observation; verify guest)",
+  "model": "gpt-6.1-terra",
+  "case_inputs": [
+    {
+      "host_path": "/workspace/build/builderbob/osri-python-pilot/case05/package-source.tar",
+      "guest_target": "/inputs/source.tar",
+      "sha256": "3d45bf44642dbca271eca792b70d5435e2e67244212c5035211a799667aa26ea",
+      "bytes": 41738240
+    },
+    {
+      "host_path": "/workspace/build/builderbob/osri-python-pilot/case05/wheelhouse.tar",
+      "guest_target": "/inputs/wheelhouse.tar",
+      "sha256": "df6d78a4f99d7d95a21fd7f833537a6b7642bbb3929162190558a889d65a5ceb",
+      "bytes": 174254080
+    }
+  ],
+  "staging": [
+    {
+      "input_target": "/inputs/source.tar",
+      "destination": "source"
+    },
+    {
+      "input_target": "/inputs/wheelhouse.tar",
+      "destination": "wheelhouse"
+    }
+  ],
+  "guest_aliases": {},
+  "guest_alias_note": null,
+  "setup_shell_commands": [
+    "python3 -m venv --without-pip /work/venv && PYTHONPATH=/work/wheelhouse/pip-26.2.2-py3-none-any.whl /work/venv/bin/python -m pip install --no-index --disable-pip-version-check --find-links=/work/wheelhouse --require-hashes -r /work/wheelhouse/requirements.lock",
+    "/work/venv/bin/python -m pip install --no-index --no-deps --no-build-isolation /work/source/covidcast-py"
+  ],
+  "native_task": "from datetime import date\nimport covidcast\ndata = covidcast.signal(\"fb-survey\", \"smoothed_cli\", date(2020, 5, 1), geo_type=\"state\")",
+  "capture": "Preserve returned Python object losslessly in output and status/traceback; serialization is harness capture, not changed query.",
+  "prep_accounting": {
+    "known_retained_download_payload_bytes": 368682888,
+    "source_download_seconds": 8.943701,
+    "dependency_resolution_and_download_elapsed_seconds": 12.94,
+    "metadata_and_protocol_bytes": "not measured; retained payload is a lower bound, not a complete transfer meter",
+    "duration_seconds_sum": 21.883701000000002,
+    "accounting_note": "Historical common preparation is outside the timed attempt; recorded preparation durations are descriptive, not a case-time debit. Conservatively predebit known staged input/download payload bytes at ledger initialization; actual prior network transfer including metadata and protocol overhead remains unmeasured. Isolated installation is charged to the shared case ledger."
+  },
+  "artifact_manifest": "PILOT-05-artifacts.json",
+  "limits": "Run stage and setup under case ledger; preserve timeout, failing command, and logs. Exact Python package compatibility and network policy not qualified. No candidate code or health requests occurred during preparation.",
+  "host_staging_directory": "/workspace/build/builderbob/osri-python-pilot/case05",
+  "source_derivation": "package-source.tar is the unmodified covidcast-py subdirectory from the retained codeload commit archive; source archive SHA-256 is recorded in artifacts."
+}

@@ -1,0 +1,71 @@
+{
+  "case_id": "PILOT-03",
+  "inputs": [
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/r-runtime.tar.gz",
+      "target": "/inputs/runtime.tar.gz",
+      "sha256": "96905b47a8268e07688a09ecf7a80f21f60241daeee1ddbf14eb2f5cc82f5e16"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/sources/PILOT-03.tar.gz",
+      "target": "/inputs/PILOT-03.tar.gz",
+      "sha256": "7e0b882f36a281c46f8e65669958cd33cae392a8b2b0fc932c23f36823e8739b"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/task-inputs/PILOT-03.R",
+      "target": "/inputs/PILOT-03.R",
+      "sha256": "644c10f179ac2d510e45cbbb2cbfc3dcd9af98ceaece0f789f406b6931ae067a"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/sources/httr2_1.3.0.tar.gz",
+      "target": "/inputs/httr2_1.3.0.tar.gz",
+      "sha256": "031990311482479da4bb910369606c73bb2b2456b8b8c1ab877ad8fbb0703c75"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/sources/yyjsonr_0.1.22.tar.gz",
+      "target": "/inputs/yyjsonr_0.1.22.tar.gz",
+      "sha256": "ca2c68e0c1589e536bb76aac8235a75d90bde82e32e3367a321a12731fa48b8e"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/sources/tigris_2.3.0.tar.gz",
+      "target": "/inputs/tigris_2.3.0.tar.gz",
+      "sha256": "721527dd4a6de1263eeb53c2d57d09b8296d33aed5a636ee8cd7ad2c3e009db8"
+    }
+  ],
+  "hosts": [
+    "data.cdc.gov",
+    "captive.apple.com"
+  ],
+  "guest_aliases": {
+    "/workspace/cache/builderbob/medsci-runtime/20261111/r": "runtime/r"
+  },
+  "staging": [
+    {
+      "input": "/inputs/runtime.tar.gz",
+      "destination": "runtime"
+    }
+  ],
+  "directories": [
+    "r-library",
+    "output"
+  ],
+  "env": {
+    "PATH": "/workspace/cache/builderbob/medsci-runtime/20261111/r/bin:/usr/bin:/bin",
+    "R_LIBS_USER": "/work/r-library",
+    "PILOT_OUTPUT_RDS": "/work/output/result.rds"
+  },
+  "setup_shell_commands": [
+    "\"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/R\" CMD INSTALL -l /work/r-library /inputs/httr2_1.3.0.tar.gz",
+    "\"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/R\" CMD INSTALL -l /work/r-library /inputs/yyjsonr_0.1.22.tar.gz",
+    "\"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/R\" CMD INSTALL -l /work/r-library /inputs/tigris_2.3.0.tar.gz",
+    "\"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/R\" CMD INSTALL -l /work/r-library /inputs/PILOT-03.tar.gz"
+  ],
+  "native_shell_command": "\"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/Rscript\" /inputs/PILOT-03.R",
+  "installation_roots": [
+    "r-library"
+  ],
+  "additional_output_roots": [],
+  "reference_adapter": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/assessment-private/metadata_probe.py",
+  "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+  "known_input_payload_predebit": 1019691625
+}

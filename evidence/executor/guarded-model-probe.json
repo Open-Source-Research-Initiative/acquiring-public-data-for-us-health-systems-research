@@ -1,0 +1,32 @@
+{
+  "session_root": "/workspace/repos/builderbob/.osri-pilot/guard-bypsgpsg",
+  "elapsed_seconds": 7.703270199999679,
+  "coordinator": {
+    "returncode": 0,
+    "stdout": "{\"status\": \"pass\", \"history\": [{\"action\": {\"action\": \"run\", \"command\": [\"printf\", \"synthetic-guarded-pong\"], \"summary\": \"\"}, \"result\": {\"returncode\": 0, \"stdout\": \"synthetic-guarded-pong\", \"stderr\": \"\", \"timed_out\": false, \"output_limit_exceeded\": false, \"elapsed_seconds\": 0.10753330300030939, \"effective_requested_limits\": {\"memory_max_bytes\": 15032385536, \"memory_swap_max_bytes\": 0, \"cpu_quota_percent\": 400, \"tasks_max\": 256, \"allowed_cpus\": [0, 1, 2, 3], \"combined_output_bytes\": 8388608, \"trusted_coordinator\": false}, \"scope\": \"osri-0c1af03dbc0a4138aa7876c8d9327f7b.scope\", \"output_limit\": false, \"budget_charged_seconds\": 0.12519917099962186, \"budget_cleanup_overrun_seconds\": 0}}], \"summary\": \"synthetic-guarded-pong\", \"resources\": {\"elapsed_seconds\": 7.241094733999944, \"elapsed_limit\": 21600.0, \"elapsed_remaining_seconds\": 21592.758905266, \"vm_charged_seconds\": 7.192808037999839, \"vm_limit\": 14400.0, \"vm_remaining_seconds\": 14392.807191962, \"active_charged_seconds\": 6.969673077999687, \"active_limit\": 10800.0, \"active_remaining_seconds\": 10793.030326922, \"max_next_active_seconds\": 10793.030326922, \"max_next_inactive_seconds\": 14392.807191962, \"network_bytes\": 0, \"network_limit\": 21474836480, \"network_remaining_bytes\": 21474836480, \"open_reservations\": 0}}\n",
+    "stderr": "",
+    "timed_out": false,
+    "output_limit_exceeded": false,
+    "elapsed_seconds": 7.652525903999958,
+    "effective_requested_limits": {
+      "memory_max_bytes": 2147483648,
+      "memory_swap_max_bytes": 0,
+      "cpu_quota_percent": 400,
+      "tasks_max": 256,
+      "allowed_cpus": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "combined_output_bytes": 8388608,
+      "trusted_coordinator": true
+    },
+    "scope": "osri-ebfba1dc56514d0ca435bf7c8d859556.scope"
+  },
+  "cleanup": {
+    "status": "clean",
+    "reason": null,
+    "root": "/workspace/repos/builderbob/.osri-pilot/guard-bypsgpsg"
+  }
+}

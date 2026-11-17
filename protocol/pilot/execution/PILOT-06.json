@@ -1,0 +1,33 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-06",
+  "status": "draft_pending_qualification_and_lock",
+  "system": "CDC EPHTrackR",
+  "repository": "https://github.com/CDCgov/EPHTrackR",
+  "source_commit": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+  "workflow": "get_data",
+  "task": {
+    "measure": 99,
+    "strat_level": "ST",
+    "geoItems": "NA default: all available",
+    "temporalItems": "NA default: all available",
+    "smoothing": 0,
+    "token": "No token; anonymous mode, do not solicit token",
+    "simplified_output": true,
+    "command": "library(EPHTrackR)\ndata_st <- get_data(measure=99, strat_level=\"ST\")"
+  },
+  "setup": {
+    "requirements": "R >=3.5.0; httr >=1.4.0, dplyr >=0.8.0.1, purrr >=0.3.0, jsonlite >=1.5, lifecycle. Exact compatible package versions and size unverified.",
+    "documented_install": "devtools::install_github(\"CDCgov/EPHTrackR\", dependencies=TRUE)",
+    "revision_constraint": "Pinned installation is coordinator-managed environment configuration; dependency versions remain unfrozen. README uses floating default branch; tagged DESCRIPTION version mismatch retained.",
+    "conditional_pinned_install": "devtools::install_github(\"CDCgov/EPHTrackR@6893d31c60a76dec366b92d1c11c5c8a1f9b15fd\", dependencies=TRUE)"
+  },
+  "permitted_public_documentation": [
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/README.md",
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/DESCRIPTION",
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/R/get_data.R"
+  ],
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

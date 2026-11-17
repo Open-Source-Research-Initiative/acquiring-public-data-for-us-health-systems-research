@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1.0",
+  "date": "2026-11-17",
+  "status": "preparation_only",
+  "health_payload_acquired": false,
+  "source_derived_fixtures_prepared": false,
+  "actual_workflow_comparisons": 0,
+  "independent_human_review": "pending",
+  "boundary_qualification": "pending_coordinator",
+  "checker": {
+    "kind": "assessor-only generic typed multiset comparator",
+    "synthetic_controls": "passed",
+    "source_specific_adapters": "not_prepared",
+    "limitations": "No source identity, completeness, temporal comparability, or actual output validity established."
+  },
+  "cases": [
+    {
+      "case_id": "PILOT-01",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false,
+      "publisher_metadata_review": "official_pages_inspected_no_archive_requests",
+      "reference_at_prelock": "absent",
+      "observation_window": "single six-hour case budget session, ledger start through deadline; exact times recorded at capture",
+      "private_plan_sha256": "5d50e83c6511137ad69c7c8122f0bbc254d02610452281fed892969613a57869",
+      "capture_adapter_sha256": "ac87ea2beb4c8179917af05360d58b1e93273681a615abc42bea392252e464d5",
+      "terms_limit": "General public data guidance reviewed; archive-specific restrictions and retention/redistribution not established",
+      "source_schema": "unresolved"
+    },
+    {
+      "case_id": "PILOT-02",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-03",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-04",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-05",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-06",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-07",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    },
+    {
+      "case_id": "PILOT-08",
+      "status": "unresolved_not_yet_assessable",
+      "terminal_barrier_evidenced": false
+    }
+  ]
+}

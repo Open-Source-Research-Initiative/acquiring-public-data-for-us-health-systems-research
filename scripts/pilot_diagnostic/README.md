@@ -1,0 +1,5 @@
+# Recorded diagnostic orchestration
+
+These are source copies of the trusted coordinator scripts used on 17 November 2026, retained with the probe and diagnostic evidence. They are tied to the recorded Builder Bob workspace paths and private staged inputs; copying this directory alone does not recreate that environment. `run_probe.py` resolves its runtime relative to its original private location. The qualification and launcher scripts likewise ran from the private runtime root. Relocation requires a new prospective configuration and qualification, not alteration of the recorded attempts.
+
+`probe.R` exercises two native httr request sequences, not the candidate workflows. `qualify_diagnostics.py` freezes code and verifies the full executor suite. `launch_diagnostics.py` uses the outer guard and the separately validated diagnostic entry point. Existing output directories and native invocation records must not be deleted to obtain another attempt. Raw payloads, authentication, model traces and private fixtures are not distributed here.

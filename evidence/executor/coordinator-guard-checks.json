@@ -1,0 +1,23 @@
+{
+  "date_utc": "2026-11-17",
+  "status": "synthetic checks only; not pilot qualification",
+  "performed_by": "Codex agent",
+  "command": "PILOT_FUSE_RUNTIME=<workspace fuse runtime> python3 -m unittest -q tests.executor.test_coordinator_guard tests.executor.test_session tests.executor.test_supervisor",
+  "result": "6 coordinator guard tests passed with FUSE runtime",
+  "observations": [
+    "A hung synthetic coordinator was killed by its transient systemd scope deadline and did not write a delayed marker.",
+    "After a synthetic coordinator was killed while its 32 MiB ext4-in-FUSE image was mounted, the guard unmounted the recorded fuse.ext4 mount and removed its own backing image.",
+    "After SIGKILL of the guard itself, recovery blocked during the watchdog interval; after that interval it unmounted and removed the registered synthetic image.",
+    "A forged registration pointing outside the guard root was rejected without modifying the outside file.",
+    "The guarded coordinator and one nested executor scope reported memory.max values of 2 GiB and 14 GiB, respectively, and the same four-CPU affinity in a synthetic probe.",
+    "A BOOTTIME watcher terminated a registered nested scope at the synthetic session deadline; the same watcher checks after a host resumes, but suspension was not simulated."
+  ],
+  "limitations": [
+    "The trusted coordinator uses taskset without no_new_privs to permit the setuid fusermount helper. Candidate sandbox scopes retain their affinity seccomp filter and no_new_privs.",
+    "Crash recovery waits until the requested watchdog deadline plus ten seconds when completion was not recorded. This is not a hard real-time proof; system scheduling and startup can overshoot. Unexpected or unregistered resources are preserved for reconciliation.",
+    "Only the recorded quota mount and backing image are automatically recovered. Session state files, including ephemeral TLS material, remain inside the private guard root for controlled review and cleanup.",
+    "The FUSE test used a 32 MiB synthetic image. The guard checks that a registered backing image does not exceed 100 GiB; this test did not fill a 100 GiB image or establish a full network transfer ceiling. No candidate case was run.",
+    "The 2 GiB plus 14 GiB partition assumes at most one candidate scope and trusted coordinator affinity; other host services are outside the accounting.",
+    "The BOOTTIME watcher cannot act while suspended and its post-resume scheduling delay was not measured. If the guard itself is killed, independent per-scope systemd timers remain, and recovery stops recorded scopes before unmounting."
+  ]
+}

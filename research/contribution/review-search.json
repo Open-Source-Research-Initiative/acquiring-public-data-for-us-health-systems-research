@@ -1,0 +1,158 @@
+{
+  "date_utc": "2026-11-17",
+  "purpose": "bounded assessment of the 2026 review and closest empirical overlap for feasibility",
+  "skill": {
+    "path": "/home/builderbob/.agents/skills/search-lit/SKILL.md",
+    "version": "not declared",
+    "adaptation": "User authorized searches in advance and assigned a bounded review, so no query-approval gate or external reference-library mutation was performed."
+  },
+  "methods": [
+    {
+      "source": "NCBI PubMed E-utilities",
+      "operation": "esearch",
+      "query": "\"open-source health technologies\"[Title]",
+      "reported_total": 0,
+      "retrieved": 0,
+      "limit": 10,
+      "note": "Exact phrase unrecognized; direct PMID fetch confirms article exists. Zero is not evidence of absence."
+    },
+    {
+      "source": "NCBI PubMed E-utilities",
+      "operation": "efetch",
+      "query": "PMID 42508739",
+      "retrieved": 1,
+      "note": "Inspected article metadata and abstract; DOI, title, year, journal, article number and PII confirmed."
+    },
+    {
+      "source": "NCBI PubMed E-utilities",
+      "operation": "related",
+      "query": "PMID 42508739",
+      "retrieved": 10,
+      "limit": 10,
+      "reported_total": "not reported by rendered output",
+      "note": "Ranked related records, not a complete citation graph; displayed results broadly concern digital health, surveillance and hardware."
+    },
+    {
+      "source": "NCBI PubMed E-utilities",
+      "operation": "esearch",
+      "query": "((\"public health\" OR \"health systems\") AND (\"open source\" OR \"open-source\") AND (\"data pipeline\" OR acquisition OR reproducibility))",
+      "reported_total": 237,
+      "retrieved": 20,
+      "limit": 20,
+      "status": "TRUNCATED",
+      "note": "First 20 identifiers returned; not a complete retrieval, not a PRISMA count, and not all records screened."
+    },
+    {
+      "source": "Crossref API",
+      "operation": "DOI lookup",
+      "query": "10.1016/j.annepidem.2026.110250",
+      "retrieved": 1,
+      "note": "Title, author, DOI and October 2026 publication metadata matched PubMed."
+    },
+    {
+      "source": "web search",
+      "operation": "targeted search",
+      "queries": [
+        "\"10.1016/j.annepidem.2026.110250\" pdf full text repository",
+        "\"Open-source health technologies for epidemiological research and public health surveillance\" references software systems review",
+        "\"10.1016/j.annepidem.2026.110250\" cited by acquisition",
+        "\"open source\" public health data acquisition pipeline validation source target review reproducibility"
+      ],
+      "reported_total": "not exposed",
+      "retrieved": "ranked excerpts, counts not exposed",
+      "note": "Exploratory, selected results only; no completeness claim."
+    }
+  ],
+  "review_access": [
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42508739/",
+      "inspected": "metadata and abstract via E-utilities and indexed PubMed",
+      "status": "accessible"
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S1047279726002486",
+      "inspected": "search-indexed abstract, introduction, partial methods and section snippets",
+      "status": "direct full-text fetch previously 403; complete project inventory and methods not inspected"
+    },
+    {
+      "url": "https://www.researchgate.net/publication/410866373_Open-Source_Health_Technologies_for_Epidemiological_Research_and_Public_Health_Surveillance",
+      "inspected": "bibliographic listing and availability notice",
+      "status": "listing says no full text available; no author contacted"
+    }
+  ],
+  "closest_prior_work": [
+    {
+      "doi": "10.3390/app16178454",
+      "url": "https://www.mdpi.com/2076-3417/16/17/8454",
+      "inspected": "publisher abstract, selected methods/results, discussion and limitations via prior source record",
+      "claim": "public discharge-data harmonization with source-documentation field audit and provider-summary checks",
+      "limit": "one author-developed framework; record-level data; no second-analyst replication reported; supplements and version history uninspected"
+    },
+    {
+      "doi": "10.1093/gigascience/giad113",
+      "url": "https://academic.oup.com/gigascience/article/doi/10.1093/gigascience/giad113/7516267",
+      "inspected": "publisher PDF abstract and indexed methods in prior reference verification",
+      "claim": "biomedical notebook reruns and original-output comparison",
+      "limit": "publication-linked notebooks; no claim that all are public acquisition workflows"
+    },
+    {
+      "doi": "10.1145/3589806.3600037",
+      "url": "https://mir.cs.illinois.edu/marinov/publications/GraysonETAL23SnakemakeNextflow.pdf",
+      "inspected": "author PDF abstract and introduction in prior reference verification",
+      "claim": "registry workflow crash-free execution and revision survival",
+      "limit": "publisher DOI access returned 403; not semantic source-to-output verification"
+    },
+    {
+      "doi": "10.1186/s12889-024-21149-6",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39762782/",
+      "inspected": "PubMed abstract and publisher PDF methods in prior reference verification",
+      "claim": "systematic review of government health-data initiatives",
+      "limit": "published original studies, not a complete repository inventory"
+    },
+    {
+      "doi": "10.2196/84820",
+      "url": "https://medinform.jmir.org/2026/1/e84820",
+      "inspected": "published metadata, methods, results, limitations in prior reference verification",
+      "claim": "provider-performance public-reporting literature mapped across technical dimensions",
+      "limit": "publication-based review, not independently sampled acquisition software evaluation"
+    }
+  ],
+  "verification": "target review directly confirmed by both PubMed E-utilities and Crossref; metadata and inspected material for other references carried forward from earlier source verification and labeled accordingly",
+  "human_review": "pending",
+  "limitations": "No complete systematic search, comprehensive citation graph, target journal review, full target review, project inventory, independent experimental verification or scientific novelty proof.",
+  "focused_audit": {
+    "date_utc": "2026-11-17",
+    "target_doi": "10.3390/app16178454",
+    "access": [
+      {
+        "url": "https://www.mdpi.com/2076-3417/16/17/8454",
+        "inspected": "article source descriptions, record-level audit, independent provider aggregate comparison, limitations, author contributions, supplementary description and data availability",
+        "status": "accessible through web interface"
+      },
+      {
+        "url": "https://www.mdpi.com/2076-3417/16/17/8454/notes",
+        "inspected": "version-notes endpoint attempt only",
+        "status": "web interface 429; direct HTTP 403; version history not inspected"
+      },
+      {
+        "url": "https://www.mdpi.com/article/10.3390/app16178454/s1",
+        "inspected": "supplement contents description in article, not the supplement tables",
+        "status": "web click Unicode decoding error"
+      },
+      {
+        "url": "https://zenodo.org/api/records/21982702",
+        "inspected": "record metadata, description, license and file names/sizes only",
+        "status": "accessible; ZIP and data not downloaded"
+      }
+    ],
+    "findings": {
+      "release_identity": "Source vintages, provider documentation and access records are described. Separate assessor verification of every intended automated acquisition release is not demonstrated in inspected material; absence not established.",
+      "source_comparison": "Record-level audit re-derives fields from provider documentation without crosswalk engine; external provider aggregates checked for one source.",
+      "independent_executor": "Paper attributes software and validation to same author and explicitly reports no second-analyst crosswalk replication.",
+      "software_metadata": "Zenodo metadata describes downloads mainly for Brazil and lists an MIT software ZIP; executable contents uninspected.",
+      "version_limit": "Article mentions crosswalk revision and a superseded submitted-version figure; publisher version-notes endpoint blocked, so full article history remains unresolved."
+    },
+    "assessment": "Source-referenced field checks and acquisition-related software are established; proposed distinction depends on the entire sampling, independent attempt and release-verification design, not any one component."
+  },
+  "skill_file_sha256": "7461a8890ebd7daa4a319611a19388bdad88e055f350add0147c1ea4999b3fea"
+}

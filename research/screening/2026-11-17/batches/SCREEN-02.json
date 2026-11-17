@@ -1,0 +1,300 @@
+{
+  "batch_id": "SCREEN-02",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/7",
+  "performed_by": "GPT-6.1 Terra",
+  "started_utc": "2026-11-17T14:02:00Z",
+  "finished_utc": "2026-11-17T14:05:26.006531+00:00",
+  "limitations": [
+    "First-pass static inspection only; no candidate execution, installation or health-payload collection. GitHub source retrieved through gh API; pages and PDF inspected via web extraction. Timestamps are batch inspection completion, not individual request times. No independent human review. Team affiliation unknown throughout.",
+    "Response SHA-256 not retained; GitHub revisions identify inspected code snapshots."
+  ],
+  "records": [
+    {
+      "id": "P08",
+      "title": "PricePortal",
+      "seed_url": "https://github.com/iupui-soic/mrf-pricing-research",
+      "canonical_system": "iupui-soic/mrf-pricing-research",
+      "classification": "eligible",
+      "reason": "Implemented acquisition of external hospital standard-charge files; pilot excluded from future primary frame.",
+      "acquisition_entrypoint": "mrf/discover_mrf_urls.py identifies URLs; mrf/download_mrfs.py streams requests.get.",
+      "us_scope": "U.S. hospital price transparency; CA and IN filters.",
+      "data_level": "Hospital standard charges",
+      "pilot_case": "PILOT-08",
+      "team_authored": null,
+      "lineage_notes": "Same repository as pilot.",
+      "evidence": [
+        {
+          "url": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/discover_mrf_urls.py",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Discovers hospital price-transparency URLs and records state and CCN.",
+          "revision": "8bae12afc38cb528438fdccb02242a56b916316f",
+          "path": "mrf/discover_mrf_urls.py",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/download_mrfs.py",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Streams GET responses to files with hashes.",
+          "revision": "8bae12afc38cb528438fdccb02242a56b916316f",
+          "path": "mrf/download_mrfs.py",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/CMSgov/hospital-price-transparency/blob/5333564a710f80d7740180b9ffab8dbdcba9b502/README.md",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Describes public hospital standard charges and U.S. regulatory context.",
+          "revision": "5333564a710f80d7740180b9ffab8dbdcba9b502",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Not executed; completeness and availability unestablished."
+      ]
+    },
+    {
+      "id": "P09",
+      "title": "Turquoise Price Points",
+      "seed_url": "https://github.com/turquoisehealth/pricepoints",
+      "canonical_system": "turquoisehealth/pricepoints",
+      "classification": "unresolved",
+      "reason": "Research replication code includes provider search acquisition, but public source status and scope are not established.",
+      "acquisition_entrypoint": "projects/2025_11_cpw/fetch_npis.py POSTs to a Mishe provider search index.",
+      "us_scope": "README identifies U.S. healthcare prices; provider index scope unconfirmed.",
+      "data_level": "Provider search hits; analyses include aggregated rates",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Same company as P10; common organization does not establish same implementation.",
+      "evidence": [
+        {
+          "url": "https://github.com/turquoisehealth/pricepoints/blob/b9bd9b6f609ce7f73aa70651a4305d226de39664/README.md",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Describes U.S. replication analyses and controlled access to Turquoise backend data.",
+          "revision": "b9bd9b6f609ce7f73aa70651a4305d226de39664",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/turquoisehealth/pricepoints/blob/b9bd9b6f609ce7f73aa70651a4305d226de39664/projects/2025_11_cpw/fetch_npis.py",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "POSTs paginated specialty queries to provider search index and saves hits.",
+          "revision": "b9bd9b6f609ce7f73aa70651a4305d226de39664",
+          "path": "projects/2025_11_cpw/fetch_npis.py",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/turquoisehealth/pricepoints/blob/b9bd9b6f609ce7f73aa70651a4305d226de39664/analyses/2025_05_cld_coverage/ingest.py",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Queries Trino backend using pl.read_database.",
+          "revision": "b9bd9b6f609ce7f73aa70651a4305d226de39664",
+          "path": "analyses/2025_05_cld_coverage/ingest.py",
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Public publication, access terms and U.S. scope of provider index require confirmation."
+      ]
+    },
+    {
+      "id": "P10",
+      "title": "Turquoise MRF Tracker",
+      "seed_url": "https://turquoise.health/mrf_tracker",
+      "canonical_system": "Turquoise Health Live MRF Tracker",
+      "classification": "companion",
+      "reason": "Hosted monitoring interface; underlying acquisition code not identified on inspected page.",
+      "acquisition_entrypoint": "None established; page says hospital files are checked continuously.",
+      "us_scope": "U.S. states and territories.",
+      "data_level": "Hospital and state-level summaries",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Same vendor as P09; same implementation not established.",
+      "evidence": [
+        {
+          "url": "https://turquoise.health/mrf_tracker",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Describes hospital file checks and adoption summaries; no acquisition code identified.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Underlying code availability and complete lineage unestablished."
+      ]
+    },
+    {
+      "id": "P11",
+      "title": "CMS HPT validator",
+      "seed_url": "https://github.com/CMSgov/hospital-price-transparency",
+      "canonical_system": "CMS hospital-price-transparency technical implementation guide",
+      "classification": "companion",
+      "reason": "Seed repository supplies schemas, templates and guidance and points to a separate validator; acquisition implementation not established.",
+      "acquisition_entrypoint": "None established.",
+      "us_scope": "U.S. hospital standard charge transparency.",
+      "data_level": "Hospital charge file schemas",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Seed repository and linked validator are distinct resources.",
+      "evidence": [
+        {
+          "url": "https://github.com/CMSgov/hospital-price-transparency/blob/5333564a710f80d7740180b9ffab8dbdcba9b502/README.md",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Describes data dictionaries, templates and schemas and links separately to validator.",
+          "revision": "5333564a710f80d7740180b9ffab8dbdcba9b502",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "No exhaustive audit of linked validator source."
+      ]
+    },
+    {
+      "id": "P15",
+      "title": "County Health Rankings",
+      "seed_url": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation",
+      "canonical_system": "County Health Rankings & Roadmaps data and documentation portal",
+      "classification": "companion",
+      "reason": "Publisher documentation and download portal; no implemented source acquisition path established.",
+      "acquisition_entrypoint": "None established.",
+      "us_scope": "National and U.S. state and county statistics.",
+      "data_level": "County and state aggregates",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Publisher portal upstream of separate P16 client; common data family does not establish same implementation.",
+      "evidence": [
+        {
+          "url": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Lists national and state releases, documentation and select datasets and calculation code.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Not a comprehensive audit of every linked repository."
+      ]
+    },
+    {
+      "id": "P16",
+      "title": "countyhealthR",
+      "seed_url": "https://countyhealthrankings.github.io/welcome/",
+      "canonical_system": "countyhealthrankings/countyhealthR",
+      "classification": "eligible",
+      "reason": "Implemented client obtains external Zenodo county health releases; pilot excluded from future primary frame.",
+      "acquisition_entrypoint": "R/get_chrr_county_data.R calls helpers; R/zenodo_helpers.R constructs record URLs and uses httr::GET.",
+      "us_scope": "U.S. state and county FIPS.",
+      "data_level": "County or state aggregate measures",
+      "pilot_case": "PILOT-07",
+      "team_authored": null,
+      "lineage_notes": "Separate client implementation using CHR&R publisher data; P15 is not automatically duplicate code.",
+      "evidence": [
+        {
+          "url": "https://github.com/countyhealthrankings/countyhealthR/blob/951a0cc9eee3a424f04cc1461f336837a336160b/R/get_chrr_county_data.R",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Documents county/state measure retrieval and calls helpers.",
+          "revision": "951a0cc9eee3a424f04cc1461f336837a336160b",
+          "path": "R/get_chrr_county_data.R",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/countyhealthrankings/countyhealthR/blob/951a0cc9eee3a424f04cc1461f336837a336160b/R/zenodo_helpers.R",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Maps years to Zenodo records and downloads constructed URLs with httr::GET.",
+          "revision": "951a0cc9eee3a424f04cc1461f336837a336160b",
+          "path": "R/zenodo_helpers.R",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Publisher describes national and state releases.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Inspected revision differs from pilot pin; no execution or release verification performed."
+      ]
+    },
+    {
+      "id": "P19",
+      "title": "California HCAI measurement",
+      "seed_url": "https://hcai.ca.gov/wp-content/uploads/2026/05/Hospital-Measurement-Methodology-April-2026.pdf",
+      "canonical_system": "HCAI hospital measurement methodology",
+      "classification": "companion",
+      "reason": "Methodology gives calculation steps, not inspectable acquisition code; includes restricted patient-level inputs outside screen.",
+      "acquisition_entrypoint": "None established.",
+      "us_scope": "California hospitals.",
+      "data_level": "Facility measures; methodology also requires patient-level discharge and payments data.",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Distinct from P33 inspector-list script.",
+      "evidence": [
+        {
+          "url": "https://hcai.ca.gov/wp-content/uploads/2026/05/Hospital-Measurement-Methodology-April-2026.pdf",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Pages 1\u20132 describe facility calculations and public and access-controlled patient discharge and payment inputs.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "No linked implementation established."
+      ]
+    },
+    {
+      "id": "P33",
+      "title": "HCAI inspector downloader",
+      "seed_url": "https://github.com/HopeEK/hcai-inspector-download",
+      "canonical_system": "HopeEK/hcai-inspector-download",
+      "classification": "unresolved",
+      "reason": "Script issues GET but target is explicit placeholder; actual external source acquisition path not established.",
+      "acquisition_entrypoint": "download_inspectors.py requests placeholder path-to-inspector-data.csv; README instructs replacing it.",
+      "us_scope": "Intended California certified hospital inspector list.",
+      "data_level": "Inspector records; precise contents require confirmation.",
+      "pilot_case": null,
+      "team_authored": null,
+      "lineage_notes": "Distinct from P19 hospital measurement methodology.",
+      "evidence": [
+        {
+          "url": "https://github.com/HopeEK/hcai-inspector-download/blob/20d210e13c45680f30002c380e3a719602d02dfb/download_inspectors.py",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "requests.get uses a commented placeholder URL and writes response to CSV.",
+          "revision": "20d210e13c45680f30002c380e3a719602d02dfb",
+          "path": "download_inspectors.py",
+          "sha256": null,
+          "access_status": "success"
+        },
+        {
+          "url": "https://github.com/HopeEK/hcai-inspector-download/blob/20d210e13c45680f30002c380e3a719602d02dfb/README.md",
+          "accessed_utc": "2026-11-17T14:05:26.006531+00:00",
+          "observation": "Describes inspector list and instructs user to update Tableau export endpoint.",
+          "revision": "20d210e13c45680f30002c380e3a719602d02dfb",
+          "path": "README.md",
+          "sha256": null,
+          "access_status": "success"
+        }
+      ],
+      "uncertainties": [
+        "Actual endpoint and acquisition of published dataset unestablished."
+      ]
+    }
+  ]
+}

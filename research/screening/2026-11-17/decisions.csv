@@ -1,0 +1,34 @@
+id,canonical_system,initial_classification,review_classification,final_classification,pilot_case,candidate_frame_status
+P01,asacarny/hospital-cost-reports,eligible,eligible,eligible,PILOT-01,excluded_pilot
+P02,imccart/HCRIS,companion,companion,companion,,not_in_current_eligible_frame
+P03,HealthParse-io/us-health-data-tools,companion,companion,companion,,not_in_current_eligible_frame
+P04,klocey/hcris-app,eligible,eligible,unresolved,,not_in_current_eligible_frame
+P05,usbrandon/provider-data-tools family (inspected videntity fork),eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P06,logiover/npi-registry-scraper,companion,companion,companion,,not_in_current_eligible_frame
+P07,robertgambrel/medicare,companion,companion,companion,,not_in_current_eligible_frame
+P08,iupui-soic/mrf-pricing-research,eligible,eligible,eligible,PILOT-08,excluded_pilot
+P09,turquoisehealth/pricepoints,unresolved,unresolved,unresolved,,not_in_current_eligible_frame
+P10,Turquoise Health Live MRF Tracker,companion,companion,companion,,not_in_current_eligible_frame
+P11,CMS hospital-price-transparency technical implementation guide,companion,companion,companion,,not_in_current_eligible_frame
+P12,covidestim/covidestim-sources,eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P13,google-research/open-covid-19-data,eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P14,COVID19Tracking/covid-tracking-data,eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P15,County Health Rankings & Roadmaps data and documentation portal,companion,companion,companion,,not_in_current_eligible_frame
+P16,countyhealthrankings/countyhealthR,eligible,eligible,eligible,PILOT-07,excluded_pilot
+P17,NYC Environment and Health Data Portal Data Explorer,eligible,unresolved,unresolved,,not_in_current_eligible_frame
+P18,CDC COVID-19 Case Privacy Review,companion,companion,companion,,not_in_current_eligible_frame
+P19,HCAI hospital measurement methodology,companion,companion,companion,,not_in_current_eligible_frame
+P20,OpenPrescribing,excluded,excluded,excluded,,not_in_current_eligible_frame
+P21,OpenPrescribing Hospitals,excluded,excluded,excluded,,not_in_current_eligible_frame
+P22,Health Financial Systems HCRIS website,companion,companion,companion,,not_in_current_eligible_frame
+P23,CDC EPHTrackR,eligible,eligible,eligible,PILOT-06,excluded_pilot
+P24,CARA,eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P25,openpharma CDC MCP,eligible,eligible,eligible,,potential_nonpilot_team_affiliation_unresolved
+P26,nhanesA,excluded,excluded,excluded,,not_in_current_eligible_frame
+P27,brfssdata,excluded,excluded,excluded,,not_in_current_eligible_frame
+P28,CDCPLACES,eligible,eligible,eligible,PILOT-03,excluded_pilot
+P29,hrbrmstr/cdcfluview,eligible,eligible,eligible,PILOT-04,excluded_pilot
+P30,cmu-delphi/covidcast Python client,eligible,eligible,eligible,PILOT-05,excluded_pilot
+P31,mccarthyad/wastewater-signal-tracker (unconfirmed),unresolved,unresolved,unresolved,,not_in_current_eligible_frame
+P32,adesigns/nppes-api,eligible,eligible,eligible,PILOT-02,excluded_pilot
+P33,HopeEK/hcai-inspector-download,unresolved,unresolved,unresolved,,not_in_current_eligible_frame

@@ -1,3 +1,5 @@
 # Feasibility admission
 
-See the [dated feasibility admission decision](2026-11-17-feasibility-admission.md) for the human-directed scope, responsible lead and held main-evaluation decision. The [protocol](../protocol.md) remains proposed and subject to human review; this pointer does not approve it.
+See the [dated feasibility admission decision](2026-11-17-feasibility-admission.md) for the human-directed scope, responsible lead and held main-evaluation decision. The [current delegation record](protocol-decisions.md) assigns routine feasibility decisions to the coordinator and reserves major scientific review and main-study progression for the human lead. The dated admission retains earlier review requirements as history; its mandatory second-human gate is superseded prospectively by the final PI workflow. This does not establish scientific acceptance.
+
+The prospective [final PI review workflow](final-pi-review.md) consolidates assigned model work and checks before Cole's review of a phase. It supersedes routine intermediate human review gates, without changing evidence thresholds, technical controls, or the held main-evaluation decision. The current direction authorizes bounded read-only contributor screening; it does not authorize new candidate executions.

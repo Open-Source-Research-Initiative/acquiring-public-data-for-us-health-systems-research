@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-11-17T13:55:38.718777+00:00",
+  "ledger_access": "SQLite immutable read-only snapshot; elapsed window is wall-clock bounded and is not represented as a spendable balance",
+  "units": {
+    "elapsed": "seconds",
+    "vm": "seconds",
+    "active": "seconds",
+    "network": "bytes"
+  },
+  "ledgers": {
+    "probe": {
+      "sha256": "38aac98f48f36fa30953a9dc778584493c23a2a2ba27456c81bace77fc2656da",
+      "limits": {
+        "elapsed": 21600.0,
+        "vm": 14400.0,
+        "active": 10800.0,
+        "network": 21474836480
+      },
+      "charged": {
+        "vm_used": 93.68132537000929,
+        "active_used": 14.900001157002407,
+        "network_used": 2037197508
+      },
+      "open_reservations": 0
+    },
+    "PILOT-06": {
+      "sha256": "47fddac67bde1ca3f30ac0574f1407697868726bc99fbb5f5b357fd88e1f967f",
+      "limits": {
+        "elapsed": 21600.0,
+        "vm": 14400.0,
+        "active": 10800.0,
+        "network": 21474836480
+      },
+      "charged": {
+        "vm_used": 63.362077761019464,
+        "active_used": 30.062998063011037,
+        "network_used": 1019215225
+      },
+      "open_reservations": 0
+    },
+    "PILOT-07": {
+      "sha256": "b3ba4c8705be7c7f80450b0a3664961ff159d3a26bd7e0a8acde40bcb229e3ee",
+      "limits": {
+        "elapsed": 21600.0,
+        "vm": 14400.0,
+        "active": 10800.0,
+        "network": 21474836480
+      },
+      "charged": {
+        "vm_used": 120.79439970999374,
+        "active_used": 42.125952069007326,
+        "network_used": 2048879625
+      },
+      "open_reservations": 0
+    }
+  },
+  "guards": {
+    "probe": {
+      "sha256": "b8fe9c21c53f9d417989c6f93c223a2249f81fd772bf0b0f076dde03c2b1b64e",
+      "coordinator_returncode": 0,
+      "cleanup_status": "clean"
+    },
+    "PILOT-06": {
+      "sha256": "83e0b33009b665623081c0967770c39f1e474f97bceccddb1e9e2679f1136842",
+      "coordinator_returncode": 0,
+      "cleanup_status": "clean"
+    },
+    "PILOT-07": {
+      "sha256": "35407953cd6cbc994ef12b6069f1e74a15cf44a522bf31b90e2a6cac689a39e1",
+      "coordinator_returncode": 0,
+      "cleanup_status": "clean"
+    },
+    "PILOT-07-offline": {
+      "sha256": "0ce4a63dc103189c6e994b765b8ed89773d28577b05e0512840367beb4054b65",
+      "coordinator_returncode": 0,
+      "cleanup_status": "clean"
+    }
+  },
+  "offline_assessment_artifacts": [
+    {
+      "path": "accounting.json",
+      "bytes": 589,
+      "sha256": "e26eaec7edafd2f94f2f75377170b2d33c2be04c4423674ebcdf123b5d7c5b80"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 743,
+      "sha256": "f4b0cff9528054b630e35b730722767e35a354bee290840c659446abe7f5e530"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1271,
+      "sha256": "a423e1b5783a4a16010b92165247a3a041d1f787b40acfb92cee23f319499c8a"
+    },
+    {
+      "path": "network-events.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "operation.json",
+      "bytes": 615,
+      "sha256": "45f3c7a8900da0028d973308cbfc6a054d6dd8c8d5a74cc186caa976cd9b863b"
+    },
+    {
+      "path": "outputs/export.json",
+      "bytes": 1124,
+      "sha256": "c1401c4a17fa7a8536dad9c372eb3eaecfc6236c9d811dfe7bbd62ea9e87e241"
+    },
+    {
+      "path": "outputs.json",
+      "bytes": 139,
+      "sha256": "063981ef1f7337636d62c26cf62eb96f878ced4c8feda638d0a43b1d61201fec"
+    },
+    {
+      "path": "staging.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    }
+  ],
+  "limitations": [
+    "The PILOT-07 offline assessment is charged to its diagnostic ledger.",
+    "Ledger hashes capture bytes at this timestamp; hashes do not prove scientific validity or independent human review.",
+    "Artifact inventory contains hashes and sizes, not assessment payloads."
+  ]
+}

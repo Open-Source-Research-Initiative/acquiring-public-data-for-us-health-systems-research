@@ -1,0 +1,53 @@
+{
+  "status": "staged_not_qualified_not_locked",
+  "case_id": "PILOT-08",
+  "source_commit": "8bae12afc38cb528438fdccb02242a56b916316f",
+  "python": "/usr/bin/python3 (3.12.3 host observation; verify guest)",
+  "model": "gpt-6.1-terra",
+  "case_inputs": [
+    {
+      "host_path": "/workspace/build/builderbob/osri-python-pilot/case08/source.tar.gz",
+      "guest_target": "/inputs/source.tar",
+      "sha256": "af0a2a5a43d4144006e9a408799d84d14e798df793825619c9c31b560e7c9dd2",
+      "bytes": 120071
+    },
+    {
+      "host_path": "/workspace/build/builderbob/osri-python-pilot/case08/wheelhouse.tar",
+      "guest_target": "/inputs/wheelhouse.tar",
+      "sha256": "73f4816a3feae3ff1c64ae38adf92e93469bb9df81d312747bb6c34aa5984914",
+      "bytes": 273121280
+    }
+  ],
+  "staging": [
+    {
+      "input_target": "/inputs/source.tar",
+      "destination": "source"
+    },
+    {
+      "input_target": "/inputs/wheelhouse.tar",
+      "destination": "wheelhouse"
+    }
+  ],
+  "guest_aliases": {
+    "/data0/mrf-pricing-research": "project"
+  },
+  "guest_alias_note": "Create empty executor scratch project directory before first sandbox call; alias is quota-backed.",
+  "setup_shell_commands": [
+    "cp -a /work/source/mrf-pricing-research-8bae12afc38cb528438fdccb02242a56b916316f/. /data0/mrf-pricing-research/",
+    "python3 -m venv --without-pip /data0/mrf-pricing-research/.venv && PYTHONPATH=/work/wheelhouse/pip-26.2.2-py3-none-any.whl /data0/mrf-pricing-research/.venv/bin/python -m pip install --no-index --disable-pip-version-check --find-links=/work/wheelhouse --require-hashes -r /work/wheelhouse/requirements.lock"
+  ],
+  "native_task": "cd /data0/mrf-pricing-research && .venv/bin/python mrf/build_hospital_list.py && .venv/bin/python lookup_nppes.py",
+  "capture": "/data0/mrf-pricing-research/mrf/hospital_general_info_raw.csv, hospitals.csv and crosswalk/ccn_to_npi_nppes.csv; preserve missing files and logs.",
+  "prep_accounting": {
+    "known_retained_download_payload_bytes": 273142168,
+    "source_download_seconds": 0.271648,
+    "dependency_resolution_and_download_elapsed_seconds": 14.89,
+    "metadata_and_protocol_bytes": "not measured; retained payload is a lower bound, not a complete transfer meter",
+    "duration_seconds_sum": 15.161648000000001,
+    "accounting_note": "Historical common preparation is outside the timed attempt; recorded preparation durations are descriptive, not a case-time debit. Conservatively predebit known staged input/download payload bytes at ledger initialization; actual prior network transfer including metadata and protocol overhead remains unmeasured. Isolated installation is charged to the shared case ledger."
+  },
+  "artifact_manifest": "PILOT-08-artifacts.json",
+  "limits": "Run stage and setup under case ledger; preserve timeout, failing command, and logs. Exact Python package compatibility and network policy not qualified. No candidate code or health requests occurred during preparation.",
+  "host_staging_directory": "/workspace/build/builderbob/osri-python-pilot/case08",
+  "initial_state": "Start with empty project scratch and no MRF crosswalk; native prerequisite generates hospital list."
+}

@@ -1,0 +1,233 @@
+{
+  "schema_version": "draft-1",
+  "status": "proposed_not_locked",
+  "case_count": 8,
+  "primary_source_family_count": 7,
+  "sampling": "Purposive systems; reproducible pseudorandom workflow/example choices. Not a probability sample.",
+  "cases": [
+    {
+      "case_id": "PILOT-01",
+      "system": "asacarny/hospital-cost-reports",
+      "primary_source_family": "CMS HCRIS",
+      "source_commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-01",
+        "sha256": "d316d9e763292290515c6cfcf878fb900fe1b044e827335e1228ba6b90acae2c",
+        "sorted_ids": [
+          "hcris-download"
+        ],
+        "index": 0,
+        "selected": "hcris-download"
+      },
+      "example_selection": null,
+      "record": "cases/PILOT-01.json",
+      "record_sha256": "8d33a5d657ff92d620a3bac9ddde2b01ec26f55276bcbe92ce576d3cfcf71851",
+      "execution_packet": "execution/PILOT-01.json",
+      "execution_packet_sha256": "c901cbb523e4649a226facbfe9afa313fda7c3bfdf1a0af7764c214a9cb3ab95",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-02",
+      "system": "adesigns/nppes-api",
+      "primary_source_family": "CMS NPPES",
+      "source_commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-02",
+        "sha256": "a21f41decc8ceec5775a08d89792af25f5af844243b40a9858e6c6b151fc9960",
+        "sorted_ids": [
+          "nppes-registry-api"
+        ],
+        "index": 0,
+        "selected": "nppes-registry-api"
+      },
+      "example_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-02|example",
+        "sha256": "e44fa9de4e2c185d326f0f66dff2723879f67f049ac38c90a2339b86f6a2bb28",
+        "sorted_ids": [
+          "search-last-name",
+          "searchByNumber"
+        ],
+        "index": 1,
+        "selected": "searchByNumber"
+      },
+      "record": "cases/PILOT-02.json",
+      "record_sha256": "2095fc46450560e0c0c571f271599cc4670161d8f621e9ef5fe80b49b5c8b255",
+      "execution_packet": "execution/PILOT-02.json",
+      "execution_packet_sha256": "1caf3c36d7a3f6fed4c30e8d1814a45316329c94f265898510de2e9d74d90860",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-03",
+      "system": "brendensm/CDCPLACES",
+      "primary_source_family": "CDC PLACES",
+      "source_commit": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-03",
+        "sha256": "474ee171c79ecccc29d9dc9a462b3208af79376d25c7747c53fa1baa470594d5",
+        "sorted_ids": [
+          "get_places"
+        ],
+        "index": 0,
+        "selected": "get_places"
+      },
+      "example_selection": null,
+      "record": "cases/PILOT-03.json",
+      "record_sha256": "3dc4fe3d1ef89a28bcb3a628a20712b2c97364be2dc8696025092c79015c11c9",
+      "execution_packet": "execution/PILOT-03.json",
+      "execution_packet_sha256": "a903f1655c9bbe63888fabde56dde834d8f0104cea1263f48b5705c68934b69f",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-04",
+      "system": "hrbrmstr/cdcfluview",
+      "primary_source_family": "CDC FluView",
+      "source_commit": "cc1791b79b492d305a3619b97e416207ecfd2887",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-04",
+        "sha256": "1efe20cf209c34efd118850f5badc4601cb418824e4d64e7eb6ab38333e35a71",
+        "sorted_ids": [
+          "age_group_distribution",
+          "geographic_spread",
+          "get_weekly_flu_report",
+          "hospitalizations",
+          "ili_weekly_activity_indicators",
+          "ilinet",
+          "pi_mortality",
+          "who_nrevss"
+        ],
+        "index": 7,
+        "selected": "who_nrevss"
+      },
+      "example_selection": null,
+      "record": "cases/PILOT-04.json",
+      "record_sha256": "876bd04ebcf581dec63b416755779a3bbec6d66cb0844a8d15f3adb948f28fdf",
+      "execution_packet": "execution/PILOT-04.json",
+      "execution_packet_sha256": "f22ca71c23ae2d1cf192e3546f651f9a6e43068620cf1236c280f70090638eab",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-05",
+      "system": "CMU Delphi COVIDcast Python client",
+      "primary_source_family": "CMU Delphi COVIDcast",
+      "source_commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-05",
+        "sha256": "6015b3d411d5c62fad2f2f77f6f4612bfbbfcc2c2c6492e80c39a27ce3a25383",
+        "sorted_ids": [
+          "signal"
+        ],
+        "index": 0,
+        "selected": "signal"
+      },
+      "example_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-05|example",
+        "sha256": "95e091c72ad0851ea8dd0bdf8a63a0d25bd1b2f0d9a22a9ee8f4fc5cccd579b7",
+        "sorted_ids": [
+          "basic_county_2020_05_01_07",
+          "basic_pa_2020_05",
+          "basic_state_since_2020_05_01"
+        ],
+        "index": 2,
+        "selected": "basic_state_since_2020_05_01"
+      },
+      "record": "cases/PILOT-05.json",
+      "record_sha256": "7725b21df0ef981cb2e4e8ec5fca6f83334a220b6e406dc20b333c8377ae357c",
+      "execution_packet": "execution/PILOT-05.json",
+      "execution_packet_sha256": "487752a3e3740b4c8472c3033510d94551c6ea0bc9bd4fcc8b06463387ebc0b3",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-06",
+      "system": "CDC EPHTrackR",
+      "primary_source_family": "CDC Environmental Public Health Tracking",
+      "source_commit": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-06",
+        "sha256": "8c74600b0a56b95b0b262d381081ce06f0408eccd6f9d71866f01b868f9ca05e",
+        "sorted_ids": [
+          "get_data"
+        ],
+        "index": 0,
+        "selected": "get_data"
+      },
+      "example_selection": null,
+      "record": "cases/PILOT-06.json",
+      "record_sha256": "4bc02a735a87618a10b09a6738984db813f404ba2ab32199b5720f72080cad1b",
+      "execution_packet": "execution/PILOT-06.json",
+      "execution_packet_sha256": "8594c7ce489a6c73a5f0f735d53b958a67c7af13504d5bddae93c193c894ac31",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-07",
+      "system": "countyhealthR",
+      "primary_source_family": "County Health Rankings & Roadmaps",
+      "source_commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-07",
+        "sha256": "4fb0cce7d9e1e93a5a4613b3d8d3661fcdb08e7d1984582cba9889718f6115ff",
+        "sorted_ids": [
+          "chrr_annual_relational_zenodo_acquisition"
+        ],
+        "index": 0,
+        "selected": "chrr_annual_relational_zenodo_acquisition"
+      },
+      "example_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-07|example",
+        "sha256": "df7ccec89c990b29d4f47dbdb8454b76fc94577c8cdf70ff4aae39f8f9a8d059",
+        "sorted_ids": [
+          "get_chrr_county_data(\"WI\", \"Dane\", 2024)",
+          "get_chrr_measure_data(geography = \"county\", measure = \"premature death\", release_year = 2024)"
+        ],
+        "index": 1,
+        "selected": "get_chrr_measure_data(geography = \"county\", measure = \"premature death\", release_year = 2024)"
+      },
+      "record": "cases/PILOT-07.json",
+      "record_sha256": "cb5cb3051ba103581d3c6fbc073bd61ec11a584ad98218355d69bc5472bf8018",
+      "execution_packet": "execution/PILOT-07.json",
+      "execution_packet_sha256": "e10aac91bb0e91872c25297cf339a89a7396b22d30ea447bdcc5f85293b2f8ed",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    },
+    {
+      "case_id": "PILOT-08",
+      "system": "PricePortal acquisition pipeline",
+      "primary_source_family": "CMS NPPES",
+      "source_commit": "8bae12afc38cb528438fdccb02242a56b916316f",
+      "workflow_selection": {
+        "seed_text": "OSRI-health-data-pilot-v1|PILOT-08",
+        "sha256": "2b63da400546a8644be30be90ebbdeaeaa4bc15e431447e31d88c9d32f4b3268",
+        "sorted_ids": [
+          "census/pull_ca_deaths.py",
+          "census/pull_census_in.py",
+          "lookup_nppes.py",
+          "medicare/download_medicare.py",
+          "mrf/build_hospital_list.py",
+          "mrf/download_mrfs.py"
+        ],
+        "index": 2,
+        "selected": "lookup_nppes.py"
+      },
+      "example_selection": null,
+      "record": "cases/PILOT-08.json",
+      "record_sha256": "9a94f7089543d2cafd9203d3cb4017a0eef316f6aa949723fce7b9c5ff8e6cd0",
+      "execution_packet": "execution/PILOT-08.json",
+      "execution_packet_sha256": "ae92a603a9d00614205ffda63efc040b1473ea136347e48f08ba26415055f480",
+      "assessment_design": "assessment-design.md",
+      "actual_reference_status": "not_prepared",
+      "attempt_status": "not_started"
+    }
+  ]
+}

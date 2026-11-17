@@ -1,0 +1,281 @@
+{
+  "case_id": "PILOT-08",
+  "recorded_utc": "2026-11-17T03:03:05.556754+00:00",
+  "phase": "exploratory_feasibility",
+  "coordinator_status": "primary_finished_pending_assessment",
+  "native_invocations": 1,
+  "native_results": [
+    {
+      "returncode": 1,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "elapsed_seconds": 0.4969307539995498
+    }
+  ],
+  "primary_locked_utc": "2026-11-17T02:49:18.827245+00:00",
+  "setup_histories": 0,
+  "runtime_postcheck": "matched_frozen_manifest",
+  "resources": {
+    "elapsed_seconds": 95.48833232699963,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 21504.511667673,
+    "vm_charged_seconds": 95.1081194569997,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 14304.891880543,
+    "active_charged_seconds": 83.28246644999945,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10716.71753355,
+    "max_next_active_seconds": 10716.71753355,
+    "max_next_inactive_seconds": 14304.891880543,
+    "network_bytes": 274289927,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 21200546553,
+    "open_reservations": 0
+  },
+  "lock": {
+    "case_id": "PILOT-08",
+    "locked_utc": "2026-11-17T02:47:47.887908+00:00",
+    "spec_sha256": "f81a082b826625e8845d2068fb2f1c6082c50a65c798ebf709f7a4bf2b54af98",
+    "packet_sha256": "ae92a603a9d00614205ffda63efc040b1473ea136347e48f08ba26415055f480",
+    "qualification_sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108",
+    "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+    "model": "gpt-6.1-terra",
+    "native_argv": [
+      "bash",
+      "-c",
+      "cd /work && { ( cd /data0/mrf-pricing-research && .venv/bin/python mrf/build_hospital_list.py && .venv/bin/python lookup_nppes.py ) > /work/output/native.stdout 2> /work/output/native.stderr; rc=$?; tail -c 3000 /work/output/native.stdout; tail -c 3000 /work/output/native.stderr >&2; exit \"$rc\"; }"
+    ],
+    "retry": "none",
+    "setup_resume": false,
+    "input_debit": "full input sizes debited on each setup including any explicit resume",
+    "prompt_sha256": "60c3d0c50c2af0a008181940f84c0bd984b53668172fc229f6d68c94ec837189"
+  },
+  "reference_observations": {
+    "before": "blocked_failed_or_non_200",
+    "after": "blocked_failed_or_non_200"
+  },
+  "retained_artifacts": [
+    {
+      "path": "command-log.json",
+      "bytes": 2872,
+      "sha256": "d0803e54a6c3f4aee8525af4eed8ac5849189ce257b45207e9b404d3b0653cf5"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 380,
+      "sha256": "103e1410ad8743c7479701848042c428660343f7dfaf542564e1ee7616d0c638"
+    },
+    {
+      "path": "installed-manifest.json",
+      "bytes": 5000360,
+      "sha256": "4321c8a22d835fec824c40e1c292791b4e30af5cf64856c140a66501ddcc196a"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1045,
+      "sha256": "dc554b8d080bc8c2d35ea45790857b712120286b104e9390943a475374ea0251"
+    },
+    {
+      "path": "model-packet.txt",
+      "bytes": 2873,
+      "sha256": "60c3d0c50c2af0a008181940f84c0bd984b53668172fc229f6d68c94ec837189"
+    },
+    {
+      "path": "native-logs/output/native.stderr",
+      "bytes": 1467,
+      "sha256": "7afeaf6c90ec2913754e8bd71b3130a726ed6772c9ec9ea6f784a16cd91f9841"
+    },
+    {
+      "path": "native-logs/output/native.stdout",
+      "bytes": 150,
+      "sha256": "8e2e30501213c90cc50207195cc62e52992947137838009819878706d8ef9014"
+    },
+    {
+      "path": "native-start.json",
+      "bytes": 423,
+      "sha256": "18aa15716e90e2bfcb6238a7860a75535607f8227feb16532214c99aeaeb9415"
+    },
+    {
+      "path": "outputs/project/mrf/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "outputs/project/mrf/build_hospital_list.py",
+      "bytes": 4032,
+      "sha256": "6730eb238fc0abccf655214a02806f033e24e07fdc5ae344cd414fbb10290a70"
+    },
+    {
+      "path": "outputs/project/mrf/concat_parts.py",
+      "bytes": 2056,
+      "sha256": "dd0e55650c75c67d0206379917fa1a59e3e54751df1eaa3f97e719e71c285b12"
+    },
+    {
+      "path": "outputs/project/mrf/coverage_report.py",
+      "bytes": 7675,
+      "sha256": "d059fb147031cae7c4a1c0cf083bd20a12a631dc186e33b96b79fee05a3faad8"
+    },
+    {
+      "path": "outputs/project/mrf/discover_mrf_urls.py",
+      "bytes": 22818,
+      "sha256": "726e6a8b9dfcda9159712de1ab06ccef0c643a73fde43a306027446722267340"
+    },
+    {
+      "path": "outputs/project/mrf/download_mrfs.py",
+      "bytes": 8588,
+      "sha256": "fa5bc39c121a69a3f62b2c6c5fceed503c89bdf6fabd607f49127e5bc4d40582"
+    },
+    {
+      "path": "outputs/project/mrf/fetch_para_hcfs.py",
+      "bytes": 6325,
+      "sha256": "c55058c15a2440d328479fa371dcc66f686df8c9a7ba6558944f8b9145944820"
+    },
+    {
+      "path": "outputs/project/mrf/mark_exempt_federal.py",
+      "bytes": 3169,
+      "sha256": "8a03e75972247f86a0f5dbc2428abb6d2696b44b7663e4c29f9ebbde3c23dd3a"
+    },
+    {
+      "path": "outputs/project/mrf/mark_exempt_other.py",
+      "bytes": 3122,
+      "sha256": "5e36c6ce114098641e1d9c480a42d4faf04d3b132a8d93facb5a3dd0e908d59d"
+    },
+    {
+      "path": "outputs/project/mrf/parse_kaiser.py",
+      "bytes": 9650,
+      "sha256": "28e056882bec0a0265717fd685f473fd13f49f851e148a07c1d047420621be00"
+    },
+    {
+      "path": "outputs/project/mrf/parse_misc_wide.py",
+      "bytes": 20009,
+      "sha256": "2cf2c96dd214e2f9b772cc00c44854577ab5a37cfe0cb00dd9a21afc5bf8e7d8"
+    },
+    {
+      "path": "outputs/project/mrf/parse_mrf.py",
+      "bytes": 36176,
+      "sha256": "8b6137000d68982145a6eb3f3d59f3a9db5c97af527fe3b064310c3331525819"
+    },
+    {
+      "path": "outputs/project/mrf/pending_hospitals.csv",
+      "bytes": 6312,
+      "sha256": "6bf98b1783ffd030c33e9ff03721a883d3f3fb8332d80bbb48dd7d0942a4737a"
+    },
+    {
+      "path": "outputs/project/mrf/reclassify_html_landing.py",
+      "bytes": 3427,
+      "sha256": "73b2e7b0d5b770a609b0484da04a483d1a25577e46665ed38bc5d9bfe1c6bdef"
+    },
+    {
+      "path": "outputs/project/mrf/retry_get.py",
+      "bytes": 2598,
+      "sha256": "76dc9401224c29ba99cd0d31045337c1fd46214d7ac12c4deb6031f77cca42ec"
+    },
+    {
+      "path": "outputs/project/mrf/run_crawl.sh",
+      "bytes": 1654,
+      "sha256": "44feb866126daedcdbe7d0c709e88464097ad83f9e8db55095fb23eceab3379a"
+    },
+    {
+      "path": "outputs/project/mrf/run_parse.sh",
+      "bytes": 1361,
+      "sha256": "f3ea05649c4ee111e06d3f1c952097a1035044c0e7ca199bd3d20a16e322267f"
+    },
+    {
+      "path": "outputs/project/mrf/run_retry_chain.sh",
+      "bytes": 1314,
+      "sha256": "bd5627a1a6e5333cb0cea22b2e4e2d02248cc2081555d03cd237765cf921d6d3"
+    },
+    {
+      "path": "outputs/project/mrf/seed_known_urls.py",
+      "bytes": 8367,
+      "sha256": "e64b235dc32bb466a3e03b0c584c8c1afcd6eaf1d4c6ce597f85d1f0ff5fe7a2"
+    },
+    {
+      "path": "outputs/project/mrf/status.sh",
+      "bytes": 1391,
+      "sha256": "083eb40b6c2c51da4ea3d76ecd19c9bd3a060fa343b322a1d5183009b0da8d9c"
+    },
+    {
+      "path": "outputs/project/mrf/sync_manual_uploads.py",
+      "bytes": 10499,
+      "sha256": "fb36728423bc679fe8e64131298b1bbca1f3192eb0c5698cb56b0edbaa39af5f"
+    },
+    {
+      "path": "predebit.json",
+      "bytes": 118,
+      "sha256": "6d5beb835537600306db58833446263548dbca2c8c500bbc3c9e7f055176f3c7"
+    },
+    {
+      "path": "primary.json",
+      "bytes": 7352,
+      "sha256": "41aac7c00b3161b126a8c1e208d1ab7bcce713ea57a17da12184dac45940bb8c"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 6146,
+      "sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108"
+    },
+    {
+      "path": "reference/meta-dXPR7AhD/hospital-list.body",
+      "bytes": 14009,
+      "sha256": "bd955c207422f156ee9894b3312c3686af078ce45cc01d2fb0f3e0063bd4aeae"
+    },
+    {
+      "path": "reference/meta-dXPR7AhD/hospital-list.headers",
+      "bytes": 840,
+      "sha256": "f18d715391f5a59200eaeda53b9128216f98cd0b8da22f82ee42216b636373d3"
+    },
+    {
+      "path": "reference/meta-jMO29EPc/hospital-list.body",
+      "bytes": 14009,
+      "sha256": "bd955c207422f156ee9894b3312c3686af078ce45cc01d2fb0f3e0063bd4aeae"
+    },
+    {
+      "path": "reference/meta-jMO29EPc/hospital-list.headers",
+      "bytes": 841,
+      "sha256": "36d7d43683effdb28919493f900bb181891e75bacdd400228bc7762ef7cf7b4a"
+    },
+    {
+      "path": "reference-after.json",
+      "bytes": 2437,
+      "sha256": "5681ebaa45c35a7af6431df342179deb1635f2ef9ffaa25e7305ed95d07921c7"
+    },
+    {
+      "path": "reference-before.json",
+      "bytes": 2438,
+      "sha256": "d5f92ce6ead7f635f9bc7df7ef5c4c89fd7892fe0001cadbc97f6618b2847f55"
+    },
+    {
+      "path": "setup-log.json",
+      "bytes": 10041,
+      "sha256": "a6e87c37050d19fd6b74bbdd5d90458cf01318fda5e20e537ffbbbfdd49db6a4"
+    },
+    {
+      "path": "spec.json",
+      "bytes": 1939,
+      "sha256": "f81a082b826625e8845d2068fb2f1c6082c50a65c798ebf709f7a4bf2b54af98"
+    },
+    {
+      "path": "staging-00.json",
+      "bytes": 48,
+      "sha256": "bcbdb1bcea0fada7ffed5a455df50e50f7aa7779d0182aa3bdd1d2e40394afc4"
+    },
+    {
+      "path": "staging-01.json",
+      "bytes": 51,
+      "sha256": "12160a0e9c710de9362d99a75146be686110088099d909c3c4df17f5ac266ce1"
+    },
+    {
+      "path": "status.json",
+      "bytes": 10715,
+      "sha256": "b8d869b339f0d1dd093d0a0ead9e7301ea88224657f2c5e57011a617442c1c08"
+    }
+  ],
+  "mutable_ledger": "budget.sqlite remains cumulative; use the separately timestamped remaining-accounting.json reconciliation, not an immutable-file claim.",
+  "limitations": [
+    "Metadata inventory of locally retained evidence; raw payloads and private assessments are not published here.",
+    "Process exit, coordinator status and hashes do not establish acquisition, completeness, fidelity or research fitness.",
+    "Resource ledger preserves conservative charges; application-byte accounting excludes unknown historical preparation traffic.",
+    "Independent human scientific review is pending."
+  ]
+}

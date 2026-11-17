@@ -1,0 +1,172 @@
+{
+  "recorded_utc": "2026-11-17T02:59:29.122023+00:00",
+  "records": [
+    {
+      "phase": "PILOT-03-offline-1",
+      "artifacts": [
+        {
+          "path": "accounting.json",
+          "bytes": 587,
+          "sha256": "73728f4e7cee9036bf9053e556f79e505238d50b69b816e25b18042a943f05f9"
+        },
+        {
+          "path": "input-manifest.json",
+          "bytes": 743,
+          "sha256": "9ad9f790e2f2ec38758049e2785df0961d9b9d0cfe130b7a80d052592aa6e3f9"
+        },
+        {
+          "path": "lock.json",
+          "bytes": 1090,
+          "sha256": "189e39e6eef2d6b83314ab3b8915aa154508acbf7255f2ab19adb04f30fbffb4"
+        },
+        {
+          "path": "network-events.json",
+          "bytes": 3,
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+        },
+        {
+          "path": "operation.json",
+          "bytes": 616,
+          "sha256": "aa6c1220f6d5aa7f20c90eb43597a7e3edc0a689cf6867322a4032525a5c519e"
+        },
+        {
+          "path": "outputs/export.json",
+          "bytes": 3827,
+          "sha256": "7dcbcd6b7e96d7e51f889d3272b4bb4f6a8a8e980986db49d4dfe33ba73d3c8c"
+        },
+        {
+          "path": "outputs.json",
+          "bytes": 139,
+          "sha256": "aeb44da6065dd714d0a906ce36e1d6f24d51ea4df533cc62dd0c5db57f4bf40d"
+        },
+        {
+          "path": "staging.json",
+          "bytes": 55,
+          "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+        }
+      ]
+    },
+    {
+      "phase": "PILOT-03-source-followup-1",
+      "artifacts": [
+        {
+          "path": "accounting.json",
+          "bytes": 585,
+          "sha256": "145df3b319daf841871edea3f5c32e8c28dc7978a98b42cb9ab04962b7475ce4"
+        },
+        {
+          "path": "lock.json",
+          "bytes": 926,
+          "sha256": "66ceb7dabb8a7d085255081abcd1784588d149e6ad6499f9cd57b0581844c754"
+        },
+        {
+          "path": "network-events.json",
+          "bytes": 211,
+          "sha256": "b8d3849cef290b3ed970e48fe1808c71df0c605d32913f3e97794466fd1353b7"
+        },
+        {
+          "path": "operation.json",
+          "bytes": 855,
+          "sha256": "c277f9f3e21388d386cb6df8725dce4ab7cb086fc2efe9b962dc5655774672e7"
+        },
+        {
+          "path": "outputs/body",
+          "bytes": 21,
+          "sha256": "1f2960551e47b3bd429dc80027ba2a865492f34a9ed1b6e219565f9fae11ebd0"
+        },
+        {
+          "path": "outputs/headers",
+          "bytes": 817,
+          "sha256": "158f97bad1ccc2931c07799028ab18946bbd15f1e732395a34c34deec2059735"
+        },
+        {
+          "path": "outputs.json",
+          "bytes": 261,
+          "sha256": "5f0e146d9a0e3279db4def7f998dfa24e817c05af199b09862fe860d923c86de"
+        }
+      ]
+    },
+    {
+      "phase": "PILOT-06-source-followup-1",
+      "artifacts": [
+        {
+          "path": "accounting.json",
+          "bytes": 581,
+          "sha256": "f3bd6f3d1a53759ab87654e85ca8de0c8034b81d396f3aa53d41df5152238175"
+        },
+        {
+          "path": "lock.json",
+          "bytes": 922,
+          "sha256": "228caaccc46ddfda4def6907a58d71ec899967234b67c9d51cbde8cd09544ef9"
+        },
+        {
+          "path": "network-events.json",
+          "bytes": 218,
+          "sha256": "e8769238a1067c7b4a9bd35e2acace58fd0ee53296f717868103870b2fc5502f"
+        },
+        {
+          "path": "operation.json",
+          "bytes": 863,
+          "sha256": "22f4a9a39510669c1288d5dfa252ac612d22c44647c6049d48639077c47b78ee"
+        },
+        {
+          "path": "outputs/body",
+          "bytes": 366,
+          "sha256": "d22aaf653743db4145c2b78c53f6df7c711ca425d051e9c82af2ed1ec9b60906"
+        },
+        {
+          "path": "outputs/headers",
+          "bytes": 1572,
+          "sha256": "a1edae4e27d1b797cace0a43415561067c0e5b753a1e488a01fb23348cd8bd57"
+        },
+        {
+          "path": "outputs.json",
+          "bytes": 263,
+          "sha256": "02fb11432c4bdb174b35741a38d6d567ebf1c9441ba5200c8a96d408767c9c90"
+        }
+      ]
+    },
+    {
+      "phase": "PILOT-07-source-followup-1",
+      "artifacts": [
+        {
+          "path": "accounting.json",
+          "bytes": 574,
+          "sha256": "4a32357840ef21f569c1f0374da7378f337caceb2a2925c7a38b2fc885d8bcde"
+        },
+        {
+          "path": "lock.json",
+          "bytes": 913,
+          "sha256": "067bf832a91b322559a31b7df33e1995e4b02c5931850b94b8aff0ca5395a767"
+        },
+        {
+          "path": "network-events.json",
+          "bytes": 209,
+          "sha256": "1f4f676260ed1af0737fb7a6bc78cfebba685b4f88f1e938facf43a6852b1f10"
+        },
+        {
+          "path": "operation.json",
+          "bytes": 861,
+          "sha256": "4f0f004282d552cd16e63ee8b8362772a232cab49fa36e1a8b866ec4f34ffbc9"
+        },
+        {
+          "path": "outputs/body",
+          "bytes": 6139,
+          "sha256": "b1e15394fadc31ddc73d6acdef649991f4528c236144269c59e05c44ac69ec48"
+        },
+        {
+          "path": "outputs/headers",
+          "bytes": 1209,
+          "sha256": "a21e1865a5395bad9bd4ae42e4d1021791f73d9652154192908724dfe836734b"
+        },
+        {
+          "path": "outputs.json",
+          "bytes": 264,
+          "sha256": "5597a9cb3ce951867dd254e6b0ef145acbf36fccf6e54189119f90579780d4fb"
+        }
+      ]
+    }
+  ],
+  "candidate_repeats": 0,
+  "feedback_to_primary": "none; all primaries locked before assessment/followup"
+}

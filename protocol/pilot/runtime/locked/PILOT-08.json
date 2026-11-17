@@ -1,0 +1,53 @@
+{
+  "case_id": "PILOT-08",
+  "inputs": [
+    {
+      "source": "/workspace/build/builderbob/osri-python-pilot/case08/source.tar.gz",
+      "target": "/inputs/source.tar",
+      "sha256": "af0a2a5a43d4144006e9a408799d84d14e798df793825619c9c31b560e7c9dd2"
+    },
+    {
+      "source": "/workspace/build/builderbob/osri-python-pilot/case08/wheelhouse.tar",
+      "target": "/inputs/wheelhouse.tar",
+      "sha256": "73f4816a3feae3ff1c64ae38adf92e93469bb9df81d312747bb6c34aa5984914"
+    }
+  ],
+  "hosts": [
+    "data.cms.gov",
+    "npiregistry.cms.hhs.gov"
+  ],
+  "guest_aliases": {
+    "/data0/mrf-pricing-research": "project"
+  },
+  "staging": [
+    {
+      "input": "/inputs/source.tar",
+      "destination": "source"
+    },
+    {
+      "input": "/inputs/wheelhouse.tar",
+      "destination": "wheelhouse"
+    }
+  ],
+  "directories": [
+    "project"
+  ],
+  "env": {},
+  "setup_shell_commands": [
+    "cp -a /work/source/mrf-pricing-research-8bae12afc38cb528438fdccb02242a56b916316f/. /data0/mrf-pricing-research/",
+    "python3 -m venv --without-pip /data0/mrf-pricing-research/.venv && PYTHONPATH=/work/wheelhouse/pip-26.2.2-py3-none-any.whl /data0/mrf-pricing-research/.venv/bin/python -m pip install --no-index --disable-pip-version-check --find-links=/work/wheelhouse --require-hashes -r /work/wheelhouse/requirements.lock"
+  ],
+  "native_shell_command": "cd /data0/mrf-pricing-research && .venv/bin/python mrf/build_hospital_list.py && .venv/bin/python lookup_nppes.py",
+  "installation_roots": [
+    "project/.venv",
+    "source",
+    "wheelhouse"
+  ],
+  "additional_output_roots": [
+    "project/mrf",
+    "project/crosswalk"
+  ],
+  "reference_adapter": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/assessment-private/metadata_probe.py",
+  "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+  "known_input_payload_predebit": 273241351
+}

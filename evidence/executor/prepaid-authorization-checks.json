@@ -1,0 +1,18 @@
+{
+  "date_utc": "2026-11-17",
+  "status": "synthetic implementation checks; no retrospective change to the locked primary case",
+  "performed_by": "Codex agents",
+  "command": "python3 -m unittest -q tests.executor.test_supervisor tests.executor.test_egress",
+  "result": "31 tests passed",
+  "observations": [
+    "A CaseBudget instance authorizes transfer only while its own live reservation and case BOOTTIME deadline remain unexpired.",
+    "Finishing, abandoning, or closing a reservation revokes live transfer authority; abandoned and crashed reservations retain their durable charge.",
+    "Reopening the ledger does not restore authority from stranded rows and cannot refund them through finish; a fresh reservation remains subject to the charged totals.",
+    "The broker checks authorization before using prepaid credit and before each socket send. Synthetic checks cover finished and expired reservations and restart."
+  ],
+  "limitations": [
+    "The deadline check and kernel socket send are separate operations; scheduling can occur between them, so this is not zero-overshoot real-time enforcement.",
+    "This is a candidate implementation change after the primary case lock, not a repair or reclassification of that primary outcome.",
+    "Prepaid application-byte accounting does not measure lower-layer network framing and conservatively retains unused reserved credit."
+  ]
+}

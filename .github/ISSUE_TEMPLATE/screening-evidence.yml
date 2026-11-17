@@ -1,0 +1,34 @@
+name: Screening evidence or correction
+description: Contribute a candidate source check, correction, or missed acquisition implementation.
+title: "[Screening evidence] "
+labels: ["help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: "Choose a batch from issue #5. Public source inspection is enough; do not upload patient records, credentials or private data. Contributions join the final PI review packet."
+  - type: input
+    id: batch
+    attributes:
+      label: Batch issue and candidate IDs
+      placeholder: "#6, P05; or a new lead with its official URL"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Inspected sources and what they establish
+      description: Include official URLs, commit/file paths, inspection date, and the acquisition path or missing evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed disposition or correction
+      description: Explain U.S. and aggregate-data scope, duplicates, pilot overlap, and uncertainty.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks and assistance
+      description: State what you checked, access failures, and any material model assistance. Do not prefill scientific approval.

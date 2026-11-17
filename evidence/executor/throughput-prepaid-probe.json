@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-11-17T01:39:51.106701+00:00",
+  "ended_utc": "2026-11-17T01:39:52.708134+00:00",
+  "case_context": "primary already terminated and locked",
+  "method": "Two local synthetic 8 MiB HTTP responses through the actual Unix-socket broker and separate fresh durable ledgers; broker deadline 8 seconds per request; outer timeout 20 seconds.",
+  "credit_quantum_bytes": 1048576,
+  "runs": [
+    {"response_bytes_including_headers":8388671,"seconds":0.075957,"delivered_mib_per_second_including_headers":105.324,"complete":true,"broker_forwarded_bytes":8388728,"ledger_reserved_bytes":8454144,"reserved_unused_bytes":65416,"durable_ledger_debit_bytes":8454144,"max_bytes":8454144},
+    {"response_bytes_including_headers":8388671,"seconds":0.077522,"delivered_mib_per_second_including_headers":103.197,"complete":true,"broker_forwarded_bytes":8388728,"ledger_reserved_bytes":8454144,"reserved_unused_bytes":65416,"durable_ledger_debit_bytes":8454144,"max_bytes":8454144}
+  ],
+  "comparison": "See throughput-probe.json. Before batching, durable-ledger runs were incomplete after 8 seconds and delivered approximately 0.84 and 0.76 MiB/s including headers. The pre-change measurements overlapped the active primary case; these post-change measurements did not. Ratios are therefore confounded by differences in host load.",
+  "limitations": [
+    "Before and after ran under different host conditions; pre-change baseline overlapped the primary and may have contended for resources.",
+    "Loopback HTTP is not TLS, public network, remote source, candidate runtime, or scientific evidence of software performance.",
+    "Two samples per mode; no controlled host load or randomized crossover.",
+    "Prepaid reservations can overcount transmitted bytes; unused credit is not refunded, including on crash.",
+    "After samples may not reach disk saturation or reproduce real traffic chunking."
+  ]
+}

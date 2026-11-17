@@ -1,0 +1,15 @@
+{
+  "probe": "synthetic_namespace_visibility",
+  "qualified": false,
+  "qualification_reason": "A child namespace does not constrain model or host tools.",
+  "unshare_path": "/usr/bin/unshare",
+  "mount_path": "/usr/bin/mount",
+  "host_canary_readable": true,
+  "namespace_returncode": 0,
+  "namespace_stdout": [
+    "CANARY_HIDDEN",
+    "HOST_FILE_VISIBLE"
+  ],
+  "namespace_stderr": "",
+  "host_canary_readable_after": true
+}

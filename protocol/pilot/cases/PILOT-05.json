@@ -1,0 +1,88 @@
+{
+  "status": "preparation_in_progress_not_locked",
+  "observation_date": "2026-11-17",
+  "selection_seed_prefix": "OSRI-health-data-pilot-v1|",
+  "workflow_selection_rule": "Sort qualifying native health-data acquisition workflow IDs; interpret first 16 hexadecimal characters of SHA-256 of UTF-8 prefix plus case ID as a base-16 integer, modulo count; zero-based index. Metadata-only functions and parameter variants are not separate health-data acquisition workflows.",
+  "execution_limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "execution_safety": "Disposable unprivileged isolation and access/safety qualification required before attempts; no source patches, alternate source, maintainer contact or protected records.",
+  "executor_supervisor_freeze": "Executor assignment, documentation, model, tools, output location and reference window remain to be frozen by the coordinator; major scientific claims require human review.",
+  "assessment": "Independent assessment and oracle not prepared; kept outside this executor-facing case file. No health payload obtained.",
+  "case_id": "PILOT-05",
+  "system": "CMU Delphi COVIDcast Python client",
+  "repository": "https://github.com/cmu-delphi/covidcast",
+  "system_identity": "Python client is a component of the Delphi repository and distinct from the CDC EPHTrackR system. No identified OSRI team authorship; independent human eligibility and shared dependencies still require review.",
+  "software_revision": {
+    "tag": "covidcast-py-v0.1.3",
+    "commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+    "basis": "Latest component-specific stable tag in inspected GitHub tags; repo-level evalcast tags refer to a different component. Published GitHub release evalcast-0.1 is not the Python client.",
+    "source": "https://github.com/cmu-delphi/covidcast/tags"
+  },
+  "workflow_inventory": [
+    {
+      "id": "signal",
+      "description": "Download one COVIDcast public signal, all source and geography/date/issue selections are parameters of this same native entrypoint."
+    }
+  ],
+  "workflow_inventory_limit": "metadata() retrieves catalog information, not health observations; aggregate_signals and map routines transform/display retrieved data. Inventory limited to this Python client and revision.",
+  "seed_sha256": "6015b3d411d5c62fad2f2f77f6f4612bfbbfcc2c2c6492e80c39a27ce3a25383",
+  "selection_integer": 6923637725565666863,
+  "selection_index": 0,
+  "selected_workflow": "signal",
+  "task": {
+    "basis": "Seed-selected equally ranked standalone Basic examples in revision-matched getting_started.rst.",
+    "source": "fb-survey",
+    "signal": "smoothed_cli",
+    "start_day": "2020-05-01",
+    "end_day": "unset; native signal default derives current available maximum date from metadata",
+    "geo_type": "state",
+    "geo_values": "* (default)",
+    "as_of": "unset; latest issue at observation",
+    "command": "from datetime import date\nimport covidcast\ndata = covidcast.signal(\"fb-survey\", \"smoothed_cli\", date(2020, 5, 1), geo_type=\"state\")"
+  },
+  "documentation": [
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/docs/getting_started.rst",
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/setup.py",
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/covidcast/covidcast.py"
+  ],
+  "runtime": {
+    "requirements": "Python >=3.6, pandas, requests, delphi-epidata>=0.0.7, geopandas, matplotlib, numpy, descartes, imageio-ffmpeg, imageio, tqdm, epiweeks per tagged setup.py; exact compatible environment unverified.",
+    "documented_install": "pip install covidcast",
+    "revision_constraint": "Pinned installation is coordinator-managed environment configuration; dependency versions remain unfrozen. Upstream docs show floating pip install.",
+    "conditional_pinned_install": "python -m pip install \"covidcast @ git+https://github.com/cmu-delphi/covidcast.git@9f16cfc0c0975a978c4d53ed2e092ee089550b81#subdirectory=Python-packages/covidcast-py\""
+  },
+  "source_identity": {
+    "publisher": "CMU Delphi Epidata COVIDcast V4",
+    "endpoint_documentation": "https://cmu-delphi.github.io/delphi-epidata/api/covidcast.html",
+    "version": "Open-ended from 2020-05-01 through metadata-derived latest time, latest issue at observation; not immutable release.",
+    "access": "Anonymous access documented; availability and terms for this query unverified.",
+    "risk": "V4 marked legacy/phasing out; https://cmu-delphi.github.io/delphi-epidata/ ; no endpoint probe performed."
+  },
+  "superseded_example": {
+    "task": {
+      "basis": "First Basic examples task in revision-matched getting_started.rst; documented bounded date window, no hand-selected outcomes.",
+      "source": "fb-survey",
+      "signal": "smoothed_cli",
+      "start_day": "2020-05-01",
+      "end_day": "2020-05-07",
+      "geo_type": "county",
+      "geo_values": "* (default)",
+      "as_of": "unset; latest issue available at observation",
+      "command": "from datetime import date\nimport covidcast\ndata = covidcast.signal(\"fb-survey\", \"smoothed_cli\", date(2020, 5, 1), date(2020, 5, 7), \"county\")"
+    },
+    "reason": "Initial first-example proposal superseded by equally ranked quickstart examples and required deterministic seeded draw; never executed."
+  },
+  "example_selection": {
+    "corpus": "Revision-matched getting_started.rst Basic examples section: standalone signal calls before multi-signal aggregation and historical issue demonstrations.",
+    "sorted_equal_rank_ids": [
+      "basic_county_2020_05_01_07",
+      "basic_pa_2020_05",
+      "basic_state_since_2020_05_01"
+    ],
+    "excluded": "Subsequent multi-signal aggregation and as_of/issues/lag are separate advanced demonstrations; inline raw_search mention omits runnable full call.",
+    "seed_sha256": "95e091c72ad0851ea8dd0bdf8a63a0d25bd1b2f0d9a22a9ee8f4fc5cccd579b7",
+    "integer": 10799792191037277470,
+    "modulus": 3,
+    "index": 2,
+    "selected_id": "basic_state_since_2020_05_01"
+  }
+}

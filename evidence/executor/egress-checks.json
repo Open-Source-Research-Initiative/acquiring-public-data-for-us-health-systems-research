@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "scope": "Synthetic local implementation checks; not executor qualification",
+  "performer": "Codex automated agent",
+  "command": "python3 -m unittest discover -s tests/executor -p test_egress.py -v",
+  "result": "17 passed",
+  "transport_profile": "Plain HTTP stays HTTP. HTTPS uses a disposable locally trusted interception CA and HTTP/1.1; the child verifies the proxy leaf, and the broker independently validates the upstream TLS certificate and hostname using system roots. This is an instrumented TLS hop, not end-to-end TLS. Only the combined public trust bundle is exposed to the child; leaf private keys stay on the host. Clients using pinned certificates or independent trust stores can fail and require a typed incompatibility outcome.",
+  "checks": [
+    "synthetic HTTP success and redacted events",
+    "host, port, credential and authority denial",
+    "private and mixed public/private DNS denial",
+    "application-byte cap across requests",
+    "synthetic POST",
+    "matching HTTPS success; mismatched SNI and inner Host denied; untrusted upstream certificate denied",
+    "durable shared CaseBudget debit persists across broker restart",
+    "pipelined requests are rejected if read ahead and never forwarded as a second request",
+    "absolute per-handler deadline stops a slow body",
+    "HTTP-only configuration rejects CONNECT before DNS or upstream connection",
+    "redacted events capped at 10000 with dropped event count",
+    "durable prepaid credit falls back to exact remaining budget below one MiB",
+    "concurrent brokers cannot overreserve shared budget",
+    "unused credit remains charged after broker restart",
+    "partial send returns unsent bytes to local prepaid credit without refunding durable ledger",
+    "prepaid credit cannot be spent after time authorization expires or across ledger restart"
+  ],
+  "limitations": [
+    "Byte counter covers application bytes forwarded to and from upstream, not IP/TCP overhead, DNS, TLS framing, proxy control responses, or traffic outside this broker. It is not a complete network transfer meter.",
+    "The synthetic resolver and upstream trust overrides deliberately permit a local test endpoint and test CA; never use in real runs.",
+    "DNS timeout closes the request but a daemon resolver thread may remain blocked until the system resolver returns.",
+    "No live source, health data, candidate code, production, or autonomous agent was used. Redirect handling depends on clients issuing each redirected request through the proxy; the namespace must prevent direct networking.",
+    "Sandbox forwarder integration, concurrent requests and full resource controls require separate verification. Unsupported request forms fail closed; request bodies are limited to 1 MiB.",
+    "One MiB prepaid application-byte credit is charged before forwarding; no credit is refunded. Forwarding is serialized per broker; unsent bytes return to its local credit after a failed send. The reported forwarded count counts socket.send results, not remote receipt or wire bytes. Unused prepaid credit can be up to one MiB per broker; a process crash retains the full durable reservation. Broker lifetime must remain inside its time reservation."
+  ]
+}

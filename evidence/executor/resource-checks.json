@@ -1,0 +1,27 @@
+{
+  "date_utc": "2026-11-17",
+  "status": "experimental; not qualified for pilot execution",
+  "performed_by": "Codex agent, synthetic local workloads only",
+  "command": "python3 -m unittest -v tests.executor.test_supervisor",
+  "result": "11 supervisor tests passed; combined supervisor, sandbox and egress run: 32 tests, 1 skipped",
+  "observations": [
+    "Transient user systemd scope reported memory.max 33554432, memory.swap.max 0, pids.max 16 and cpu.max 100000 100000 from within the workload; a synthetic 128 MiB allocation was killed with signal 9 under the 32 MiB cap.",
+    "A synthetic fork loop hit EAGAIN with TasksMax=8; a setsid descendant did not write its delayed marker after timeout and scope termination.",
+    "Combined captured output was stopped at a configured 4096-byte cap. Output lock copied and hashed a synthetic file, rejected a symbolic link and rejected a multiply linked file.",
+    "An unprivileged private mount namespace successfully mounted a 1 MiB tmpfs; this is memory-backed and is not an established workspace-backed scratch quota. Workspace ext4 mount did not show quota options. The 100 GiB disk ceiling is not enforced by this supervisor.",
+    "The scope launcher restricts its affinity to selected CPUs and installs a libseccomp rule denying sched_setaffinity before executing the workload. A synthetic workload observed one assigned CPU, received EPERM on widening, and its exec descendant inherited that CPU. The user scope itself lacks a delegated cpuset controller; enforcement relies on inherited affinity and the seccomp rule.",
+    "A synthetic case ledger test charged time reservations and network bytes, closed and reopened the SQLite ledger, retained prior debits, denied over-budget operations, and reconciled an unused time reservation.",
+    "A synthetic successful parent detached a descendant and closed its output descriptors; the supervisor killed the remaining cgroup members before the descendant could write a delayed marker.",
+    "A synthetic workload closed both captured output descriptors then slept; the supervisor still timed it out in under two seconds with a 0.3-second limit.",
+    "A synthetic workload outlived a SIGKILL of its coordinator; the transient systemd scope RuntimeMaxSec watchdog killed it before its delayed write. Scope uses control-group kill and SIGKILL.",
+    "One hundred concurrent synthetic network debit attempts accepted exactly 50 bytes under a 50-byte shared limit; a three-second observed operation against a two-second reservation was charged three seconds. Case elapsed time uses CLOCK_BOOTTIME including suspend."
+  ],
+  "limitations": [
+    "Transient scope properties can be rejected or ignored by the host; a successful invocation is not independent attestation of effective limits.",
+    "Output copies are chmod read-only and digest-recorded, not immutable to the same Unix owner. A separately controlled lock store and full output inventory remain necessary.",
+    "Timeout test covers one synthetic detached descendant and is not a proof of containment against hostile workloads. No third-party case ran and no human independent review occurred.",
+    "The ledger supplies durable accounting primitives but does not automatically wrap every executor action, independent reference capture or network transfer; until integrated across all phases aggregate limits are not enforced. Workspace scratch hard quota remains unverified.",
+    "After a coordinator crash, RuntimeMaxSec begins when the scope becomes active after the reservation: launch delay and scheduling can cause unmeasured deadline overshoot. A persisted reservation is conservatively retained; exact zero-overshoot enforcement is not established.",
+    "Forwarded application-byte accounting excludes lower-layer network framing, DNS, and traffic that bypasses the shared broker. All source and reference acquisition must be routed through the same reserved case ledger and broker."
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "case_id": "PILOT-06",
+  "recorded_utc": "2026-11-17T03:03:05.551328+00:00",
+  "phase": "exploratory_feasibility",
+  "coordinator_status": "primary_finished_pending_assessment",
+  "native_invocations": 1,
+  "native_results": [
+    {
+      "returncode": 1,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "elapsed_seconds": 0.9459844630000589
+    }
+  ],
+  "primary_locked_utc": "2026-11-17T02:45:16.916363+00:00",
+  "setup_histories": 0,
+  "runtime_postcheck": "matched_frozen_manifest",
+  "resources": {
+    "elapsed_seconds": 60.69529531699936,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 21539.304704683,
+    "vm_charged_seconds": 60.38528200299788,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 14339.614717997003,
+    "active_charged_seconds": 26.272947015997488,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10773.727052984003,
+    "max_next_active_seconds": 10773.727052984003,
+    "max_next_inactive_seconds": 14339.614717997003,
+    "network_bytes": 1019215225,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 20455621255,
+    "open_reservations": 0
+  },
+  "lock": {
+    "case_id": "PILOT-06",
+    "locked_utc": "2026-11-17T02:44:20.983268+00:00",
+    "spec_sha256": "f8206ac10f1e423968dae41054b40710e9285caf5778f2db8ef2c1c857304f09",
+    "packet_sha256": "8594c7ce489a6c73a5f0f735d53b958a67c7af13504d5bddae93c193c894ac31",
+    "qualification_sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108",
+    "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+    "model": "gpt-6.1-terra",
+    "native_argv": [
+      "bash",
+      "-c",
+      "cd /work && { ( \"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/Rscript\" /inputs/PILOT-06.R ) > /work/output/native.stdout 2> /work/output/native.stderr; rc=$?; tail -c 3000 /work/output/native.stdout; tail -c 3000 /work/output/native.stderr >&2; exit \"$rc\"; }"
+    ],
+    "retry": "none",
+    "setup_resume": false,
+    "input_debit": "full input sizes debited on each setup including any explicit resume",
+    "prompt_sha256": "e838013ec81ffa52e137cfaf4fe85c335d9079f65771f2d4eba5047d6f7fadc0"
+  },
+  "reference_observations": {
+    "before": "blocked_failed_or_non_200",
+    "after": "blocked_failed_or_non_200"
+  },
+  "retained_artifacts": [
+    {
+      "path": "command-log.json",
+      "bytes": 3401,
+      "sha256": "0454021cae91371841557b354b864e0f6de78546158b7f2d8d41b259bfad49ab"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 568,
+      "sha256": "08852447b782e6977b2570c3df2396e45c29668ef9ee2df959ddc3dc4f554b4e"
+    },
+    {
+      "path": "installed-manifest.json",
+      "bytes": 6275,
+      "sha256": "0965d5563c4ec2a17062fd74d0fbe5832dd79bb4ecf1cd1968260c8c2c2395f8"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1020,
+      "sha256": "78f1d5f38f55e64466ca90fe2c58cbd92c023350e667c005198352c13f037557"
+    },
+    {
+      "path": "model-packet.txt",
+      "bytes": 2394,
+      "sha256": "e838013ec81ffa52e137cfaf4fe85c335d9079f65771f2d4eba5047d6f7fadc0"
+    },
+    {
+      "path": "native-logs/output/native.stderr",
+      "bytes": 2178,
+      "sha256": "1ed54201ab1e0a43a7b87e40d54ba9ab4be16d660608c3ec6c9d6aae619524eb"
+    },
+    {
+      "path": "native-logs/output/native.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-start.json",
+      "bytes": 398,
+      "sha256": "c2d65668c4c7a3e826084d8453b6d2705e27996d4b3fd9c564dcb2a7a4dbdc97"
+    },
+    {
+      "path": "predebit.json",
+      "bytes": 121,
+      "sha256": "ee724c8c87575ee2563468128c5816d74da75a654a12d519829edc8462ae8545"
+    },
+    {
+      "path": "primary.json",
+      "bytes": 4411,
+      "sha256": "aeaf907e699af5b2ce02bc5e11d386aec1f61c105786eae3dd1a919e79e9d903"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 6146,
+      "sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108"
+    },
+    {
+      "path": "reference/meta-8WEmxMF4/tracking-api-help.body",
+      "bytes": 10052,
+      "sha256": "8bf5a615e92f8ea9da37dc4fb4e11dd7a821555b1303eb27e8b7c03a29dbb359"
+    },
+    {
+      "path": "reference/meta-8WEmxMF4/tracking-api-help.headers",
+      "bytes": 1102,
+      "sha256": "eca229eae9d37976e94d0b3b46e41bc95d49547e5852ac8e3463961e22a8e3d6"
+    },
+    {
+      "path": "reference/meta-wQlKYSew/tracking-api-help.body",
+      "bytes": 10052,
+      "sha256": "8bf5a615e92f8ea9da37dc4fb4e11dd7a821555b1303eb27e8b7c03a29dbb359"
+    },
+    {
+      "path": "reference/meta-wQlKYSew/tracking-api-help.headers",
+      "bytes": 1102,
+      "sha256": "b9ff2044a5880c24abcdeef1c02e68ac1df6297db05df08dd22e6c5109cedfcd"
+    },
+    {
+      "path": "reference-after.json",
+      "bytes": 2245,
+      "sha256": "88d46798d0ce081a2a4abbc240423daaf42c44959cc1ebee99117274cef3e8ee"
+    },
+    {
+      "path": "reference-before.json",
+      "bytes": 2245,
+      "sha256": "fda51b80909c50647a3581c6de73a46e9f73597c0a0003d35ad40618dd2d33f0"
+    },
+    {
+      "path": "setup-log.json",
+      "bytes": 1550,
+      "sha256": "db4831c4721172f3fa1e70af1c6f3053d2d4436dc8189ad51de903138fd80795"
+    },
+    {
+      "path": "spec.json",
+      "bytes": 2039,
+      "sha256": "f8206ac10f1e423968dae41054b40710e9285caf5778f2db8ef2c1c857304f09"
+    },
+    {
+      "path": "staging-00.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "path": "status.json",
+      "bytes": 8002,
+      "sha256": "4186e7ab42f42fe6c2ba11f70d68c58ddf145ed3a6c642254343d5c9ae75eb65"
+    }
+  ],
+  "mutable_ledger": "budget.sqlite remains cumulative; use the separately timestamped remaining-accounting.json reconciliation, not an immutable-file claim.",
+  "limitations": [
+    "Metadata inventory of locally retained evidence; raw payloads and private assessments are not published here.",
+    "Process exit, coordinator status and hashes do not establish acquisition, completeness, fidelity or research fitness.",
+    "Resource ledger preserves conservative charges; application-byte accounting excludes unknown historical preparation traffic.",
+    "Independent human scientific review is pending."
+  ]
+}

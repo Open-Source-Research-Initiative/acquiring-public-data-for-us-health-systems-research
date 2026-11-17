@@ -1,0 +1,191 @@
+{
+  "case_id": "PILOT-07",
+  "recorded_utc": "2026-11-17T03:03:05.552617+00:00",
+  "phase": "exploratory_feasibility",
+  "coordinator_status": "primary_finished_pending_assessment",
+  "native_invocations": 1,
+  "native_results": [
+    {
+      "returncode": 1,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "elapsed_seconds": 2.35762184000032
+    }
+  ],
+  "primary_locked_utc": "2026-11-17T02:47:08.007712+00:00",
+  "setup_histories": 0,
+  "runtime_postcheck": "matched_frozen_manifest",
+  "resources": {
+    "elapsed_seconds": 62.10747508999975,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 21537.89252491,
+    "vm_charged_seconds": 61.75646763900113,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 14338.243532360999,
+    "active_charged_seconds": 26.78484863400081,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10773.215151366,
+    "max_next_active_seconds": 10773.215151366,
+    "max_next_inactive_seconds": 14338.243532360999,
+    "network_bytes": 1018648413,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 20456188067,
+    "open_reservations": 0
+  },
+  "lock": {
+    "case_id": "PILOT-07",
+    "locked_utc": "2026-11-17T02:46:11.861400+00:00",
+    "spec_sha256": "ae23c51f06326e604f3ef2fbc08fda265f97034d842b7a90158479d85647bc65",
+    "packet_sha256": "e10aac91bb0e91872c25297cf339a89a7396b22d30ea447bdcc5f85293b2f8ed",
+    "qualification_sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108",
+    "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+    "model": "gpt-6.1-terra",
+    "native_argv": [
+      "bash",
+      "-c",
+      "cd /work && { ( \"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/Rscript\" /inputs/PILOT-07.R ) > /work/output/native.stdout 2> /work/output/native.stderr; rc=$?; tail -c 3000 /work/output/native.stdout; tail -c 3000 /work/output/native.stderr >&2; exit \"$rc\"; }"
+    ],
+    "retry": "none",
+    "setup_resume": false,
+    "input_debit": "full input sizes debited on each setup including any explicit resume",
+    "prompt_sha256": "17312aa36e88fc292c0b3834977b21973b2672cc32134e678be015fbe935ffc7"
+  },
+  "reference_observations": {
+    "before": "source_observation_semantics_unclassified",
+    "after": "source_observation_semantics_unclassified"
+  },
+  "retained_artifacts": [
+    {
+      "path": "command-log.json",
+      "bytes": 1698,
+      "sha256": "7aa577e734849d68536332a8087a8b4fd81aae2471546a19d00406b0e918e403"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 567,
+      "sha256": "9131a3b4c492470342e064e2fb2ea99b5780a698ed09e2c9354cda8cb2143aeb"
+    },
+    {
+      "path": "installed-manifest.json",
+      "bytes": 3677,
+      "sha256": "131db27df8d09458a9906dabd4b9ac82373665afb8bda81e99bd6b94c6c7272b"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1020,
+      "sha256": "302d6646c5bb6bba345ab297dbe1b1bc39b8be9395019775a18bd239fc674786"
+    },
+    {
+      "path": "model-packet.txt",
+      "bytes": 2826,
+      "sha256": "17312aa36e88fc292c0b3834977b21973b2672cc32134e678be015fbe935ffc7"
+    },
+    {
+      "path": "native-logs/output/native.stderr",
+      "bytes": 512,
+      "sha256": "2b5a993d404d4ec9379306982445c62780a422c6de678d8240b22ffe4b5aa167"
+    },
+    {
+      "path": "native-logs/output/native.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-start.json",
+      "bytes": 398,
+      "sha256": "f7e02390b488da0cda922978de85202079fdb7695ae93aef400a66c353ec7c79"
+    },
+    {
+      "path": "predebit.json",
+      "bytes": 121,
+      "sha256": "14507d4224aa0e2d87db4fe41177f3bf7d3c54ee2b796eb5b67c666c959e76b7"
+    },
+    {
+      "path": "primary.json",
+      "bytes": 2643,
+      "sha256": "82e91d33a06b736f64ded8dccc3d6a0e7a648a5ec07794fbbaa26fed0bb34b83"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 6146,
+      "sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108"
+    },
+    {
+      "path": "reference/meta-A3JbOunj/annual-2024.body",
+      "bytes": 5341,
+      "sha256": "834a8e599f0e71732a4eca17cb6f530fa70936cbd25f911fb2f923f0394efc77"
+    },
+    {
+      "path": "reference/meta-A3JbOunj/annual-2024.headers",
+      "bytes": 1057,
+      "sha256": "95983c7a09cc804e3dc4cb5cfd975f90105f066a8fd5288f56e5e52a0f5c14eb"
+    },
+    {
+      "path": "reference/meta-A3JbOunj/mapping-2025.body",
+      "bytes": 8413,
+      "sha256": "d044b55b547200b31f41794ff9ee63e8bde3754598df0adb1c2c840c632e39d5"
+    },
+    {
+      "path": "reference/meta-A3JbOunj/mapping-2025.headers",
+      "bytes": 1057,
+      "sha256": "09f71480030e5258485025ce81f0852e85de79f2d75fcab5063f0f20f9b6215a"
+    },
+    {
+      "path": "reference/meta-DpQEtIxe/annual-2024.body",
+      "bytes": 5341,
+      "sha256": "834a8e599f0e71732a4eca17cb6f530fa70936cbd25f911fb2f923f0394efc77"
+    },
+    {
+      "path": "reference/meta-DpQEtIxe/annual-2024.headers",
+      "bytes": 1057,
+      "sha256": "2dd38f23c7ed0cea75612c2b5ec5bdb2e1a1af16b4e2dbb140c82c04bfbf9f6c"
+    },
+    {
+      "path": "reference/meta-DpQEtIxe/mapping-2025.body",
+      "bytes": 8413,
+      "sha256": "d044b55b547200b31f41794ff9ee63e8bde3754598df0adb1c2c840c632e39d5"
+    },
+    {
+      "path": "reference/meta-DpQEtIxe/mapping-2025.headers",
+      "bytes": 1057,
+      "sha256": "a7d592eda9de7ca4aa8206da7b7ebd8578951cd7e2d96a9de25ed5354c3bf694"
+    },
+    {
+      "path": "reference-after.json",
+      "bytes": 4469,
+      "sha256": "6a8fb4cfff852f49b2fc84ae6abd952671b663595ae991c79de14ae7af798573"
+    },
+    {
+      "path": "reference-before.json",
+      "bytes": 4469,
+      "sha256": "60e2e0eaec7d9852f2892c9e0b9bb6abba1693fbc13a47c6c7bf3d8e134ac9a8"
+    },
+    {
+      "path": "setup-log.json",
+      "bytes": 1531,
+      "sha256": "2e6cd30674c9efb822c22ee501e5c1cc2fe64215a9fb4a4888bf18b61c9e21d9"
+    },
+    {
+      "path": "spec.json",
+      "bytes": 2055,
+      "sha256": "ae23c51f06326e604f3ef2fbc08fda265f97034d842b7a90158479d85647bc65"
+    },
+    {
+      "path": "staging-00.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "path": "status.json",
+      "bytes": 7966,
+      "sha256": "582aed2aff9da1c471b9784df9b4cdfa15756b4c7e94e70a8868f5dcef510c5c"
+    }
+  ],
+  "mutable_ledger": "budget.sqlite remains cumulative; use the separately timestamped remaining-accounting.json reconciliation, not an immutable-file claim.",
+  "limitations": [
+    "Metadata inventory of locally retained evidence; raw payloads and private assessments are not published here.",
+    "Process exit, coordinator status and hashes do not establish acquisition, completeness, fidelity or research fitness.",
+    "Resource ledger preserves conservative charges; application-byte accounting excludes unknown historical preparation traffic.",
+    "Independent human scientific review is pending."
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "batch_id": "SCREEN-06",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/11",
+  "performed_by": "GPT-6.1 Terra",
+  "plan": "research/screening/2026-11-17/gap-search-plan.json",
+  "started_utc": "2026-11-17T14:03:57.370134+00:00",
+  "finished_utc": "2026-11-17T14:04:21.026403+00:00",
+  "status": "search_complete_screening_pending",
+  "limitations": [
+    "Queries used GitHub repository search with the exact recorded parameters and no in:readme qualifier; README resources were fetched separately after search. This is not a complete code census.",
+    "No health payload downloads, candidate execution, installation, or eligibility inference from README alone.",
+    "Search results are unscreened leads unless all eligibility criteria are supported by inspected evidence.",
+    "Seed overlap is an exact full-name text check only; pilot and canonical lineage require source review.",
+    "Only first five results by stars per query were retrieved; count is not eligible-system count."
+  ],
+  "queries": [
+    {
+      "id": "G01",
+      "domain": "provider/facility",
+      "query": "\"NPPES\" download language:Python",
+      "accessed_utc": "2026-11-17T14:03:57.370168+00:00",
+      "endpoint": "https://api.github.com/search/repositories",
+      "parameters": {
+        "q": "\"NPPES\" download language:Python",
+        "sort": "stars",
+        "order": "desc",
+        "per_page": 5,
+        "page": 1
+      },
+      "status": "success",
+      "error": null,
+      "response_sha256": "62f844b54772523391a8bbfb3ba6abecbeaa87f40f2e39b397748d0d7426099c",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned_count": 1,
+      "results": [
+        {
+          "full_name": "nfisher20/nppes-scrape",
+          "url": "https://github.com/nfisher20/nppes-scrape",
+          "description": "Scrapes NPPES site and downloads new prescriber information. Unpivots prescriber information, uploads to blob storage, and executes data factory pipelines that insert records into database. ",
+          "stars": 0,
+          "fork": false,
+          "archived": false,
+          "default_branch": "main",
+          "updated_at": "2021-01-18T17:27:19Z",
+          "classification": "unscreened",
+          "seed_text_match": false,
+          "pilot_overlap": "no exact repository-name match; lineage unassessed",
+          "eligibility": "not assessed",
+          "evidence": [
+            {
+              "url": "https://api.github.com/repos/nfisher20/nppes-scrape",
+              "accessed_utc": "2026-11-17T14:04:18.060363+00:00",
+              "access_status": "success",
+              "response_sha256": "1debbe06a624e590bad64ee8eec314ce061afbee77ca2d245ab07b40ef06f3f4",
+              "error": null,
+              "observation": "Repository metadata inspected; parent and source shown when GitHub supplies them.",
+              "parent": null,
+              "source": null,
+              "default_branch": "main"
+            },
+            {
+              "url": "https://api.github.com/repos/nfisher20/nppes-scrape/readme",
+              "accessed_utc": "2026-11-17T14:04:18.448026+00:00",
+              "access_status": "success",
+              "response_sha256": "738d9ecf01e54cb79ab48d7184d7761a9e016a86965c8d426fc04273b44392f9",
+              "error": null,
+              "path": "README.md",
+              "git_blob_sha": "651ec1188637193758c5ed546ae9b23b06174a94",
+              "observation": "README metadata inspected; eligibility and acquisition implementation not established.",
+              "excerpt": "# nppes-scrape\nScrapes NPPES site and downloads new prescriber information. Unpivots prescriber information, uploads to blob storage, and executes data factory pipelines that insert records into database. \n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "domain": "provider/facility",
+      "query": "\"hospital cost reports\" download",
+      "accessed_utc": "2026-11-17T14:03:57.950672+00:00",
+      "endpoint": "https://api.github.com/search/repositories",
+      "parameters": {
+        "q": "\"hospital cost reports\" download",
+        "sort": "stars",
+        "order": "desc",
+        "per_page": 5,
+        "page": 1
+      },
+      "status": "success",
+      "error": null,
+      "response_sha256": "d27195f445fa7143584aa5eb4e8149cff3f9954ba14d34a4d3088f5559715771",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned_count": 1,
+      "results": [
+        {
+          "full_name": "jfangmeier/hcris-cost-reports",
+          "url": "https://github.com/jfangmeier/hcris-cost-reports",
+          "description": "R code to download and process hospital cost reports (HCRIS) and display in Shiny dashboard ",
+          "stars": 4,
+          "fork": false,
+          "archived": false,
+          "default_branch": "main",
+          "updated_at": "2026-02-12T23:55:44Z",
+          "classification": "unscreened",
+          "seed_text_match": false,
+          "pilot_overlap": "no exact repository-name match; lineage unassessed",
+          "eligibility": "not assessed",
+          "evidence": [
+            {
+              "url": "https://api.github.com/repos/jfangmeier/hcris-cost-reports",
+              "accessed_utc": "2026-11-17T14:04:19.014790+00:00",
+              "access_status": "success",
+              "response_sha256": "7e5b4bdb7d64dc395c83ab7c409d86723d44f3e32b8a3693f2c7396e6bc6b2ea",
+              "error": null,
+              "observation": "Repository metadata inspected; parent and source shown when GitHub supplies them.",
+              "parent": null,
+              "source": null,
+              "default_branch": "main"
+            },
+            {
+              "url": "https://api.github.com/repos/jfangmeier/hcris-cost-reports/readme",
+              "accessed_utc": "2026-11-17T14:04:19.410980+00:00",
+              "access_status": "success",
+              "response_sha256": "8c7bfe66ffe8abf6ddb46ce55e045a90acee7d70c684e0ea4a9f0c265fe85813",
+              "error": null,
+              "path": "README.md",
+              "git_blob_sha": "e9f2eef1bae85508eccb2634470f2e3f72d0cbbc",
+              "observation": "README metadata inspected; eligibility and acquisition implementation not established.",
+              "excerpt": "\n<!-- README.md is generated from README.Rmd. Please edit that file -->\n\n# hcris-cost-reports\n\nThis repository includes code to download and process the CMS hospital\ncost report data, known as HCRIS (Healthcare Cost Report Information\nSystem). The data includes reports for hospitals that completed the 2010\nversion of the cost report form, from approximately 2010 through the\npresent.\n\nThe code (`R/hcris-script.R`) generates two forms of report data and\nselect variables: records from hospitals representing their own fiscal\nyear and records from hospitals converted to synthetic calendar years.\nThe synthetic data method borrows from [Adam Sacarny\u2019s Stata\ncode](https://github.com/asacarny/hospita"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "domain": "population/surveillance",
+      "query": "\"CDC WONDER\" download",
+      "accessed_utc": "2026-11-17T14:03:58.458299+00:00",
+      "endpoint": "https://api.github.com/search/repositories",
+      "parameters": {
+        "q": "\"CDC WONDER\" download",
+        "sort": "stars",
+        "order": "desc",
+        "per_page": 5,
+        "page": 1
+      },
+      "status": "success",
+      "error": null,
+      "response_sha256": "4af480b8ee5b87b369a76c49bd22c9a783908272ebffbe97898f8ab0f0772a5f",
+      "total_count": 0,
+      "incomplete_results": false,
+      "returned_count": 0,
+      "results": []
+    },
+    {
+      "id": "G04",
+      "domain": "population/surveillance",
+      "query": "\"BRFSS\" aggregate download",
+      "accessed_utc": "2026-11-17T14:03:58.858051+00:00",
+      "endpoint": "https://api.github.com/search/repositories",
+      "parameters": {
+        "q": "\"BRFSS\" aggregate download",
+        "sort": "stars",
+        "order": "desc",
+        "per_page": 5,
+        "page": 1
+      },
+      "status": "success",
+      "error": null,
+      "response_sha256": "a91d898b52e63ef46bdec1b969ccf3106c145f7ca07a1a4b1237612ac4e37b86",
+      "total_count": 1,
+      "incomplete_results": false,
+      "returned_count": 1,
+      "results": [
+        {
+          "full_name": "mirador/brfss",
+          "url": "https://github.com/mirador/brfss",
+          "description": "Scripts to download and aggregate BRFSS data",
+          "stars": 1,
+          "fork": false,
+          "archived": true,
+          "default_branch": "master",
+          "updated_at": "2025-04-14T04:12:22Z",
+          "classification": "unscreened",
+          "seed_text_match": false,
+          "pilot_overlap": "no exact repository-name match; lineage unassessed",
+          "eligibility": "not assessed",
+          "evidence": [
+            {
+              "url": "https://api.github.com/repos/mirador/brfss",
+              "accessed_utc": "2026-11-17T14:04:20.061073+00:00",
+              "access_status": "success",
+              "response_sha256": "c82aa0a12478575110b1295cb3d34a9b1b9da960b9349596d0d0687b5e76afa8",
+              "error": null,
+              "observation": "Repository metadata inspected; parent and source shown when GitHub supplies them.",
+              "parent": null,
+              "source": null,
+              "default_branch": "master"
+            },
+            {
+              "url": "https://api.github.com/repos/mirador/brfss/readme",
+              "accessed_utc": "2026-11-17T14:04:20.564812+00:00",
+              "access_status": "success",
+              "response_sha256": "30be1449bc748d06e81d6ca85a28903d7401ebfa5176aa6014e2927ddffc4140",
+              "error": null,
+              "path": "README.md",
+              "git_blob_sha": "a2eddae671098a80d2590bc8b76ddd53700aeb87",
+              "observation": "README metadata inspected; eligibility and acquisition implementation not established.",
+              "excerpt": "## Behavioral Risk Factor Surveillance System (BRFSS) Dataset\n\nThese scripts download the BRFSS data provided by [HHS VizRisk](http://www.hhsvizrisk.org/) \nand format it as a mirador project.\n\n### DEPENDENCIES\n\nThe scripts have the following dependencies:\n\n1. Python 2.7.3+ (not tested with 3+) and the following package:\n  * Requests: http://docs.python-requests.org/en/latest/index.html \n\n### Usage\n\n**1)** Download and extract the zip files:\n\n```bash\npython download.py\n```\n\n**2)** Convert the data into Mirador format, specifying the year (either 2011 or 2012):\n\n\n```bash\npython makedataset.py 2011\n```\n\nThe resulting Mirador datasets will be available inside the mirador folder."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "recommendation": "Assign bounded contributor batches to inspect implementation, scope, canonical identity, seed and pilot overlap; retain unresolved cases and do not target a quota.",
+  "correction": {
+    "recorded_utc": "2026-11-17T14:09:00.286107+00:00",
+    "scope": "The locked plan is preserved as written. Its statement that repository search indexes README content is incorrect for these requests: none included in:readme. The actual parameters are recorded per query. Repository metadata and README resources were fetched separately after the searches; they did not determine search matching. No queries were rerun or widened."
+  }
+}

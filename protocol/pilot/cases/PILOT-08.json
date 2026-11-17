@@ -1,0 +1,92 @@
+{
+  "status": "preparation_in_progress_not_locked",
+  "observation_utc": "2026-11-17T00:18:54Z",
+  "selection_rule": "Sort eligible native acquisition entrypoint/source-path identifiers as UTF-8 strings; index = int(first 16 hexadecimal digits of SHA-256(UTF-8(\"OSRI-health-data-pilot-v1|\" + case_id)), 16) modulo number of workflows; zero based.",
+  "authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
+  "resource_policy": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "reference_values": "Not prepared. Execution record contains no fixture, expected records, checker outputs or assessment answers.",
+  "independent_human_review": "Pending; no reviewer appointed.",
+  "provenance": "Prepared by GPT-6 agent using public documentation and source-code inspection; no agent result constitutes independent human review.",
+  "case_id": "PILOT-08",
+  "system": "PricePortal acquisition pipeline",
+  "canonical_repository": "https://github.com/iupui-soic/mrf-pricing-research",
+  "identity_evidence": "README identifies pipeline infra and links distinct Streamlit portal; API reports fork=false. Treat software pipeline and portal as related system, not two independent observations.",
+  "revision": {
+    "hierarchy_result": "No tags or published releases; default-branch commit",
+    "default_branch": "main",
+    "commit": "8bae12afc38cb528438fdccb02242a56b916316f",
+    "commit_date": "2026-05-10T18:53:24Z",
+    "evidence": [
+      "https://api.github.com/repos/iupui-soic/mrf-pricing-research/tags?per_page=100",
+      "https://api.github.com/repos/iupui-soic/mrf-pricing-research/releases?per_page=100",
+      "https://api.github.com/repos/iupui-soic/mrf-pricing-research/commits?per_page=1"
+    ]
+  },
+  "eligibility": "Provisional: revision-matched downloader sends HTTP GET to CMS fee-schedule files and extracts them; other acquisition functions also exist. It is not solely a cache synchronizer.",
+  "implementation_evidence": [
+    "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/lookup_nppes.py",
+    "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/build_hospital_list.py"
+  ],
+  "workflow_enumeration": {
+    "rule": "Include documented entrypoints with non-patient-level external health-source retrieval. Exclude standalone Census demographics, URL-discovery/HEAD-only and remote-cache sync. Distinct source mechanisms or downstream tasks remain separate; combined Indiana workflow includes CDC PLACES, not only Census.",
+    "sorted": [
+      "census/pull_ca_deaths.py",
+      "census/pull_census_in.py",
+      "lookup_nppes.py",
+      "medicare/download_medicare.py",
+      "mrf/build_hospital_list.py",
+      "mrf/download_mrfs.py"
+    ],
+    "sha256": "2b63da400546a8644be30be90ebbdeaeaa4bc15e431447e31d88c9d32f4b3268",
+    "modulus": 6,
+    "zero_based_index": 2,
+    "selected": "lookup_nppes.py",
+    "identity_reason": "Hospital list retrieves CMS Hospital General Information, while lookup_nppes queries CMS NPI Registry to match organization NPIs; latter consumes former output but retrieves a distinct source and executes a different native downstream function.",
+    "evidence": [
+      "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/build_hospital_list.py",
+      "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/lookup_nppes.py",
+      "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/census/pull_census_in.py"
+    ]
+  },
+  "task": {
+    "description": "Default NPPES organization-registry lookup for hospitals lacking an existing MRF-derived NPI, with no limit. Requires hospital list from documented earlier step; existing crosswalk is optional and if absent all hospitals are targets.",
+    "command": ".venv/bin/python mrf/build_hospital_list.py\n.venv/bin/python lookup_nppes.py",
+    "source_release": "NPPES NPI Registry API version 2.1, current response at observation; upstream hospital list is a versioned source URL in build_hospital_list.py. Observation window and exact release provenance must be frozen prior to execution.",
+    "documentation": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/README.md",
+    "source_family": "CMS NPPES NPI Registry organization records (shared upstream family with PILOT-02); prerequisite CMS Hospital General Information",
+    "source_metadata": "https://npiregistry.cms.hhs.gov/api-page"
+  },
+  "runtime_and_dependencies": "Python 3 and requests; prerequisite hospital list requires pandas. Full repository requirements are in requirements.txt. No installation or execution was performed.",
+  "anticipated_barriers": [
+    "Both scripts hard-code /data0/mrf-pricing-research; host writes there violate workspace-only policy. An authorized workspace-backed isolated in-guest path is needed; otherwise classify platform/resource blocked.",
+    "Lookup reads a required generated hospital list and optionally an existing MRF-derived crosswalk; preserve the clean-cache baseline and absence/presence of this optional input in the case record.",
+    "The default queries potentially hundreds of facilities and API responses can change; rate limits, runtime, public terms and matched independent near-time reference feasibility require preflight. No result is known.",
+    "The NPI Registry can include individual providers; selected implementation requests NPI-2 organizational records only. Confirm allowed fields and non-patient boundaries before authorized execution.",
+    "Reference is not prepared; output matches use fuzzy matching, and a match does not independently establish identity or linkage validity."
+  ],
+  "superseded_workflow_enumeration": {
+    "rule": "Revision README names acquisition entrypoints returning external non-patient health or associated data; URL discovery/HEAD validation and cache-only rsync excluded. The linked Census scripts are included as documented population-health context; eligibility adjudication for each workflow remains pending.",
+    "sorted": [
+      "census/pull_ca_deaths.py",
+      "census/pull_census_ca.py",
+      "census/pull_census_in.py",
+      "lookup_nppes.py",
+      "medicare/download_medicare.py",
+      "mrf/build_hospital_list.py",
+      "mrf/download_mrfs.py"
+    ],
+    "sha256": "2b63da400546a8644be30be90ebbdeaeaa4bc15e431447e31d88c9d32f4b3268",
+    "modulus": 7,
+    "zero_based_index": 4,
+    "selected": "medicare/download_medicare.py"
+  },
+  "superseded_task": {
+    "description": "Native documented default downloads all nine specified CMS Medicare MPFS, OPPS and IPPS ZIP files, extracts ZIPs and writes a ledger. Do not silently choose one file or resume cached artifacts.",
+    "command": ".venv/bin/python medicare/download_medicare.py",
+    "source_release": "Fixed per-file source URLs and years in selected revision: 2024–2026 MPFS, 2025–2026 OPPS and FY 2025–2026 IPPS. Confirm exact links in revision-matched code.",
+    "documentation": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/README.md",
+    "source_family": "CMS Medicare fee schedules MPFS/OPPS/IPPS",
+    "source_metadata": "https://www.cms.gov/medicare/payment/fee-schedules/physician/pfs-relative-value-files"
+  },
+  "conditional_pinned_install": "After technical qualification in a disposable environment and workspace-backed working directory: git clone https://github.com/iupui-soic/mrf-pricing-research.git; git -C mrf-pricing-research checkout --detach 8bae12afc38cb528438fdccb02242a56b916316f; cd mrf-pricing-research; python3 -m venv .venv; .venv/bin/pip install -r requirements.txt. The README documents venv and requirements installation; dependency versions, network and safety need preflight."
+}

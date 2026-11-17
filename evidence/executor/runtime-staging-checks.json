@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-11-17T02:04:57.328517+00:00",
+  "performed_by": "Codex synthetic test and guarded runtime smoke",
+  "source_sha256": {
+    "executor/archive.py": "e054309475bb03f89b69a039ba85cd200180dd4c754e65f294f600bfa4b6d5a4",
+    "executor/sandbox.py": "8be6c925399bac9007c37779e552029fc635f17ad72ca01a78fccb7f035f5496",
+    "executor/session.py": "958cbe3862239a6c9007782d5066e7d428a01bc4dea3b419bd76379ab129c897",
+    "tests/executor/test_archive.py": "6c313c848a0f0629f7836b5932f9909f479f78bd93fb1c857cdd684813f4e4d6",
+    "tests/executor/test_session.py": "8c8e1b56c4b449e28a02cca7b53ae20aea671a338d270637181cf16a29e37a59"
+  },
+  "synthetic_tests": {
+    "archive": "3 passed",
+    "session": "6 passed"
+  },
+  "guarded_runtime_smoke": {
+    "archive_sha256": "96905b47a8268e07688a09ecf7a80f21f60241daeee1ddbf14eb2f5cc82f5e16",
+    "disk_bytes": 8589934592,
+    "archive_members": 38316,
+    "unpacked_bytes": 2584506849,
+    "guest_alias": "/workspace/cache/builderbob/medsci-runtime/20261111/r -> /work/runtime/r",
+    "command": [
+      "/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/R",
+      "--version"
+    ],
+    "returncode": 0,
+    "observed": "R version 4.5.3",
+    "guard_cleanup": "clean"
+  },
+  "limitations": [
+    "No candidate workflow, pilot case, health data acquisition or package installation was executed",
+    "Tar hardlinks, device nodes and FIFOs are rejected; guest symlinks outside allowed roots are rejected",
+    "The controlled extraction does not prove dependency compatibility, offline installation or runtime safety",
+    "Full independent review and current integrated requalification remain required",
+    "Private output capture must continue using the separately verified no-symlink supervisor capture",
+    "The sandbox Python has no installed pip or ensurepip; offline bootstrap remains a separate prerequisite"
+  ],
+  "integrated_suite": {
+    "recorded_utc": "2026-11-17T02:06:52.508143+00:00",
+    "command": "PILOT_FUSE_RUNTIME=<workspace extracted runtime> python3 -m unittest discover -s tests/executor -p test_*.py",
+    "result": "75 passed",
+    "source_sha256": {
+      "executor/archive.py": "e054309475bb03f89b69a039ba85cd200180dd4c754e65f294f600bfa4b6d5a4",
+      "executor/sandbox.py": "8be6c925399bac9007c37779e552029fc635f17ad72ca01a78fccb7f035f5496",
+      "executor/session.py": "a36e28c39f5911e21fbbe9c1e485fc41880b3de2490e5925da85d36135ab4c24",
+      "tests/executor/test_archive.py": "6c313c848a0f0629f7836b5932f9909f479f78bd93fb1c857cdd684813f4e4d6",
+      "tests/executor/test_session.py": "f71a950708789e1316d19097e55dd51462d627713a0612a8f215f3a550cfa226"
+    }
+  }
+}

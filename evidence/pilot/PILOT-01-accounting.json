@@ -1,0 +1,23 @@
+{
+  "case_id": "PILOT-01",
+  "after_primary_and_reference": {
+    "elapsed_seconds": 1458.137268334,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 20141.862731666,
+    "vm_charged_seconds": 558.8898370959992,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 13841.110162904,
+    "active_charged_seconds": 433.30290042100023,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10366.697099579,
+    "max_next_active_seconds": 10366.697099579,
+    "max_next_inactive_seconds": 13841.110162904,
+    "network_bytes": 668973303,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 20805863177,
+    "open_reservations": 1
+  },
+  "live_transfer_authority": false,
+  "new_debit_without_live_operation": false,
+  "reconciliation": "The sole remaining 120-second inactive reservation is the retained full charge from the initial pre-command setup hardlink rejection. It is not a running operation or transfer authorization. All case and reference guard scopes stopped and FUSE cleanup reported clean. No refund or budget reset performed."
+}

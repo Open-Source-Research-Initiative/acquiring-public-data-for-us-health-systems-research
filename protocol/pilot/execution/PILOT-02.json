@@ -1,0 +1,31 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-02",
+  "status": "draft_pending_qualification_and_lock",
+  "system": "adesigns/nppes-api",
+  "repository": "https://github.com/adesigns/nppes-api",
+  "source_commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+  "workflow": "nppes-registry-api",
+  "task": {
+    "scope": "Single documented API example; a bounded query, not full NPPES acquisition. A legitimate empty result is possible.",
+    "commands": [
+      "composer require adesigns/nppes-api:1.0.6",
+      "php -r 'require \"vendor/autoload.php\"; $client = new AlbanyDesigns\\NPPESApi\\NPPESApi(); var_dump($client->searchByNumber(1234567890));'"
+    ],
+    "parameters": {
+      "number": "1234567890",
+      "limit": 1,
+      "version": "2.1"
+    }
+  },
+  "setup": "PHP ^7.4 or ^8.0; Composer; dependencies tcdent/php-restclient ^0.1.7 and netresearch/jsonmapper ^1.3|^2|^3|^4; network and PHP cURL required by implementation. No account shown in README; not independently confirmed. Dependency resolution and environment untested.",
+  "permitted_public_documentation": [
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/README.md",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/composer.json",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/example.php",
+    "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/src/AlbanyDesigns/NPPESApi/NPPESApi.php"
+  ],
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

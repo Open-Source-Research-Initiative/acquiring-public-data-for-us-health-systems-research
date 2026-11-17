@@ -1,0 +1,22 @@
+{
+  "case_id": "PILOT-06",
+  "status": "provisional_bundle_not_qualified",
+  "runtime_archive": {
+    "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/externalruntime/r-staging/r-runtime.tar.gz",
+    "sha256": "96905b47a8268e07688a09ecf7a80f21f60241daeee1ddbf14eb2f5cc82f5e16",
+    "guest_extraction": "/work/runtime",
+    "guest_alias": "/workspace/cache/builderbob/medsci-runtime/20261111/r"
+  },
+  "candidate_archive": {
+    "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/sources/PILOT-06.tar.gz",
+    "sha256": "59697b7b025fa9b233e235d265db7e9be31c46cd2a72c1dc06f7d2df696f5e4e",
+    "package": "EPHTrackR"
+  },
+  "additional_sources": [],
+  "limitations": [
+    "Dependency versions, native ABI, and candidate setup have not been qualified.",
+    "Guarded archive extraction and R 4.5.3 version smoke passed; dependency loading, native ABI and package setup remain untested.",
+    "Coordinator selected R CMD INSTALL from pinned archive as immutable-source configuration; recorded setup differs from documented devtools/remotes GitHub installer.",
+    "Documented dependencies=TRUE was not run; suggested packages including testthat are omitted."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "checked_utc": "2026-11-17T14:13:32.219281+00:00",
+  "status": "pass",
+  "seed_sha256": "6172db0ca1787f40a8e9666dbe52b895576874320f1c0e4217b9262a5a3824f0",
+  "seed_count": 33,
+  "batch_files_present": 4,
+  "review_files_present": 2,
+  "reconciliation_checked": true,
+  "errors": [],
+  "scope": "Structural checks only; no eligibility, evidence truth, source access, or human approval established."
+}

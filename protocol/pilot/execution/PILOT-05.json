@@ -1,0 +1,33 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-05",
+  "status": "draft_pending_qualification_and_lock",
+  "system": "CMU Delphi COVIDcast Python client",
+  "repository": "https://github.com/cmu-delphi/covidcast",
+  "source_commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+  "workflow": "signal",
+  "task": {
+    "source": "fb-survey",
+    "signal": "smoothed_cli",
+    "start_day": "2020-05-01",
+    "end_day": "unset; native signal default derives current available maximum date from metadata",
+    "geo_type": "state",
+    "geo_values": "* (default)",
+    "as_of": "unset; latest issue at observation",
+    "command": "from datetime import date\nimport covidcast\ndata = covidcast.signal(\"fb-survey\", \"smoothed_cli\", date(2020, 5, 1), geo_type=\"state\")"
+  },
+  "setup": {
+    "requirements": "Python >=3.6, pandas, requests, delphi-epidata>=0.0.7, geopandas, matplotlib, numpy, descartes, imageio-ffmpeg, imageio, tqdm, epiweeks per tagged setup.py; exact compatible environment unverified.",
+    "documented_install": "pip install covidcast",
+    "revision_constraint": "Pinned installation is coordinator-managed environment configuration; dependency versions remain unfrozen. Upstream docs show floating pip install.",
+    "conditional_pinned_install": "python -m pip install \"covidcast @ git+https://github.com/cmu-delphi/covidcast.git@9f16cfc0c0975a978c4d53ed2e092ee089550b81#subdirectory=Python-packages/covidcast-py\""
+  },
+  "permitted_public_documentation": [
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/docs/getting_started.rst",
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/setup.py",
+    "https://github.com/cmu-delphi/covidcast/blob/9f16cfc0c0975a978c4d53ed2e092ee089550b81/Python-packages/covidcast-py/covidcast/covidcast.py"
+  ],
+  "rules": "../selection-rules.md; coordinator-managed implementation; technical qualification and lock remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

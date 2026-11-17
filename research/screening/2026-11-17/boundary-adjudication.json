@@ -1,0 +1,37 @@
+{
+  "recorded_utc": "2026-11-17T14:10:16.124325+00:00",
+  "performer": "Codex coordinator, with follow-up GPT-6.1 Terra reviews",
+  "decision": "Hold P04 and P17 unresolved consistently until the coupled-application unit is explicitly settled.",
+  "scope": "Provisional screening adjudication, not scientific sign-off.",
+  "reason": "Both inspected viewers fetch separately published data in associated repositories. Shared ownership and visual interfaces are not exclusion criteria. The unresolved distinction is an external published release versus internal output of the coupled application being counted as one system.",
+  "alternatives": [
+    "If the published release is treated as external to the client implementation, both may be eligible.",
+    "If the coupled application plus publication is the system unit, upstream ingestion evidence is needed for that unit."
+  ],
+  "source_checks": [
+    {
+      "url": "https://github.com/klocey/HCRIS-databuilder/blob/master/README.md",
+      "accessed_utc": "2026-11-17T14:10:16.124325+00:00",
+      "access_status": "GitHub connector content inspected",
+      "observation": "Reports are explicitly described as used by the hospital cost report app; CMS SAS inputs must be separately acquired.",
+      "revision": null,
+      "path": "README.md",
+      "sha256": null
+    },
+    {
+      "url": "https://github.com/klocey/hcris-app/blob/main/README.md",
+      "accessed_utc": "2026-11-17T14:10:16.124325+00:00",
+      "access_status": "GitHub connector content inspected",
+      "observation": "Describes a Rush dashboard for analysis and downloads of modified CMS cost reports.",
+      "revision": null,
+      "path": "README.md",
+      "sha256": null
+    }
+  ],
+  "additional_evidence": "Pinned implementation evidence for both IDs remains in batch and review records. Default-branch README observations are not immutable source pins.",
+  "followup_review": "Both cross-checkers agreed the two boundary cases need consistent treatment; REVIEW-A original eligible view and REVIEW-B proposed unresolved view remain preserved.",
+  "limitations": [
+    "GitHub API ownership/fork lookup encountered rate-limit 403; association is supported by documentation, not a full ownership audit.",
+    "No candidate execution or new health-data collection."
+  ]
+}

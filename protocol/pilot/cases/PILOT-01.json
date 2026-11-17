@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1.0",
+  "status": "preparation_in_progress_not_locked",
+  "execution_authorization": "Routine feasibility work delegated; attempts require documented technical qualification and packet lock.",
+  "observation_date": "2026-11-17",
+  "human_lead": "Cole Lyons",
+  "workflow_rule": "Sort workflow IDs; SHA256 UTF-8 of OSRI-health-data-pilot-v1|CASE-ID; interpret first 16 hex digits as integer; modulo workflow count gives zero-based index.",
+  "packet_boundary": "Execution-facing fields only: no reference-selected records, expected values, fixture, checker output or feedback.",
+  "assessment": "Independent reference and assessment packet not yet prepared; kept outside this execution-facing record.",
+  "limits": "Fixed per-case controls: 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network. Include reference capture in case meters. One transient retry OR one diagnostic repeat; preserve the initial outcome.",
+  "executor": "Not appointed; environment and supervisor must be frozen before any authorized execution.",
+  "output_lock": "Location and custodian not assigned; primary log and output must be locked before unsealing assessment.",
+  "review": "Coordinator verifies eligibility, inventory, version, environment and access; major claims and independent-human-review assertions remain subject to human review.",
+  "case_id": "PILOT-01",
+  "system": "asacarny/hospital-cost-reports",
+  "identity_and_eligibility": "Public implementation downloads external CMS hospital cost-report files; non-patient facility/report data; eligibility provisional. Distinct from CMS publisher and other HCRIS tools.",
+  "repository": "https://github.com/asacarny/hospital-cost-reports",
+  "revision": {
+    "commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+    "tag": null,
+    "choice": "Default master HEAD; read-only git ls-remote returned no tags and GitHub releases page reported no published releases. API releases request was rate-limited 403; release check remains subject to coordinator verification before lock.",
+    "cutoff": "2026-11-17T00:17:56Z"
+  },
+  "workflows": [
+    {
+      "id": "hcris-download",
+      "path": "download_source.sh",
+      "description": "Acquires CMS fiscal-year hospital cost report ZIPs and extracts report, numeric, alphanumeric files; years and form versions are parameters of one downloader path."
+    }
+  ],
+  "workflow_enumeration_limits": "README and named downloader inspected; project also offers manually downloadable processed results and transformation scripts, not separate implemented external acquisition workflows. Full tree and hidden undocumented paths not exhaustively audited.",
+  "selected_task": {
+    "scope": "Full documented script default 1996–2024, source 2552-96 for years <=2011 and 2552-10 for years >=2010. Both versions requested in 2010 and 2011.",
+    "command": "bash download_source.sh",
+    "parameters": {
+      "STARTYEAR": 1996,
+      "ENDYEAR": 2024,
+      "OUTFOLDER": "./source"
+    },
+    "output": "Extracted and renamed CSV files in ./source; script removes downloaded ZIPs.",
+    "source_checkout_commands": [
+      "git clone https://github.com/asacarny/hospital-cost-reports.git",
+      "git -C hospital-cost-reports checkout --detach 5a3d57c0af24c2e77cf36e576850fdee16ae8c40"
+    ],
+    "command_working_directory": "hospital-cost-reports"
+  },
+  "source": {
+    "publisher": "CMS",
+    "type": "Hospital HCRIS fiscal-year source files",
+    "url_pattern": [
+      "http://downloads.cms.gov/Files/hcris/HOSPFY${year}.zip",
+      "http://downloads.cms.gov/Files/hcris/HOSP10FY${year}.zip"
+    ],
+    "release": "Script requests year-specific URLs; actual publisher revision and retrieval window require prospective lock before attempt.",
+    "documentation": "https://www.cms.gov/data-research/statistics-trends-and-reports/cost-reports"
+  },
+  "runtime": "Bash, wget, unzip, network and filesystem storage; script does not state account requirement. Output size, endpoint availability, terms and safety/resource fit unknown. Full downstream processing additionally requires R and related dependencies.",
+  "documentation": [
+    "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/README.md",
+    "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/download_source.sh",
+    "https://github.com/asacarny/hospital-cost-reports/releases"
+  ],
+  "risks": "No repository code run. Default full range may exceed resource limits; do not shorten after outcome. Script removes archives and uses HTTP; first assess safe acquisition and retention. No completed source-access, license, storage or independent-reference check.",
+  "workflow_selection": {
+    "seed_sha256": "d316d9e763292290515c6cfcf878fb900fe1b044e827335e1228ba6b90acae2c",
+    "first_16_hex": "d316d9e763292290",
+    "first_16_integer": 15210584379314741904,
+    "sorted_workflow_ids": [
+      "hcris-download"
+    ],
+    "selected_index_zero_based": 0,
+    "selected_workflow": "hcris-download"
+  },
+  "configuration": "Coordinator applies immutable source pinning as environment configuration; no source patches or silent version changes."
+}
