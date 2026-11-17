@@ -1,6 +1,6 @@
 # Feasibility research log
 
-Current outcome: [all eight selected cases have native-attempt records](pilot-findings/README.md), with case 01 preserved. Source-scope limitations, proxy interference and endpoint-specific failures are under human review. The entries below retain their earlier preparation-time status.
+Current outcome: [all eight selected cases have native-attempt records](pilot-findings/README.md), with case 01 preserved. Source-scope limitations, proxy interference and endpoint-specific failures await the consolidated final PI review. The entries below retain their earlier preparation-time status.
 
 ## 17 November 2026 UTC
 
@@ -36,3 +36,7 @@ The post-lock source follow-up now records a filename-case mismatch in the indep
 Cases 02–08 each ran once after scoped runtime qualification. The executor passed 84 integrated tests; case 02/03 setup corrections preserved earlier records and charges. Case 03's confined offline export and independently authored checker found three partial row agreements and a substantial retrieval-scope limitation. Cases 06/07 include broker policy interference; later independent metadata requests succeeded. Cases 04/05/08 failed at selected URLs returning 404. Case 02 returned `NULL` with contemporaneous empty independent responses but unretained native response bytes.
 
 The [review package](pilot-findings/README.md) proposes the major claims and next method amendment. It does not treat attempt counts as a population success estimate, three rows as three workflow comparisons, or source-only follow-ups as candidate repeats. Independent human review and the main-study comparison gate remain unmet.
+
+## Issue-based screening and final PI review
+
+Cole authorized a [contributor issue series](screening/README.md) and one final PI review after assigned model work. The first round rechecks 33 fixed historical leads, records separate source cross-checks and lineage, and performs a separately bounded gap search. Active policy is in [final PI review](../governance/final-pi-review.md); earlier dated review requirements above are historical. Original pilot findings remain unchanged.

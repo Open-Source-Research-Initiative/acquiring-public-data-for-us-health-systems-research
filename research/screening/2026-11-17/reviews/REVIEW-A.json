@@ -1,0 +1,385 @@
+{
+  "review_id": "REVIEW-A",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/10",
+  "performed_by": "GPT-6.1 Terra",
+  "started_utc": "2026-11-17T14:00:00Z",
+  "finished_utc": "2026-11-17T14:06:26.299534+00:00",
+  "records": [
+    {
+      "id": "P01",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "CMS hospital ZIP wget calls demonstrate acquisition; exact system is PILOT-01 and excluded from future primary sample.",
+      "evidence": [
+        {
+          "url": "https://github.com/asacarny/hospital-cost-reports/blob/5a3d57c0af24c2e77cf36e576850fdee16ae8c40/download_source.sh",
+          "accessed_utc": "2026-11-17T14:06:23.964446+00:00",
+          "observation": "CMS hospital ZIP wget calls demonstrate acquisition; exact system is PILOT-01 and excluded from future primary sample.",
+          "revision": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+          "path": "download_source.sh",
+          "sha256": "27fc164a2c2f4b641893f7c08917b67f82a5cd5f4ccc913026aa62d4bfda9374",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Pilot excluded from future primary sample; endpoint not tested",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P02",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "README instructs users to download input files before extraction; no network acquisition established.",
+      "evidence": [
+        {
+          "url": "https://github.com/imccart/HCRIS/blob/7666d7f8984e47ddfcda7ed77d0673cf1ff3283e/README.md",
+          "accessed_utc": "2026-11-17T14:06:24.031125+00:00",
+          "observation": "README instructs users to download input files before extraction; no network acquisition established.",
+          "revision": "7666d7f8984e47ddfcda7ed77d0673cf1ff3283e",
+          "path": "README.md",
+          "sha256": "3160b02dd4b86056a2a4845bb13183782c318c2361a0d41bdeda624888b10648",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "No network acquisition established; exhaustive absence search not claimed",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P03",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Inspected parser reads local input streams.",
+      "evidence": [
+        {
+          "url": "https://github.com/HealthParse-io/us-health-data-tools/blob/7f280856c1a6200c25a473bd7e561db50aa12fbd/hcris/parse-hcris.mjs",
+          "accessed_utc": "2026-11-17T14:06:24.100490+00:00",
+          "observation": "Inspected parser reads local input streams.",
+          "revision": "7f280856c1a6200c25a473bd7e561db50aa12fbd",
+          "path": "hcris/parse-hcris.mjs",
+          "sha256": "8238b69bb9f5f85016a898851ee37c697efabf37996f9744fff3de992f55221f",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Hosted service backend uninspected",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P04",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Application reads externally hosted processed hospital-provider CSVs; upstream publisher and lineage need investigation before sampling.",
+      "evidence": [
+        {
+          "url": "https://github.com/klocey/hcris-app/blob/7d5caf755f49b4f410fa6539f79da58fd9959104/app.py",
+          "accessed_utc": "2026-11-17T14:06:24.190443+00:00",
+          "observation": "Application reads externally hosted processed hospital-provider CSVs; upstream publisher and lineage need investigation before sampling.",
+          "revision": "7d5caf755f49b4f410fa6539f79da58fd9959104",
+          "path": "app.py",
+          "sha256": "3ddf3913146ad2598d5ed943ce3002121654fe1714f80962c40912862a1c4a1f",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Third-party processed publication rather than CMS files; upstream lineage and availability unverified",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P05",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "CMS enrollment downloads implemented; fork parent is usbrandon/provider-data-tools, so count one canonical lineage.",
+      "evidence": [
+        {
+          "url": "https://github.com/videntity/provider-data-tools/blob/03dc94a17bbeb0716c04cb1173bd6e377e829eb6/pdt/pull_pecos.py",
+          "accessed_utc": "2026-11-17T14:06:24.254241+00:00",
+          "observation": "CMS enrollment downloads implemented; fork parent is usbrandon/provider-data-tools, so count one canonical lineage.",
+          "revision": "03dc94a17bbeb0716c04cb1173bd6e377e829eb6",
+          "path": "pdt/pull_pecos.py",
+          "sha256": "bc9a11ba1b3083453473c68c932f4408b96e2cbb7427aec323bf2ae6ef5bfae1",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "GitHub metadata reports fork parent and source usbrandon/provider-data-tools; deduplicate lineage. Endpoint untested",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P06",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Repository documents a hosted actor with implementation absent.",
+      "evidence": [
+        {
+          "url": "https://github.com/logiover/npi-registry-scraper/blob/c5f492067ff607e2d2e892db51b5a25922bd7d74/README.md",
+          "accessed_utc": "2026-11-17T14:06:24.327069+00:00",
+          "observation": "Repository documents a hosted actor with implementation absent.",
+          "revision": "c5f492067ff607e2d2e892db51b5a25922bd7d74",
+          "path": "README.md",
+          "sha256": "486e318b01c50d86a8e33f4c925b5801a5efa5f4bf498d9fc17529813831aa55",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Implementation public availability elsewhere not established; no actor run",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P07",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "cr_extract processes an already supplied cost-report dataset.",
+      "evidence": [
+        {
+          "url": "https://github.com/robertgambrel/medicare/blob/f633bea82b785b1fefde1e282105522a5d0b0c0e/R/cr_extract.R",
+          "accessed_utc": "2026-11-17T14:06:24.393405+00:00",
+          "observation": "cr_extract processes an already supplied cost-report dataset.",
+          "revision": "f633bea82b785b1fefde1e282105522a5d0b0c0e",
+          "path": "R/cr_extract.R",
+          "sha256": "7591b823d55383d27771585cf32a8c0197d3b4ef748287157f99c6c6c9a4ed19",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Development HEAD equivalence to CRAN release unverified; no exhaustive absence search",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P22",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Publisher website is a companion lead; direct request returned 404, so source code availability is uncertain.",
+      "evidence": [
+        {
+          "url": "https://hcris.hfssoft.com/default.aspx",
+          "accessed_utc": "2026-11-17T14:06:24.688523+00:00",
+          "observation": "Publisher website is a companion lead; direct request returned 404, so source code availability is uncertain.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "Independent request failed: HTTP Error 404: Not Found"
+        }
+      ],
+      "uncertainties": [
+        "Site access does not establish implementation or payload access.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation.",
+        "Direct review request failed; classification is limited by unavailable source and first-pass evidence."
+      ]
+    },
+    {
+      "id": "P32",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "CMS NPI API client implements requests; exact system is PILOT-02 and excluded from future primary sample.",
+      "evidence": [
+        {
+          "url": "https://github.com/adesigns/nppes-api/blob/2b6a830d608885dd3a814952fbf18575431b5cf5/src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+          "accessed_utc": "2026-11-17T14:06:24.754365+00:00",
+          "observation": "CMS NPI API client implements requests; exact system is PILOT-02 and excluded from future primary sample.",
+          "revision": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+          "path": "src/AlbanyDesigns/NPPESApi/NPPESApi.php",
+          "sha256": "dfb9695502e9c7ecc2beb8eced3fe51103c6e0ade27cc9a99b807a9ed3fca112",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Pilot excluded from future primary sample; endpoint untested; static TLS concern for preflight",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P08",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Downloader streams discovered hospital MRF URLs; repository is PILOT-08 and excluded from future primary sample.",
+      "evidence": [
+        {
+          "url": "https://github.com/iupui-soic/mrf-pricing-research/blob/8bae12afc38cb528438fdccb02242a56b916316f/mrf/download_mrfs.py",
+          "accessed_utc": "2026-11-17T14:06:24.816458+00:00",
+          "observation": "Downloader streams discovered hospital MRF URLs; repository is PILOT-08 and excluded from future primary sample.",
+          "revision": "8bae12afc38cb528438fdccb02242a56b916316f",
+          "path": "mrf/download_mrfs.py",
+          "sha256": "fa5bc39c121a69a3f62b2c6c5fceed503c89bdf6fabd607f49127e5bc4d40582",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Not executed; completeness and availability unestablished.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P09",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "agreement": true,
+      "reason": "Provider search POST is implemented, but source public status and U.S. coverage remain unestablished; common organization with P10 does not prove identical lineage.",
+      "evidence": [
+        {
+          "url": "https://github.com/turquoisehealth/pricepoints/blob/b9bd9b6f609ce7f73aa70651a4305d226de39664/projects/2025_11_cpw/fetch_npis.py",
+          "accessed_utc": "2026-11-17T14:06:24.886871+00:00",
+          "observation": "Provider search POST is implemented, but source public status and U.S. coverage remain unestablished; common organization with P10 does not prove identical lineage.",
+          "revision": "b9bd9b6f609ce7f73aa70651a4305d226de39664",
+          "path": "projects/2025_11_cpw/fetch_npis.py",
+          "sha256": "53689f1017320683ac32b64a1cecb72081642b328422d46f42b5cd1ce271f96a",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Public publication, access terms and U.S. scope of provider index require confirmation.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P10",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Hosted tracker is a companion; acquisition implementation not established, and common vendor with P09 does not establish identical lineage.",
+      "evidence": [
+        {
+          "url": "https://turquoise.health/mrf_tracker",
+          "accessed_utc": "2026-11-17T14:06:25.082462+00:00",
+          "observation": "Hosted tracker is a companion; acquisition implementation not established, and common vendor with P09 does not establish identical lineage.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "Independent request failed: HTTP Error 403: Forbidden"
+        }
+      ],
+      "uncertainties": [
+        "Underlying code availability and complete lineage unestablished.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation.",
+        "Direct review request failed; classification is limited by unavailable source and first-pass evidence."
+      ]
+    },
+    {
+      "id": "P11",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "CMS repository provides guidance and schemas, separately linking a validator; acquisition implementation not established.",
+      "evidence": [
+        {
+          "url": "https://github.com/CMSgov/hospital-price-transparency/blob/5333564a710f80d7740180b9ffab8dbdcba9b502/README.md",
+          "accessed_utc": "2026-11-17T14:06:25.220199+00:00",
+          "observation": "CMS repository provides guidance and schemas, separately linking a validator; acquisition implementation not established.",
+          "revision": "5333564a710f80d7740180b9ffab8dbdcba9b502",
+          "path": "README.md",
+          "sha256": "32e76fe340e26267b31ea26378d661fc924392b25764d6eacf08e11d99d21230",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "No exhaustive audit of linked validator source.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P15",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Publisher documentation is a companion to separate P16 client; shared source family does not establish duplicate implementation.",
+      "evidence": [
+        {
+          "url": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation",
+          "accessed_utc": "2026-11-17T14:06:25.360759+00:00",
+          "observation": "Publisher documentation is a companion to separate P16 client; shared source family does not establish duplicate implementation.",
+          "revision": null,
+          "path": null,
+          "sha256": "ac713530de14259b6c0fbb084a2d08f6f6c6ed36f752b1d85890360549367e77",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Not a comprehensive audit of every linked repository.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P16",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "County and state release acquisition implemented by client and helpers; system is PILOT-07 and excluded from future primary sample. Inspected revision differs from pilot pin.",
+      "evidence": [
+        {
+          "url": "https://github.com/countyhealthrankings/countyhealthR/blob/951a0cc9eee3a424f04cc1461f336837a336160b/R/zenodo_helpers.R",
+          "accessed_utc": "2026-11-17T14:06:25.503823+00:00",
+          "observation": "County and state release acquisition implemented by client and helpers; system is PILOT-07 and excluded from future primary sample. Inspected revision differs from pilot pin.",
+          "revision": "951a0cc9eee3a424f04cc1461f336837a336160b",
+          "path": "R/zenodo_helpers.R",
+          "sha256": "19ffc47532eab28e5c7227979fb48324d07c41fed324277654227e2ad940f54d",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Inspected revision differs from pilot pin; no execution or release verification performed.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P19",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "Hospital methodology is a supporting document, with controlled patient-level inputs outside screen; distinct from P33.",
+      "evidence": [
+        {
+          "url": "https://hcai.ca.gov/wp-content/uploads/2026/05/Hospital-Measurement-Methodology-April-2026.pdf",
+          "accessed_utc": "2026-11-17T14:06:26.208040+00:00",
+          "observation": "Hospital methodology is a supporting document, with controlled patient-level inputs outside screen; distinct from P33.",
+          "revision": null,
+          "path": null,
+          "sha256": "7ffb79f622a451a2d763917d00744c9c9961bb5baabc273656bef7438e81b2c9",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "No linked implementation established.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    },
+    {
+      "id": "P33",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "agreement": true,
+      "reason": "GET targets a placeholder rather than specified published source; actual endpoint remains needed; distinct from P19.",
+      "evidence": [
+        {
+          "url": "https://github.com/HopeEK/hcai-inspector-download/blob/20d210e13c45680f30002c380e3a719602d02dfb/download_inspectors.py",
+          "accessed_utc": "2026-11-17T14:06:26.299506+00:00",
+          "observation": "GET targets a placeholder rather than specified published source; actual endpoint remains needed; distinct from P19.",
+          "revision": "20d210e13c45680f30002c380e3a719602d02dfb",
+          "path": "download_inspectors.py",
+          "sha256": "3de3f80603ecbb13483977583dfa269af39e62bac88e2c7ceb0d6ea310e7f0a6",
+          "access_status": "HTTP 200; independently fetched source"
+        }
+      ],
+      "uncertainties": [
+        "Actual endpoint and acquisition of published dataset unestablished.",
+        "No execution, payload collection, independent human review, or verified research-team affiliation."
+      ]
+    }
+  ]
+}

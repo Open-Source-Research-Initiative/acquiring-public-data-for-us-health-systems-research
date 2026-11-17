@@ -12,7 +12,7 @@ The initial scope covers non-patient-level public U.S. data, including provider/
 
 The lead authorized repository setup and feasibility research in November 2026. This covers contribution research, candidate/code inspection, protocol development, and preparation and technically qualified attempts for an exploratory eight-system pilot. It does not authorize the main evaluation or establish independent human scientific review.
 
-Routine feasibility decisions are delegated to the research coordinator. Cole reviews major scientific claims, material design changes and progression beyond feasibility. Runtime and isolation controls remain prerequisites for attempts.
+Screening now proceeds through [open contributor issues](research/screening/README.md). Assigned model work and cross-checks finish before one consolidated packet goes to Cole for final PI review and sign-off. Routine screening decisions do not need intermediate human approval. Model agreement is not human review; runtime and isolation controls remain prerequisites for any separately authorized attempts.
 
 - [Research log](research/README.md): completed work and evidence limits.
 - [Research protocol](protocol.md): scope, selection rules, pilot progression and limits.
@@ -33,7 +33,7 @@ Cases 02–08 used [hash-bound runtime plans](protocol/pilot/runtime/locked/) an
 
 Cole authorized a [separate diagnostic amendment](protocol/pilot/diagnostic-06-07-amendment.md) for cases 06–07. The [original findings and review package](research/pilot-findings/README.md) remain preserved as recorded before those diagnostics. The [diagnostic findings for review](research/pilot-findings/diagnostics-06-07.md) report new tracing, qualification and results separately; available source records, returned-record agreement and full acquisition remain distinct claims.
 
-The main evaluation and broader collection remain unapproved. The required workflow comparisons across multiple source families and independent qualified human review are not established. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
+The [first screening round](research/screening/README.md) rechecks 33 historical leads and logs a separate search for missed candidates. Contributors can take a batch or challenge a model draft. The [final PI review policy](governance/final-pi-review.md) makes Cole the sole required human reviewer, with a second reviewer optional at his request. The main evaluation remains unapproved, and the required workflow comparisons remain unmet.
 
 ## Standards and reuse
 

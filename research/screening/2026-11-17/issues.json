@@ -1,0 +1,57 @@
+[
+  {
+    "id": "SCREEN-00",
+    "title": "Coordinate contributor screening and the final PI review packet",
+    "number": 5,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/5"
+  },
+  {
+    "id": "SCREEN-01",
+    "title": "Provider, facility and financial acquisition",
+    "number": 6,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/6"
+  },
+  {
+    "id": "SCREEN-02",
+    "title": "Pricing, rankings and quality resources",
+    "number": 7,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/7"
+  },
+  {
+    "id": "SCREEN-03",
+    "title": "Surveillance and infectious-disease aggregates",
+    "number": 8,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/8"
+  },
+  {
+    "id": "SCREEN-04",
+    "title": "Population and environmental health resources",
+    "number": 9,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/9"
+  },
+  {
+    "id": "SCREEN-05",
+    "title": "Cross-check eligibility, reconcile duplicates and retain disagreements",
+    "number": 10,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/10"
+  },
+  {
+    "id": "SCREEN-06",
+    "title": "Run a bounded gap search for missed nonpilot acquisition systems",
+    "number": 11,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/11"
+  },
+  {
+    "id": "SCREEN-07",
+    "title": "Assemble the completed screening packet for final PI review and sign-off",
+    "number": 12,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/12"
+  },
+  {
+    "id": "SCREEN-08",
+    "title": "Screen three newly discovered repository leads",
+    "number": 13,
+    "url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/13",
+    "round": "followup_unassigned"
+  }
+]

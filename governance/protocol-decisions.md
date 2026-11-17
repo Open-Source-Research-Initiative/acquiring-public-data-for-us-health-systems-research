@@ -1,5 +1,9 @@
 # Research delegation and review boundaries
 
+## 17 November 2026: final PI review workflow
+
+Cole directed a prospective change to the review sequence: complete the assigned model work and checks, or record typed blocks and disagreements, before presenting one consolidated packet for his final review of the assigned phase. Routine intermediate human review gates are superseded by this sequence. The packet and decision requirements are in [final PI review](final-pi-review.md). This direction does not itself accept a scientific claim or authorize the main evaluation. The evidence thresholds and technical prerequisites remain unchanged. Cole is the sole required human reviewer for the phase and for deciding progression. A second reviewer is optional if Cole requests one; independent human review must occur before it is claimed.
+
 17 November 2026, updated following Cole's direction to remove cost considerations and avoid routine micromanagement. The earlier four-decision request is superseded. Routine feasibility work is delegated to the research coordinator; major scientific claims remain subject to human review. No claim of completed scientific review follows from this delegation.
 
 ## Coordinator responsibility
@@ -12,13 +16,13 @@ Cost estimates, spending ceilings, staff-hour budgets and effort-based progressi
 
 ## Human review
 
-Bring Cole concrete evidence and a recommendation for:
+In the final packet, bring Cole concrete evidence and a recommendation for:
 
 - Major scientific claims: the contribution, source-identity or fidelity findings, generalizations, and conclusions intended for publication.
 - Material design changes: a changed population, primary outcome, evaluator regime, independence claim or progression standard.
 - Progression from feasibility to the main evaluation, and scientific publication/submission decisions.
 
-Routine source interpretation and case preparation can proceed with agent assistance. Record uncertainty and collect the evidence needed for major claims instead of presenting each uncertainty as a permission question. Independent human review must actually occur before it is claimed; a second qualified reviewer remains unappointed. Single-lead exploratory work may continue, while the existing independent-review requirement for main-study progression remains.
+Routine source interpretation and case preparation can proceed with agent assistance. Record uncertainty and collect the evidence needed for major claims instead of presenting each uncertainty as a permission question. Independent human review must actually occur before it is claimed; a second qualified reviewer remains unappointed and is optional if Cole requests one. Cole decides progression after reviewing the consolidated packet.
 
 ## Current technical state
 

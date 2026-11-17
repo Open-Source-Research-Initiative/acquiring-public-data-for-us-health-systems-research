@@ -1,0 +1,586 @@
+{
+  "recorded_utc": "2026-11-17T14:10:16.124325+00:00",
+  "status": "model_adjudicated_PI_unsigned",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/10",
+  "performed_by": "Codex coordinator after GPT-6.1 Terra cross-checks",
+  "counts": {
+    "eligible": 14,
+    "companion": 10,
+    "unresolved": 5,
+    "excluded": 4
+  },
+  "eligible_provisional_system_groups": 14,
+  "eligible_pilot_leads": 8,
+  "potential_nonpilot_leads": [
+    "P05",
+    "P12",
+    "P13",
+    "P14",
+    "P24",
+    "P25"
+  ],
+  "system_identity_limits": "Canonical grouping is provisional; common source does not make two implementations duplicates. P05 fork and parent count as one family, not two leads. P04/P17 unresolved boundary cases are not eligible counts.",
+  "records": [
+    {
+      "id": "P01",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. CMS hospital ZIP wget calls demonstrate acquisition; exact system is PILOT-01 and excluded from future primary sample.",
+      "canonical_system": "asacarny/hospital-cost-reports",
+      "pilot_case": "PILOT-01",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P02",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. README instructs users to download input files before extraction; no network acquisition established.",
+      "canonical_system": "imccart/HCRIS",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P03",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Inspected parser reads local input streams.",
+      "canonical_system": "HealthParse-io/us-health-data-tools",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P04",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "unresolved",
+      "rationale": "Both inspected viewers fetch separately published data in associated repositories. Shared ownership and visual interfaces are not exclusion criteria. The unresolved distinction is an external published release versus internal output of the coupled application being counted as one system.",
+      "canonical_system": "klocey/hcris-app",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": true,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P05",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. CMS enrollment downloads implemented; fork parent is usbrandon/provider-data-tools, so count one canonical lineage.",
+      "canonical_system": "usbrandon/provider-data-tools family (inspected videntity fork)",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P06",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Repository documents a hosted actor with implementation absent.",
+      "canonical_system": "logiover/npi-registry-scraper",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P07",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. cr_extract processes an already supplied cost-report dataset.",
+      "canonical_system": "robertgambrel/medicare",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P08",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Downloader streams discovered hospital MRF URLs; repository is PILOT-08 and excluded from future primary sample.",
+      "canonical_system": "iupui-soic/mrf-pricing-research",
+      "pilot_case": "PILOT-08",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P09",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "final_classification": "unresolved",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Provider search POST is implemented, but source public status and U.S. coverage remain unestablished; common organization with P10 does not prove identical lineage.",
+      "canonical_system": "turquoisehealth/pricepoints",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P10",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Hosted tracker is a companion; acquisition implementation not established, and common vendor with P09 does not establish identical lineage.",
+      "canonical_system": "Turquoise Health Live MRF Tracker",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P11",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. CMS repository provides guidance and schemas, separately linking a validator; acquisition implementation not established.",
+      "canonical_system": "CMS hospital-price-transparency technical implementation guide",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P12",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. The inspected makefile independently confirms wget of CDC state and county case files. P12 also consumes COVID Tracking outputs; shared input does not make P12 and P14 the same workflow. No pilot-system identity match.",
+      "canonical_system": "covidestim/covidestim-sources",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P13",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Code calls wget.download with the configured URL; the independently read COVID Tracking configuration specifies U.S. state hospitalizations. P13 is a downstream system using P14 data; do not count that shared input twice as independent source families. No pilot match.",
+      "canonical_system": "google-research/open-covid-19-data",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P14",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Archived project script requests CDC state-indexed county time series and writes CSVs. This qualifies that specific archived acquisition path; it does not establish how the separate curated project state data was collected. P12 and P13 using project data do not make them identical systems. No pilot match.",
+      "canonical_system": "COVID19Tracking/covid-tracking-data",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P15",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Publisher documentation is a companion to separate P16 client; shared source family does not establish duplicate implementation.",
+      "canonical_system": "County Health Rankings & Roadmaps data and documentation portal",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P16",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. County and state release acquisition implemented by client and helpers; system is PILOT-07 and excluded from future primary sample. Inspected revision differs from pilot pin.",
+      "canonical_system": "countyhealthrankings/countyhealthR",
+      "pilot_case": "PILOT-07",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P17",
+      "initial_classification": "eligible",
+      "review_classification": "unresolved",
+      "final_classification": "unresolved",
+      "rationale": "Both inspected viewers fetch separately published data in associated repositories. Shared ownership and visual interfaces are not exclusion criteria. The unresolved distinction is an external published release versus internal output of the coupled application being counted as one system.",
+      "canonical_system": "NYC Environment and Health Data Portal Data Explorer",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": true,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P18",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. README describes disclosure-control verification and supplying a local file; this supports companion status, not evidence of a public-source acquisition workflow. No pilot match.",
+      "canonical_system": "CDC COVID-19 Case Privacy Review",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P19",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Hospital methodology is a supporting document, with controlled patient-level inputs outside screen; distinct from P33.",
+      "canonical_system": "HCAI hospital measurement methodology",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P20",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "final_classification": "excluded",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. NHS England identifies linked OpenPrescribing as using practice prescribing data covering England. The original site returned 403. No U.S. acquisition established and outside the stated scope. P21 is related but does not change geography.",
+      "canonical_system": "OpenPrescribing",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P21",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "final_classification": "excluded",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Independently inspected the project paper identifying hospital medicines use in England. This is outside the U.S. scope; related to P20 without evidence to combine their implementations.",
+      "canonical_system": "OpenPrescribing Hospitals",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P22",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "final_classification": "companion",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Publisher website is a companion lead; direct request returned 404, so source code availability is uncertain.",
+      "canonical_system": "Health Financial Systems HCRIS website",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P23",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. get_data describes Tracking API measure, geographic and temporal retrieval. Pilot manifest identifies CDC EPHTrackR as PILOT-06, excluded from the future primary frame.",
+      "canonical_system": "CDC EPHTrackR",
+      "pilot_case": "PILOT-06",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P24",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Independently inspected an additional CARA path: it requests Wisconsin DHS vector-borne county CSVs and parses the response. This is one system with multiple acquisition paths, not multiple systems. No pilot match.",
+      "canonical_system": "CARA",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P25",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Client implements request path to CDC Socrata and getPlacesData; independently inspected constants map county PLACES datasets. It is distinct code from pilot CDCPLACES but shares the CDC PLACES source family. No pilot identity match.",
+      "canonical_system": "openpharma CDC MCP",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "potential_nonpilot_team_affiliation_unresolved",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P26",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "final_classification": "excluded",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. nhanes retrieves unchanged NHANES XPT tables; CDC describes examinations and interviews of individuals, and the candidate retrieves survey-level records outside the aggregate scope. CRAN mirror and upstream package are one lineage.",
+      "canonical_system": "nhanesA",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P27",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "final_classification": "excluded",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. read_brfss explicitly returns respondent-level microdata; independent inspection of its build script confirms CDC XPT download. Both build and cached distribution belong to one package; microdata exclusion applies.",
+      "canonical_system": "brfssdata",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P28",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. get_places implements curl_fetch_memory and response parsing for CDC PLACES; manifest names brendensm/CDCPLACES PILOT-03, excluded from later primary sampling. Shares source family with P25, not code identity.",
+      "canonical_system": "CDCPLACES",
+      "pilot_case": "PILOT-03",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-04.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P29",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Separately inspected geographic-spread implementation requests CDC FluView initialization and download; the first-pass who_nrevss path is a different function of the same acquisition system. Pilot manifest identifies PILOT-04; exclude system from future primary sample.",
+      "canonical_system": "hrbrmstr/cdcfluview",
+      "pilot_case": "PILOT-04",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P30",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. signal delegates to _fetch_epidata, which calls Epidata.covidcast for date and geography; code identifies geographic aggregation. Manifest identifies the Python client as PILOT-05, so exclude it from the future primary frame.",
+      "canonical_system": "cmu-delphi/covidcast Python client",
+      "pilot_case": "PILOT-05",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P31",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "final_classification": "unresolved",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. Direct repository metadata independently returned HTTP 404; a web index surfaced an older cached page but a subsequent live page request also returned 404. Cached existence is not current inspectable evidence and 404 does not prove deletion. No pilot identity established.",
+      "canonical_system": "mccarthyad/wastewater-signal-tracker (unconfirmed)",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-03.json",
+        "reviews/REVIEW-B.json"
+      ]
+    },
+    {
+      "id": "P32",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "final_classification": "eligible",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. CMS NPI API client implements requests; exact system is PILOT-02 and excluded from future primary sample.",
+      "canonical_system": "adesigns/nppes-api",
+      "pilot_case": "PILOT-02",
+      "team_authored": null,
+      "candidate_frame_status": "excluded_pilot",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-01.json",
+        "reviews/REVIEW-A.json"
+      ]
+    },
+    {
+      "id": "P33",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "final_classification": "unresolved",
+      "rationale": "Coordinator retained the source-linked batch and cross-check disposition. GET targets a placeholder rather than specified published source; actual endpoint remains needed; distinct from P19.",
+      "canonical_system": "HopeEK/hcai-inspector-download",
+      "pilot_case": null,
+      "team_authored": null,
+      "candidate_frame_status": "not_in_current_eligible_frame",
+      "review_disagreement": false,
+      "coordinator_changed_review": false,
+      "evidence_records": [
+        "batches/SCREEN-02.json",
+        "reviews/REVIEW-A.json"
+      ]
+    }
+  ]
+}

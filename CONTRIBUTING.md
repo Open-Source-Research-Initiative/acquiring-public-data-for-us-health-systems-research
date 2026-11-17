@@ -1,6 +1,6 @@
 # Contribute to this project
 
-Start with the project README and its first task. You may ask a question, suggest a source, check a reference, review, write, analyze, code, or model.
+Start with the [screening tracker (#5)](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/5) and [batch guide](research/screening/README.md). Choose a batch, comment with the candidate IDs you plan to inspect, then submit a PR or a source-linked issue comment. Checking an existing model draft is useful; no candidate installation is required. You may also suggest a missed source or report inaccessible evidence.
 
 Use your preferred language. Follow the [browser contribution steps](https://open-source-research-initiative.github.io/guides/docs/browser-setup/#submit-a-first-contribution) to share a source note or table. Ask a maintainer to add it to the project and arrange review.
 
@@ -13,3 +13,5 @@ For collaborators or a reviewer, use the [help request guide](https://open-sourc
 Follow the guides for [writing](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/writing-style.md), [translation](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/translation.md), and [visual identity](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/visual-identity.md).
 
 Use [Q&A](https://github.com/Open-Source-Research-Initiative/.github/discussions/new?category=q-a) for help. Contact [Cole](mailto:cole.lyons@pennmedicine.upenn.edu) privately for confidential resource requests or concerns.
+
+Screening follows the [final PI review workflow](governance/final-pi-review.md): model work and cross-checks are completed and consolidated before Cole reviews and signs off the packet. Contributors can participate throughout; routine screening does not require intermediate PI approval. A model-complete issue is not scientific acceptance or merge authorization.

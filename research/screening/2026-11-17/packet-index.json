@@ -1,0 +1,112 @@
+{
+  "version": "seed-screen-2026-11-17-v1",
+  "created_utc": "2026-11-17T14:13:58.350112+00:00",
+  "scope": "Supporting artifacts for the packet; this index and packet prose excluded to avoid recursive hashes. Reviewed Git commit binds the complete packet.",
+  "files": [
+    {
+      "path": "governance/admission.md",
+      "bytes": 1002,
+      "sha256": "ece1e1676c163e0834e809c52835b79087a8bbd4399eb7b246c5005771937674"
+    },
+    {
+      "path": "governance/final-pi-review.md",
+      "bytes": 2472,
+      "sha256": "d10ed0b969d20e979f464fc2aa664ef806c9e76de986afa2daae51ca00e5244e"
+    },
+    {
+      "path": "governance/protocol-decisions.md",
+      "bytes": 4652,
+      "sha256": "11d67cc3b8caca73877896e2e8caa4608876c0f04c4252249baaec03cc1fa185"
+    },
+    {
+      "path": "protocol.md",
+      "bytes": 16482,
+      "sha256": "48ee08de4ab27d6093ef4745f46c96e19a355e4f19832506294247546e4f4de2"
+    },
+    {
+      "path": "research/screening/2026-11-17/CONTRACT.md",
+      "bytes": 5190,
+      "sha256": "952e1a8074c0dd20bbe849c8bd354df2da1ed4ca91ebd29053b15475ba7269b8"
+    },
+    {
+      "path": "research/screening/2026-11-17/batches/SCREEN-01.json",
+      "bytes": 12200,
+      "sha256": "9cef992ce50604bc186e5a34fe542fd29c97c6b4de89cd5e70efffb04387a150"
+    },
+    {
+      "path": "research/screening/2026-11-17/batches/SCREEN-02.json",
+      "bytes": 14990,
+      "sha256": "f667197704e22045d339cebe292cf94c3f76924e3bade7f3dc024948daeadd52"
+    },
+    {
+      "path": "research/screening/2026-11-17/batches/SCREEN-03.json",
+      "bytes": 10624,
+      "sha256": "0606b6d1471cc5211e08e46e98e3bee13478c48d3afb74a65a4317cfae39c20d"
+    },
+    {
+      "path": "research/screening/2026-11-17/batches/SCREEN-04.json",
+      "bytes": 19874,
+      "sha256": "f534df3ffac40352925d859b8d48b2aa40f523c69bb158a1672c941bd64e48e0"
+    },
+    {
+      "path": "research/screening/2026-11-17/boundary-adjudication.json",
+      "bytes": 2305,
+      "sha256": "9dc15772539c3c8d2ff687d8eef4aa47c138f863aa7fda320b1c2f7547234db3"
+    },
+    {
+      "path": "research/screening/2026-11-17/decisions.csv",
+      "bytes": 3265,
+      "sha256": "29437ff4baf9ab84c39ac0fbe6282b3a1853b3b6e6067abec49ca99b9d922fbf"
+    },
+    {
+      "path": "research/screening/2026-11-17/gap-search-plan.json",
+      "bytes": 1296,
+      "sha256": "01529a7571d4f7d7706cd5374e1a9067b008affe5e75c9804819517c865f3060"
+    },
+    {
+      "path": "research/screening/2026-11-17/gap-search.json",
+      "bytes": 11507,
+      "sha256": "57f2743bf8290afdbd58129c411d9de1a6dc685635266c20a1f5639bbea5aa5e"
+    },
+    {
+      "path": "research/screening/2026-11-17/issues.json",
+      "bytes": 2264,
+      "sha256": "e2f1152dbf1332547611e7e18f39a23c3c4cdabb7bbb73e4fa3a893066f7ef2d"
+    },
+    {
+      "path": "research/screening/2026-11-17/manifest.json",
+      "bytes": 2170,
+      "sha256": "d3b2f44d3a762e25de6fc5a7047a126126783233f34ca933c09f1ed02172a210"
+    },
+    {
+      "path": "research/screening/2026-11-17/model-work.json",
+      "bytes": 3822,
+      "sha256": "43e2dd7b2fb2bab9eece1037afa94d64da96b5d283327e0849bde3d31aa3d201"
+    },
+    {
+      "path": "research/screening/2026-11-17/reconciliation.json",
+      "bytes": 26969,
+      "sha256": "d3877746d2edb3260b80cf6d959b8cd3562114d51f4e21814d6466f73f0a2aac"
+    },
+    {
+      "path": "research/screening/2026-11-17/reviews/REVIEW-A.json",
+      "bytes": 19607,
+      "sha256": "64284f49c04811b8679d99b8bfeb4393f7308fde51271c7c5726f5dee1c28591"
+    },
+    {
+      "path": "research/screening/2026-11-17/reviews/REVIEW-B.json",
+      "bytes": 22314,
+      "sha256": "28f7cdbdcc37dfc39fab0e37c66658935c42012944d9998b0a706b2694d8da95"
+    },
+    {
+      "path": "research/screening/2026-11-17/validation.json",
+      "bytes": 404,
+      "sha256": "ebb652c10503b9e435faf61e4206b1ac98040f482e68184cc6e7aac9cdb90e84"
+    },
+    {
+      "path": "scripts/check_screening.py",
+      "bytes": 12190,
+      "sha256": "61b478784860c671881dddca1e7393eecd4b6cae1a81921beaaf16dbdcd0e89f"
+    }
+  ]
+}

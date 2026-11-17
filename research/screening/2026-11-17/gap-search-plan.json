@@ -1,0 +1,39 @@
+{
+  "batch_id": "SCREEN-06",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/11",
+  "created_utc": "2026-11-17T14:03:39.278961+00:00",
+  "purpose": "Bounded exploratory gap search; separate from the fixed seed denominator.",
+  "channel": "GitHub repository search API",
+  "sort": "stars",
+  "order": "desc",
+  "per_page": 5,
+  "pages_per_query": 1,
+  "maximum_returned_results": 20,
+  "queries": [
+    {
+      "id": "G01",
+      "domain": "provider/facility",
+      "query": "\"NPPES\" download language:Python"
+    },
+    {
+      "id": "G02",
+      "domain": "provider/facility",
+      "query": "\"hospital cost reports\" download"
+    },
+    {
+      "id": "G03",
+      "domain": "population/surveillance",
+      "query": "\"CDC WONDER\" download"
+    },
+    {
+      "id": "G04",
+      "domain": "population/surveillance",
+      "query": "\"BRFSS\" aggregate download"
+    }
+  ],
+  "limits": [
+    "Repository search indexes metadata and README content, not a complete code census.",
+    "No health payload downloads, candidate execution, installation, or eligibility inference from README alone.",
+    "Search results are unscreened leads unless all eligibility criteria are supported by inspected evidence."
+  ]
+}

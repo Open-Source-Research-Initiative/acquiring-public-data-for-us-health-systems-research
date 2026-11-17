@@ -1,0 +1,348 @@
+{
+  "review_id": "REVIEW-B",
+  "issue_url": "https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues/10",
+  "performed_by": "GPT-6.1 Terra, separate automated crosscheck; not independent human review",
+  "started_utc": "2026-11-17T14:03:00Z",
+  "finished_utc": "2026-11-17T14:06:32.882476Z",
+  "records": [
+    {
+      "id": "P12",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "The inspected makefile independently confirms wget of CDC state and county case files. P12 also consumes COVID Tracking outputs; shared input does not make P12 and P14 the same workflow. No pilot-system identity match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/covidestim/covidestim-sources/908a335cfc5632831558c4af8603fcccf3408e3e/makefile",
+          "accessed_utc": "2026-11-17T14:06:31.443645Z",
+          "observation": "The inspected makefile independently confirms wget of CDC state and county case files. P12 also consumes COVID Tracking outputs; shared input does not make P12 and P14 the same workflow. No pilot-system identity match.",
+          "revision": "908a335cfc5632831558c4af8603fcccf3408e3e",
+          "path": "makefile",
+          "sha256": "5395e34e87f6450d5058c4167414dbc408878bc16c3fd58817ab3a99c72aba71",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P13",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Code calls wget.download with the configured URL; the independently read COVID Tracking configuration specifies U.S. state hospitalizations. P13 is a downstream system using P14 data; do not count that shared input twice as independent source families. No pilot match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/google-research/open-covid-19-data/4c8c8f98ca30278a0850967274f0ce9721f7fdc2/src/scripts/fetch_automatic_downloads.py",
+          "accessed_utc": "2026-11-17T14:06:31.528443Z",
+          "observation": "Code calls wget.download with the configured URL; the independently read COVID Tracking configuration specifies U.S. state hospitalizations. P13 is a downstream system using P14 data; do not count that shared input twice as independent source families. No pilot match.",
+          "revision": "4c8c8f98ca30278a0850967274f0ce9721f7fdc2",
+          "path": "src/scripts/fetch_automatic_downloads.py",
+          "sha256": "a5387caf82c4e9a9ec4a7d91cd886e71dc47d61fc8c91ca7d60eb16c7b6092c1",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P14",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Archived project script requests CDC state-indexed county time series and writes CSVs. This qualifies that specific archived acquisition path; it does not establish how the separate curated project state data was collected. P12 and P13 using project data do not make them identical systems. No pilot match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/COVID19Tracking/covid-tracking-data/a701975875f0dc4b98482854e9e02eb419b1fb14/data-collection-scripts/cdc-by-state/scrape.py",
+          "accessed_utc": "2026-11-17T14:06:31.597130Z",
+          "observation": "Archived project script requests CDC state-indexed county time series and writes CSVs. This qualifies that specific archived acquisition path; it does not establish how the separate curated project state data was collected. P12 and P13 using project data do not make them identical systems. No pilot match.",
+          "revision": "a701975875f0dc4b98482854e9e02eb419b1fb14",
+          "path": "data-collection-scripts/cdc-by-state/scrape.py",
+          "sha256": "b70bff050cad878315d4285f63f7eee8da48165648ef601226a5399b228bd173",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P29",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Separately inspected geographic-spread implementation requests CDC FluView initialization and download; the first-pass who_nrevss path is a different function of the same acquisition system. Pilot manifest identifies PILOT-04; exclude system from future primary sample.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/hrbrmstr/cdcfluview/master/R/geographic-spread.R",
+          "accessed_utc": "2026-11-17T14:06:31.662276Z",
+          "observation": "Separately inspected geographic-spread implementation requests CDC FluView initialization and download; the first-pass who_nrevss path is a different function of the same acquisition system. Pilot manifest identifies PILOT-04; exclude system from future primary sample.",
+          "revision": "master",
+          "path": "R/geographic-spread.R",
+          "sha256": "1c297b5a47289b77a941b5b70e5e1539429c96c634766ab50317c9175b516f37",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P30",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "signal delegates to _fetch_epidata, which calls Epidata.covidcast for date and geography; code identifies geographic aggregation. Manifest identifies the Python client as PILOT-05, so exclude it from the future primary frame.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/cmu-delphi/covidcast/main/Python-packages/covidcast-py/covidcast/covidcast.py",
+          "accessed_utc": "2026-11-17T14:06:31.721853Z",
+          "observation": "signal delegates to _fetch_epidata, which calls Epidata.covidcast for date and geography; code identifies geographic aggregation. Manifest identifies the Python client as PILOT-05, so exclude it from the future primary frame.",
+          "revision": "main",
+          "path": "Python-packages/covidcast-py/covidcast/covidcast.py",
+          "sha256": "2f3533634eddd0f0a852747cac393adcded8d5f8cd6ddca722aa63a4ef8fc04c",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P31",
+      "initial_classification": "unresolved",
+      "review_classification": "unresolved",
+      "agreement": true,
+      "reason": "Direct repository metadata independently returned HTTP 404; a web index surfaced an older cached page but a subsequent live page request also returned 404. Cached existence is not current inspectable evidence and 404 does not prove deletion. No pilot identity established.",
+      "evidence": [
+        {
+          "url": "https://api.github.com/repos/mccarthyad/wastewater-signal-tracker",
+          "accessed_utc": "2026-11-17T14:06:31.781289Z",
+          "observation": "Direct repository metadata independently returned HTTP 404; a web index surfaced an older cached page but a subsequent live page request also returned 404. Cached existence is not current inspectable evidence and 404 does not prove deletion. No pilot identity established.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "HTTP 404; repeat access failed: HTTP Error 404: Not Found"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established.",
+        "Web page and API availability may differ; current source cannot be inspected."
+      ]
+    },
+    {
+      "id": "P17",
+      "initial_classification": "eligible",
+      "review_classification": "unresolved",
+      "agreement": false,
+      "reason": "The browser code fetches indicator JSON from a separately published repository and supports the first-pass eligible interpretation if that repository is treated as the external source release. It is also a coupled portal data-loading path, so whether the portal and indicator repository form one system or an acquisition client and external source is unresolved under the present contract. The evidence does not establish acquisition from underlying indicator sources; that is a separate question, not a required condition if the published indicator release is the source. Same organizational ownership does not by itself exclude a workflow. Preserve the initial eligible and review unresolved dispositions for reconciliation; no pilot match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/nychealth/EH-dataportal/8993a4fc5d73342a9cf2ee4aaac558d04de8820c/assets/js/data-explorer/data.js",
+          "accessed_utc": "2026-11-17T14:06:31.951939Z",
+          "observation": "loadIndicatorData builds an indicator URL using data_repo and data_branch and calls aq.loadJSON; this establishes a browser fetch of separately hosted indicator JSON, but does not by itself resolve the system boundary or establish acquisition of underlying source datasets.",
+          "revision": "8993a4fc5d73342a9cf2ee4aaac558d04de8820c",
+          "path": "assets/js/data-explorer/data.js",
+          "sha256": "b0a37f9a4d1d3ffce61fd655934e2a0959c0db7bb7e35e5b12671b3f585da520",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established.",
+        "The contract does not define how to separate a coupled viewer and its backing release into a candidate workflow and external source. Publisher ownership alone is not a criterion; independent reusability and absence of visual presentation are not requirements.",
+        "Review reasoning clarified after cross-batch consistency challenge; initial eligible and review unresolved classifications remain unchanged."
+      ]
+    },
+    {
+      "id": "P18",
+      "initial_classification": "companion",
+      "review_classification": "companion",
+      "agreement": true,
+      "reason": "README describes disclosure-control verification and supplying a local file; this supports companion status, not evidence of a public-source acquisition workflow. No pilot match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/covid_case_privacy_review/92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4/readme.md",
+          "accessed_utc": "2026-11-17T14:06:32.013968Z",
+          "observation": "README describes disclosure-control verification and supplying a local file; this supports companion status, not evidence of a public-source acquisition workflow. No pilot match.",
+          "revision": "92f9c957d8bd2ccad2d96e04eaae11c6e04a48a4",
+          "path": "readme.md",
+          "sha256": null,
+          "access_status": "Web source inspection; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P20",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "agreement": true,
+      "reason": "NHS England identifies linked OpenPrescribing as using practice prescribing data covering England. The original site returned 403. No U.S. acquisition established and outside the stated scope. P21 is related but does not change geography.",
+      "evidence": [
+        {
+          "url": "https://digital.nhs.uk/data-and-information/data-tools-and-services/data-services/general-practice-data-hub/practice-level-prescribing",
+          "accessed_utc": "2026-11-17T14:06:32.137934Z",
+          "observation": "NHS England identifies linked OpenPrescribing as using practice prescribing data covering England. The original site returned 403. No U.S. acquisition established and outside the stated scope. P21 is related but does not change geography.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "Web source inspection; repeat access failed: HTTP Error 403: Forbidden"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P21",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "agreement": true,
+      "reason": "Independently inspected the project paper identifying hospital medicines use in England. This is outside the U.S. scope; related to P20 without evidence to combine their implementations.",
+      "evidence": [
+        {
+          "url": "https://formative.jmir.org/2026/1/e92041/",
+          "accessed_utc": "2026-11-17T14:06:32.247644Z",
+          "observation": "Independently inspected the project paper identifying hospital medicines use in England. This is outside the U.S. scope; related to P20 without evidence to combine their implementations.",
+          "revision": null,
+          "path": null,
+          "sha256": null,
+          "access_status": "Web source inspection; repeat HTTP 202"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P23",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "get_data describes Tracking API measure, geographic and temporal retrieval. Pilot manifest identifies CDC EPHTrackR as PILOT-06, excluded from the future primary frame.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/CDCgov/EPHTrackR/master/R/get_data.R",
+          "accessed_utc": "2026-11-17T14:06:32.380766Z",
+          "observation": "get_data describes Tracking API measure, geographic and temporal retrieval. Pilot manifest identifies CDC EPHTrackR as PILOT-06, excluded from the future primary frame.",
+          "revision": "master",
+          "path": "R/get_data.R",
+          "sha256": "a10e63d4dfdf48b6d054149effad1970a7351d16201295fb7cb2c9c6255dabf3",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P24",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Independently inspected an additional CARA path: it requests Wisconsin DHS vector-borne county CSVs and parses the response. This is one system with multiple acquisition paths, not multiple systems. No pilot match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/jdn63/CARA/main/utils/vbd_data_fetcher.py",
+          "accessed_utc": "2026-11-17T14:06:32.446339Z",
+          "observation": "Independently inspected an additional CARA path: it requests Wisconsin DHS vector-borne county CSVs and parses the response. This is one system with multiple acquisition paths, not multiple systems. No pilot match.",
+          "revision": "main",
+          "path": "utils/vbd_data_fetcher.py",
+          "sha256": "a0b8186ee2ab49a0f527e91688b633de4169f7e7dab723815a975740d48be462",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P25",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "Client implements request path to CDC Socrata and getPlacesData; independently inspected constants map county PLACES datasets. It is distinct code from pilot CDCPLACES but shares the CDC PLACES source family. No pilot identity match.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/openpharma-org/cdc-mcp/e312481d65026ffcd58eb15d6a32cc577a8e2e47/src/cdc-client.ts",
+          "accessed_utc": "2026-11-17T14:06:32.512431Z",
+          "observation": "Client implements request path to CDC Socrata and getPlacesData; independently inspected constants map county PLACES datasets. It is distinct code from pilot CDCPLACES but shares the CDC PLACES source family. No pilot identity match.",
+          "revision": "e312481d65026ffcd58eb15d6a32cc577a8e2e47",
+          "path": "src/cdc-client.ts",
+          "sha256": "bfb1bd229f000dd3118e600be236f1a769cc80f703cc3d888583ebc5a9214253",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P26",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "agreement": true,
+      "reason": "nhanes retrieves unchanged NHANES XPT tables; CDC describes examinations and interviews of individuals, and the candidate retrieves survey-level records outside the aggregate scope. CRAN mirror and upstream package are one lineage.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/cran/nhanesA/a70f888d508bf51835143a04871726d28940259e/R/nhanes.R",
+          "accessed_utc": "2026-11-17T14:06:32.576794Z",
+          "observation": "nhanes retrieves unchanged NHANES XPT tables; CDC describes examinations and interviews of individuals, and the candidate retrieves survey-level records outside the aggregate scope. CRAN mirror and upstream package are one lineage.",
+          "revision": "a70f888d508bf51835143a04871726d28940259e",
+          "path": "R/nhanes.R",
+          "sha256": null,
+          "access_status": "Web source inspection; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P27",
+      "initial_classification": "excluded",
+      "review_classification": "excluded",
+      "agreement": true,
+      "reason": "read_brfss explicitly returns respondent-level microdata; independent inspection of its build script confirms CDC XPT download. Both build and cached distribution belong to one package; microdata exclusion applies.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/muntasirmasum/brfssdata/e7164c3798989562df0075b6a3e67fdbe4bbce6f/R/read_brfss.R",
+          "accessed_utc": "2026-11-17T14:06:32.694907Z",
+          "observation": "read_brfss explicitly returns respondent-level microdata; independent inspection of its build script confirms CDC XPT download. Both build and cached distribution belong to one package; microdata exclusion applies.",
+          "revision": "e7164c3798989562df0075b6a3e67fdbe4bbce6f",
+          "path": "R/read_brfss.R",
+          "sha256": null,
+          "access_status": "Web source inspection; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    },
+    {
+      "id": "P28",
+      "initial_classification": "eligible",
+      "review_classification": "eligible",
+      "agreement": true,
+      "reason": "get_places implements curl_fetch_memory and response parsing for CDC PLACES; manifest names brendensm/CDCPLACES PILOT-03, excluded from later primary sampling. Shares source family with P25, not code identity.",
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/brendensm/CDCPLACES/main/R/get_places.R",
+          "accessed_utc": "2026-11-17T14:06:32.813775Z",
+          "observation": "get_places implements curl_fetch_memory and response parsing for CDC PLACES; manifest names brendensm/CDCPLACES PILOT-03, excluded from later primary sampling. Shares source family with P25, not code identity.",
+          "revision": "main",
+          "path": "R/get_places.R",
+          "sha256": "f696757c4600ef9540ff3684a44064b1aeb17f766d9dac94847cbbf67a6633dd",
+          "access_status": "HTTP 200; source response SHA-256; repeat HTTP 200"
+        }
+      ],
+      "uncertainties": [
+        "No candidate execution, source endpoint request, health payload or endpoint availability verification; affiliation is not independently established."
+      ]
+    }
+  ]
+}
