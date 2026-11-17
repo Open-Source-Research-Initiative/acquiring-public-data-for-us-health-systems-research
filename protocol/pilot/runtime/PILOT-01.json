@@ -1,0 +1,249 @@
+{
+  "schema_version": "draft-1",
+  "status": "input_freeze_proposal_not_qualified",
+  "case_id": "PILOT-01",
+  "date_utc": "2026-11-17",
+  "source": {
+    "repository": "https://github.com/asacarny/hospital-cost-reports",
+    "commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+    "archive_host_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/sources/PILOT-01.tar.gz",
+    "mount_path": "/inputs/source.tar.gz",
+    "sha256": "ba5358a601eb182dccff12643a28328ff6ebd57ab4cb6a62913e81b4a5da8ac8",
+    "verification": "All archive entries, modes and Git blob hashes match fetched commit tree; git-verification/archive-comparison.json"
+  },
+  "runner": {
+    "host_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/task-inputs/PILOT-01.sh",
+    "mount_path": "/inputs/runner.sh",
+    "sha256": "731e012874dac88e83912758210debeab366bb5577004f922cc7404474a74a70",
+    "command": "/usr/bin/bash /inputs/runner.sh",
+    "working_directory": "/work/source/hospital-cost-reports-5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+    "stdout_stderr": "capture separately under /work/output; preserve process status and supervisor metrics"
+  },
+  "extraction": {
+    "description": "Safely extract /inputs/source.tar.gz into /work/source after validating archive paths, file types and links; no candidate code runs during extraction. All writable paths quota-backed.",
+    "expected_archive_root": "hospital-cost-reports-5a3d57c0af24c2e77cf36e576850fdee16ae8c40"
+  },
+  "environment": {
+    "architecture": "x86_64",
+    "host_os": "Ubuntu 24.04.5 LTS observed",
+    "variables": {
+      "PATH": "/tools:/usr/bin:/bin",
+      "HOME": "/home/builderbob",
+      "TMPDIR": "/work",
+      "LANG": "C.UTF-8"
+    },
+    "requirements": "Fresh quota-backed /work and empty private /home/builderbob in the executor mount namespace; do not mount host home. Supervisor verifies credential isolation and denies host or reference access. Manifest records host tree at observation; enforce immutable exact image and verify it before execution.",
+    "read_only_mounts": [
+      "/usr/bin",
+      "/usr/sbin",
+      "/usr/lib",
+      "/usr/lib64",
+      "/etc/ssl/certs"
+    ],
+    "compatibility_symlinks": {
+      "/bin": "usr/bin",
+      "/sbin": "usr/sbin",
+      "/lib": "usr/lib",
+      "/lib64": "usr/lib64"
+    },
+    "host_manifest": {
+      "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/runtime-host-manifest.jsonl",
+      "sha256": "ccaa1a5e489eaf41fe591b7ec8b8d3348cabf865880f7b738934d6e887b83e0d",
+      "entries": 42799,
+      "errors": [],
+      "limitations": "Live filesystem observation, not an immutable snapshot; no symlink targets followed. The tools, mounts, configuration, loader, DNS, CA and source identity must still be checked in the sandbox."
+    },
+    "supervisor_and_kernel_metadata": {
+      "uname": {
+        "system": "Linux",
+        "node": "builderbob",
+        "release": "6.8.0-149-generic",
+        "version": "#149-Ubuntu SMP PREEMPT_DYNAMIC Fri Oct 23 13:21:10 UTC 2026",
+        "machine": "x86_64",
+        "processor": "x86_64"
+      },
+      "files": {
+        "/usr/bin/unshare": {
+          "path": "/usr/bin/unshare",
+          "realpath": "/usr/bin/unshare",
+          "mode": "0755",
+          "symlink_target": null,
+          "sha256": "a23c8863860669003dc4660039fe642f5795c8c2195898ebc5d01afa1ac3d11c"
+        },
+        "/usr/bin/setpriv": {
+          "path": "/usr/bin/setpriv",
+          "realpath": "/usr/bin/setpriv",
+          "mode": "0755",
+          "symlink_target": null,
+          "sha256": "62ec0120791f3afcfb689fed52384ec2b0accc6e118a6b9a1d6fcfa7450aaf37"
+        },
+        "/usr/bin/systemd-run": {
+          "path": "/usr/bin/systemd-run",
+          "realpath": "/usr/bin/systemd-run",
+          "mode": "0755",
+          "symlink_target": null,
+          "sha256": "de28cc5757d3789efa5f6fed5659893410469f68b42175d4531f5b34d3a09e16"
+        },
+        "/home/builderbob/.local/bin/codex": {
+          "path": "/home/builderbob/.local/bin/codex",
+          "realpath": "/home/builderbob/.codex/packages/standalone/releases/0.169.0-x86_64-unknown-linux-musl/bin/codex",
+          "mode": "0777",
+          "symlink_target": "/home/builderbob/.codex/packages/standalone/current/bin/codex",
+          "sha256": "b452ca20f838a8855a88a41050ee4a694033fff4ea3ecdad5633e6e0e8d13f2b"
+        },
+        "/boot/vmlinuz-6.8.0-149-generic": {
+          "path": "/boot/vmlinuz-6.8.0-149-generic",
+          "realpath": "/boot/vmlinuz-6.8.0-149-generic",
+          "mode": "0600",
+          "symlink_target": null,
+          "error": "[Errno 13] Permission denied: '/boot/vmlinuz-6.8.0-149-generic'"
+        }
+      },
+      "limitation": "Kernel image may be unreadable; metadata does not attest the running kernel or immutable supervisor."
+    }
+  },
+  "binaries": {
+    "bash": {
+      "host_path": "/usr/bin/bash",
+      "mount_path": "/usr/bin/bash",
+      "sha256": "bc5945feb8bd26203ebfafea5ce1878bb2e32cb8fb50ab7ae395cfb1e1aaaef1",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007fff0a9bd000)\n\tlibtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007819e8d5b000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007819e8a00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007819e8f04000)"
+    },
+    "wget": {
+      "host_path": "/usr/bin/wget",
+      "mount_path": "/usr/bin/wget",
+      "sha256": "6e47207f7a759f371ff895817f4ec9bad9b6eae6be1cc30a091d6743293ef9f3",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007fff6775a000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x0000789781fcd000)\n\tlibuuid.so.1 => /lib/x86_64-linux-gnu/libuuid.so.1 (0x0000789781fc3000)\n\tlibidn2.so.0 => /lib/x86_64-linux-gnu/libidn2.so.0 (0x0000789781fa1000)\n\tlibssl.so.3 => /lib/x86_64-linux-gnu/libssl.so.3 (0x0000789781ef7000)\n\tlibcrypto.so.3 => /lib/x86_64-linux-gnu/libcrypto.so.3 (0x0000789781800000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x0000789781ed9000)\n\tlibpsl.so.5 => /lib/x86_64-linux-gnu/libpsl.so.5 (0x0000789781ec5000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000789781400000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007897820ea000)\n\tlibunistring.so.5 => /lib/x86_64-linux-gnu/libunistring.so.5 (0x0000789781d18000)"
+    },
+    "mkdir": {
+      "host_path": "/usr/bin/mkdir",
+      "mount_path": "/usr/bin/mkdir",
+      "sha256": "430c3f949d7d328cd835722f5bbddeac0956fbdfbbb6a197e0abb1def3ed27e2",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007ffee45e9000)\n\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x000078ad1c659000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x000078ad1c400000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x000078ad1c366000)\n\t/lib64/ld-linux-x86-64.so.2 (0x000078ad1c6a3000)"
+    },
+    "mv": {
+      "host_path": "/usr/bin/mv",
+      "mount_path": "/usr/bin/mv",
+      "sha256": "c5ef5f09e99844e7c49049d78ed26e23ff0e8b65a04da9ac2d62164882b9945e",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007fff3bdb3000)\n\tlibselinux.so.1 => /lib/x86_64-linux-gnu/libselinux.so.1 (0x00007b19610ed000)\n\tlibacl.so.1 => /lib/x86_64-linux-gnu/libacl.so.1 (0x00007b19610e3000)\n\tlibattr.so.1 => /lib/x86_64-linux-gnu/libattr.so.1 (0x00007b19610db000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007b1960e00000)\n\tlibpcre2-8.so.0 => /lib/x86_64-linux-gnu/libpcre2-8.so.0 (0x00007b1961041000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007b1961145000)"
+    },
+    "rm": {
+      "host_path": "/usr/bin/rm",
+      "mount_path": "/usr/bin/rm",
+      "sha256": "78721a1709e77e74163f73067cef7049496463325adb300f4b7fd6155fca1c62",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007ffc61b70000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007cbe14000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007cbe143f5000)"
+    },
+    "unzip": {
+      "host_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/tools/root/usr/bin/unzip",
+      "mount_path": "/tools/unzip",
+      "sha256": "b582f2d782989a4d0105284b8032b076222eb29a6c141b5c53b792c864199396",
+      "ldd_exit": 0,
+      "ldd": "linux-vdso.so.1 (0x00007ffe776f6000)\n\tlibbz2.so.1.0 => /lib/x86_64-linux-gnu/libbz2.so.1.0 (0x000079329119a000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000793290e00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007932912d5000)"
+    }
+  },
+  "ldd_shared_libraries": {
+    "/lib/x86_64-linux-gnu/libtinfo.so.6": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4",
+      "sha256": "e6089d7bb95eee5b545f3770dd69095b0bca47d26701cad145af429561d16306"
+    },
+    "/lib/x86_64-linux-gnu/libc.so.6": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+      "sha256": "755a371e86cc9f564ab54f66140747700fb0a103f698f659f2060f707897e09a"
+    },
+    "/lib64/ld-linux-x86-64.so.2": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f"
+    },
+    "/lib/x86_64-linux-gnu/libpcre2-8.so.0": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2",
+      "sha256": "6075a70c30fd7216b9214ae50f2def0ce835092b034088ed9bd64c6a376c740f"
+    },
+    "/lib/x86_64-linux-gnu/libuuid.so.1": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libuuid.so.1.3.0",
+      "sha256": "78d7f4d6f27b7dffc1c84dfe2f83e84aefa6f6ceeffc6ac4bc41f9fbc61cb84e"
+    },
+    "/lib/x86_64-linux-gnu/libidn2.so.0": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0",
+      "sha256": "6e632fd9a3125db60bbc623719bbc17b0470330321c5b1c57f1ff7190e5551ad"
+    },
+    "/lib/x86_64-linux-gnu/libssl.so.3": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+      "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624"
+    },
+    "/lib/x86_64-linux-gnu/libcrypto.so.3": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+      "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a"
+    },
+    "/lib/x86_64-linux-gnu/libz.so.1": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+      "sha256": "f61677c7bdb7c2aa2a243ea781bfd16afcb361cede7b4ef76127a9d8eb9a5242"
+    },
+    "/lib/x86_64-linux-gnu/libpsl.so.5": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4",
+      "sha256": "ae6c5a9aecc249fc66e03c16ec6c4385d09d7e12e0ea7694bb831ab4fee8133c"
+    },
+    "/lib/x86_64-linux-gnu/libunistring.so.5": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libunistring.so.5.0.0",
+      "sha256": "7bcf825cd449892db5105ad2aed91dcf94a27b796426600c765720c584c54dd1"
+    },
+    "/lib/x86_64-linux-gnu/libselinux.so.1": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libselinux.so.1",
+      "sha256": "0ec0843463f90e227b0e138e1f379774f50b5514bd7f5dbd4c8a87aca0aa6670"
+    },
+    "/lib/x86_64-linux-gnu/libacl.so.1": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2302",
+      "sha256": "1f5247285409ec89990e9fe384d78dfb2ae6ec8e210a2657073babc8d6b7e54f"
+    },
+    "/lib/x86_64-linux-gnu/libattr.so.1": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2502",
+      "sha256": "5651ee014f2f42621f80995f44c10b478a0781fbfc54d2d120fb22df35ba3f22"
+    },
+    "/lib/x86_64-linux-gnu/libbz2.so.1.0": {
+      "realpath": "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+      "sha256": "cc08c9f50a8009ffd6391e0116a100369b11ca9238fa52392c019e6645b122a1"
+    }
+  },
+  "network": {
+    "default": "deny",
+    "allow": [
+      {
+        "host": "downloads.cms.gov",
+        "protocol": "http",
+        "port": 80
+      }
+    ],
+    "redirect_targets": "Unknown redirect destinations remain denied; preserve native failure. No wildcard host or implicit redirect permission.",
+    "status": "Case-specific proposal; independent egress enforcement, source terms and plaintext transport review still required."
+  },
+  "static_review": {
+    "source_modifications": "none",
+    "calls": [
+      "wget",
+      "unzip",
+      "mkdir",
+      "mv",
+      "rm"
+    ],
+    "scope": "1996-2024 inclusive; both 2552-96 and 2552-10 in 2010-2011",
+    "warnings": [
+      "plain HTTP requests",
+      "downloaded ZIPs removed by candidate",
+      "native script does not stop on individual failures; overall exit status alone does not prove completeness",
+      "full transfer size and resource fit unknown"
+    ],
+    "review_status": "static inspection only, no claim of comprehensive safety or human review"
+  },
+  "pending": [
+    "independent isolated boundary, resource caps and tested mounts",
+    "exact runtime image plus transitive dependency closure and trusted loader/certificate/DNS configuration",
+    "transport and source terms review, known redirect policy",
+    "controlled output capture, completeness evaluation and independent reference",
+    "case-specific gate and lock"
+  ],
+  "execution": "not started; no candidate code or health data accessed"
+}

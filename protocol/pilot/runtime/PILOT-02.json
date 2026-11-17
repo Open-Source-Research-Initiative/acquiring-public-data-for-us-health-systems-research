@@ -1,0 +1,273 @@
+{
+  "status": "staged_pending_case_specific_qualification",
+  "case_id": "PILOT-02",
+  "candidate_commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+  "resolution": {
+    "composer_version": "2.11.2",
+    "composer_sha256": "dd158c0afd41d15fac89e1b4e47b5d42911fe316c3687cd5edac98319b25d028",
+    "composer_json_sha256": "519fe889c1992b622718441ec23129cd01f55a90ad20831841e519775e57e627",
+    "composer_lock_sha256": "4c9dddf46dcefa8bf1bc93138c1ae112a5f19809e520b21190bbe8bc1bb6d63b",
+    "command": "composer update --no-install --no-scripts --no-plugins --no-interaction --no-audit --no-progress",
+    "result": "version 1.0.6 source reference matches selected commit; no package installed or candidate code executed",
+    "packages": [
+      {
+        "name": "adesigns/nppes-api",
+        "version": "v1.0.6",
+        "source_url": "https://github.com/adesigns/nppes-api.git",
+        "source_commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+        "dist_url": "https://api.github.com/repos/adesigns/nppes-api/zipball/2b6a830d608885dd3a814952fbf18575431b5cf5",
+        "dist_sha256": "aada76579539c7b6d0fdb1dede04d777df8615fe24631ec3ba60a45ef4ec3f12",
+        "staged_dist": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/adesigns-nppes-api-2b6a830d608885dd3a814952fbf18575431b5cf5.zip",
+        "tar_sha256": "0c51e7dc79f3e801a8cfeacdcf27193b1e0fcf88744f858cf3af77d263c91520",
+        "staged_tar": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/adesigns-nppes-api-2b6a830d608885dd3a814952fbf18575431b5cf5.tar.gz",
+        "vendor_installed": false,
+        "tar_git_tree_comparison": {
+          "entries": 11,
+          "missing_count": 0,
+          "extra_count": 0,
+          "mismatch_count": 0,
+          "note": "full match"
+        }
+      },
+      {
+        "name": "netresearch/jsonmapper",
+        "version": "v4.5.0",
+        "source_url": "https://github.com/cweiske/jsonmapper.git",
+        "source_commit": "8e76efb98ee8b6afc54687045e1b8dba55ac76e5",
+        "dist_url": "https://api.github.com/repos/cweiske/jsonmapper/zipball/8e76efb98ee8b6afc54687045e1b8dba55ac76e5",
+        "dist_sha256": "69c24086421ba5513e8132effb96ede0a733de67606835eb271b703b5a7b18ea",
+        "staged_dist": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/netresearch-jsonmapper-8e76efb98ee8b6afc54687045e1b8dba55ac76e5.zip",
+        "tar_sha256": "5f97b078c9eacfb0df9aafb4c9ab8f1b534b641e3595204d961986af83a4063a",
+        "staged_tar": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/netresearch-jsonmapper-8e76efb98ee8b6afc54687045e1b8dba55ac76e5.tar.gz",
+        "vendor_installed": false,
+        "tar_git_tree_comparison": {
+          "entries": 71,
+          "missing_count": 64,
+          "extra_count": 0,
+          "mismatch_count": 0,
+          "note": "Missing entries consistent with .gitattributes export-ignore"
+        }
+      },
+      {
+        "name": "tcdent/php-restclient",
+        "version": "0.1.8.4",
+        "source_url": "https://github.com/tcdent/php-restclient.git",
+        "source_commit": "4caee8a72e356f827ac404c2cfe2965e824f192b",
+        "dist_url": "https://api.github.com/repos/tcdent/php-restclient/zipball/4caee8a72e356f827ac404c2cfe2965e824f192b",
+        "dist_sha256": "0ab17785a335625f8332b33d0d6cf3c244d040cdf10785ef5c3909664a6ba507",
+        "staged_dist": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/tcdent-php-restclient-4caee8a72e356f827ac404c2cfe2965e824f192b.zip",
+        "tar_sha256": "7488849d970b54f9c5e4d92478bac72cc8fa39905da20165513d772fead4a9de",
+        "staged_tar": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-deps/artifacts/tcdent-php-restclient-4caee8a72e356f827ac404c2cfe2965e824f192b.tar.gz",
+        "vendor_installed": false,
+        "tar_git_tree_comparison": {
+          "entries": 6,
+          "missing_count": 0,
+          "extra_count": 0,
+          "mismatch_count": 0,
+          "note": "full match"
+        }
+      }
+    ],
+    "tree_comparison_sha256": "3f446e5e426ed96b93826877ed2f672e8d82960b2dbaa95ed9120c82b98510bb",
+    "zip_comparison_sha256": "b968c1ba3e6eedbfbb9132902bd8b1e863471764d0e83e76c5a3056e326167dc",
+    "zip_comparison": "All regular ZIP file bytes and names match their source tarballs; modes and non-regular entries not checked."
+  },
+  "runtime": {
+    "php_version": "8.3.6-0ubuntu0.24.04.13",
+    "binary_host_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/tools/root/usr/bin/php8.3",
+    "binary_mount": "/tools/php8.3",
+    "binary_sha256": "7f1ac2fe89d267364311651c0e7e6651d32ea006c9a701c0cab68eb2394a67d7",
+    "curl_extension_host_path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/tools/root/usr/lib/php/20230831/curl.so",
+    "curl_extension_mount": "/tools/php-curl.so",
+    "curl_extension_sha256": "649cfbf705cb93477e7fa6e58474e5e08adc8d8c1ecf40ac9bde3845208f72d3",
+    "ldd_observed_libraries": {
+      "/lib/x86_64-linux-gnu/libm.so.6": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "sha256": "5dcc4d25466e29ca390ed6fabb371c69b65dff6fa4e91c34561057a020d6994a"
+      },
+      "/lib/x86_64-linux-gnu/libxml2.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+        "sha256": "209e941be9eb2eb9ab36caaa0b81d1c6b36c8f5d7268c24f19e81039137e6485"
+      },
+      "/lib/x86_64-linux-gnu/libssl.so.3": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libssl.so.3",
+        "sha256": "a40e7b67489bbd257e432c700ff8f6a1ad796425b5eccecdc2930127fdd86624"
+      },
+      "/lib/x86_64-linux-gnu/libcrypto.so.3": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+        "sha256": "6866ed711dab8927e1bf82bf1cd30e828bdfc34f3cc1e83b1c9eb01ce6c37d9a"
+      },
+      "/lib/x86_64-linux-gnu/libpcre2-8.so.0": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.11.2",
+        "sha256": "6075a70c30fd7216b9214ae50f2def0ce835092b034088ed9bd64c6a376c740f"
+      },
+      "/lib/x86_64-linux-gnu/libz.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+        "sha256": "f61677c7bdb7c2aa2a243ea781bfd16afcb361cede7b4ef76127a9d8eb9a5242"
+      },
+      "/lib/x86_64-linux-gnu/libsodium.so.23": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libsodium.so.23.3.0",
+        "sha256": "fe00408090ea084504d7cb0130af56a22554fe299034b864551b65a64ca8a7b5"
+      },
+      "/lib/x86_64-linux-gnu/libargon2.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libargon2.so.1",
+        "sha256": "3c593c01d1c3497b1276537a1002c90ce3beb729a3520087608838cf8bbd847d"
+      },
+      "/lib/x86_64-linux-gnu/libc.so.6": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "sha256": "755a371e86cc9f564ab54f66140747700fb0a103f698f659f2060f707897e09a"
+      },
+      "/lib64/ld-linux-x86-64.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "sha256": "5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f"
+      },
+      "/lib/x86_64-linux-gnu/libicuuc.so.74": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libicuuc.so.74.2",
+        "sha256": "7560aadde38e5f4237a47a1ddd5891f9b36768a77a60faae30beee003ac01901"
+      },
+      "/lib/x86_64-linux-gnu/liblzma.so.5": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+        "sha256": "26b37d25f7ca2a2d348de8ecabacda12e921cd933b21fa069a179760db77219d"
+      },
+      "/lib/x86_64-linux-gnu/libicudata.so.74": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libicudata.so.74.2",
+        "sha256": "ddbb3718b8bd9cbd780e5ab08b4503c30a6c4fa0706ebe5d074ed6b596c1714e"
+      },
+      "/lib/x86_64-linux-gnu/libstdc++.so.6": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      "/lib/x86_64-linux-gnu/libgcc_s.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      "/lib/x86_64-linux-gnu/libcurl.so.4": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcurl.so.4.8.0",
+        "sha256": "3e51df20a6b52879ee83a207115a9bc6891092741ce2f5ec791606e6caf859fa"
+      },
+      "/lib/x86_64-linux-gnu/libnghttp2.so.14": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libnghttp2.so.14.26.0",
+        "sha256": "46764ab5b6ca7e353a322054f0bee45d9158a27f3e6a82a2fa4447f2ba9ba268"
+      },
+      "/lib/x86_64-linux-gnu/libidn2.so.0": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libidn2.so.0.4.0",
+        "sha256": "6e632fd9a3125db60bbc623719bbc17b0470330321c5b1c57f1ff7190e5551ad"
+      },
+      "/lib/x86_64-linux-gnu/librtmp.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/librtmp.so.1",
+        "sha256": "15a2a75e8c437b9c99971b5ee10278ab110beef1a56d1d9e5d6759ea140e98ac"
+      },
+      "/lib/x86_64-linux-gnu/libssh.so.4": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libssh.so.4.9.6",
+        "sha256": "b82bd54edb908605b8142be1a6d242df65501af0e9bb7581cc36ebf4d8a5ecfd"
+      },
+      "/lib/x86_64-linux-gnu/libpsl.so.5": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libpsl.so.5.3.4",
+        "sha256": "ae6c5a9aecc249fc66e03c16ec6c4385d09d7e12e0ea7694bb831ab4fee8133c"
+      },
+      "/lib/x86_64-linux-gnu/libgssapi_krb5.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libgssapi_krb5.so.2.2",
+        "sha256": "c7aa00cf51646f7c32f196d329a562bc873ff32906c9caf6554ca489dd657507"
+      },
+      "/lib/x86_64-linux-gnu/libldap.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libldap.so.2.0.200",
+        "sha256": "a9829b999c95452eb0a34cc7b5349427b76dbf3e5d5c8672a5ca69e454c1b151"
+      },
+      "/lib/x86_64-linux-gnu/liblber.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/liblber.so.2.0.200",
+        "sha256": "ddf14275b1fb70ba06510094071adcc1462e675f15ae6cdcadbf40c1dabe5a03"
+      },
+      "/lib/x86_64-linux-gnu/libzstd.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.5",
+        "sha256": "0a2128bc10841fb29e76d08d945864dfb0b6a66da5df6df5d8299197439e54bb"
+      },
+      "/lib/x86_64-linux-gnu/libbrotlidec.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libbrotlidec.so.1.1.0",
+        "sha256": "d5060475e7259904af3600d01e809710305b296441815bcaa540119a66530a70"
+      },
+      "/lib/x86_64-linux-gnu/libunistring.so.5": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libunistring.so.5.0.0",
+        "sha256": "7bcf825cd449892db5105ad2aed91dcf94a27b796426600c765720c584c54dd1"
+      },
+      "/lib/x86_64-linux-gnu/libgnutls.so.30": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libgnutls.so.30.37.1",
+        "sha256": "ddbae2995750875c07bc218d12a062d73f8250678f54dedda7e9be5068781c98"
+      },
+      "/lib/x86_64-linux-gnu/libhogweed.so.6": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libhogweed.so.6.8",
+        "sha256": "c3c606139d4f7776efa4dbd4a6b62e30c916b07a0cafd8c3ef173d6f093607e3"
+      },
+      "/lib/x86_64-linux-gnu/libnettle.so.8": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libnettle.so.8.8",
+        "sha256": "a245ed916229583d6fe0b07657b3ed945bc148c28cc08b5266295f620d2b91cc"
+      },
+      "/lib/x86_64-linux-gnu/libgmp.so.10": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libgmp.so.10.5.0",
+        "sha256": "0ccdfb6d6f5c039465f6d002cf7e4c072d48ac6a2cffc8dd6c748dec31592804"
+      },
+      "/lib/x86_64-linux-gnu/libkrb5.so.3": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libkrb5.so.3.3",
+        "sha256": "fad617a72b5839d30143e7db03281279089def6f18788cbb0b7f86385301bf04"
+      },
+      "/lib/x86_64-linux-gnu/libk5crypto.so.3": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libk5crypto.so.3.1",
+        "sha256": "b37407fb2930939bf78b47267019cd201a8af1f4b6a3852249c849cf3a985798"
+      },
+      "/lib/x86_64-linux-gnu/libcom_err.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libcom_err.so.2.1",
+        "sha256": "022943b3b11c860b049bce41342f1c2594941b7b401d95dfdf235521099fee08"
+      },
+      "/lib/x86_64-linux-gnu/libkrb5support.so.0": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libkrb5support.so.0.1",
+        "sha256": "936bae947a838bd47676a419dfcfb036d0163249215b58ec706ec7d46b7497aa"
+      },
+      "/lib/x86_64-linux-gnu/libsasl2.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libsasl2.so.2.0.25",
+        "sha256": "a0f410ad093236856eee59c4ff2838dc04d932ea0993400f23ed77d67d85af34"
+      },
+      "/lib/x86_64-linux-gnu/libbrotlicommon.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libbrotlicommon.so.1.1.0",
+        "sha256": "f8cd338ec62f719333abd5cba29a6e0bdb4597dfdffed000ffb868b47e02f2e9"
+      },
+      "/lib/x86_64-linux-gnu/libp11-kit.so.0": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libp11-kit.so.0.3.1",
+        "sha256": "a59efd4792d3343dedea1d26a28f5597abfe3369082deb504c4802a31b014897"
+      },
+      "/lib/x86_64-linux-gnu/libtasn1.so.6": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libtasn1.so.6.6.3",
+        "sha256": "59994414d0cdec4f678ef91eaaafc44b26b00bca507e4cc7978caaf79f584173"
+      },
+      "/lib/x86_64-linux-gnu/libkeyutils.so.1": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libkeyutils.so.1.10",
+        "sha256": "f48214417757f18793ed6e180cc14ee1d6f04252a518fc7270e8ca1d0b4260fe"
+      },
+      "/lib/x86_64-linux-gnu/libresolv.so.2": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libresolv.so.2",
+        "sha256": "4dcb01645dbeea5d17f28fd96a730430a808d828b3b7d6a097cfbc311501f69f"
+      },
+      "/lib/x86_64-linux-gnu/libffi.so.8": {
+        "realpath": "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+        "sha256": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153"
+      }
+    },
+    "host_tree_manifest_sha256": "ccaa1a5e489eaf41fe591b7ec8b8d3348cabf865880f7b738934d6e887b83e0d",
+    "environment": "empty private /home/builderbob; TMPDIR=/work; PATH=/tools:/usr/bin:/bin",
+    "runner": "/tools/php8.3 -n -d extension=/tools/php-curl.so /inputs/runner.php",
+    "runner_sha256": "389950b03e3cb634c1a1d1544cec1c4e9c8f922453e51734a2d1ea8a42c4dc1a",
+    "mounts": "Mount exact interpreter, curl extension, selected runner and qualified assembled vendor tree read-only; shared system trees and CA as frozen and independently verified; write output to isolated /work. Installation/assembly not performed."
+  },
+  "network": {
+    "proposed": [
+      "https://npiregistry.cms.hhs.gov:443"
+    ],
+    "default": "deny",
+    "redirects": "deny unless independently approved",
+    "known_issue": "Static source shows peer verification may be disabled by strict int/boolean comparison. Baseline must remain unpatched; controlled HTTPS safety preflight and explicit case qualification are necessary."
+  },
+  "unresolved": [
+    "Secure offline vendor assembly and Composer autoload generation need review and verification before lock",
+    "PHP loader and dynamic libraries plus DNS and CA must be verified inside actual sandbox",
+    "Controlled HTTPS transport behavior, output capture, and isolation controls require case-specific gate"
+  ],
+  "execution": "not started"
+}

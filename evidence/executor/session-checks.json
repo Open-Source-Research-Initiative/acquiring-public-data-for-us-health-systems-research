@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-11-17T01:22:46.220594+00:00",
+  "command": "PILOT_FUSE_RUNTIME=<workspace extracted runtime> python3 -m unittest discover -s tests/executor -p test_session.py -v",
+  "result": "5 passed",
+  "performed_by": "Codex synthetic tests",
+  "source_sha256": {
+    "executor/session.py": "97ebf800e6a12f726e0c5be58ff6ff7d42749a0f881c19fe0dd46d0d95252a45",
+    "executor/sandbox.py": "9e244ebd0c9f90121835401c4c12613b2fbfea19c4b839293fdbaae4198aaabb",
+    "executor/egress.py": "1f6989b9b89ed03a6199d4fd68873d351dd582aa10e75e0bc84a0c760ca11d9c",
+    "executor/supervisor.py": "bfbb87e6b5bfcff8ed97a9e598f3f2f5b18af809a3872f9d885c9c9b68173249",
+    "executor/quota_fs.py": "21c0faef34aab51d65fb1babbeefb83294297b73168d68caa3c2912736a5e662",
+    "tests/executor/test_session.py": "584c31516160b01bd2268c172d8be78187a4bbe0f0e2b901d691e2eaa57d578f"
+  },
+  "observations": [
+    "Copied synthetic source tar was readable; separately mounted reference was absent from executor and readable to reference command",
+    "Executor and reference shared one 32 MiB bounded image and one time and network ledger",
+    "Synthetic permitted network requests from both contexts debited shared network budget",
+    "Symlinked source rejected",
+    "Synthetic executable input retained executable mode; overlapping operations and close were rejected",
+    "Guarded session root recorded quota paths and daemon identity and removed the registration after normal teardown",
+    "Guard root rejects simultaneous sessions, oversized limits and forwards the selected HTTP-only scheme"
+  ],
+  "limitations": [
+    "No real case, health data, model call, or third-party code executed",
+    "Setup and external reservation timeouts are detected after completion, not enforced by this class",
+    "Cleanup may be marked unmetered if no time can be reserved; close destroys image and uncaptured artifacts",
+    "Separate reference operation accounting depends on caller using this session and enforcing timeouts",
+    "Session and reference methods, manifests and test-only broker overrides must not be exposed to a model",
+    "Scratch preflight rejects symlinks created by prior commands; compatibility remains unresolved",
+    "Host and kernel isolation, full resource metering and agent tool routing require independent qualification",
+    "There is a small daemon spawn to registration window; whole-session guard must independently clean its process tree"
+  ]
+}

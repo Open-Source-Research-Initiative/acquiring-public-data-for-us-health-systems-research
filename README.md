@@ -10,7 +10,7 @@ The initial scope covers non-patient-level public U.S. data, including provider/
 
 ## Current work
 
-The lead authorized repository setup and feasibility research in November 2026. This covers contribution research, candidate/code inspection, protocol development, and preparation for an exploratory eight-system pilot. It does not authorize the main evaluation or establish independent human scientific review.
+The lead authorized repository setup and feasibility research in November 2026. This covers contribution research, candidate/code inspection, protocol development, and preparation and technically qualified attempts for an exploratory eight-system pilot. It does not authorize the main evaluation or establish independent human scientific review.
 
 Routine feasibility decisions are delegated to the research coordinator. Cole reviews major scientific claims, material design changes and progression beyond feasibility. Runtime and isolation controls remain prerequisites for attempts.
 
@@ -25,11 +25,11 @@ Routine feasibility decisions are delegated to the research coordinator. Cole re
 
 ## Current research package
 
-The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. The [delegation and review boundaries](governance/protocol-decisions.md) distinguish routine work from major scientific decisions. A synthetic probe found that the current agent/tool boundary is inadequate for held-out assessment; no pilot case has run.
+The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. The [delegation and review boundaries](governance/protocol-decisions.md) distinguish routine work from major scientific decisions. The [executor conditions](protocol/pilot/executor-conditions.md) and [qualification record](evidence/executor/qualification.json) now document the constrained runtime. The [first pilot observation](evidence/pilot/README.md) preserves a harness-interrupted case 01; cases 02–08 remain prepared but unexecuted. No verified-acquisition finding or independent human review is claimed.
 
-## First task
+## Next work
 
-Prepare execution and assessment packets separately, fix software/task choices before observing outputs, and establish independent source references for eight varied candidate systems. The execution agent must not see reference fixtures or checker feedback until its primary output is locked. Candidate selection remains exploratory and human review is pending.
+Correct the metering bottleneck identified in case 01, qualify that change, obtain separate source evidence, and complete the remaining runtime locks. Continue to separate execution and assessment packets and preserve the originally selected tasks. The execution agent must not see reference fixtures or checker feedback until its primary output is locked. Candidate selection remains exploratory and human review is pending.
 
 A single lead may direct exploratory research and preparation, with that limitation recorded. Actual independent review and the specified pilot results are required before main-study progression. Unavailable sources, missing instructions and failed attempts remain findings; they are not replaced with easier cases. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
 

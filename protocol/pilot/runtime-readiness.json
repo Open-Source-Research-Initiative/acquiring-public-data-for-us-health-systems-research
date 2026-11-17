@@ -1,0 +1,206 @@
+{
+  "status": "staged_not_qualified_not_locked",
+  "date_utc": "2026-11-17",
+  "acquisition": "HTTPS codeload commit-addressed tarballs; separately fetched shallow commit object equals each requested SHA. No checkout, hooks, recursive submodules, installation, candidate execution or source health payload requests. Archive bytes have not been independently compared to Git trees.",
+  "path_tools": {
+    "python3": "/usr/bin/python3",
+    "R": null,
+    "Rscript": null,
+    "php": null,
+    "composer": null,
+    "bash": "/usr/bin/bash",
+    "wget": "/usr/bin/wget",
+    "unzip": null
+  },
+  "cases": [
+    {
+      "case_id": "PILOT-01",
+      "repository": "https://github.com/asacarny/hospital-cost-reports",
+      "commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+      "source_url": "https://codeload.github.com/asacarny/hospital-cost-reports/tar.gz/5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+      "archive_sha256": "ba5358a601eb182dccff12643a28328ff6ebd57ab4cb6a62913e81b4a5da8ac8",
+      "archive_top_levels": [
+        "hospital-cost-reports-5a3d57c0af24c2e77cf36e576850fdee16ae8c40"
+      ],
+      "task_sha256": "c901cbb523e4649a226facbfe9afa313fda7c3bfdf1a0af7764c214a9cb3ab95",
+      "license_observed": "No license file found in archive; unresolved",
+      "candidate_upstream_hosts_provisional": "downloads.cms.gov",
+      "draft_runner": "PILOT-01.sh",
+      "draft_runner_sha256": "731e012874dac88e83912758210debeab366bb5577004f922cc7404474a74a70",
+      "fetched_commit_object": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 10
+    },
+    {
+      "case_id": "PILOT-02",
+      "repository": "https://github.com/adesigns/nppes-api",
+      "commit": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+      "source_url": "https://codeload.github.com/adesigns/nppes-api/tar.gz/2b6a830d608885dd3a814952fbf18575431b5cf5",
+      "archive_sha256": "0c51e7dc79f3e801a8cfeacdcf27193b1e0fcf88744f858cf3af77d263c91520",
+      "archive_top_levels": [
+        "nppes-api-2b6a830d608885dd3a814952fbf18575431b5cf5"
+      ],
+      "task_sha256": "1caf3c36d7a3f6fed4c30e8d1814a45316329c94f265898510de2e9d74d90860",
+      "license_observed": "MIT (composer.json)",
+      "candidate_upstream_hosts_provisional": "npiregistry.cms.hhs.gov",
+      "draft_runner": "PILOT-02.php",
+      "draft_runner_sha256": "389950b03e3cb634c1a1d1544cec1c4e9c8f922453e51734a2d1ea8a42c4dc1a",
+      "fetched_commit_object": "2b6a830d608885dd3a814952fbf18575431b5cf5",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 11
+    },
+    {
+      "case_id": "PILOT-03",
+      "repository": "https://github.com/brendensm/CDCPLACES",
+      "commit": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+      "source_url": "https://codeload.github.com/brendensm/CDCPLACES/tar.gz/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+      "archive_sha256": "7e0b882f36a281c46f8e65669958cd33cae392a8b2b0fc932c23f36823e8739b",
+      "archive_top_levels": [
+        "CDCPLACES-d35fe95a3170a1a3f840373e54a2ad4a992cc9a1"
+      ],
+      "task_sha256": "a903f1655c9bbe63888fabde56dde834d8f0104cea1263f48b5705c68934b69f",
+      "license_observed": "MIT",
+      "candidate_upstream_hosts_provisional": "data.cdc.gov",
+      "draft_runner": "PILOT-03.R",
+      "draft_runner_sha256": "644c10f179ac2d510e45cbbb2cbfc3dcd9af98ceaece0f789f406b6931ae067a",
+      "fetched_commit_object": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 27
+    },
+    {
+      "case_id": "PILOT-04",
+      "repository": "https://github.com/hrbrmstr/cdcfluview",
+      "commit": "cc1791b79b492d305a3619b97e416207ecfd2887",
+      "source_url": "https://codeload.github.com/hrbrmstr/cdcfluview/tar.gz/cc1791b79b492d305a3619b97e416207ecfd2887",
+      "archive_sha256": "f0b0f7467972f03df6f5790ecec0d612c9894b8c51f6cf3c02e88eaf05cb1f55",
+      "archive_top_levels": [
+        "cdcfluview-cc1791b79b492d305a3619b97e416207ecfd2887"
+      ],
+      "task_sha256": "f22ca71c23ae2d1cf192e3546f651f9a6e43068620cf1236c280f70090638eab",
+      "license_observed": "MIT",
+      "candidate_upstream_hosts_provisional": "gis.cdc.gov",
+      "draft_runner": "PILOT-04.R",
+      "draft_runner_sha256": "63e855d0985f970250f2c8a13320fe8f8943b750666f92536e3db6e90dec7001",
+      "fetched_commit_object": "cc1791b79b492d305a3619b97e416207ecfd2887",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 173
+    },
+    {
+      "case_id": "PILOT-05",
+      "repository": "https://github.com/cmu-delphi/covidcast",
+      "commit": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+      "source_url": "https://codeload.github.com/cmu-delphi/covidcast/tar.gz/9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+      "archive_sha256": "1fc391ed7e85df188a44e4a167b29321e50b25332749ba4f9c47181a8c658b76",
+      "archive_top_levels": [
+        "covidcast-9f16cfc0c0975a978c4d53ed2e092ee089550b81"
+      ],
+      "task_sha256": "487752a3e3740b4c8472c3033510d94551c6ea0bc9bd4fcc8b06463387ebc0b3",
+      "license_observed": "MIT (Python component)",
+      "candidate_upstream_hosts_provisional": "api.covidcast.cmu.edu",
+      "draft_runner": "PILOT-05.py",
+      "draft_runner_sha256": "abc194382af3a1f650bc52e42dc4ac2b4c8e5264b0b97afd61e53d4ef2d08c85",
+      "fetched_commit_object": "9f16cfc0c0975a978c4d53ed2e092ee089550b81",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 542
+    },
+    {
+      "case_id": "PILOT-06",
+      "repository": "https://github.com/CDCgov/EPHTrackR",
+      "commit": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+      "source_url": "https://codeload.github.com/CDCgov/EPHTrackR/tar.gz/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+      "archive_sha256": "59697b7b025fa9b233e235d265db7e9be31c46cd2a72c1dc06f7d2df696f5e4e",
+      "archive_top_levels": [
+        "EPHTrackR-6893d31c60a76dec366b92d1c11c5c8a1f9b15fd"
+      ],
+      "task_sha256": "8594c7ce489a6c73a5f0f735d53b958a67c7af13504d5bddae93c193c894ac31",
+      "license_observed": "Apache-2.0",
+      "candidate_upstream_hosts_provisional": "ephtracking.cdc.gov",
+      "draft_runner": "PILOT-06.R",
+      "draft_runner_sha256": "c598bbbdfc63dfa5e3ebd5b9cf35dcf2b4c8b4eb104acfd0b5120db1f83efeca",
+      "fetched_commit_object": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 78
+    },
+    {
+      "case_id": "PILOT-07",
+      "repository": "https://github.com/countyhealthrankings/countyhealthR",
+      "commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+      "source_url": "https://codeload.github.com/countyhealthrankings/countyhealthR/tar.gz/48b940be5aef466af86e64b4cf8f799179b0efce",
+      "archive_sha256": "e576376459a823d6625b8341bceb5a9b433669c68d7193b7b506a76060a48c25",
+      "archive_top_levels": [
+        "countyhealthR-48b940be5aef466af86e64b4cf8f799179b0efce"
+      ],
+      "task_sha256": "e10aac91bb0e91872c25297cf339a89a7396b22d30ea447bdcc5f85293b2f8ed",
+      "license_observed": "GPL >= 3",
+      "candidate_upstream_hosts_provisional": "zenodo.org",
+      "draft_runner": "PILOT-07.R",
+      "draft_runner_sha256": "86400b100fffb7485020191247b03d1fc06aea6b3b0980d176c2253bc836c438",
+      "fetched_commit_object": "48b940be5aef466af86e64b4cf8f799179b0efce",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 25
+    },
+    {
+      "case_id": "PILOT-08",
+      "repository": "https://github.com/iupui-soic/mrf-pricing-research",
+      "commit": "8bae12afc38cb528438fdccb02242a56b916316f",
+      "source_url": "https://codeload.github.com/iupui-soic/mrf-pricing-research/tar.gz/8bae12afc38cb528438fdccb02242a56b916316f",
+      "archive_sha256": "af0a2a5a43d4144006e9a408799d84d14e798df793825619c9c31b560e7c9dd2",
+      "archive_top_levels": [
+        "mrf-pricing-research-8bae12afc38cb528438fdccb02242a56b916316f"
+      ],
+      "task_sha256": "ae92a603a9d00614205ffda63efc040b1473ea136347e48f08ba26415055f480",
+      "license_observed": "No license file found in archive; unresolved",
+      "candidate_upstream_hosts_provisional": "data.cms.gov, npiregistry.cms.hhs.gov",
+      "draft_runner": "PILOT-08.sh",
+      "draft_runner_sha256": "3e7a482e15b99be5ba0b7404a5f375d2756e3efc167edb327d3ba6c5da3910a5",
+      "fetched_commit_object": "8bae12afc38cb528438fdccb02242a56b916316f",
+      "archive_matches_git_tree": "yes: path, mode, blob SHA-1; no mismatches",
+      "comparison_entries": 54
+    }
+  ],
+  "limits": "Provisional host names are not an enforced allowlist or exhaustive dependency/redirect inventory. Documentation and package mirror resolution are not frozen. All outcomes remain not started.",
+  "workspace_unzip": {
+    "deb": "tools/debs/unzip_6.0-28ubuntu4.1_amd64.deb",
+    "deb_sha256": "a505b9d491386167bd8e14e3383315a4a7d6539e4406745901ccf009a7988271",
+    "binary": "tools/root/usr/bin/unzip",
+    "binary_sha256": "b582f2d782989a4d0105284b8032b076222eb29a6c141b5c53b792c864199396",
+    "source": "Ubuntu noble-updates apt metadata",
+    "check": "version output and host ldd only; depends on host libc and libbz2; not portable or qualified for isolated runtime"
+  },
+  "runtime_lock_status": "Not frozen: transitive dependencies, executable hashes, OS image and libraries not fully resolved. Do not treat inventory as a reproducible lock.",
+  "archive_comparison": {
+    "sha256": "cc1e5c25517f4c0401427cc945ad14b3230afecf3f230e8a5750889cfc1c6136",
+    "method": "git ls-tree recursive names, modes, object hashes compared with SHA-1 of tar member bytes and symlink targets; exact same entries"
+  },
+  "workspace_php": {
+    "version": "8.3.6-0ubuntu0.24.04.13",
+    "debs": {
+      "php8.3-cli_8.3.6-0ubuntu0.24.04.13_amd64.deb": "6868966e46f777624f8cdfd3c38dfb2a7b6c2654bcacda57dc2049ecc9ca566b",
+      "php8.3-common_8.3.6-0ubuntu0.24.04.13_amd64.deb": "801cae4e842e1b9e9d60a542bf18ba831bf504b2f3070404892bf3f8fb943ea4",
+      "php8.3-curl_8.3.6-0ubuntu0.24.04.13_amd64.deb": "a5a9daaf2cbddb9488bf401a7020fd338d5d1c12327a774855d15e589348134b",
+      "php8.3-opcache_8.3.6-0ubuntu0.24.04.13_amd64.deb": "bb320f77b1439e33e8867990d7fa666579685f0f1583502f39b45636f855a47c",
+      "php8.3-readline_8.3.6-0ubuntu0.24.04.13_amd64.deb": "521280a3bc72eeab32e0329c91cb6172f9e2ee24e57d1f8fd31c05f091a62db5"
+    },
+    "binary": "tools/root/usr/bin/php8.3",
+    "binary_sha256": "7f1ac2fe89d267364311651c0e7e6651d32ea006c9a701c0cab68eb2394a67d7",
+    "curl_extension": "tools/root/usr/lib/php/20230831/curl.so",
+    "curl_sha256": "649cfbf705cb93477e7fa6e58474e5e08adc8d8c1ecf40ac9bde3845208f72d3",
+    "test": "version and curl module loading only, on host libraries; runtime not frozen"
+  },
+  "workspace_composer": {
+    "source": "https://getcomposer.org/download/latest-stable/composer.phar",
+    "sha256": "dd158c0afd41d15fac89e1b4e47b5d42911fe316c3687cd5edac98319b25d028",
+    "publisher_sha256_matched": true,
+    "executed": false
+  },
+  "existing_r": {
+    "path": "/workspace/cache/builderbob/medsci-runtime/20261111/r",
+    "version": "4.5.3",
+    "missing_direct_packages": [
+      "yyjsonr",
+      "tigris",
+      "MMWRweek"
+    ],
+    "status": "shared environment; neither copied nor frozen; package status based on DESCRIPTION paths only"
+  }
+}

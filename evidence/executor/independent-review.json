@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-17",
+  "reviewer": "separate Codex agent",
+  "disposition": "not_qualified",
+  "finding": "Allowed CONNECT forwards opaque traffic for a different virtual host on the selected destination; domain allowlisting is not established.",
+  "evidence": "tests/executor/test_boundary_adversarial.py",
+  "tests": [
+    {"command": "python3 -m unittest discover -s tests/executor -p test_boundary_adversarial.py -v", "result": "2 passed; CONNECT test deliberately confirms bypass"},
+    {"command": "python3 -m unittest discover -s tests/executor -v", "result": "11 passed"}
+  ],
+  "unresolved": ["agent tool routing", "CPU and memory limits", "disk quota", "output memory cap", "full network byte ceiling", "hardlink and same-UID races", "full proc and inherited credential routes", "independent human review"],
+  "scope": "synthetic canaries and loopback endpoint only; not a security certification"
+}

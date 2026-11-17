@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-11-17T01:06:15.929527+00:00",
+  "command": "PILOT_FUSE_RUNTIME=<workspace extracted runtime> python3 -m unittest discover -s tests/executor -p test_sandbox.py -v",
+  "result": "10 passed",
+  "performed_by": "Codex automated synthetic test",
+  "source_sha256": {
+    "executor/sandbox.py": "9e244ebd0c9f90121835401c4c12613b2fbfea19c4b839293fdbaae4198aaabb",
+    "executor/supervisor.py": "cf0d807d08ed7311dbb1fa02e0f8df04db463454db30479eb28dab8c1e9fbfa5",
+    "executor/egress.py": "aedc9d3db835b3605fd8343a03d625eab9e873bf2bbcc64638eabe96d916d20c",
+    "executor/quota_fs.py": "0a70d557ed63d787bbe3cd0fc23e94f7fe13c7bc4c886acf181e4c48dd5084ac",
+    "tests/executor/test_sandbox.py": "306fae544a3af8bc439fe7e39bf69e76bcdb39db56e5a4ccb46714f127ba8894"
+  },
+  "observations": [
+    "Direct and /proc/1/root and /proc/1/cwd synthetic canary reads denied; host home and workspace paths absent",
+    "Explicit case mount readable and not writable; linked or special input files rejected in preflight",
+    "Effective and bounding capabilities zero and no_new_privs set",
+    "Deliberately inheritable host file descriptor not inherited",
+    "External IPv4 connection and mount operation failed",
+    "Timeout killed a setsid descendant before its delayed scratch write",
+    "Output flood stopped at combined 8 MiB capture limit",
+    "Optional shared case ledger charged two synthetic executions",
+    "Synthetic sandbox-to-relay-to-broker HTTP and HTTPS allowed destination succeeded and forbidden HTTP returned 403",
+    "Synthetic 32 MiB FUSE scratch fill via /tmp produced ENOSPC; /etc and root writes denied; private home backed by scratch and FUSE daemon remained alive",
+    "Synthetic PID namespace signal sweep could not disrupt outside-namespace trusted relay; allowed HTTP and HTTPS remained functional"
+  ],
+  "limitations": [
+    "Synthetic tests only; shared host kernel and rootless namespaces are not a security certification",
+    "This test file does not establish end-to-end agent tool-routing or model-context isolation",
+    "Read-only /usr/bin, /usr/sbin, /usr/lib and /usr/lib64 expose more than a minimal runtime",
+    "Input and scratch audits assume trusted host does not mutate them concurrently; bound mount backing paths appear in mountinfo",
+    "FUSE scratch quota requires separate setup; default run accepts an ordinary unbounded workspace directory",
+    "Supervisor controls and network broker require independent review and case-wide accounting; cleanup overrun is reported",
+    "The trusted proxy relay runs outside the sandbox PID namespace and has host filesystem access",
+    "Unqualified until independent review, full resource accounting, agent boundary and packet locks"
+  ]
+}

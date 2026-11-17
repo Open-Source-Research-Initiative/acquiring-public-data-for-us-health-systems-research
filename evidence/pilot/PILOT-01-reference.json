@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "case_id": "PILOT-01",
+  "kind": "post_lock_independent_source_diagnostic",
+  "status": "source_archive_observed_not_matched_to_primary",
+  "observation_window": "same case session per coordinator; exact shared-session timing not independently checked from permitted files",
+  "requests": [
+    {
+      "url": "http://downloads.cms.gov/Files/hcris/HOSPFY1996.zip",
+      "started_utc": "2026-11-17T01:47:23.985890+00:00",
+      "ended_utc": "2026-11-17T01:47:24.446255+00:00",
+      "status": 301,
+      "location": "https://downloads.cms.gov/Files/hcris/HOSPFY1996.zip"
+    },
+    {
+      "url": "https://downloads.cms.gov/Files/hcris/HOSPFY1996.zip",
+      "started_utc": "2026-11-17T01:47:24.629187+00:00",
+      "ended_utc": "2026-11-17T01:47:26.318665+00:00",
+      "status": 200,
+      "content_type": "application/zip",
+      "content_length": 96055905,
+      "last_modified": "Mon, 05 Oct 2026 23:50:27 GMT",
+      "etag": "\"57428128a5eecd8a9c71e5752104c22a:1791244213.098837\"",
+      "date": "Tue, 17 Nov 2026 01:47:24 GMT"
+    }
+  ],
+  "archive": {
+    "bytes": 96055905,
+    "sha256": "951bd266d2c97dac52197194821a69fdd9e9206398c53d67c89b6f8cb273923f",
+    "digest_evidence": "reported by capture command and receipt; archive bytes not read by assessor",
+    "members": [
+      "HOSP_1996_alpha.csv",
+      "HOSP_1996_nmrc.csv",
+      "HOSP_1996_rollup.csv",
+      "HOSP_1996_rpt.csv"
+    ],
+    "inventory_sha256": "8db1fd50a1c652c663bbef97e2ab79d60650898b5728259b0039b71e4eb5da18",
+    "inventory_digest_independently_rechecked": true
+  },
+  "header_digests_independently_rechecked": true,
+  "evidence_limits": [
+    "Archive body was not independently rehashed or opened by this reviewer; inventory and digest are capture-tool results.",
+    "Post-lock capture is not evidence that primary input contained the same bytes or revision; no primary outputs or logs inspected.",
+    "One of 31 requested archives only; no full-scope acquisition, source schema, row fidelity or completeness assessment.",
+    "ETag and Last-Modified are HTTP metadata, not a documented publisher checksum or proof of immutable release.",
+    "ZIP central directory inventory does not establish member integrity or content correctness.",
+    "Resource snapshot reports one open reservation; ledger reconciliation requires coordinator review.",
+    "Automated assessor review is not independent human review."
+  ]
+}

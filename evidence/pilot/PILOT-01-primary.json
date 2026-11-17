@@ -1,0 +1,93 @@
+{
+  "case_id": "PILOT-01",
+  "phase": "primary",
+  "status": "primary_interrupted_by_coordinator_harness_issue",
+  "source_commit": "5a3d57c0af24c2e77cf36e576850fdee16ae8c40",
+  "started_utc": "2026-11-17T01:29:34.618302+00:00",
+  "primary_locked_utc": "2026-11-17T01:36:48.442265+00:00",
+  "finished_utc": "2026-11-17T01:36:49.563238+00:00",
+  "model": "gpt-6.1-terra",
+  "human_transport_decision": "controlled HTTPS baseline approved",
+  "adjudication": {
+    "verified_acquisition": "not_demonstrated",
+    "candidate_failure": "not_inferred_from_interruption",
+    "reason": "per-chunk durable ledger bottleneck detected in synthetic controls; external SIGKILL after424s primary. Overlapping18s synthetic performance probe disclosed.",
+    "source_observation": "Native logs report five complete ZIP downloads, then unmatched expected CSV filenames; independent source inventory not yet verified.",
+    "native_retry_or_diagnostic": "not_used",
+    "reference_observation": "Independently captured original HTTP URL returned301 to HTTPS on same host; reference adapter did not follow redirects.",
+    "cleanup": "guard reported clean; original status and command logs preserved"
+  },
+  "resources_before_final_cleanup": {
+    "elapsed_seconds": 568.969540646,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 21031.030459354,
+    "vm_charged_seconds": 554.1996320909998,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 13845.800367909,
+    "active_charged_seconds": 433.30290042100023,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10366.697099579,
+    "max_next_active_seconds": 10366.697099579,
+    "max_next_inactive_seconds": 13845.800367909,
+    "network_bytes": 572504311,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 20902332169,
+    "open_reservations": 1
+  },
+  "output_manifest": [
+    {
+      "path": ".sandbox-home/.wget-hsts",
+      "bytes": 172,
+      "sha256": "b7383652539e21573757eb26be97ebec779f37df6e1d3cf967bcee62cd577864"
+    },
+    {
+      "path": "native.stderr",
+      "bytes": 864289,
+      "sha256": "a69db53313407d53da32508509b0482673d61dd208a718523ece490f9f824231"
+    },
+    {
+      "path": "native.stdout",
+      "bytes": 344,
+      "sha256": "00012b9118bee65b7cf984cc33b64d1072d3bd38ec0dc0c8dceb489f13c27b23"
+    },
+    {
+      "path": "source/HOSPFY2001.zip",
+      "bytes": 59937944,
+      "sha256": "16b2515b97434ebf8c5e5f32982c8dc0f868ef64ed77897074d2b69385aabee4"
+    }
+  ],
+  "reference_file_manifest": [
+    {
+      "path": "form96-1996.body",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "form96-1996.headers",
+      "bytes": 315,
+      "sha256": "9dd86de914b6d64573f23626f19d9d8c8bdc5f5aa6ca23f8c2abd4903d1cf47a"
+    }
+  ],
+  "runtime_postcheck": "matched_frozen_manifest",
+  "records": {
+    "lock.json": "190718441c6df5d65972b507c4b4eb5f15ffc77fd050318de9874caf47a5d7da",
+    "input-manifest.json": "790dff08220183469921b89e178d93e8a926cbbcfc90b7f32506d987567e45df",
+    "command-log.json": "713bb34c957f1950ee18a8a92fe3048e42d4b766b07f1ea756864e70d2845244",
+    "primary.json": "21d25610d818a80fb99d2ded5781cb4c54d742d18e467cf1f97f9f5ec5bef0a1",
+    "reference-observations.json": "caaedf5654de8429d0aabc9f9ef13fafed2459da6aecd41cb5c0e29d40a0df92",
+    "intervention.json": "0f2c34c0943a6c5c99dec5cb7866f91999be2dc0c3e136f3ed9433731ab734a3",
+    "setup-01-status.json": "1aecd1bfd268bf25e3db2ed1a6bdbf97e4a315b05689723a6b27510b54d35aad",
+    "status.json": "fd9e4c5fb38f3fd1f8553f8a913bc97e9a44bf91946a5d84ccbbd5e8efb1d9a3"
+  },
+  "runtime_archive": {
+    "path": "../executor/snapshots/PILOT-01-primary-runtime.tar.gz",
+    "sha256": "4b267820ccf39a3b8eb3b189b881e07bf03c8044bd13ef7558c058c4011e3eff"
+  },
+  "limits": [
+    "No independent human review",
+    "No completed full task or verified-acquisition finding",
+    "Retained payloads stay in local controlled workspace; public record contains hashes and bounded observations",
+    "Native logs indicate matching-name extraction failures; publisher inventory check is pending",
+    "Initial setup hardlink rejection retained and resource reservation remains charged; source code unchanged"
+  ]
+}

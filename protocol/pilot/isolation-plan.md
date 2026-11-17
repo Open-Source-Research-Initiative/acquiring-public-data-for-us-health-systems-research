@@ -1,6 +1,8 @@
 # Pilot executor isolation: decision and evidence
 
-Status: preparation, 17 November 2026. **NOT QUALIFIED for blind execution.** No third-party code, health data, production system, install, privileged operation, or service registration was used. The probe below is a synthetic namespace test, not a security certification. Human reference preparation and primary execution remain separated by procedure only until an enforceable boundary is established; do not characterize that as blinded execution.
+Historical initial probe, 17 November 2026. The later [executor conditions](executor-conditions.md), [current qualification receipt](../../evidence/executor/qualification.json) and [pilot observations](../../evidence/pilot/README.md) supersede its runtime disposition. The following retains the original finding.
+
+Original status: preparation, 17 November 2026. **NOT QUALIFIED for blind execution.** No third-party code, health data, production system, install, privileged operation, or service registration was used. The probe below is a synthetic namespace test, not a security certification. Human reference preparation and primary execution remain separated by procedure only until an enforceable boundary is established; do not characterize that as blinded execution.
 
 ## Observed local environment
 

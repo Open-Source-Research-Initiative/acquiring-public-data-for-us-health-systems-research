@@ -7,3 +7,5 @@ Only research metadata, source pointers, original notes and permitted small evid
 Independent assessment fixtures must be kept out of execution packets and executor-readable directories until primary outputs are locked. Real fixtures will use a separate access-controlled assessment checkout/location; logical filenames alone are not isolation. Packet templates contain no actual expected records. Until isolation is established, do not run a blinded pilot.
 
 Retain failed retrievals and unknowns. Publish only materials permitted by source terms; otherwise publish allowed metadata, hashes and access instructions, explaining reproducibility limits. Original research metadata is CC BY 4.0; source-specific terms govern source material.
+
+Case 01 now has retained native logs, a partial archive and a separately captured publisher archive in the controlled local workspace. Public [pilot records](../evidence/pilot/README.md) contain metadata and hashes, not those payloads. A source-only inventory was captured after the primary lock, with its timing and same-input limitations stated. The executor never received its contents or assessment feedback.

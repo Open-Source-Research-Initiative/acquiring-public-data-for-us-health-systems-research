@@ -1,5 +1,7 @@
 # Eight-case pilot prepared for feasibility work
 
+Current execution status: [case 01 primary and follow-up evidence](../../evidence/pilot/README.md). Cases 02–08 have not run. See [executor conditions](executor-conditions.md) and the [current qualification receipt](../../evidence/executor/qualification.json). The packet templates and original selection manifest below remain preparation records; attempt locks are separate retained artifacts.
+
 17 November 2026. **Eight proposed cases and draft execution packets are prepared; no case has run.** Actual reference fixtures, dependency environments and executor qualification are not complete. The [delegation record](../../governance/protocol-decisions.md) assigns routine implementation to the coordinator and reserves major scientific review for Cole.
 
 The systems were purposively selected from earlier reconnaissance to exercise different source programs, languages and documentation conditions. They are not a representative sample. Within systems, recorded workflow/example inventories and fixed hashes determine the proposed tasks. [Selection rules](selection-rules.md) explain the choices; the [manifest](manifest.json) records exact source commits, seeds, packet hashes and status.
