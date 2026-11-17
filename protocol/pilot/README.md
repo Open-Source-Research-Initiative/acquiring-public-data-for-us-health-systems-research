@@ -1,12 +1,12 @@
-# Eight-case pilot prepared for feasibility work
+# Eight-case feasibility pilot
 
-Current execution status: [case 01 primary and follow-up evidence](../../evidence/pilot/README.md). Cases 02–08 have not run. See [executor conditions](executor-conditions.md) and the [current qualification receipt](../../evidence/executor/qualification.json). The packet templates and original selection manifest below remain preparation records; attempt locks are separate retained artifacts.
+Current status: all eight selected cases have native-attempt records, including the preserved harness-interrupted case 01. See the [findings for review](../../research/pilot-findings/README.md), [runtime receipts](../../evidence/pilot/README.md), [remaining-case amendment](remaining-case-amendment.md) and [qualification used for cases 02–08](../../evidence/executor/qualification-02-08.json). Each remaining case ran once; no native repeat has occurred. The main-study gate remains unmet.
 
-17 November 2026. **Eight proposed cases and draft execution packets are prepared; no case has run.** Actual reference fixtures, dependency environments and executor qualification are not complete. The [delegation record](../../governance/protocol-decisions.md) assigns routine implementation to the coordinator and reserves major scientific review for Cole.
+The selection table and preparation artifacts below retain the prospective tasks and issues identified before execution. Attempt locks and assessment records are separate; the original execution packets are unchanged.
 
 The systems were purposively selected from earlier reconnaissance to exercise different source programs, languages and documentation conditions. They are not a representative sample. Within systems, recorded workflow/example inventories and fixed hashes determine the proposed tasks. [Selection rules](selection-rules.md) explain the choices; the [manifest](manifest.json) records exact source commits, seeds, packet hashes and status.
 
-| Case | Selected system and revision | Proposed native task | Main preparation issue |
+| Case | Selected system and revision | Selected native task | Issue identified during preparation |
 |---|---|---|---|
 | [01](cases/PILOT-01.json) | Sacarny HCRIS, `5a3d57c0` | Download script defaults, 1996–2024 and overlapping hospital forms. | Full scope may exceed caps; downloaded ZIPs are deleted by the script. |
 | [02](cases/PILOT-02.json) | adesigns NPPES API, `v1.0.6`, `2b6a830d` | Documented single-number lookup `1234567890`. | Potentially empty/invalid example; static TLS peer-verification concern needs safety preflight. |
@@ -26,13 +26,13 @@ The earlier countyhealthR and PricePortal inventories, and the earlier COVIDcast
 - [Execution packets](execution/README.md): generated task-only drafts, with pinned source identity and permitted documentation.
 - [Assessment design](assessment-design.md): independent source evidence, comparison grain, bounded sampling and interpretation for all eight cases; no actual expected values.
 - [Preparation memos](preparation/): source evidence, limitations and superseded choices. These are assessor/coordinator material, not executor context.
-- [Isolation plan](isolation-plan.md) and [probe evidence](../../evidence/isolation-probe.json): a child namespace can hide a test path, but the current agent retains host tools. **Executor qualification failed.**
+- [Isolation plan](isolation-plan.md) and [probe evidence](../../evidence/isolation-probe.json): a child namespace can hide a test path, but the current agent retains host tools. That initial probe failed qualification; the later constrained executor passed scoped checks and subsequently showed request-policy compatibility limitations.
 - [Contribution assessment](../../research/contribution/ASSESSMENT.md): proceed as an empirical application of established methods; no first-study claim.
 
 Rebuild the drafts with `python3 scripts/prepare_pilot_packets.py` from the repository root. `--check` validates selection arithmetic and freshness without rewriting. It never installs packages or executes the proposed commands. The generated files do not themselves enforce isolation.
 
-## Before execution
+## Execution and progression
 
-Qualify a constrained executor and resource meters; resolve installation and transport concerns without source patches; freeze dependencies, documentation and actual tasks; prepare references privately and separately; then lock inputs and packet hashes. Missing reference evidence is retained as a limitation, not manufactured. Independent human review is required for the claimed independent adjudication and later main-study progression, not for continuing this preparation.
+The coordinator froze input hashes, dependency/runtime plans, task packets and access conditions, then ran cases 02–08 under the qualified controls. Setup corrections and conservative charges remain in the case histories. The primary execution agent did not receive reference payloads or checker feedback. Source-first assessment and post-lock follow-ups are documented separately.
 
-No pilot readiness or progression gate has passed. Existing criteria still require eight eligible selected cases, actual comparisons in at least three cases across two source families, the other reference/disposition thresholds, technical limits and independent human review.
+The pilot progression gate has not passed. Existing criteria require eight eligible selected cases, actual assessable comparisons in at least three cases across two source families, the other reference/disposition thresholds, technical limits and independent human review. Case 03 supplies one provisional conditional comparison; three selected rows do not count as three cases.

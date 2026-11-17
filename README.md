@@ -25,13 +25,15 @@ Routine feasibility decisions are delegated to the research coordinator. Cole re
 
 ## Current research package
 
-The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. The [delegation and review boundaries](governance/protocol-decisions.md) distinguish routine work from major scientific decisions. The [executor conditions](protocol/pilot/executor-conditions.md) and [qualification record](evidence/executor/qualification.json) now document the constrained runtime. The [first pilot observation](evidence/pilot/README.md) preserves a harness-interrupted case 01; cases 02–08 remain prepared but unexecuted. No verified-acquisition finding or independent human review is claimed.
+The [contribution assessment](research/contribution/ASSESSMENT.md) recommends an independent empirical evaluation using established methods. All eight selected workflows now have retained native-attempt records, including the interrupted case 01. The [pilot findings for review](research/pilot-findings/README.md) separate source-scope limitations, endpoint failures, proxy interference and unresolved verification. The main-study progression gate remains unmet.
+
+Cases 02–08 used [hash-bound runtime plans](protocol/pilot/runtime/locked/) and a [qualified executor](evidence/executor/qualification-02-08.json) with 84 passing integrated tests. Each received one native invocation. [Case 01's findings and limitations](evidence/pilot/README.md) remain unchanged. Technical checks and agent assessments are not independent human scientific review.
 
 ## Next work
 
-Correct the metering bottleneck identified in case 01, qualify that change, obtain separate source evidence, and complete the remaining runtime locks. Continue to separate execution and assessment packets and preserve the originally selected tasks. The execution agent must not see reference fixtures or checker feedback until its primary output is locked. Candidate selection remains exploratory and human review is pending.
+Cole's [review package](research/pilot-findings/README.md#decisions-for-coles-review) identifies the major claims and proposed diagnostic-method amendment. The principal findings are a substantial CDCPLACES retrieval-scope limitation and evaluator-induced barriers in two cases. Improve request/response observability and qualify native multi-request behavior before any separately recorded diagnostic repeat. Preserve the original attempts and the distinction between available source records, returned-record agreement and full acquisition.
 
-A single lead may direct exploratory research and preparation, with that limitation recorded. Actual independent review and the specified pilot results are required before main-study progression. Unavailable sources, missing instructions and failed attempts remain findings; they are not replaced with easier cases. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
+The main evaluation and broader collection remain unapproved. The required workflow comparisons across multiple source families and independent qualified human review are not established. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
 
 ## Standards and reuse
 

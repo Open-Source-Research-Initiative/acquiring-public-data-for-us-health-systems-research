@@ -17,7 +17,8 @@ import time
 
 from executor.egress import EgressBroker, create_tls_material
 from executor.quota_fs import QuotaFS
-from executor.sandbox import _audit_input, run
+from executor.sandbox import _alias_source, _audit_input, run
+from executor.archive import stage_archive
 from executor.supervisor import CaseBudget
 
 
@@ -30,7 +31,7 @@ class CaseSession:
     Scratch and input trees must not be concurrently modified by host processes.
     """
     def __init__(self, *, workspace_parent, state_parent, ledger_path, fuse2fs,
-                 library_dir, allowed_hosts, case_inputs=None, reference_inputs=None,
+                 library_dir, allowed_hosts, case_inputs=None, reference_inputs=None, guest_aliases=None, reference_aliases=None,
                  disk_bytes=100 * 1024**3, network_bytes=20 * 1024**3,
                  broker_timeout=15, allowed_schemes=('http', 'https'), budget_options=None, setup_reservation=120, _test_broker_options=None):
         self.workspace_parent = Path(workspace_parent).resolve(strict=True)
@@ -60,6 +61,8 @@ class CaseSession:
         self.allowed_hosts = list(allowed_hosts)
         self.case_inputs = dict(case_inputs or {})
         self.reference_inputs = dict(reference_inputs or {})
+        self.guest_aliases = dict(guest_aliases or {})
+        self.reference_aliases = dict(reference_aliases or {})
         self.disk_bytes, self.network_bytes = disk_bytes, network_bytes
         self.broker_timeout = broker_timeout
         self.allowed_schemes = tuple(allowed_schemes)
@@ -151,7 +154,7 @@ class CaseSession:
             self.close()
             raise
 
-    def execute(self, argv, *, timeout, reference=False, env=None):
+    def execute(self, argv, *, timeout, reference=False, env=None, network=True):
         if not self.open:
             raise RuntimeError('session is not open')
         if not self._busy.acquire(blocking=False):
@@ -168,10 +171,32 @@ class CaseSession:
                 environment[name] = '/trust/ca.pem'
             return run(argv, mounts=mounts,
                        scratch=self.reference_scratch if reference else self.executor_scratch,
-                       timeout=timeout, env=environment, proxy_socket=self.broker.socket_path,
-                       budget=self.budget, active=not reference)
+                       timeout=timeout, env=environment, proxy_socket=self.broker.socket_path if network else None,
+                       budget=self.budget, active=not reference,
+                       aliases=self.reference_aliases if reference else self.guest_aliases)
         finally:
             self._busy.release()
+
+    def stage_runtime(self, input_target, *, destination, timeout, reference=False):
+        """Stage a copied runtime archive under /work; no candidate code runs."""
+        from pathlib import PurePosixPath
+        relative = PurePosixPath(destination)
+        if relative.is_absolute() or not relative.parts or '..' in relative.parts:
+            raise ValueError('invalid runtime destination')
+        mounts = self.reference_mounts if reference else self.executor_mounts
+        scratch = self.reference_scratch if reference else self.executor_scratch
+        aliases = self.reference_aliases if reference else self.guest_aliases
+        matches = [source for source, target in mounts.items() if target == input_target]
+        if len(matches) != 1:
+            raise ValueError('runtime archive target must identify one case input')
+        with self.external_reservation(timeout, active=False):
+            parent = scratch
+            if len(relative.parts) > 1:
+                parent = Path(_alias_source(scratch, str(PurePosixPath(*relative.parts[:-1]))))
+            return stage_archive(matches[0], parent / relative.parts[-1],
+                                 guest_root='/work/' + str(relative),
+                                 allowed_guest_roots=tuple(aliases),
+                                 max_bytes=self.disk_bytes)
 
     @contextmanager
     def external_reservation(self, timeout, *, active=True):

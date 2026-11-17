@@ -265,9 +265,27 @@
     "known_issue": "Static source shows peer verification may be disabled by strict int/boolean comparison. Baseline must remain unpatched; controlled HTTPS safety preflight and explicit case qualification are necessary."
   },
   "unresolved": [
-    "Secure offline vendor assembly and Composer autoload generation need review and verification before lock",
-    "PHP loader and dynamic libraries plus DNS and CA must be verified inside actual sandbox",
-    "Controlled HTTPS transport behavior, output capture, and isolation controls require case-specific gate"
+    "Run offline setup under case-specific qualified guard and ledger; verify exit and generated vendor tree",
+    "PHP loader, dynamic libraries, DNS and trust must be verified inside actual sandbox",
+    "Controlled HTTPS safety preflight and isolation controls require case-specific qualification"
   ],
-  "execution": "not started"
+  "execution": "not started",
+  "offline_setup": {
+    "input_directory": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/case02-offline-inputs",
+    "input_manifest_sha256": "6bf530206ea9799160e91c52e73fd2dea4630f6026d9d5fc53744fea3dc6cc36",
+    "setup_command": [
+      "/usr/bin/bash",
+      "/inputs/setup.sh"
+    ],
+    "environment": {
+      "PATH": "/tools:/usr/bin:/bin"
+    },
+    "method": "Composer install from three local file URL ZIPs; scripts/plugins disabled, network disabled. Composer lock differs from original only in local dist URLs. Setup must run inside qualified case session and shared ledger, before primary, with no health requests.",
+    "native_command": [
+      "/usr/bin/bash",
+      "-c",
+      "cd /work/setup && exec /tools/php8.3 -n -d extension=/tools/php-curl.so /inputs/runner.php"
+    ],
+    "vendor_status": "Not assembled or tested; retain setup result and freeze vendor hash before native invocation."
+  }
 }

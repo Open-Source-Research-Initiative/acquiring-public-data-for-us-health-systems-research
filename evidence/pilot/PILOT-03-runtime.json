@@ -1,0 +1,241 @@
+{
+  "case_id": "PILOT-03",
+  "recorded_utc": "2026-11-17T03:03:05.547051+00:00",
+  "phase": "exploratory_feasibility",
+  "coordinator_status": "primary_finished_pending_assessment",
+  "native_invocations": 1,
+  "native_results": [
+    {
+      "returncode": 0,
+      "timed_out": false,
+      "output_limit_exceeded": false,
+      "elapsed_seconds": 2.1569304069998907
+    }
+  ],
+  "primary_locked_utc": "2026-11-17T02:38:20.205980+00:00",
+  "setup_histories": 1,
+  "runtime_postcheck": "matched_frozen_manifest",
+  "resources": {
+    "elapsed_seconds": 771.5101711930001,
+    "elapsed_limit": 21600.0,
+    "elapsed_remaining_seconds": 20828.489828807,
+    "vm_charged_seconds": 166.41558021500532,
+    "vm_limit": 14400.0,
+    "vm_remaining_seconds": 14233.584419784995,
+    "active_charged_seconds": 79.72506911100209,
+    "active_limit": 10800.0,
+    "active_remaining_seconds": 10720.274930888998,
+    "max_next_active_seconds": 10720.274930888998,
+    "max_next_inactive_seconds": 14233.584419784995,
+    "network_bytes": 2041480402,
+    "network_limit": 21474836480,
+    "network_remaining_bytes": 19433356078,
+    "open_reservations": 1
+  },
+  "lock": {
+    "case_id": "PILOT-03",
+    "locked_utc": "2026-11-17T02:36:36.707969+00:00",
+    "spec_sha256": "cdc6db65a079a54039882aaa3df35c8ff6b2df0160e2019086a4111ed81c97c1",
+    "packet_sha256": "a903f1655c9bbe63888fabde56dde834d8f0104cea1263f48b5705c68934b69f",
+    "qualification_sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108",
+    "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+    "model": "gpt-6.1-terra",
+    "native_argv": [
+      "bash",
+      "-c",
+      "cd /work && { ( \"/workspace/cache/builderbob/medsci-runtime/20261111/r/bin/Rscript\" /inputs/PILOT-03.R ) > /work/output/native.stdout 2> /work/output/native.stderr; rc=$?; tail -c 3000 /work/output/native.stdout; tail -c 3000 /work/output/native.stderr >&2; exit \"$rc\"; }"
+    ],
+    "retry": "none",
+    "setup_resume": true,
+    "input_debit": "full input sizes debited on each setup including any explicit resume",
+    "prompt_sha256": "c773bd088161e34616552b3fc5f34de087d34eb0ee85ed6f04ff3253fbeb35d2"
+  },
+  "reference_observations": {
+    "before": "source_observation_semantics_unclassified",
+    "after": "source_observation_semantics_unclassified"
+  },
+  "retained_artifacts": [
+    {
+      "path": "command-log.json",
+      "bytes": 1305,
+      "sha256": "2209a9d40477b5f916fe8b17720f9094c9a1272ac51ee012652c08184299905e"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 1151,
+      "sha256": "16a11eb50796c692c7a216a6237b8dd6774f46083e9d05af4b2f87eb2372a89a"
+    },
+    {
+      "path": "installed-manifest.json",
+      "bytes": 26801,
+      "sha256": "a7b9ddb467418d401e629c28ebcb99bf64c20ce0f6a81e2971500a3f9446088b"
+    },
+    {
+      "path": "lock.json",
+      "bytes": 1019,
+      "sha256": "6c2a5660f4771da5c45776db83217d6acfa6f13aa5ff7ef15a84bedd1c95d6d1"
+    },
+    {
+      "path": "model-packet.txt",
+      "bytes": 2354,
+      "sha256": "c773bd088161e34616552b3fc5f34de087d34eb0ee85ed6f04ff3253fbeb35d2"
+    },
+    {
+      "path": "native-logs/output/native.stderr",
+      "bytes": 123,
+      "sha256": "38177ea174c6fd204638ce6f66e6e5427ade4fe6ca9ad66e83cfdf7a8e9db9d9"
+    },
+    {
+      "path": "native-logs/output/native.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "native-start.json",
+      "bytes": 398,
+      "sha256": "f58cbdf81a25f034a4dd63999644106fadbd7d662a6d5bced7dfb92dc1fdcb1e"
+    },
+    {
+      "path": "outputs/output/result.rds",
+      "bytes": 46573,
+      "sha256": "afddbbbfdcad9b430fea7fc33972ed6ba9f326fa4e1c7cac383998f79153b608"
+    },
+    {
+      "path": "predebit.json",
+      "bytes": 121,
+      "sha256": "e4a628a31b83dbeadaa028b100053ecda8154212c3f2a58a8195ca8e56b9561e"
+    },
+    {
+      "path": "primary.json",
+      "bytes": 2378,
+      "sha256": "baad7d059fe3ca92226eb4a328c3639124b2154a62b5d7a01197b58e86a12241"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 6146,
+      "sha256": "956b9023d6c5de3cfd4b8b892f44b105a7f9ecf7bfec58f82198be6f5d0d7108"
+    },
+    {
+      "path": "reference/meta-QWHlW05b/dataset-metadata.body",
+      "bytes": 38893,
+      "sha256": "d61df84686754ff274f5db2ff3a0c4f854f7abf6de8ac76dfa7d6f322b891a23"
+    },
+    {
+      "path": "reference/meta-QWHlW05b/dataset-metadata.headers",
+      "bytes": 424,
+      "sha256": "b4ca70e3433ee3f3d23056e86a7b8a1f2418b71e45dfa672f37481371e4f3842"
+    },
+    {
+      "path": "reference/meta-QWHlW05b/selected-query.body",
+      "bytes": 663659,
+      "sha256": "ca48974f323c780ebed951b278af1d3a8551e0e8adfe6da855f132a72d8af09c"
+    },
+    {
+      "path": "reference/meta-QWHlW05b/selected-query.headers",
+      "bytes": 1377,
+      "sha256": "3dba04cf7b1757c1b7b2391088daa2f9788169485dcbc08819031ea0dc6c0edd"
+    },
+    {
+      "path": "reference/meta-vMHpo6lb/dataset-metadata.body",
+      "bytes": 38893,
+      "sha256": "d61df84686754ff274f5db2ff3a0c4f854f7abf6de8ac76dfa7d6f322b891a23"
+    },
+    {
+      "path": "reference/meta-vMHpo6lb/dataset-metadata.headers",
+      "bytes": 424,
+      "sha256": "e0104dae8a74384393d7dea4fb22f1307dac7b94323a7718526001a95104c484"
+    },
+    {
+      "path": "reference/meta-vMHpo6lb/selected-query.body",
+      "bytes": 663659,
+      "sha256": "ca48974f323c780ebed951b278af1d3a8551e0e8adfe6da855f132a72d8af09c"
+    },
+    {
+      "path": "reference/meta-vMHpo6lb/selected-query.headers",
+      "bytes": 1377,
+      "sha256": "45a358b2ec6b8ca28e0a8de57a08c2da0b853c311070d42afb04ca22fb28bc74"
+    },
+    {
+      "path": "reference-after.json",
+      "bytes": 4568,
+      "sha256": "5e6e5462a00e0794b6371c56acbcf94baec0a2c7d726ad449514c1f9c12b2369"
+    },
+    {
+      "path": "reference-before.json",
+      "bytes": 4568,
+      "sha256": "2adabdd3be9541badb781bd71efc2ee481e88cf1089f8527101d3444706db9d7"
+    },
+    {
+      "path": "setup-history-1/input-manifest.json",
+      "bytes": 1151,
+      "sha256": "16a11eb50796c692c7a216a6237b8dd6774f46083e9d05af4b2f87eb2372a89a"
+    },
+    {
+      "path": "setup-history-1/lock.json",
+      "bytes": 1020,
+      "sha256": "7a29da6b93ce741c187be97b3e621d44757e1b71d204d0ee35db3540ea1bda66"
+    },
+    {
+      "path": "setup-history-1/model-packet.txt",
+      "bytes": 2354,
+      "sha256": "c773bd088161e34616552b3fc5f34de087d34eb0ee85ed6f04ff3253fbeb35d2"
+    },
+    {
+      "path": "setup-history-1/predebit.json",
+      "bytes": 121,
+      "sha256": "e4a628a31b83dbeadaa028b100053ecda8154212c3f2a58a8195ca8e56b9561e"
+    },
+    {
+      "path": "setup-history-1/qualification.json",
+      "bytes": 5867,
+      "sha256": "8e4fd702f9e98c0dc4e702f27de720945c04beb4d4b0dad7bc8913d662b7d0b2"
+    },
+    {
+      "path": "setup-history-1/setup-log.json",
+      "bytes": 1245,
+      "sha256": "0e78fe0c0694e55c7acbdd0ad59372f70795b096e39789af4a69d38fdba1e807"
+    },
+    {
+      "path": "setup-history-1/spec.json",
+      "bytes": 3383,
+      "sha256": "cdc6db65a079a54039882aaa3df35c8ff6b2df0160e2019086a4111ed81c97c1"
+    },
+    {
+      "path": "setup-history-1/staging-00.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "path": "setup-history-1/status.json",
+      "bytes": 1633,
+      "sha256": "5b2258609f1aac7e307622865318d80a12a6e2a573763df6b17fa5685114a5cb"
+    },
+    {
+      "path": "setup-log.json",
+      "bytes": 15469,
+      "sha256": "765461634ed0c0182be93e89c61aaac57e1fd6992391344000323a336e59558e"
+    },
+    {
+      "path": "spec.json",
+      "bytes": 3383,
+      "sha256": "cdc6db65a079a54039882aaa3df35c8ff6b2df0160e2019086a4111ed81c97c1"
+    },
+    {
+      "path": "staging-00.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "path": "status.json",
+      "bytes": 7396,
+      "sha256": "51d7ef2a202905f26cf2eb445d672b0aa9457ac8f2a51af1443b0873dba1876f"
+    }
+  ],
+  "mutable_ledger": "budget.sqlite remains cumulative; use the separately timestamped remaining-accounting.json reconciliation, not an immutable-file claim.",
+  "limitations": [
+    "Metadata inventory of locally retained evidence; raw payloads and private assessments are not published here.",
+    "Process exit, coordinator status and hashes do not establish acquisition, completeness, fidelity or research fitness.",
+    "Resource ledger preserves conservative charges; application-byte accounting excludes unknown historical preparation traffic.",
+    "Independent human scientific review is pending."
+  ]
+}

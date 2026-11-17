@@ -1,0 +1,56 @@
+{
+  "case_id": "PILOT-05",
+  "inputs": [
+    {
+      "source": "/workspace/build/builderbob/osri-python-pilot/case05/package-source.tar",
+      "target": "/inputs/source.tar",
+      "sha256": "3d45bf44642dbca271eca792b70d5435e2e67244212c5035211a799667aa26ea"
+    },
+    {
+      "source": "/workspace/build/builderbob/osri-python-pilot/case05/wheelhouse.tar",
+      "target": "/inputs/wheelhouse.tar",
+      "sha256": "df6d78a4f99d7d95a21fd7f833537a6b7642bbb3929162190558a889d65a5ceb"
+    },
+    {
+      "source": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/task-input/PILOT-05.py",
+      "target": "/inputs/task-runner.py",
+      "sha256": "1a6d8c9e33ca5d29b623cb3f981b091ff6071d79a37b317d3b96a13c10b5435d"
+    }
+  ],
+  "hosts": [
+    "api.covidcast.cmu.edu"
+  ],
+  "guest_aliases": {},
+  "staging": [
+    {
+      "input": "/inputs/source.tar",
+      "destination": "source"
+    },
+    {
+      "input": "/inputs/wheelhouse.tar",
+      "destination": "wheelhouse"
+    }
+  ],
+  "directories": [
+    "output"
+  ],
+  "env": {
+    "PILOT_OUTPUT": "/work/output"
+  },
+  "setup_shell_commands": [
+    "python3 -m venv --without-pip /work/venv && PYTHONPATH=/work/wheelhouse/pip-26.2.2-py3-none-any.whl /work/venv/bin/python -m pip install --no-index --disable-pip-version-check --find-links=/work/wheelhouse --require-hashes -r /work/wheelhouse/requirements.lock",
+    "/work/venv/bin/python -m pip install --no-index --no-deps --no-build-isolation /work/source/covidcast-py"
+  ],
+  "native_shell_command": "/work/venv/bin/python /inputs/task-runner.py",
+  "installation_roots": [
+    "venv",
+    "source",
+    "wheelhouse"
+  ],
+  "additional_output_roots": [
+    "output"
+  ],
+  "reference_adapter": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/assessment-private/metadata_probe.py",
+  "reference_adapter_sha256": "ed7c38f4402cc5fe0a7491b172ec6fdf3c25b29b8e356bbb45f6247ba7a09d85",
+  "known_input_payload_predebit": 368682888
+}

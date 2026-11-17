@@ -1,0 +1,96 @@
+{
+  "status": "qualified_for_bounded_feasibility",
+  "created_utc": "2026-11-17T02:33:04.801497+00:00",
+  "version": "v2",
+  "performer": "Codex coordinator with GPT-6.1 Terra implementation and resource-review agents",
+  "allowed_cases": [
+    "PILOT-02",
+    "PILOT-03",
+    "PILOT-04",
+    "PILOT-05",
+    "PILOT-06",
+    "PILOT-07",
+    "PILOT-08"
+  ],
+  "allowed_phases": [
+    "primary",
+    "reference_capture",
+    "synthetic"
+  ],
+  "allowed_schemes": [
+    "http",
+    "https"
+  ],
+  "human_transport_decision": "Cole approved controlled HTTPS baseline; proxy certificate verification is not candidate TLS verification",
+  "tests": {
+    "count": 84,
+    "failures": 0,
+    "skipped": 0,
+    "command": "PILOT_FUSE_RUNTIME=<workspace extracted runtime> python3 -m unittest discover -s tests/executor -v",
+    "log_sha256": "fb8dfdf068f9eab8d9accb636707b0d8440fd3d45cdcf6e0b4cb7841c37c1775"
+  },
+  "open_blockers": [],
+  "file_sha256": {
+    "executor/archive.py": "e054309475bb03f89b69a039ba85cd200180dd4c754e65f294f600bfa4b6d5a4",
+    "executor/coordinator_guard.py": "dc5004e649ce4bd59bd671405348c6c81047b2bf256e359f6cc4bcf0f563b492",
+    "executor/egress.py": "8fc90147d70f540f044ece902b50c4c81e1962ecd42c99dfa726d2e36fb2e161",
+    "executor/model_runtime.py": "29e7cbe5cb56968eda7f8c86a3922d062cf31cdaac961b0ce11e2882b4aa9d26",
+    "executor/pilot.py": "4c7670a05b1dfc50c2ece7cff057b2290e905d14f6e55e27031f815e92b22458",
+    "executor/quota_fs.py": "21c0faef34aab51d65fb1babbeefb83294297b73168d68caa3c2912736a5e662",
+    "executor/remaining.py": "61fff0bfbc608f51556b793335f8e927fa03f5f4a6cd96db101395f90d3ec0c3",
+    "executor/sandbox.py": "eeb81e74b71724040c8b2e07b979599c176a4456f0e9da7b015db62b3e9aa137",
+    "executor/session.py": "a36e28c39f5911e21fbbe9c1e485fc41880b3de2490e5925da85d36135ab4c24",
+    "executor/supervisor.py": "5a968bc36bbc675021aa178ecaea8bcb598dc4d765516131c1cd78f14195d8dd",
+    "protocol/pilot/remaining-case-amendment.md": "afdddb6c186729c92aa9ec1bc5b30934e03a260869d0246cdd711a199d287d46",
+    "tests/executor/guarded_model_probe.py": "78f03da8d3f16e16ebd9bab091c586c5028fd2be5c5eeb01e4618afd0d717d94",
+    "tests/executor/test_archive.py": "6c313c848a0f0629f7836b5932f9909f479f78bd93fb1c857cdd684813f4e4d6",
+    "tests/executor/test_boundary_adversarial.py": "9c94a180f4d30cbba5866c8d77b3aa3c8306a5b96bb9246a7e419149845d8244",
+    "tests/executor/test_coordinator_guard.py": "649bee27ccc936f7c8b3d3eaa4dbd7ca7c624a0bf8658aa3dce9c73787989f1d",
+    "tests/executor/test_egress.py": "daebdd7333377807439b1ff65cba315378a536e584e6eee37d9fb5d3ffadb4af",
+    "tests/executor/test_model_runtime.py": "418e934bab78b15d9576a862cb59aa5581da1a340a0bf2f46a4c7c314b73497f",
+    "tests/executor/test_pilot.py": "5a93ce319beccb95f746e9eba88c5a546d4872bc24ace63c264f89bf23df89ab",
+    "tests/executor/test_quota_fs.py": "d3792b4d8348f27c1bdabc250a049dc263aab8cc2815ebd979797ee42d85e5fc",
+    "tests/executor/test_remaining.py": "59e7b8e91b932f45b666d946a1f3ae69f00fdb6e3f244a83fa7781131ad4f6f5",
+    "tests/executor/test_sandbox.py": "1833f0b0066bbfa6e28339ea0e5c4508f301f8b9ed6675276f288559e1f48031",
+    "tests/executor/test_session.py": "f71a950708789e1316d19097e55dd51462d627713a0612a8f215f3a550cfa226",
+    "tests/executor/test_supervisor.py": "5d10cdb216faa2fdbcf49978f92b471e9a4ff41b4ea9cf2d7d8ac45e727ac800"
+  },
+  "case_plan_sha256": {
+    "PILOT-02": "10e59f32071524efe0dbbef7e67183d20d1dfc84934b96a6934294c0371dc1b3",
+    "PILOT-03": "cdc6db65a079a54039882aaa3df35c8ff6b2df0160e2019086a4111ed81c97c1",
+    "PILOT-04": "c96fe3b2081256ecec2e9316342ccf1dc563d4f0f8434f9d0a45ba2443657c05",
+    "PILOT-05": "d4b64a78b874ddb96295c632798ee02c13fef70a4fbea5495beb24f1a44aace6",
+    "PILOT-06": "f8206ac10f1e423968dae41054b40710e9285caf5778f2db8ef2c1c857304f09",
+    "PILOT-07": "ae23c51f06326e604f3ef2fbc08fda265f97034d842b7a90158479d85647bc65",
+    "PILOT-08": "f81a082b826625e8845d2068fb2f1c6082c50a65c798ebf709f7a4bf2b54af98"
+  },
+  "case_packet_sha256": {
+    "PILOT-02": "1caf3c36d7a3f6fed4c30e8d1814a45316329c94f265898510de2e9d74d90860",
+    "PILOT-03": "a903f1655c9bbe63888fabde56dde834d8f0104cea1263f48b5705c68934b69f",
+    "PILOT-04": "f22ca71c23ae2d1cf192e3546f651f9a6e43068620cf1236c280f70090638eab",
+    "PILOT-05": "487752a3e3740b4c8472c3033510d94551c6ea0bc9bd4fcc8b06463387ebc0b3",
+    "PILOT-06": "8594c7ce489a6c73a5f0f735d53b958a67c7af13504d5bddae93c193c894ac31",
+    "PILOT-07": "e10aac91bb0e91872c25297cf339a89a7396b22d30ea447bdcc5f85293b2f8ed",
+    "PILOT-08": "ae92a603a9d00614205ffda63efc040b1473ea136347e48f08ba26415055f480"
+  },
+  "supplemental_host_manifests": [
+    {
+      "path": "/workspace/repos/builderbob/open-source-research-initiative/planning/health-data-pilot-runtime/runtime-zoneinfo-manifest.jsonl",
+      "sha256": "890f4943ba06f96ae884de8095671e0f715958bb53547ee884b990d676608c5f"
+    }
+  ],
+  "runtime_snapshot": {
+    "path": "evidence/executor/snapshots/remaining-runtime-20261117-v2.tar.gz",
+    "sha256": "a4fb79a41de984b5613b74ed9286cdbe76497441158ee3dcc26888084046c108"
+  },
+  "limitations": [
+    "Scoped controls and synthetic tests; not a general security certification or independent human review.",
+    "Separate isolation-review agent was unavailable because hardware-key authentication failed; coordinator code review and separate resource-agent review are recorded without claiming that follow-up review completed.",
+    "Trusted host/runtime mutation and kernel flaws remain outside demonstrated boundary.",
+    "Serial coordinator launch is enforced operationally; there is no claim of concurrently safe multi-coordinator orchestration.",
+    "46 GiB shared image, 46 GiB retained payloads and 8 GiB read-only runtime/control allocation; fixed control writer bounds apply.",
+    "Application-byte network accounting and conservative staged-input predebits do not reconstruct all historical preparation traffic or time.",
+    "Native runtime/package compatibility and publisher access are outcomes to be observed; metadata-only references cannot establish fidelity.",
+    "Case 01 original evidence and runtime remain separately archived and unchanged."
+  ]
+}

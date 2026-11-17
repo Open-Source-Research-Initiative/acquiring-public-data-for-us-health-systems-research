@@ -33,7 +33,7 @@ class CaseSessionTests(unittest.TestCase):
                              ledger_path=base/'case.sqlite', fuse2fs=runtime/'usr/bin/fuse2fs',
                              library_dir=runtime/'lib/x86_64-linux-gnu',
                              allowed_hosts=['example.test'], case_inputs={case:'/inputs/source.tar', executable:'/inputs/unzip'},
-                             reference_inputs={ref:'/inputs/reference.txt'}, disk_bytes=32*1024**2,
+                             reference_inputs={ref:'/inputs/reference.txt'}, reference_aliases={'/data0/ref':'private'}, disk_bytes=32*1024**2,
                              network_bytes=10000, setup_reservation=10,
                              budget_options={'elapsed_seconds':300, 'vm_seconds':120, 'active_seconds':60}) as session:
                 executor = "import tarfile,os,json; t=tarfile.open('/inputs/source.tar'); print(json.dumps({'source':t.extractfile('source.txt').read().decode(),'ref':os.path.exists('/inputs/reference.txt'), 'other':os.path.exists('/work/../reference')}))"
@@ -55,6 +55,10 @@ class CaseSessionTests(unittest.TestCase):
                 result = session.execute(['/usr/bin/cat','/inputs/reference.txt'], timeout=5, reference=True)
                 self.assertEqual(result['returncode'], 0, result)
                 self.assertEqual(result['stdout'], 'synthetic-reference-secret')
+                writer = session.execute(['/usr/bin/python3','-c',"open('/data0/ref/value','w').write('ref')"], timeout=5, reference=True)
+                self.assertEqual(writer['returncode'], 0, writer)
+                self.assertEqual((session.reference_scratch/'private/value').read_text(), 'ref')
+                self.assertFalse((session.executor_scratch/'private/value').exists())
                 after = session.budget.snapshot()
                 self.assertGreater(after['vm_charged_seconds'], before['vm_charged_seconds'])
                 self.assertEqual(after['active_charged_seconds'], before['active_charged_seconds'])
@@ -88,6 +92,9 @@ class CaseSessionTests(unittest.TestCase):
                                  allowed_hosts=['example.test'], disk_bytes=32*1024**2,
                                  setup_reservation=10, _test_broker_options={'_test_resolver':resolver}) as session:
                     command = ['/usr/bin/python3','-c', "import urllib.request; print(urllib.request.urlopen('http://example.test/').read().decode())"]
+                    offline = session.execute(command, timeout=5, network=False)
+                    self.assertNotEqual(offline['returncode'], 0, offline)
+                    self.assertEqual(session.budget.snapshot()['network_bytes'], 0)
                     first = session.execute(command, timeout=5)
                     self.assertEqual(first['stdout'].strip(), 'ok', first)
                     first_bytes = session.broker.transferred
@@ -98,6 +105,38 @@ class CaseSessionTests(unittest.TestCase):
         finally:
             server.shutdown()
             server.server_close()
+
+    def test_runtime_staging_and_guest_alias(self):
+        runtime = Path(RUNTIME).resolve()
+        with tempfile.TemporaryDirectory(dir='/workspace/repos/builderbob') as temp:
+            base = Path(temp)
+            archive_path = base/'runtime.tar'
+            with tarfile.open(archive_path, 'w') as archive:
+                data = b'runtime-data'
+                info = tarfile.TarInfo('r/file')
+                info.size = len(data)
+                archive.addfile(info, io.BytesIO(data))
+                link = tarfile.TarInfo('r/link')
+                link.type, link.linkname = tarfile.SYMTYPE, 'file'
+                archive.addfile(link)
+            with CaseSession(workspace_parent=runtime.parent, state_parent=base,
+                             ledger_path=base/'case.sqlite', fuse2fs=runtime/'usr/bin/fuse2fs',
+                             library_dir=runtime/'lib/x86_64-linux-gnu', allowed_hosts=['example.test'],
+                             case_inputs={archive_path:'/inputs/runtime.tar'},
+                             reference_inputs={archive_path:'/inputs/runtime.tar'},
+                             guest_aliases={'/workspace/fake/r':'runtime/r'},
+                             reference_aliases={'/workspace/fake/r':'ref-runtime/r'},
+                             disk_bytes=32*1024**2, setup_reservation=10) as session:
+                report = session.stage_runtime('/inputs/runtime.tar', destination='runtime', timeout=5)
+                self.assertEqual(report['members'], 2)
+                first = session.execute(['/usr/bin/cat','/workspace/fake/r/link'], timeout=5)
+                second = session.execute(['/usr/bin/cat','/work/runtime/r/link'], timeout=5)
+                self.assertEqual(first['stdout'], 'runtime-data', first)
+                self.assertEqual(second['stdout'], 'runtime-data', second)
+                session.stage_runtime('/inputs/runtime.tar', destination='ref-runtime', timeout=5, reference=True)
+                ref = session.execute(['/usr/bin/cat','/workspace/fake/r/link'], timeout=5, reference=True)
+                self.assertEqual(ref['stdout'], 'runtime-data', ref)
+                self.assertFalse((session.executor_scratch/'ref-runtime').exists())
 
     def test_guard_root_registration_and_validation(self):
         from unittest.mock import patch

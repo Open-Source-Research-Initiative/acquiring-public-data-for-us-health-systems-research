@@ -69,6 +69,17 @@ print(json.dumps(results))'''.replace('CANARY', repr(str(self.base / 'canary')))
         with self.assertRaises(ValueError):
             self.run_python('pass', mounts={str(self.case): '/case'})
 
+    def test_which_and_zoneinfo_readonly(self):
+        script = """import json,subprocess
+r=subprocess.run(['/usr/bin/which','python3'],capture_output=True,text=True)
+out={'rc':r.returncode,'path':r.stdout.strip(), 'zone':bool(open('/usr/share/zoneinfo/zone.tab').read())}
+try: open('/usr/share/zoneinfo/zone.tab','w').write('bad'); out['write']=True
+except OSError: out['write']=False
+print(json.dumps(out))"""
+        result = self.run_python(script)
+        self.assertEqual(result['returncode'], 0, result)
+        self.assertEqual(json.loads(result['stdout']), {'rc':0,'path':'/usr/bin/python3','zone':True,'write':False})
+
     def test_network_and_mount_escape(self):
         code = r'''import socket, subprocess, json
 s = socket.socket(); s.settimeout(.3)

@@ -1,0 +1,7 @@
+{
+  "case_id": "PILOT-01",
+  "check": "original record hashes, runtime archive and output inventory unchanged",
+  "records_checked": 8,
+  "output_files": 4,
+  "native_repeat": false
+}

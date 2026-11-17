@@ -44,7 +44,45 @@ def _audit_input(path):
             raise ValueError('input contains nonregular or hard-linked file')
 
 
-def _run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None):
+def _audit_scratch(path):
+    """Inspect without following guest symlinks; reject special files and mounts."""
+    root = Path(path)
+    device = root.lstat().st_dev
+    pending = [root]
+    while pending:
+        entry = pending.pop()
+        st = entry.lstat()
+        if st.st_dev != device:
+            raise ValueError('scratch contains nested filesystem')
+        if stat.S_ISLNK(st.st_mode):
+            continue
+        if stat.S_ISDIR(st.st_mode):
+            pending.extend(entry.iterdir())
+        elif not stat.S_ISREG(st.st_mode) or st.st_nlink != 1:
+            raise ValueError('scratch contains special or hard-linked file')
+
+
+def _alias_source(scratch, relative):
+    """Create or check a directory beneath scratch without following symlinks."""
+    path = PurePosixPath(relative)
+    if path.is_absolute() or not path.parts or any(p in ('.', '..') for p in path.parts):
+        raise ValueError('alias source must be a relative scratch path')
+    fd = os.open(scratch, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW)
+    try:
+        for component in path.parts:
+            try:
+                os.mkdir(component, 0o700, dir_fd=fd)
+            except FileExistsError:
+                pass
+            child = os.open(component, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=fd)
+            os.close(fd)
+            fd = child
+    finally:
+        os.close(fd)
+    return str(scratch.joinpath(*path.parts))
+
+
+def _run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None, aliases=None):
     """Run argv in a fresh namespace. mounts maps host source to absolute target.
 
     Scratch is writable at /work; all other explicitly mounted inputs are
@@ -53,7 +91,7 @@ def _run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None)
     """
     from executor.supervisor import execute
     scratch = _workspace_dir(scratch)
-    _audit_input(scratch)
+    _audit_scratch(scratch)
     if not command or not all(isinstance(x, str) and '\0' not in x for x in command):
         raise ValueError('command must be a nonempty argv')
     if not isinstance(timeout, (int, float)) or not 0 < timeout <= 21600:
@@ -94,10 +132,21 @@ def _run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None)
         environment.update({key: proxy for key in ('HTTP_PROXY', 'HTTPS_PROXY', 'http_proxy', 'https_proxy')})
         environment.update({'NO_PROXY': '', 'no_proxy': ''})
     home = scratch / '.sandbox-home'
+    if home.is_symlink():
+        raise ValueError('private home must not be a symlink')
     home.mkdir(mode=0o700, exist_ok=True)
+    alias_pairs = []
+    for target_text, relative in (aliases or {}).items():
+        target = PurePosixPath(target_text)
+        if (not target.is_absolute() or '..' in target.parts or len(target.parts) < 3
+                or target.parts[1] not in {'workspace', 'data0'}):
+            raise ValueError('invalid guest alias target')
+        if any(target == t or target in t.parents or t in target.parents for _, t in pairs + alias_pairs):
+            raise ValueError('overlapping guest mounts')
+        alias_pairs.append((_alias_source(scratch, relative), target))
     # Root assembly directory is a sibling of scratch, never a host-wide mount.
     root = Path(tempfile.mkdtemp(prefix='.executor-root-', dir=scratch.parent))
-    config = {'root': str(root), 'scratch': str(scratch), 'mounts': [(str(s), str(t)) for s,t in pairs], 'command': command, 'env': environment, 'socket': str(socket) if socket else None}
+    config = {'root': str(root), 'scratch': str(scratch), 'mounts': [(str(s), str(t)) for s,t in pairs], 'command': command, 'env': environment, 'socket': str(socket) if socket else None, 'aliases': [(s, str(t)) for s,t in alias_pairs]}
     namespaces = ['unshare', '--user', '--map-root-user', '--mount', '--net', '--ipc', '--uts', '--fork', '--kill-child=KILL', '--propagation', 'private']
     if socket:
         argv = namespaces + [sys.executable, str(Path(__file__).resolve()), '--outer', json.dumps(config)]
@@ -113,7 +162,7 @@ def _run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None)
 
 
 def run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None,
-        budget=None, active=True, budget_margin_seconds=5):
+        budget=None, active=True, budget_margin_seconds=5, aliases=None):
     """Run a sandbox command; optionally charge preparation and cleanup too.
 
     Reserve the execution timeout plus a fixed cleanup margin before any work.
@@ -127,7 +176,7 @@ def run(command, *, mounts=None, scratch, timeout, env=None, proxy_socket=None,
         reservation = budget.reserve(timeout + budget_margin_seconds, active=active)
     try:
         result = _run(command, mounts=mounts, scratch=scratch, timeout=timeout,
-                      env=env, proxy_socket=proxy_socket)
+                      env=env, proxy_socket=proxy_socket, aliases=aliases)
         if reservation is not None:
             elapsed = time.monotonic() - started
             budget.finish(reservation, elapsed)
@@ -163,6 +212,10 @@ def _init(config):
         if Path(source).is_dir():
             bind(source, source)
     bind('/etc/ssl/certs', '/etc/ssl/certs')
+    bind('/usr/share/zoneinfo', '/usr/share/zoneinfo')
+    alternatives = root / 'etc' / 'alternatives'
+    alternatives.mkdir(parents=True, exist_ok=True)
+    (alternatives / 'which').symlink_to('/usr/bin/which.debianutils')
     for link in ('bin', 'lib', 'lib64', 'sbin'):
         src = Path('/') / link
         if src.is_symlink():
@@ -178,6 +231,8 @@ def _init(config):
     bind(str(Path(config['scratch']) / '.sandbox-home'), '/home/builderbob', readonly=False)
     for src, dst in config['mounts']:
         bind(src, dst)
+    for src, dst in config['aliases']:
+        bind(src, dst, readonly=False)
     if config['socket']:
         bind(config['socket'], '/run/executor-proxy.sock', readonly=False)
     call('mount', '-t', 'proc', '-o', 'nosuid,nodev,noexec', 'proc', str(root / 'proc'))

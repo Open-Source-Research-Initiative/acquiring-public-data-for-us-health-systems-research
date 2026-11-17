@@ -1,0 +1,256 @@
+{
+  "recorded_utc": "2026-11-17T02:59:29.122023+00:00",
+  "case_records": [
+    {
+      "case_id": "PILOT-02",
+      "snapshot": {
+        "elapsed_seconds": 2116.4753957369994,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 19483.524604263002,
+        "vm_charged_seconds": 42.7686922999992,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14357.2313077,
+        "active_charged_seconds": 13.300513198000772,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10786.699486802,
+        "max_next_active_seconds": 10786.699486802,
+        "max_next_inactive_seconds": 14357.2313077,
+        "network_bytes": 42676328,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 21432160152,
+        "open_reservations": 2
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 232157,
+      "retained_assessment_bytes": 0,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-03",
+      "snapshot": {
+        "elapsed_seconds": 2036.2014286559997,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 19563.798571344,
+        "vm_charged_seconds": 203.034021846006,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14196.965978153994,
+        "active_charged_seconds": 79.72506911100209,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10720.274930888998,
+        "max_next_active_seconds": 10720.274930888998,
+        "max_next_inactive_seconds": 14196.965978153994,
+        "network_bytes": 3060130990,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 18414705490,
+        "open_reservations": 1
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 1565727,
+      "retained_assessment_bytes": 10736,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-04",
+      "snapshot": {
+        "elapsed_seconds": 1187.4559310719997,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 20412.544068928,
+        "vm_charged_seconds": 73.92626138700143,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14326.073738612999,
+        "active_charged_seconds": 32.06357429000127,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10767.936425709999,
+        "max_next_active_seconds": 10767.936425709999,
+        "max_next_inactive_seconds": 14326.073738612999,
+        "network_bytes": 1032709357,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 20442127123,
+        "open_reservations": 0
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 61430,
+      "retained_assessment_bytes": 0,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-05",
+      "snapshot": {
+        "elapsed_seconds": 980.2241956099997,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 20619.77580439,
+        "vm_charged_seconds": 58.45827402700343,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14341.541725972997,
+        "active_charged_seconds": 50.31244771600177,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10749.687552283998,
+        "max_next_active_seconds": 10749.687552283998,
+        "max_next_inactive_seconds": 14341.541725972997,
+        "network_bytes": 369731464,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 21105105016,
+        "open_reservations": 0
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 2435245,
+      "retained_assessment_bytes": 0,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-06",
+      "snapshot": {
+        "elapsed_seconds": 910.0695509829993,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 20689.930449017,
+        "vm_charged_seconds": 64.33948716399937,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14335.660512836,
+        "active_charged_seconds": 26.272947015997488,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10773.727052984003,
+        "max_next_active_seconds": 10773.727052984003,
+        "max_next_inactive_seconds": 14335.660512836,
+        "network_bytes": 1020263801,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 20454572679,
+        "open_reservations": 0
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 81740,
+      "retained_assessment_bytes": 4785,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-07",
+      "snapshot": {
+        "elapsed_seconds": 799.1831372280003,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 20800.816862772,
+        "vm_charged_seconds": 66.14629167100156,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14333.853708329,
+        "active_charged_seconds": 26.78484863400081,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10773.215151366,
+        "max_next_active_seconds": 10773.215151366,
+        "max_next_inactive_seconds": 14333.853708329,
+        "network_bytes": 1019696989,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 20455139491,
+        "open_reservations": 0
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 88273,
+      "retained_assessment_bytes": 10169,
+      "native_invocations": 1
+    },
+    {
+      "case_id": "PILOT-08",
+      "snapshot": {
+        "elapsed_seconds": 702.88929104,
+        "elapsed_limit": 21600.0,
+        "elapsed_remaining_seconds": 20897.11070896,
+        "vm_charged_seconds": 95.1081194569997,
+        "vm_limit": 14400.0,
+        "vm_remaining_seconds": 14304.891880543,
+        "active_charged_seconds": 83.28246644999945,
+        "active_limit": 10800.0,
+        "active_remaining_seconds": 10716.71753355,
+        "max_next_active_seconds": 10716.71753355,
+        "max_next_inactive_seconds": 14304.891880543,
+        "network_bytes": 274289927,
+        "network_limit": 21474836480,
+        "network_remaining_bytes": 21200546553,
+        "open_reservations": 0
+      },
+      "transfer_authority_on_reopen": false,
+      "retained_attempt_bytes": 5257481,
+      "retained_assessment_bytes": 0,
+      "native_invocations": 1
+    }
+  ],
+  "guards": [
+    {
+      "path": "PILOT-02-diagnostic-guard.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-02-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-02-guard-2.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-02-guard-3.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-03-assessment-guard.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-03-followup-guard.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-03-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-03-guard-2.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-04-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-05-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-06-followup-guard.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-06-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-07-followup-guard.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-07-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    },
+    {
+      "path": "PILOT-08-guard-1.json",
+      "cleanup": "clean",
+      "coordinator_returncode": 0
+    }
+  ],
+  "limitations": [
+    "Snapshots include actual later source/assessment operations and conservative historical setup charges.",
+    "Unsettled reservation rows are retained charges, not live transfer authority; reopening all ledgers without a reservation denied transfer authority.",
+    "Common preparation time and unmeasured historical metadata traffic remain unknown; staged-input predebits are not whole-wire measurement.",
+    "Original primary records are not overwritten by these later accounting observations."
+  ]
+}
