@@ -1,0 +1,266 @@
+{
+  "access_date": "2026-11-17",
+  "crossref_metadata": [
+    {
+      "doi": "10.1093/gigascience/giad113",
+      "title": "Computational reproducibility of Jupyter notebooks from biomedical publications",
+      "authors": [
+        "Sheeba Samuel",
+        "Daniel Mietchen"
+      ],
+      "year": 2024,
+      "journal": "GigaScience",
+      "volume": "13",
+      "issue": null,
+      "pages": "giad113",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1145/3589806.3600037",
+      "title": "Automatic Reproduction of Workflows in the Snakemake Workflow Catalog and nf-core Registries",
+      "authors": [
+        "Samuel Grayson",
+        "Darko Marinov",
+        "Daniel S. Katz",
+        "Reed Milewicz"
+      ],
+      "year": 2023,
+      "journal": "Proceedings of the 2023 ACM Conference on Reproducibility and Replicability",
+      "volume": null,
+      "issue": null,
+      "pages": "74-84",
+      "type": "proceedings-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.3390/app16178454",
+      "title": "Data Access and Quality Barriers in Large-Scale Administrative Health Data: A Reproducible, Information-Loss-Aware Harmonization Framework",
+      "authors": [
+        "Karol Wykrota",
+        "Justyna Kęczkowska"
+      ],
+      "year": 2026,
+      "journal": "Applied Sciences",
+      "volume": "16",
+      "issue": "17",
+      "pages": "8454",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1016/j.ijmedinf.2016.07.009",
+      "title": "Validating the extract, transform, load process used to populate a large clinical research database",
+      "authors": [
+        "Michael J. Denney",
+        "Dustin M. Long",
+        "Matthew G. Armistead",
+        "Jamie L. Anderson",
+        "Baqiyyah N. Conway"
+      ],
+      "year": 2016,
+      "journal": "International Journal of Medical Informatics",
+      "volume": "94",
+      "issue": null,
+      "pages": "271-274",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.2196/64628",
+      "title": "Implications of Data Extraction and Processing of Electronic Health Records for Epidemiological Research: Observational Study",
+      "authors": [
+        "Melissa H J van Essen",
+        "Robin Twickler",
+        "Yvette M Weesie",
+        "Ilgin G Arslan",
+        "Feikje Groenhof",
+        "Lilian L Peters",
+        "Isabelle Bos",
+        "Robert A Verheij"
+      ],
+      "year": 2025,
+      "journal": "Journal of Medical Internet Research",
+      "volume": "27",
+      "issue": null,
+      "pages": "e64628-e64628",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1007/s10664-011-9181-9",
+      "title": "On the reproducibility of empirical software engineering studies based on data retrieved from development repositories",
+      "authors": [
+        "Jesús M. González-Barahona",
+        "Gregorio Robles"
+      ],
+      "year": 2011,
+      "journal": "Empirical Software Engineering",
+      "volume": "17",
+      "issue": "1-2",
+      "pages": "75-89",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1038/s41597-022-01163-2",
+      "title": "FAIRly big: A framework for computationally reproducible processing of large-scale data",
+      "authors": [
+        "Adina S. Wagner",
+        "Laura K. Waite",
+        "Małgorzata Wierzba",
+        "Felix Hoffstaedter",
+        "Alexander Q. Waite",
+        "Benjamin Poldrack",
+        "Simon B. Eickhoff",
+        "Michael Hanke"
+      ],
+      "year": 2022,
+      "journal": "Scientific Data",
+      "volume": "9",
+      "issue": "1",
+      "pages": "80",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1016/j.jss.2023.111855",
+      "title": "Data pipeline quality: Influencing factors, root causes of data-related issues, and processing problem areas for developers",
+      "authors": [
+        "Harald Foidl",
+        "Valentina Golendukhina",
+        "Rudolf Ramler",
+        "Michael Felderer"
+      ],
+      "year": 2024,
+      "journal": "Journal of Systems and Software",
+      "volume": "207",
+      "issue": null,
+      "pages": "111855",
+      "type": "journal-article",
+      "api_status": 200
+    },
+    {
+      "doi": "10.1038/s41597-022-01143-6",
+      "title": "A large-scale study on research code quality and execution",
+      "authors": [
+        "Ana Trisovic",
+        "Matthew K. Lau",
+        "Thomas Pasquier",
+        "Mercè Crosas"
+      ],
+      "year": 2022,
+      "journal": "Scientific Data",
+      "volume": "9",
+      "issue": "1",
+      "pages": "60",
+      "type": "journal-article",
+      "api_status": 200
+    }
+  ],
+  "purpose": "Bounded empirical overlap challenge, not a systematic review",
+  "skill": {
+    "path": "/home/builderbob/.agents/skills/search-lit/SKILL.md",
+    "version": "local installation; immutable version not recorded",
+    "deviations": "Explicit authorized research and assigned deliverables supersede skill approval and paper selection gates; PubMed E-utilities and Crossref live, web search; no systematic screening or full-text download cascade."
+  },
+  "web_queries": [
+    "Samuel Mietchen reproducibility biomedical notebooks 2024 giad113",
+    "Grayson workflow reproducibility registry 10.1145/3589806.3600037",
+    "Wykrota harmonization data 10.3390 app16178454",
+    "software data pipeline reproducibility public dataset source version acquisition workflow evaluation empirical study"
+  ],
+  "pubmed_searches": [
+    {
+      "query": "\"10.1093/gigascience/giad113\"[AID]",
+      "count": 1,
+      "ids": [
+        "38206590"
+      ]
+    },
+    {
+      "query": "\"10.1016/j.ijmedinf.2016.07.009\"[AID]",
+      "count": 1,
+      "ids": [
+        "27506144"
+      ]
+    },
+    {
+      "query": "\"10.2196/64628\"[AID]",
+      "count": 1,
+      "ids": [
+        "40498913"
+      ]
+    },
+    {
+      "query": "(\"data pipeline\"[Title/Abstract] OR ETL[Title/Abstract]) AND (\"source data\"[Title/Abstract] OR reproducibility[Title/Abstract]) AND (validation[Title/Abstract] OR verification[Title/Abstract])",
+      "count": 3,
+      "ids": [
+        "42107614",
+        "40771358",
+        "36913804"
+      ],
+      "downloaded": 3,
+      "screened": "All three abstracts retrieved and assessed 2026-11-17",
+      "dispositions": [
+        {
+          "pmid": "42107614",
+          "doi": "10.1016/j.neuroimage.2026.121985",
+          "title": "Rapid multi-parametric quantitative MRI via deep learning-based synthetic-to-real reconstruction and 3D SSFP-MOLED imaging",
+          "access": "PubMed full abstract via EFetch XML",
+          "disposition": "Synthetic MRI reconstruction and imaging validation, not public health-data acquisition software comparison; not close overlap."
+        },
+        {
+          "pmid": "40771358",
+          "doi": "10.3389/fdgth.2025.1570009",
+          "title": "Enhancing Gen3 for clinical trial time series analytics and data discovery: a data commons framework for NIH clinical trials",
+          "access": "PubMed full abstract via EFetch XML",
+          "disposition": "Developer-presented clinical trial data commons and ETL validation; relevant to implementation but patient-level clinical scope and no independent third-party acquisition sample described in abstract."
+        },
+        {
+          "pmid": "36913804",
+          "doi": "10.1016/j.epidem.2023.100676",
+          "title": "Data pipelines in a public health emergency: The human in the machine",
+          "access": "PubMed full abstract via EFetch XML",
+          "disposition": "UK COVID-19 developer-run pipeline with automated checks, human validation, geographic aggregation, and per-output data-version provenance; material cross-domain comparator, not an independent sample of third-party software in abstract."
+        }
+      ]
+    }
+  ],
+  "snowball_trails": [
+    {
+      "seed": "10.1145/3589806.3600037",
+      "direction": "backward",
+      "reference": "10.1038/s41597-022-01143-6",
+      "access": "Publisher text inspected; Crossref DOI metadata confirmed 2026-11-17; added to bibliography",
+      "coverage": "one citation manually followed; not exhaustive"
+    },
+    {
+      "seed": "10.1007/s10664-011-9181-9",
+      "direction": "backward",
+      "reference": "references to MODIS/PROMISE and MSR studies in full text",
+      "access": "case-study discussion inspected; no full trail executed",
+      "coverage": "illustrative cross-domain lineage, not forward or systematic snowball"
+    }
+  ],
+  "access_limits": {
+    "10.1093/gigascience/giad113": "publisher full text PDF abstract and reproducibility sections inspected",
+    "10.1145/3589806.3600037": "author-hosted full paper abstract and output/revision methods inspected",
+    "10.3390/app16178454": "publisher full text abstract, methods and results/limitations excerpts; supplements and code not inspected",
+    "10.1016/j.ijmedinf.2016.07.009": "PubMed E-utilities PMID 27506144 abstract and metadata inspected; direct publisher access failed",
+    "10.2196/64628": "publisher full text abstract and methods inspected",
+    "10.1007/s10664-011-9181-9": "publisher full text conceptual model and two case-study sections inspected",
+    "10.1038/s41597-022-01163-2": "publisher full text direct open failed 500; search-indexed publisher excerpt only",
+    "10.1016/j.jss.2023.111855": "publisher returned 403; search-indexed abstract only",
+    "10.1038/s41597-022-01143-6": "Publisher full text abstract and methods selectively inspected; Crossref metadata verified"
+  },
+  "limitations": "English searches, selective results, no comprehensive forward citation search, journal crowding check incomplete, no independent human review. Research software and underlying health data were not executed or downloaded.",
+  "pubmed_fetches": [
+    {
+      "pmid": "27506144",
+      "method": "E-utilities efetch; search-lit parse_pubmed.py efetch",
+      "access": "abstract and citation metadata; displayed abstract truncated by parser"
+    }
+  ],
+  "skill_file_sha256": "7461a8890ebd7daa4a319611a19388bdad88e055f350add0147c1ea4999b3fea"
+}

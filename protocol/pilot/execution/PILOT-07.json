@@ -1,0 +1,27 @@
+{
+  "schema_version": "draft-1",
+  "case_id": "PILOT-07",
+  "status": "draft_not_authorized",
+  "system": "countyhealthR",
+  "repository": "https://github.com/countyhealthrankings/countyhealthR",
+  "source_commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+  "workflow": "chrr_annual_relational_zenodo_acquisition",
+  "task": {
+    "description": "Documented example: retrieve county-level premature death measure for CHR&R release 2024. Returned data are filtered by measure, though full annual tables may be downloaded.",
+    "command": "library(countyhealthR)\ncounty_data <- get_chrr_measure_data(geography = \"county\", measure = \"premature death\", release_year = 2024)",
+    "source_release": "CHR&R 2024; tagged code maps year to Zenodo record 18331995; metadata tables accessed separately via record 18157793"
+  },
+  "setup": {
+    "requirements": "R >=3.5; R package dependencies dplyr, magrittr, readr, httr, stringr, jsonlite, curl, rlang. Install selected source revision only if later authorized; preserve source and clean disposable environment. Exact dependency resolution unpinned.",
+    "conditional_pinned_install": "If subsequently authorized in the disposable environment, use documented GitHub installation mechanism with immutable ref: devtools::install_github(\"countyhealthrankings/countyhealthR@48b940be5aef466af86e64b4cf8f799179b0efce\"). devtools and transitive dependency versions remain unpinned and require preflight."
+  },
+  "permitted_public_documentation": [
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/README.md",
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/get_chrr_county_data.R",
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/zenodo_helpers.R",
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/get_chrr_measure_data.R"
+  ],
+  "rules": "selection-rules.md; approvals, resource controls and isolation remain pending",
+  "output_capture": "Preserve native files or returned objects, commands and logs; no reference feedback before output lock.",
+  "runtime_freeze": "Not performed: model, tools, environment and dependency manifest must be locked before execution."
+}

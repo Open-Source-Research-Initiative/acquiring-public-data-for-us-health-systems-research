@@ -1,0 +1,82 @@
+{
+  "status": "proposed; not approved, not locked; do not execute",
+  "observation_utc": "2026-11-17T00:18:54Z",
+  "selection_rule": "Sort eligible native acquisition entrypoint/source-path identifiers as UTF-8 strings; index = int(first 16 hexadecimal digits of SHA-256(UTF-8(\"OSRI-health-data-pilot-v1|\" + case_id)), 16) modulo number of workflows; zero based.",
+  "authorization": "Research and preparation only. No software execution or health-payload download authorized.",
+  "resource_policy": "Proposed limits: 3 active executor hours, 6 elapsed, 4 VM-hours, 4 vCPU, 16 GiB memory, 100 GiB storage, 20 GiB network, $10 compute/network plus $10 model; no spending authorization. Include reference collection in resource meters and pilot staff budget.",
+  "reference_values": "Not prepared. Execution record contains no fixture, expected records, checker outputs or assessment answers.",
+  "independent_human_review": "Pending; no reviewer appointed.",
+  "provenance": "Prepared by GPT-6 agent using public documentation and source-code inspection; no agent result constitutes independent human review.",
+  "case_id": "PILOT-07",
+  "system": "countyhealthR",
+  "canonical_repository": "https://github.com/countyhealthrankings/countyhealthR",
+  "identity_evidence": "https://countyhealthrankings.github.io/welcome/ links official community; project GitHub README names package; GitHub API reports fork=false, default main. Relationship to separate CHR&R data publication is source/software dependency, not duplicate.",
+  "revision": {
+    "hierarchy_result": "latest stable tagged release v0.1.5",
+    "tag": "v0.1.5",
+    "commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+    "evidence": [
+      "https://api.github.com/repos/countyhealthrankings/countyhealthR/tags?per_page=100",
+      "https://api.github.com/repos/countyhealthrankings/countyhealthR/releases?per_page=100"
+    ]
+  },
+  "eligibility": "Provisional: inspectable R implementation retrieves public aggregate county health data from Zenodo; no execution or source data retrieved.",
+  "implementation_evidence": [
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/get_chrr_county_data.R",
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/zenodo_helpers.R",
+    "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/get_chrr_measure_data.R"
+  ],
+  "workflow_enumeration": {
+    "rule": "Collapse entrypoints that retrieve the same underlying CHR&R annual source via the same helper and differ by county or measure filtering. Metadata-only functions do not yield health observations. State/national variants within these entrypoints share the CHR&R annual release family and helper; retain as parameter variants.",
+    "sorted": [
+      "chrr_annual_relational_zenodo_acquisition"
+    ],
+    "sha256": "4fb0cce7d9e1e93a5a4613b3d8d3661fcdb08e7d1984582cba9889718f6115ff",
+    "modulus": 1,
+    "zero_based_index": 0,
+    "selected": "chrr_annual_relational_zenodo_acquisition",
+    "evidence": "County path and county-measure path both fetch t_measure_data_years_<year>.csv through read_csv_zenodo; functions filter the same release by county or measure. State variant uses related state tables through same helper.",
+    "documented_examples_sorted": [
+      "get_chrr_county_data(\"WI\", \"Dane\", 2024)",
+      "get_chrr_measure_data(geography = \"county\", measure = \"premature death\", release_year = 2024)"
+    ],
+    "example_selection": "SHA-256(UTF-8(\"OSRI-health-data-pilot-v1|PILOT-07|example\")) = df7ccec89c990b29d4f47dbdb8454b76fc94577c8cdf70ff4aae39f8f9a8d059; first 16 hexadecimal digits modulo 2 = 1; select second sorted example.",
+    "superseded_example_selection": "For equivalent documented examples, same case digest first 16 hex modulo 2 = 0, selecting the first sorted entrypoint example."
+  },
+  "task": {
+    "description": "Documented example: retrieve county-level premature death measure for CHR&R release 2024. Returned data are filtered by measure, though full annual tables may be downloaded.",
+    "command": "library(countyhealthR)\ncounty_data <- get_chrr_measure_data(geography = \"county\", measure = \"premature death\", release_year = 2024)",
+    "source_release": "CHR&R 2024; tagged code maps year to Zenodo record 18331995; metadata tables accessed separately via record 18157793",
+    "documentation": "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/README.md",
+    "source_family": "County Health Rankings & Roadmaps relational annual release (Zenodo is hosting infrastructure)",
+    "source_metadata": "https://zenodo.org/records/18331995"
+  },
+  "runtime_and_dependencies": "R >=3.5; R package dependencies dplyr, magrittr, readr, httr, stringr, jsonlite, curl, rlang. Install selected source revision only if later authorized; preserve source and clean disposable environment. Exact dependency resolution unpinned.",
+  "anticipated_barriers": [
+    "Source/checker availability and terms must be verified before execution.",
+    "Installed library version must be confirmed against selected tag; no floating install.",
+    "No independent reference prepared; source output and reproduction remain unassessed.",
+    "Code may cache data; use a clean isolated cache and record network and file provenance."
+  ],
+  "estimated_human_effort": "Planning assumption 4–8 hours inclusive of setup, preparation and checking; unmeasured and constrained by overall 80 staff-hour pilot cap.",
+  "superseded_workflow_enumeration": {
+    "rule": "Public documented functions producing external health observations; parameter variants are one workflow. Metadata-only measure list and measure metadata omitted as they do not return health observations; independent human adjudication pending.",
+    "sorted": [
+      "get_chrr_county_data",
+      "get_chrr_measure_data"
+    ],
+    "sha256": "4fb0cce7d9e1e93a5a4613b3d8d3661fcdb08e7d1984582cba9889718f6115ff",
+    "modulus": 2,
+    "zero_based_index": 0,
+    "selected": "get_chrr_county_data"
+  },
+  "superseded_task": {
+    "description": "Documented example: retrieve all measures for Dane County, WI, CHR&R 2024 release. This is bounded in returned geography, not necessarily downloaded bytes.",
+    "command": "library(countyhealthR)\ndane <- get_chrr_county_data(\"WI\", \"Dane\", 2024)",
+    "source_release": "CHR&R 2024; tagged code maps year to Zenodo record 18331995; metadata tables accessed separately via record 18157793",
+    "documentation": "https://github.com/countyhealthrankings/countyhealthR/blob/48b940be5aef466af86e64b4cf8f799179b0efce/R/get_chrr_county_data.R",
+    "source_family": "County Health Rankings & Roadmaps relational release / Zenodo",
+    "source_metadata": "https://zenodo.org/records/18331995"
+  },
+  "conditional_pinned_install": "If subsequently authorized in the disposable environment, use documented GitHub installation mechanism with immutable ref: devtools::install_github(\"countyhealthrankings/countyhealthR@48b940be5aef466af86e64b4cf8f799179b0efce\"). devtools and transitive dependency versions remain unpinned and require preflight."
+}

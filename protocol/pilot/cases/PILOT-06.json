@@ -1,0 +1,73 @@
+{
+  "status": "proposed; not locked, approved, or authorized for execution",
+  "observation_date": "2026-11-17",
+  "selection_seed_prefix": "OSRI-health-data-pilot-v1|",
+  "workflow_selection_rule": "Sort qualifying native health-data acquisition workflow IDs; interpret first 16 hexadecimal characters of SHA-256 of UTF-8 prefix plus case ID as a base-16 integer, modulo count; zero-based index. Metadata-only functions and parameter variants are not separate health-data acquisition workflows.",
+  "execution_limits": "At most 3 active executor hours, 6 elapsed hours, 4 VM-hours, 4 vCPU, 16 GiB RAM, 100 GiB disk, 20 GiB network; proposed separate $10 compute/network and $10 model ceilings authorize no spending. One transient retry OR one diagnostic repeat; preserve initial outcome.",
+  "execution_safety": "No execution authorized; future disposable unprivileged isolation and access/safety review required; no source patches, alternate source, maintainer contact, or protected records.",
+  "executor_supervisor_freeze": "Not appointed; documentation, model, tools, output location, reference window and human authorization remain to be frozen.",
+  "assessment": "Independent assessment and oracle not prepared; kept outside this executor-facing case file. No health payload obtained.",
+  "case_id": "PILOT-06",
+  "system": "CDC EPHTrackR",
+  "repository": "https://github.com/CDCgov/EPHTrackR",
+  "system_identity": "CDC public environmental health tracking R interface; distinct steward, code and source endpoint from CMU Delphi Python client. No identified OSRI team authorship; independent human eligibility review pending.",
+  "software_revision": {
+    "tag": "v1.0.1",
+    "commit": "6893d31c60a76dec366b92d1c11c5c8a1f9b15fd",
+    "basis": "Latest stable tagged release, published 2023-07-27; tagged DESCRIPTION says package Version 1.0.0: mismatch retained.",
+    "source": "https://github.com/CDCgov/EPHTrackR/releases/tag/v1.0.1"
+  },
+  "workflow_inventory": [
+    {
+      "id": "get_data",
+      "description": "Retrieve CDC Tracking Network measure data; measure, geography, stratification and temporal options are parameter variants."
+    }
+  ],
+  "workflow_inventory_limit": "The list_* and update_inventory functions retrieve source metadata inventories, not measured health data; get_data is the one health-observation acquisition entrypoint at this revision.",
+  "seed_sha256": "8c74600b0a56b95b0b262d381081ce06f0408eccd6f9d71866f01b868f9ca05e",
+  "selection_integer": 10120819863142709595,
+  "selection_index": 0,
+  "selected_workflow": "get_data",
+  "task": {
+    "basis": "First documented measure-data example in tagged README, explicit one measure and stratification, remaining arguments default. No invented subsetting.",
+    "measure": 99,
+    "strat_level": "ST",
+    "geoItems": "NA default: all available",
+    "temporalItems": "NA default: all available",
+    "smoothing": 0,
+    "token": "No token; anonymous mode, do not solicit token",
+    "simplified_output": true,
+    "command": "library(EPHTrackR)\ndata_st <- get_data(measure=99, strat_level=\"ST\")"
+  },
+  "documentation": [
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/README.md",
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/DESCRIPTION",
+    "https://github.com/CDCgov/EPHTrackR/blob/6893d31c60a76dec366b92d1c11c5c8a1f9b15fd/R/get_data.R"
+  ],
+  "runtime": {
+    "requirements": "R >=3.5.0; httr >=1.4.0, dplyr >=0.8.0.1, purrr >=0.3.0, jsonlite >=1.5, lifecycle. Exact compatible package versions and size unverified.",
+    "documented_install": "devtools::install_github(\"CDCgov/EPHTrackR\", dependencies=TRUE)",
+    "revision_constraint": "Pinned installation is a proposed reproducibility configuration requiring prior human safety/authorization; dependency versions remain unfrozen. README uses floating default branch; tagged DESCRIPTION version mismatch retained.",
+    "conditional_pinned_install": "devtools::install_github(\"CDCgov/EPHTrackR@6893d31c60a76dec366b92d1c11c5c8a1f9b15fd\", dependencies=TRUE)"
+  },
+  "source_identity": {
+    "publisher": "CDC National Environmental Public Health Tracking Network",
+    "endpoint_documentation": "https://ephtracking.cdc.gov/apihelp",
+    "request": "POST https://ephtracking.cdc.gov:443/apigateway/api/v1/getCoreHolder/ plus measure, stratification, smoothing and generated geography/time filters; metadata requests also required.",
+    "version": "Current response for historical observation years; no immutable release identity established.",
+    "access": "Tagged README says token optional and throttling may occur. No token acquisition or author contact.",
+    "risk": "https://ephtracking.cdc.gov/ reports Data Explorer maintenance; this does not prove API outage. Current API and selected measure untested."
+  },
+  "example_selection": {
+    "corpus": "Revision-matched README Accessing Tracking Network data section.",
+    "documented_runnable_examples": [
+      "basic_state_measure_99",
+      "advanced_age_gender_2005_arizona",
+      "advanced_counties_multiple",
+      "filtered_states_2014_2018"
+    ],
+    "ranking": "basic_state_measure_99 is the uniquely designated basic state-level example; remaining sections explicitly introduce advanced options or specific geography and period filters.",
+    "selected_id": "basic_state_measure_99",
+    "seed": "Not used; no tie in highest-ranked basic example."
+  }
+}

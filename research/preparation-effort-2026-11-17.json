@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-17",
+  "phase": "pilot-specific preparation and contribution assessment",
+  "observed_activity_window_utc": {
+    "first_checkpoint": "2026-11-17T00:18:20Z",
+    "later_checkpoint": "2026-11-17T00:29:46Z",
+    "meaning": "Checkpoints during work, not exact task start/end or measured active runtime"
+  },
+  "agents": [
+    "novelty",
+    "mapping",
+    "population",
+    "measurement",
+    "maintenance",
+    "inference",
+    "attempts",
+    "osri_review"
+  ],
+  "human_person_hours": null,
+  "agent_active_hours": null,
+  "metered_cost_usd": null,
+  "limitations": "No reliable time/cost instrumentation was available for the entire preparation. Missing is not zero. User must record actual human oversight/review. This record does not establish a budget or median-effort pass."
+}

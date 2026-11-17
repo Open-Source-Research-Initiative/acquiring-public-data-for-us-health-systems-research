@@ -1,0 +1,57 @@
+{
+  "case_id": "PILOT-04",
+  "status": "proposed_not_approved_or_locked",
+  "observed_utc_date": "2026-11-17",
+  "system": "hrbrmstr/cdcfluview",
+  "software_selection": {
+    "tag": "v0.9.4",
+    "ref": "cc1791b79b492d305a3619b97e416207ecfd2887",
+    "published_at": "2021-05-22T12:11:45Z",
+    "basis": "GitHub source-first hierarchy: latest stable GitHub tagged release in API listing; CRAN is related distribution and not substituted.",
+    "revision_url": "https://github.com/hrbrmstr/cdcfluview/tree/cc1791b79b492d305a3619b97e416207ecfd2887"
+  },
+  "workflow_selection": {
+    "seed_input": "OSRI-health-data-pilot-v1|PILOT-04",
+    "sha256": "1efe20cf209c34efd118850f5badc4601cb418824e4d64e7eb6ab38333e35a71",
+    "first16_integer": "2233258539199771887",
+    "sorted_qualifying_workflows": [
+      "age_group_distribution",
+      "geographic_spread",
+      "get_weekly_flu_report",
+      "hospitalizations",
+      "ili_weekly_activity_indicators",
+      "ilinet",
+      "pi_mortality",
+      "who_nrevss"
+    ],
+    "index_zero_based": 7,
+    "selected": "who_nrevss",
+    "inventory_limit": "Metadata-only helpers, basemap and deprecated wrappers excluded consistently from primary substantive acquisition workflow frame."
+  },
+  "task": {
+    "entrypoint": "cdcfluview::who_nrevss()",
+    "scope": "Complete function defaults: region national (first match.arg choice), years NULL (all available seasons); full returned scope, no silent downsampling.",
+    "example_source": "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/R/who-nrvess.r",
+    "publisher": "https://www.cdc.gov/fluview/overview/",
+    "identity": "rolling CDC WHO/NREVSS FluView observation, not immutable release; national geography, current snapshot and season/week/laboratory category required",
+    "parameters": {
+      "region": "national",
+      "years": null
+    }
+  },
+  "installation": {
+    "documented": "remotes::install_github(\"hrbrmstr/cdcfluview\")",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"hrbrmstr/cdcfluview@cc1791b79b492d305a3619b97e416207ecfd2887\"). Recommend classifying as environmental configuration, not a source patch; pending global human decision.",
+    "dependencies": "R >=3.5.0; httr, progress, tools, dplyr, jsonlite, tibble, stats, utils, sf, xml2, purrr, readr, MMWRweek, units >=0.4-6; system dependencies unverified",
+    "source": "https://github.com/hrbrmstr/cdcfluview/blob/cc1791b79b492d305a3619b97e416207ecfd2887/DESCRIPTION"
+  },
+  "reference_strategy": "Independent contemporaneous matching CDC FluView observations, selected national season/week and clinical versus public-health laboratory fields; compare source identities, types and missingness after output lock, document mismatched revisions and pagination. No expected values prepared.",
+  "estimate": "Proposed 5\u20139 human hours inclusive of preparation/review; unmeasured and may exceed median target.",
+  "barriers": [
+    "Default requests all available seasons; size and runtime unknown",
+    "Old GIS API availability and current semantic correspondence untested",
+    "Independent publisher observation may not match package API fields",
+    "Independent human reviewer not appointed"
+  ],
+  "execution": "not authorized or performed"
+}

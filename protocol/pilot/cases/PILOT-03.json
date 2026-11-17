@@ -1,0 +1,54 @@
+{
+  "case_id": "PILOT-03",
+  "status": "proposed_not_approved_or_locked",
+  "observed_utc_date": "2026-11-17",
+  "system": "brendensm/CDCPLACES",
+  "software_selection": {
+    "ref": "d35fe95a3170a1a3f840373e54a2ad4a992cc9a1",
+    "version": "1.2.2",
+    "basis": "GitHub source-first hierarchy: no GitHub tags or releases; default-branch main commit at observation. CRAN is a related distribution and is not substituted.",
+    "revision_url": "https://github.com/brendensm/CDCPLACES/tree/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1"
+  },
+  "workflow_selection": {
+    "seed_input": "OSRI-health-data-pilot-v1|PILOT-03",
+    "sha256": "474ee171c79ecccc29d9dc9a462b3208af79376d25c7747c53fa1baa470594d5",
+    "first16_integer": "5138292103672941772",
+    "sorted_qualifying_workflows": [
+      "get_places"
+    ],
+    "index_zero_based": 0,
+    "selected": "get_places",
+    "inventory_limit": "Metadata-only get_dictionary is excluded consistently from the primary substantive acquisition workflow frame."
+  },
+  "task": {
+    "entrypoint": "CDCPLACES::get_places()",
+    "parameters": {
+      "geography": "county",
+      "state": null,
+      "measure": null,
+      "county": null,
+      "release": "2025",
+      "geometry": false,
+      "cat": null,
+      "age_adjust": null
+    },
+    "scope": "Documented complete function defaults: unfiltered 2025 county PLACES data as returned; full requested query scope, not a bounded example. Full completeness requires independent evidence.",
+    "example_source": "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/R/get_places.R",
+    "publisher": "https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb/about_data",
+    "identity": "2025 named release plus separately captured publisher dataset revision and timestamp; release year is not necessarily survey year."
+  },
+  "installation": {
+    "documented": "devtools::install_github(\"brendensm/CDCPLACES\")",
+    "pinning": "Conditionally proposed immutable pin: remotes::install_github(\"brendensm/CDCPLACES@d35fe95a3170a1a3f840373e54a2ad4a992cc9a1\"). Recommend classifying as environmental configuration, not a source patch; pending global human decision.",
+    "dependencies": "R >=4.1.0; curl, yyjsonr, tigris, sf, stats; system dependencies unverified",
+    "source": "https://github.com/brendensm/CDCPLACES/blob/d35fe95a3170a1a3f840373e54a2ad4a992cc9a1/DESCRIPTION"
+  },
+  "reference_strategy": "Independent later capture of version-matched CDC 2025 county data and dictionary; compare independently selected keys and values, missingness, value type, geography and source/update identity after output lock. Assess completeness separately; no expected values prepared.",
+  "estimate": "Proposed 4\u20138 human hours inclusive of preparation/review; unmeasured.",
+  "barriers": [
+    "Dependency, full default query cost and endpoint availability not tested",
+    "Reference identity and API pagination unresolved",
+    "Independent human reviewer not appointed"
+  ],
+  "execution": "not authorized or performed"
+}

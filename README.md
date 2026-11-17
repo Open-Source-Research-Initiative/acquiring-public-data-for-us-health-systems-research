@@ -23,6 +23,10 @@ The proposed pilot ceiling is **80 total staff hours**, including reference prep
 - [Contributions](contributions.md): human responsibility, agent assistance and checks.
 - [Data and sharing policy](data/README.md).
 
+## Prepared for protocol review
+
+The [contribution assessment](research/contribution/ASSESSMENT.md) recommends proceeding as an independent empirical evaluation using established methods. The [eight-case pilot package](protocol/pilot/README.md) contains proposed tasks, exact source revisions, execution drafts and assessment designs. Review the [four protocol decisions](governance/protocol-decisions.md). A synthetic probe found that the current agent/tool boundary is inadequate for held-out assessment; no pilot case has run.
+
 ## First task
 
 Prepare execution and assessment packets separately, fix software/task choices before observing outputs, and establish independent source references for eight varied candidate systems. The execution agent must not see reference fixtures or checker feedback until its primary output is locked. Candidate selection remains exploratory and human review is pending.
