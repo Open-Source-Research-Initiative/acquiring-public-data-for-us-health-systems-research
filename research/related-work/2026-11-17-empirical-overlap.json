@@ -1,0 +1,30 @@
+{
+  "search_date_utc": "2026-11-17",
+  "recorded_time_utc": "00:06:51",
+  "interface": "web search; ranking and total counts not reported",
+  "purpose": "exploratory empirical overlap search for source-release and source-to-output verification in public data acquisition",
+  "language": "English",
+  "date_limits": "none explicitly set",
+  "screening": "selected relevant primary source results; not exhaustive or independently reviewed",
+  "queries": [
+    "empirical evaluation public health data pipelines source data verification output validation reproducibility acquisition",
+    "study comparison open data ingestion pipelines source datasets data correctness reproducibility release versions",
+    "health data ETL pipeline independent validation source to target record level data quality empirical study",
+    "evaluation healthcare data extraction transformation source to target validation public database pipeline",
+    "scientific data acquisition workflow benchmark source release version provenance output accuracy public datasets"
+  ],
+  "followup_queries": [
+    "Validating the Extract, Transform, Load Process Used to Populate a Large Clinical Research Database source target 2016",
+    "Implications of Data Extraction and Processing of Electronic Health Records for Epidemiological Research 2025 doi",
+    "Standardised Versioning of Datasets s41597-024-03153-y seven"
+  ],
+  "records": [
+    {"title":"Data Access and Quality Barriers in Large-Scale Administrative Health Data: A Reproducible, Information-Loss-Aware Harmonization Framework","authors":"Karol Wykrota; Justyna Kęczkowska","year":2026,"doi":"10.3390/app16178454","url":"https://www.mdpi.com/2076-3417/16/17/8454","access":"publisher full-text sections inspected: abstract, methods/results extracts, discussion, limitations; supplements and code not inspected","evidence":"one author-developed crosswalk framework for five public hospital discharge sources; provider documentation field audit; comparison against a provider-published summary; authors disclose no second-analyst crosswalk replication","limits":"record-level data outside proposed study population; publication page has version notes whose history was not inspected; reported performance is not independently verified","effect":"strong counterexample to claims of new source-to-output checking of public health-systems data; independent evaluation of diverse third-party acquisition systems remains a testable distinction"},
+    {"title":"Validating the extract, transform, load process used to populate a large clinical research database","year":2016,"doi":"10.1016/j.ijmedinf.2016.07.009","url":"https://doi.org/10.1016/j.ijmedinf.2016.07.009","access":"publisher indexed PDF text inspected; direct PMC page returned CAPTCHA","evidence":"assesses correctness of institutional ETL from EHR source to research warehouse target","limits":"institutional clinical records, not public health acquisition; indexed extracts do not establish all study procedures","effect":"source-to-target validation cannot be described as new"},
+    {"title":"Implications of Data Extraction and Processing of Electronic Health Records for Epidemiological Research: Observational Study","authors":"Melissa H J van Essen and colleagues","year":2025,"doi":"10.2196/64628","url":"https://pubmed.ncbi.nlm.nih.gov/40498913/","access":"PubMed abstract and PMC indexed excerpts inspected; direct PMC page returned CAPTCHA","evidence":"compares research datasets from two ETL pipelines fed by eight Dutch general practices","limits":"clinical data, different population and intervention; no claim of independent external release verification from abstract","effect":"processing decisions and cross-pipeline comparison are established"},
+    {"title":"A Reproducible Python-Based Computational Pipeline for Real-Time Ingestion, Advanced Analysis, and Dynamic Reporting of Public Health Data: A Systems Validation Study","year":2026,"doi":"10.7759/cureus.103008","url":"https://pubmed.ncbi.nlm.nih.gov/41798472/","access":"PubMed abstract and indexed primary methods excerpt; direct PMC request returned CAPTCHA","evidence":"author-developed pipeline retrieves India 2015 public health dataset by API and generates reports","limits":"single author-developed system; no independent cross-system evaluation established","effect":"public-data ingestion and execution are existing precedents"},
+    {"title":"Standardised Versioning of Datasets: a FAIR–compliant Proposal","authors":"Alba González-Cebrián; Michael Bradford; Adriana E. Chis; Horacio González-Vélez","year":2024,"doi":"10.1038/s41597-024-03153-y","url":"https://www.nature.com/articles/s41597-024-03153-y.pdf","access":"publisher PDF indexed abstract; direct HTML redirected to authentication","evidence":"dataset versioning proposal and empirical drift metrics on datasets","limits":"abstract alone does not establish independent health acquisition workflow testing","effect":"dataset versioning is established; verify potential closer methods via full text"}
+  ],
+  "assistance": "GPT-6.1 agent-assisted search and synthesis; human review pending",
+  "no_untrusted_execution": true
+}

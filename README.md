@@ -1,49 +1,36 @@
-![OSRI: Make the work traceable. A starting structure for research in Git.](assets/prism-header.png)
+# Acquiring Public Data for U.S. Health-Systems Research
 
-# [Paper or working title]
+An OSRI feasibility study of software that acquires public U.S. health data and the evidence needed to verify its outputs.
 
-English | [简体中文（待审核）](translations/zh-Hans/README.md)
+**Human lead:** Cole Lyons / [@ajhcs](https://github.com/ajhcs). **State:** feasibility research in progress; main evaluation not approved. **Areas:** Healthcare, Informatics, Engineering. Research-directory ID: pending registration.
 
-Use this repository for one research study. It can span several fields and produce several publications. The README introduces the study, **Issues** holds tasks, and **Pull requests** holds proposed changes.
+We ask whether publicly inspectable acquisition workflows obtain their intended source release or current snapshot, and whether selected source facts are preserved in their outputs. Execution, source verification, reproduction of previous outputs, and suitability for a research question are separate claims.
 
-## Begin
+The initial scope covers non-patient-level public U.S. data, including provider/facility records, finances, prices, utilization, quality and population aggregates. Patient-level records are excluded. Portals, standards and validators are supporting resources rather than interchangeable acquisition systems.
 
-1. Choose **Use this template** to create a repository. An administrator can create it under OSRI, or you can begin in your own account.
-2. Name the repository after the paper or working title, using lowercase words separated by hyphens. Keep the full title as the README heading.
-3. Fill in the short brief below and open one issue for the first task.
-4. Follow the [OSRI research guide](https://github.com/Open-Source-Research-Initiative/osri/blob/main/START_HERE.md). Ask for help in [Q&A](https://github.com/Open-Source-Research-Initiative/.github/discussions/new?category=q-a).
+## Current work
 
-The [browser setup guide](https://open-source-research-initiative.github.io/guides/docs/browser-setup/) explains template creation, README editing, and the first issue. You can also ask a maintainer to add your brief or source table. No terminal or agent installation is required.
+The lead authorized repository setup and feasibility research in November 2026. This covers contribution research, candidate/code inspection, protocol development, and preparation for an exploratory eight-system pilot. It does not authorize the main evaluation or establish independent human scientific review.
 
-After creating your project, replace the prompts and remove these setup steps. Replace or remove the template header; it names this repository. Keep the project's question and current work easy to find.
+The proposed pilot ceiling is **80 total staff hours**, including reference preparation, execution and review, with a planning review on **23 November 2026 (America/New_York)** or sooner at the ceiling. This date is a planning checkpoint, not a scheduled meeting. The estimate is a proposed ceiling to confirm before execution; no paid resources or third-party workflows have been run by this repository setup.
 
-## Project brief
+- [Research log](research/README.md): completed work, limits and effort accounting.
+- [Research protocol](protocol.md): scope, selection rules, pilot progression and limits.
+- [Admission record](governance/admission.md): authorized scope and human-review status.
+- [Related-work research](research/related-work/): new empirical-overlap search and limitations.
+- [Candidate reconnaissance](research/candidates/): source-linked implementation and revision checks.
+- [Source ledger](sources.csv): historical proposal-research sources, with evidence limits.
+- [Contributions](contributions.md): human responsibility, agent assistance and checks.
+- [Data and sharing policy](data/README.md).
 
-- **Question:** What do you want to understand or contribute?
-- **Human lead:** Name or GitHub handle.
-- **Area:** One or more [OSRI areas](https://github.com/Open-Source-Research-Initiative/osri/blob/main/areas/README.md).
-- **Scope and state:** What is included, what has been done, and what is still uncertain?
-- **First task:** Link the issue and say what help is useful.
-- **Project ID:** Ask an administrator to assign one when the project enters the shared directory.
+## First task
 
-## Work as the project develops
+Prepare execution and assessment packets separately, fix software/task choices before observing outputs, and establish independent source references for eight varied candidate systems. The execution agent must not see reference fixtures or checker feedback until its primary output is locked. Candidate selection remains exploratory and human review is pending.
 
-- Use [protocol.md](protocol.md) to record the method. Mark exploration and planned tests accurately.
-- Keep source identities and evidence notes in [sources.csv](sources.csv), or a documented equivalent.
-- Record data origins and terms in [data/README.md](data/README.md). Add analysis or model files when needed.
-- Use the [writing outline](writing/README.md) to develop a blog, preprint, conference paper, or journal article.
-- Keep contribution credit and material agent assistance in [contributions.md](contributions.md).
+A single lead may direct exploratory research and preparation, with that limitation recorded. Actual independent review and the specified pilot results are required before main-study progression. Unavailable sources, missing instructions and failed attempts remain findings; they are not replaced with easier cases. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
 
-Use the [help and review guide](https://open-source-research-initiative.github.io/guides/docs/find-help/) to find collaborators or request review. Discuss roles and authorship as the work develops.
+## Standards and reuse
 
-The [task record](research-task.md) is optional. A small correction or source lead needs no full form.
+This feasibility project follows [OSRI-0.1.0 at commit 8c39a0a](https://github.com/Open-Source-Research-Initiative/osri/blob/8c39a0a36c0e962060659b1d51f666c367f9464a/governance/contribution-standards.md). The lead remains responsible for scientific decisions. Agent checks are not independent human reviews. USHSO motivated the work; team-authored workflows are excluded from the proposed primary evaluation.
 
-## Shared rules
-
-This starter uses [OSRI-0.1.0](https://github.com/Open-Source-Research-Initiative/osri/blob/8c39a0a36c0e962060659b1d51f666c367f9464a/governance/contribution-standards.md). Record any later adoption decision in this project.
-
-You may use your own agent, selected skills, or manual methods. No paid tool bundle is required. A person checks evidence and authorizes acceptance and publication.
-
-Follow the guides for [writing](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/writing-style.md), [translation](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/translation.md), and [visual identity](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/visual-identity.md).
-
-Original starter guides use CC BY 4.0; original starter code and configuration use MIT. See [licensing](LICENSE.md). Declare terms for added research materials before sharing them.
+Original text/data documentation uses CC BY 4.0 and original code uses MIT as specified in [LICENSE.md](LICENSE.md); third-party source and data terms remain separate. No patient records or secret credentials belong here. Publication of this feasibility repository is not peer review or acceptance of scientific conclusions.

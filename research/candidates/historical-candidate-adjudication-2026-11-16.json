@@ -1,0 +1,311 @@
+{
+  "date": "2026-11-16",
+  "status": "Coordinator adjudication of exploratory candidate records; not a systematic screen or completed study; agent research, no human verification claimed.",
+  "counts": {
+    "eligible": 13,
+    "uncertain": 6,
+    "adjacent": 14
+  },
+  "entries": [
+    {
+      "id": "P01",
+      "title": "Sacarny hospital cost reports",
+      "url": "https://github.com/asacarny/hospital-cost-reports",
+      "classification": "eligible",
+      "reason": "README explicitly identifies download_source.sh and HCRIS processing; hospital-report financial data",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P02",
+      "title": "McCarthy HCRIS",
+      "url": "https://github.com/imccart/HCRIS",
+      "classification": "uncertain",
+      "reason": "R scripts organize manually obtained source files; automated acquisition mechanism not established",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P03",
+      "title": "HealthParse HCRIS parser",
+      "url": "https://github.com/HealthParse-io/us-health-data-tools/blob/main/README.md",
+      "classification": "adjacent",
+      "reason": "Offline parser accepts already acquired source files",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P04",
+      "title": "Rush HCRIS app",
+      "url": "https://github.com/klocey/hcris-app",
+      "classification": "uncertain",
+      "reason": "App source exists but acquisition stage not inspected",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P05",
+      "title": "Provider Data Tools",
+      "url": "https://github.com/videntity/provider-data-tools",
+      "classification": "eligible",
+      "reason": "Provider-level public NPPES and PECOS acquisition is now within scope; source-specific pull_pecos.py is inspectable.",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review.",
+      "lineage_caveat": "Repository identified as fork of usbrandon/provider-data-tools; must reconcile stewardship and code lineage before defining final system."
+    },
+    {
+      "id": "P06",
+      "title": "NPI Registry Scraper",
+      "url": "https://github.com/logiover/npi-registry-scraper",
+      "classification": "adjacent",
+      "reason": "Documentation-only repository for a hosted Apify actor, not publicly inspectable acquisition code; account and pay-per-result terms described.",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review.",
+      "adjudication_source": "research/08-source-audit.md",
+      "prior_classification": "uncertain"
+    },
+    {
+      "id": "P07",
+      "title": "medicare R package",
+      "url": "https://cloud.r-project.org/web/packages/medicare/medicare.pdf",
+      "classification": "adjacent",
+      "reason": "README describes manipulation/extraction of already obtained files, not network acquisition",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P08",
+      "title": "PricePortal",
+      "url": "https://github.com/iupui-soic/mrf-pricing-research",
+      "classification": "eligible",
+      "reason": "README specifies hospital MRF discovery, downloader and source-backed processing",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P09",
+      "title": "Turquoise Price Points",
+      "url": "https://github.com/turquoisehealth/pricepoints",
+      "classification": "adjacent",
+      "reason": "Research analysis/replication data; acquisition code for commercial source not established",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P10",
+      "title": "Turquoise MRF Tracker",
+      "url": "https://turquoise.health/mrf_tracker",
+      "classification": "adjacent",
+      "reason": "Closed operational monitoring website; acquisition code not inspected",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P11",
+      "title": "CMS HPT validator",
+      "url": "https://github.com/CMSgov/hospital-price-transparency",
+      "classification": "adjacent",
+      "reason": "Schema and validator, no acquisition workflow",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P12",
+      "title": "covidestim sources",
+      "url": "https://github.com/covidestim/covidestim-sources",
+      "classification": "eligible",
+      "reason": "Makefile and R source identify HTTP and submodule acquisition and outputs",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P13",
+      "title": "Google Open COVID-19 Data",
+      "url": "https://github.com/google-research/open-covid-19-data",
+      "classification": "eligible",
+      "reason": "Automatic-download fetch script and source configs; multi-country system with US source coverage requires source-level check",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P14",
+      "title": "COVID Tracking Project",
+      "url": "https://covidtracking.com/about-data/data-summary/",
+      "classification": "uncertain",
+      "reason": "Archive/API documents project data; concrete acquisition implementation not yet inspected",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P15",
+      "title": "County Health Rankings",
+      "url": "https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation",
+      "classification": "uncertain",
+      "reason": "Release documentation and select calculation code, but source acquisition workflow not established",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P16",
+      "title": "countyhealthR",
+      "url": "https://countyhealthrankings.github.io/welcome/",
+      "classification": "eligible",
+      "reason": "countyhealthR function downloads archived county-level aggregate release",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P17",
+      "title": "NYC Environment and Health Data Portal",
+      "url": "https://a816-dohbesp.nyc.gov/IndicatorPublic/about/advanced-tools/",
+      "classification": "uncertain",
+      "reason": "Linked portal and data repositories exist but source acquisition path not established",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P18",
+      "title": "CDC COVID case privacy review",
+      "url": "https://github.com/CDCgov/covid_case_privacy_review",
+      "classification": "adjacent",
+      "reason": "Disclosure-control validation scripts, not acquisition",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P19",
+      "title": "California HCAI measurement",
+      "url": "https://hcai.ca.gov/wp-content/uploads/2026/05/Hospital-Measurement-Methodology-April-2026.pdf",
+      "classification": "adjacent",
+      "reason": "Methodology mixes public and restricted data; acquisition code not shown",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P20",
+      "title": "OpenPrescribing",
+      "url": "https://openprescribing.net/about/",
+      "classification": "adjacent",
+      "reason": "England-only, outside US-source boundary",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P21",
+      "title": "OpenPrescribing Hospitals",
+      "url": "https://formative.jmir.org/2026/1/e92041/",
+      "classification": "adjacent",
+      "reason": "England-only, outside US-source boundary",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P22",
+      "title": "HFS HCRIS website",
+      "url": "https://hcris.hfssoft.com/default.aspx",
+      "classification": "adjacent",
+      "reason": "Closed site with failed direct fetch and no inspected acquisition code",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P23",
+      "title": "CDC EPHTrackR",
+      "url": "https://github.com/CDCgov/EPHTrackR",
+      "classification": "eligible",
+      "reason": "get_data(measure=99, strat_level=\"ST\") documents aggregate asthma hospitalization query; CDC API status, release retention and semantics not verified",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P24",
+      "title": "CARA",
+      "url": "https://github.com/jdn63/CARA/blob/main/README.md",
+      "classification": "eligible",
+      "reason": "README documents WI immunization and vector-borne CSV fetches with ENABLE_SCRAPERS=1 and source_registry.py; Explicit opt-in; inspect source and assess terms before attempts",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P25",
+      "title": "Unofficial CDC MCP",
+      "url": "https://github.com/openpharma-org/cdc-mcp",
+      "classification": "eligible",
+      "reason": "README documents get_places_data method with geography/year/state/measure parameters; README differs on dataset counts; exact endpoint and code must be checked",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P26",
+      "title": "nhanesA",
+      "url": "https://github.com/cran/nhanesA",
+      "classification": "adjacent",
+      "reason": "README documents NHANES source retrieval; CRAN mirror links development repo; Microdata rather than aggregate-only; mirror and upstream are one family",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P27",
+      "title": "brfssdata",
+      "url": "https://github.com/muntasirmasum/brfssdata",
+      "classification": "adjacent",
+      "reason": "README documents brfss_download and GitHub-release parquet cache; Microdata rather than aggregate-only; not direct CDC source provenance",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P28",
+      "title": "CDCPLACES",
+      "url": "https://github.com/brendensm/CDCPLACES",
+      "classification": "eligible",
+      "reason": "get_places specifies geography, state, measure, release; inspected code issues curl requests and parses responses",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P29",
+      "title": "cdcfluview",
+      "url": "https://github.com/hrbrmstr/cdcfluview",
+      "classification": "eligible",
+      "reason": "README lists ILINet access functions; source defines flu data retrieval",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P30",
+      "title": "Delphi COVIDcast Python client",
+      "url": "https://github.com/cmu-delphi/covidcast",
+      "classification": "eligible",
+      "reason": "README links API clients and source defines signal() with source, geography and as_of parameters",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P31",
+      "title": "Wastewater Signal Tracker",
+      "url": "https://github.com/mccarthyad/wastewater-signal-tracker/blob/main/R/ingest_nwss.R",
+      "classification": "uncertain",
+      "reason": "Cached inspected file specifies Socrata endpoint atcp-73re, pathogen filters and pagination",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P32",
+      "title": "adesigns NPPES PHP client",
+      "url": "https://github.com/adesigns/nppes-api",
+      "classification": "eligible",
+      "reason": "README documents search and searchByNumber and source example exists",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    },
+    {
+      "id": "P33",
+      "title": "HCAI inspector downloader",
+      "url": "https://github.com/HopeEK/hcai-inspector-download",
+      "classification": "adjacent",
+      "reason": "File has requests.get but uses explicit path-to-inspector-data.csv placeholder",
+      "original_record": "research/02-sources.json",
+      "limits": "Provisional documentation/code reconnaissance; no execution, source-payload qualification or complete lineage review."
+    }
+  ]
+}

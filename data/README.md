@@ -1,9 +1,9 @@
-# Data and evidence inputs
+# Data and evidence
 
-Record the source, release or version, retrieval date, variables, units, missing-value codes, and reuse terms. Retain the code or steps that transform the inputs.
+Only research metadata, source pointers, original notes and permitted small evidence records belong in this repository. No patient-level payloads, credentials, private conversations or copyrighted full texts are included. Public access does not grant blanket redistribution rights.
 
-Use the [open-format guide](https://github.com/Open-Source-Research-Initiative/osri/blob/8c39a0a36c0e962060659b1d51f666c367f9464a/governance/open-formats.md). A comma-separated values (CSV) table needs a dictionary that defines its columns. Some scientific data need a domain format.
+`sources.csv` imports source-level observations from the November 16 proposal reconnaissance. Evidence may be a full-text section, abstract, documentation, code or an inaccessible lead; preserve that distinction. New feasibility observations live under research/ with their own dates and exact versions. A public commit identifies software inspected, not operational success.
 
-Keep small shareable inputs here when permitted. Use approved external storage for large or restricted material and keep a shareable manifest. Do not commit credentials or restricted files.
+Independent assessment fixtures must be kept out of execution packets and executor-readable directories until primary outputs are locked. Real fixtures will use a separate access-controlled assessment checkout/location; logical filenames alone are not isolation. Packet templates contain no actual expected records. Until isolation is established, do not run a blinded pilot.
 
-For missing access, use the [resource request guide](https://github.com/Open-Source-Research-Initiative/osri/blob/main/governance/resource-requests.md).
+Retain failed retrievals and unknowns. Publish only materials permitted by source terms; otherwise publish allowed metadata, hashes and access instructions, explaining reproducibility limits. Original research metadata is CC BY 4.0; source-specific terms govern source material.
