@@ -31,7 +31,7 @@ Cases 02–08 used [hash-bound runtime plans](protocol/pilot/runtime/locked/) an
 
 ## Next work
 
-Cole's [review package](research/pilot-findings/README.md#decisions-for-coles-review) identifies the major claims and proposed diagnostic-method amendment. The principal findings are a substantial CDCPLACES retrieval-scope limitation and evaluator-induced barriers in two cases. Improve request/response observability and qualify native multi-request behavior before any separately recorded diagnostic repeat. Preserve the original attempts and the distinction between available source records, returned-record agreement and full acquisition.
+Cole authorized a [separate diagnostic amendment](protocol/pilot/diagnostic-06-07-amendment.md) for cases 06–07. The [original findings and review package](research/pilot-findings/README.md) remain preserved as recorded before those diagnostics. The [diagnostic findings for review](research/pilot-findings/diagnostics-06-07.md) report new tracing, qualification and results separately; available source records, returned-record agreement and full acquisition remain distinct claims.
 
 The main evaluation and broader collection remain unapproved. The required workflow comparisons across multiple source families and independent qualified human review are not established. See [Issues](https://github.com/Open-Source-Research-Initiative/acquiring-public-data-for-us-health-systems-research/issues) for bounded tasks.
 

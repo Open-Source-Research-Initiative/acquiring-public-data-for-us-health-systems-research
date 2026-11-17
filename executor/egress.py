@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import datetime
+import hashlib
 import ipaddress
 import os
 import selectors
@@ -15,6 +16,7 @@ import socketserver
 import ssl
 import threading
 import time
+import uuid
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -73,7 +75,7 @@ class _Server(socketserver.ThreadingUnixStreamServer):
 class EgressBroker:
     def __init__(self, socket_path, allowed_hosts, max_bytes, timeout=15, *, tls_dir=None,
                  _test_resolver=None, _test_upstream_context=None, budget=None,
-                 allowed_schemes=("http", "https")):
+                 allowed_schemes=("http", "https"), allow_publisher_cookies=False):
         self.socket_path = str(socket_path)
         self.allowed_hosts = frozenset(h.lower() for h in allowed_hosts)
         if not self.allowed_hosts or any(not _valid_host(h) for h in self.allowed_hosts):
@@ -84,6 +86,7 @@ class EgressBroker:
         if not self.allowed_schemes or not self.allowed_schemes <= {"http", "https"}:
             raise ValueError("invalid allowed schemes")
         self.max_bytes, self.timeout = max_bytes, timeout
+        self.allow_publisher_cookies = allow_publisher_cookies
         self.tls_dir = Path(tls_dir) if tls_dir else None
         self._test_resolver, self._test_upstream_context = _test_resolver, _test_upstream_context
         self.budget = budget
@@ -94,18 +97,29 @@ class EgressBroker:
         self.reserved_bytes = 0
         self._credit = 0
         self.events = []
+        self._session_cookies = {}
+        self._cookie_lock = threading.Lock()
         self.dropped_event_count = 0
         self.server = None
 
-    def _record(self, status, host=None, method=None, *, phase=None, error_class=None):
+    def _record(self, status, host=None, method=None, *, phase=None, error_class=None,
+                request_id=None, reason=None, response_status=None, provenance=None):
         with self._lock:
             if len(self.events) >= 10000:
                 self.dropped_event_count += 1
                 return
             event = {'status': status, 'host': host if host in self.allowed_hosts else None,
-                     'method': method if method in _METHODS | {'CONNECT'} else None}
+                     'method': method if method in _METHODS | {'CONNECT'} else None,
+                     'timestamp_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                     'request_id': request_id}
             if phase is not None:
                 event.update(phase=phase, error_class=error_class)
+            if reason is not None:
+                event['reason'] = reason
+            if response_status is not None:
+                event['response_status'] = response_status
+            if provenance is not None:
+                event.update(provenance)
             self.events.append(event)
 
     @property
@@ -224,16 +238,23 @@ class EgressBroker:
         return result[0][0]
 
     def _handle(self, client):
+        request_id = uuid.uuid4().hex
+        secure_request = False
         deadline = time.monotonic() + self.timeout
         client.settimeout(self.timeout)
         host = method = None
         upstream = None
         tls_client = None
+        response_digest = None
+        response_bytes = 0
+        response_complete = False
+        transfer_recorded = False
         phase = "request"
         try:
             first, rest = _read_header(client, deadline)
             method, target, version, headers = _parse(first)
             if method == 'CONNECT':
+                secure_request = True
                 if 'https' not in self.allowed_schemes:
                     raise ValueError('scheme denied')
                 if not target.endswith(':443') or target.count(':') != 1 or rest:
@@ -287,8 +308,17 @@ class EgressBroker:
             if not target.startswith('/') or target.startswith('//') or any(ord(c) < 33 or ord(c) > 126 for c in target):
                 raise ValueError('invalid path')
             lengths = [v for k, v in headers if k == 'content-length']
-            if any(k in ('transfer-encoding', 'authorization', 'proxy-authorization', 'cookie', 'upgrade', 'expect') for k, _ in headers):
-                raise ValueError('unsupported header')
+            for forbidden in ('transfer-encoding', 'authorization', 'proxy-authorization', 'upgrade', 'expect'):
+                if any(k == forbidden for k, _ in headers):
+                    raise ValueError('denied_header_' + forbidden.replace('-', '_'))
+            cookies = [v for k, v in headers if k == 'cookie']
+            if cookies:
+                with self._cookie_lock:
+                    issued = self._session_cookies.get(host, set()).copy()
+                pairs = [part.strip() for value in cookies for part in value.split(';')]
+                if (not self.allow_publisher_cookies or not secure_request or len(cookies) != 1 or not pairs or
+                        any(not pair or pair not in issued for pair in pairs)):
+                    raise ValueError('denied_header_cookie')
             if len(lengths) > 1 or (lengths and (not lengths[0].isdigit() or len(lengths[0]) > 8)):
                 raise ValueError('ambiguous length')
             size = int(lengths[0]) if lengths else 0
@@ -301,6 +331,9 @@ class EgressBroker:
                 if not chunk:
                     raise ValueError('truncated body')
                 body += chunk
+            self._record('request', host, method, request_id=request_id, provenance={
+                'target_sha256': hashlib.sha256(target.encode('ascii')).hexdigest(),
+                'body_bytes': len(body), 'body_sha256': hashlib.sha256(body).hexdigest()})
             excluded = {'proxy-connection', 'connection', 'host', 'content-length'}
             outbound = f'{method} {target} HTTP/1.1\r\nHost: {host}\r\nConnection: close\r\n'.encode()
             if lengths:
@@ -311,25 +344,103 @@ class EgressBroker:
                 part = outbound[offset:offset + _CREDIT_QUANTUM]
                 if not self._forward(upstream, part, deadline):
                     raise ValueError('byte cap')
-            self._record('connected', host, method)
+            self._record('connected', host, method, request_id=request_id)
+            response_prefix = b''
+            response_recorded = False
+            response_digest = hashlib.sha256()
+            response_bytes = 0
+            response_complete = False
             while True:
                 _set_deadline(upstream, deadline)
                 chunk = upstream.recv(16384)
                 if not chunk:
+                    response_complete = True
                     break
-                if not self._forward(client_stream, chunk, deadline):
-                    self._record('byte_cap', host, method)
-                    break
+                with self._cookie_lock:
+                    if not self._forward(client_stream, chunk, deadline):
+                        self._record('byte_cap', host, method, request_id=request_id, reason='byte_cap')
+                        break
+                    response_digest.update(chunk)
+                    response_bytes += len(chunk)
+                    # Inspect only bytes actually delivered; never log header values.
+                    if not response_recorded:
+                        response_prefix += chunk
+                        while b'\r\n\r\n' in response_prefix:
+                            header, response_prefix = response_prefix.split(b'\r\n\r\n', 1)
+                            if len(header) > _MAX_HEADER:
+                                response_recorded = True
+                                self._record('response', host, method, request_id=request_id,
+                                             reason='response_header_too_large')
+                                break
+                            line = header.split(b'\r\n', 1)[0].split(b' ', 2)
+                            status = (int(line[1]) if len(line) >= 2 and
+                                      line[0] in (b'HTTP/1.0', b'HTTP/1.1') and
+                                      len(line[1]) == 3 and line[1].isdigit() else None)
+                            if status is not None and 100 <= status < 200 and status != 101:
+                                continue
+                            self._record('response', host, method, request_id=request_id,
+                                         response_status=status,
+                                         reason=None if status is not None else 'invalid_status_line')
+                            if self.allow_publisher_cookies and secure_request and status is not None:
+                                for field in header.split(b'\r\n')[1:]:
+                                    name, sep, value = field.partition(b':')
+                                    if sep and name.lower() == b'set-cookie':
+                                        pair = value.strip().split(b';', 1)[0]
+                                        if 0 < len(pair) <= 4096 and b'=' in pair:
+                                            try:
+                                                cookie = pair.decode('ascii')
+                                            except UnicodeError:
+                                                continue
+                                            issued = self._session_cookies.setdefault(host, set())
+                                            if len(issued) < 128:
+                                                issued.add(cookie)
+                            response_recorded = True
+                            break
+                        if not response_recorded and len(response_prefix) > _MAX_HEADER:
+                            response_prefix = b''
+                            response_recorded = True
+                            self._record('response', host, method, request_id=request_id,
+                                         reason='response_header_too_large')
+            if not response_recorded:
+                self._record('response', host, method, request_id=request_id,
+                             reason='incomplete_response_header')
+            self._record('response_transfer', host, method, request_id=request_id,
+                         provenance={'representation': 'raw_http_response',
+                                     'bytes': response_bytes,
+                                     'sha256': response_digest.hexdigest(),
+                                     'upstream_eof': response_complete,
+                                     'message_complete': None})
+            transfer_recorded = True
         except (OSError, ValueError, UnicodeError, ssl.SSLError) as error:
             error_class = ('timeout' if isinstance(error, TimeoutError) else
                            'tls' if isinstance(error, ssl.SSLError) else
                            'connection' if isinstance(error, OSError) else 'policy')
-            self._record('blocked', host, method, phase=phase, error_class=error_class)
+            safe_reasons = {'invalid path', 'ambiguous length', 'unsupported body',
+                            'truncated body', 'byte cap', 'scheme denied', 'invalid CONNECT',
+                            'CONNECT body or TLS unavailable', 'invalid inner request',
+                            'method', 'invalid URI', 'authority', 'host', 'host header',
+                            'incomplete header', 'header too large', 'version', 'header',
+                            'header name', 'header value', 'non-public address'}
+            safe_reasons.update('denied_header_' + h for h in
+                                ('transfer_encoding', 'authorization', 'proxy_authorization',
+                                 'cookie', 'upgrade', 'expect'))
+            message = str(error)
+            reason = message.replace(' ', '_') if message in safe_reasons else error_class
+            self._record('blocked', host, method, phase=phase, error_class=error_class,
+                         request_id=request_id, reason=reason)
             try:
                 (tls_client or client).sendall(b'HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0\r\n\r\n')
             except OSError:
                 pass
         finally:
+            if response_digest is not None and not transfer_recorded:
+                self._record('response_transfer', host, method, request_id=request_id,
+                             provenance={'representation': 'raw_http_response',
+                                         'bytes': response_bytes,
+                                         'sha256': response_digest.hexdigest(),
+                                         'upstream_eof': False,
+                                         'message_complete': None,
+                                         'count_is_lower_bound': True})
             if upstream:
                 upstream.close()
             if tls_client:

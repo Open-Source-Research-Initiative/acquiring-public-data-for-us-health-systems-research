@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "scope": "Original primary attempt preservation before the prospective 06\u201307 diagnostic",
+  "baseline_captured_utc": "2026-11-17T13:43:49.222857+00:00",
+  "baseline_sha256": "43fffa702b60cb2023a077cc470a82f4a9df479d573fad3c77e712e81d05fa3c",
+  "baseline_private_location": "original-preservation-20261117.json in controlled pilot runtime",
+  "primary_trees": 8,
+  "runtime_entries": 314,
+  "runtime_files": 247,
+  "public_files_and_archive": 23,
+  "prior_receipt_checks": 223,
+  "prior_receipt_mismatches": 0,
+  "sqlite_bytes_included": true,
+  "post_work_comparison": {
+    "compared_utc": "2026-11-17T13:55:38.718777+00:00",
+    "matched": true,
+    "runtime_missing_added_changed": [
+      0,
+      0,
+      0
+    ],
+    "public_missing_added_changed": [
+      0,
+      0,
+      0
+    ],
+    "private_comparison_sha256": "fe16bb48f4ca53dc9817b21b283db222d06462b94bf594b721ffab9027dadd29",
+    "private_comparison_filename": "original-preservation-after-20261117T135538Z.json"
+  },
+  "observation": "The eight original ledger elapsed windows had expired on the same boot at inspection. No authority to reset them is inferred.",
+  "limitations": [
+    "Private inventory includes local paths and payload hashes and remains in controlled runtime.",
+    "Hash matches do not establish acquisition, fidelity, scientific conclusions, or independent human review."
+  ]
+}

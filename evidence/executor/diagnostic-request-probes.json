@@ -1,0 +1,153 @@
+{
+  "phase": "technical request-stack probe, separate from native candidate diagnostic",
+  "date_utc": "2026-11-17",
+  "qualification_sha256": "78a206009ca15dea2cab24da74923813e691fe805d4055480c4290a271cfee39",
+  "source_scripts": [
+    "../../scripts/pilot_diagnostic/probe.R",
+    "../../scripts/pilot_diagnostic/run_probe.py"
+  ],
+  "reproduction_limit": "Scripts retain original absolute workspace paths and need equivalent approved runtime, host manifests, qualification and fresh guarded ledger; copying files alone is insufficient. Do not run without separate authorization.",
+  "input_archive_sha256": "96905b47a8268e07688a09ecf7a80f21f60241daeee1ddbf14eb2f5cc82f5e16",
+  "limits": {
+    "guard_seconds": 900,
+    "disk_bytes": 49392123904,
+    "cumulative_network_bytes": 21474836480,
+    "per_response_curl_max_bytes": 8388608,
+    "request_timeout_seconds": 45,
+    "hosts": [
+      "ephtracking.cdc.gov",
+      "zenodo.org"
+    ],
+    "transport": "HTTPS only"
+  },
+  "outcomes": {
+    "default_deny": {
+      "06_statuses": [
+        200,
+        403
+      ],
+      "07_statuses": [
+        200,
+        403
+      ],
+      "second_request_broker_reason": "denied_header_cookie"
+    },
+    "publisher_cookie_opt_in": {
+      "06_statuses": [
+        200,
+        200
+      ],
+      "07_statuses": [
+        200,
+        200
+      ]
+    },
+    "order": "default deny first, separate sessions; each session 06 then 07"
+  },
+  "accounting": {
+    "network_bytes_after_default": 1018598754,
+    "network_bytes_after_opt_in": 2037197508,
+    "includes_predebit_of_input_archive_for_each_session": true,
+    "open_reservations_after_cleanup": 0
+  },
+  "guard": {
+    "coordinator_returncode": 0,
+    "elapsed_seconds": 94.92480037100177,
+    "cleanup": "clean",
+    "prior_stale_receipt_guard": "rejected before network; clean teardown, retained"
+  },
+  "interpretation": "In the later controlled sequences the broker denied the second request because of a cookie header, and both second requests returned 200 under publisher-cookie opt-in. This does not establish the rejected property in the original untraced attempts, full candidate behavior, fidelity, or completeness. Hostless incomplete_header events were also recorded without attribution to publisher requests.",
+  "retained_private_artifacts": [
+    {
+      "name": "REPORT.md",
+      "bytes": 2528,
+      "sha256": "4728f631ac6718ad81a81c242e9321443421e0188a8dc07776aa76fbf183ced6"
+    },
+    {
+      "name": "default-deny-06.json",
+      "bytes": 872,
+      "sha256": "2845fddc5410ce3a79960f04856f9e4d57ea6e4f4eeb6eea9f2decc893ffc468"
+    },
+    {
+      "name": "default-deny-07.json",
+      "bytes": 871,
+      "sha256": "69832054d2c9ce563bf4243af5e406c1e004203c5832d4616748310449e610f6"
+    },
+    {
+      "name": "default-deny-accounting.json",
+      "bytes": 590,
+      "sha256": "44c23170e91cdb18e39d0ef1d55fc374890906666fb97ed5176fb574ef7b2a45"
+    },
+    {
+      "name": "default-deny-events.json",
+      "bytes": 3567,
+      "sha256": "3c680d6493027a1f7ff3ae57be0cb42daefbca261ce65805b67dab28b194e7f3"
+    },
+    {
+      "name": "default-deny-inputs.json",
+      "bytes": 375,
+      "sha256": "c8d86b11fb5ce6a2e1c546491684809bf252bf3a4e7421e041afb36b5aa8ebbb"
+    },
+    {
+      "name": "default-deny-stage.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "name": "guard-result.json",
+      "bytes": 814,
+      "sha256": "b8fe9c21c53f9d417989c6f93c223a2249f81fd772bf0b0f076dde03c2b1b64e"
+    },
+    {
+      "name": "guard-stale-qualification.json",
+      "bytes": 1486,
+      "sha256": "5b5bbe3ece53a1994d4fa657f85195a09e359ff1797b0a973aa972b6fc22892b"
+    },
+    {
+      "name": "lock.json",
+      "bytes": 728,
+      "sha256": "03e073ade93bb9971d2d32e0863e9bee0bd2811ef4d09491bfca944990e663da"
+    },
+    {
+      "name": "probe.R",
+      "bytes": 934,
+      "sha256": "b83ce3c184fbfcb998c2c38daf13111cbda87618ea4c2f9d56e94909870776ac"
+    },
+    {
+      "name": "publisher-cookie-opt-in-06.json",
+      "bytes": 875,
+      "sha256": "db472dee2ec428c8107648bb41408d154e88665a10944bcd8ea06c5a5e1b642a"
+    },
+    {
+      "name": "publisher-cookie-opt-in-07.json",
+      "bytes": 873,
+      "sha256": "e68c4fa9ce4e52a24eeb0ffc22022b2b60d7b7d7812cac226ab2339b51e39d5b"
+    },
+    {
+      "name": "publisher-cookie-opt-in-accounting.json",
+      "bytes": 585,
+      "sha256": "10f37f6d418a8b6b68a18006e22f164bf85feac931da652a08195a07f144d523"
+    },
+    {
+      "name": "publisher-cookie-opt-in-events.json",
+      "bytes": 5424,
+      "sha256": "408698248c6acf90cf6faa49e17ef53c45fa48dd3617495411266f3a073472da"
+    },
+    {
+      "name": "publisher-cookie-opt-in-inputs.json",
+      "bytes": 375,
+      "sha256": "c8d86b11fb5ce6a2e1c546491684809bf252bf3a4e7421e041afb36b5aa8ebbb"
+    },
+    {
+      "name": "publisher-cookie-opt-in-stage.json",
+      "bytes": 55,
+      "sha256": "f376961438627b1cfbd6c1626ba2ccecb545fe11fb15cbf2b091c955a9b6d7e7"
+    },
+    {
+      "name": "run_probe.py",
+      "bytes": 3196,
+      "sha256": "471f7e9e8c6833578b1923b48afee58dc72800888c85df14d4b960a1f5ed17f6"
+    }
+  ],
+  "privacy": "No response bodies or cookie values retained by this probe; event logs contain request target hashes, not target strings."
+}

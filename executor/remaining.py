@@ -65,11 +65,13 @@ def _output_remaining(attempt):
     return OUTPUT_LIMIT - output
 
 
-def check_receipt(path):
+def check_receipt(path, phase='primary'):
     receipt = json.loads(Path(path).read_text())
     if (receipt.get('status') != 'qualified_for_bounded_feasibility'
-            or receipt.get('allowed_cases') != CASES
-            or 'primary' not in receipt.get('allowed_phases', [])
+            or receipt.get('allowed_cases') != (CASES if phase == 'primary' else ['PILOT-06', 'PILOT-07'])
+            or phase not in receipt.get('allowed_phases', [])
+            or (phase == 'diagnostic' and receipt.get('allowed_phases') != ['diagnostic'])
+            or phase not in ('primary', 'diagnostic')
             or receipt.get('open_blockers')
             or receipt.get('tests', {}).get('failures') != 0
             or receipt.get('tests', {}).get('skipped') != 0):
@@ -286,14 +288,14 @@ def _prepare_attempt(attempt, resume):
         shutil.move(str(item), history/item.name)
 
 
-def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
+def _run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False, *, phase='primary'):
     runtime, attempt, receipt_path, spec_path = map(Path, (runtime, attempt, receipt_path, spec_path))
-    receipt = check_receipt(receipt_path)
+    receipt = check_receipt(receipt_path) if phase == 'primary' else check_receipt(receipt_path, phase)
     guarded = Path(os.environ['PILOT_SESSION_ROOT']).resolve(strict=True)
     if not guarded.is_relative_to('/workspace'):
         raise RuntimeError('outer guarded workspace required')
     runtime = runtime.resolve(strict=True)
-    if not runtime.is_relative_to('/workspace') or not attempt.resolve().is_relative_to(runtime/'attempts'):
+    if not runtime.is_relative_to('/workspace') or not attempt.resolve().is_relative_to(runtime/('attempts' if phase == 'primary' else 'diagnostics')):
         raise ValueError('attempt must be beneath workspace runtime/attempts')
     spec_bytes = spec_path.read_bytes()
     spec = json.loads(spec_bytes)
@@ -304,7 +306,7 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
     if (receipt.get('case_plan_sha256', {}).get(case) != hashlib.sha256(spec_bytes).hexdigest()
             or receipt.get('case_packet_sha256', {}).get(case) != digest(packet_path)):
         raise RuntimeError('qualification does not bind this plan and packet')
-    for prior in (runtime/'attempts').iterdir():
+    for prior in (runtime/('attempts' if phase == 'primary' else 'diagnostics')).iterdir():
         if prior == attempt or not prior.is_dir() or prior.is_symlink():
             continue
         prior_status = prior/'status.json'
@@ -329,7 +331,7 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
             raise RuntimeError('a native invocation already exists for this case')
     _prepare_attempt(attempt, resume_setup)
     _output_remaining(attempt)
-    status = {'case_id':case, 'status':'started', 'started_utc':utc(), 'setup_resume':resume_setup}
+    status = {'case_id':case, 'status':'started', 'started_utc':utc(), 'setup_resume':resume_setup, 'phase':phase}
     _save(attempt, attempt/'status.json', status)
     calls = []
     try:
@@ -353,7 +355,7 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
                  'request assessment data, or perform any other command. Then finish using the broker result.')
         lock = {'case_id':case, 'locked_utc':utc(), 'spec_sha256':hashlib.sha256(spec_bytes).hexdigest(),
                 'packet_sha256':digest(packet_path), 'qualification_sha256':digest(receipt_path),
-                'reference_adapter_sha256':spec['reference_adapter_sha256'], 'model':PINNED_MODEL,
+                'reference_adapter_sha256':spec['reference_adapter_sha256'], 'model':PINNED_MODEL, 'phase':phase,
                 'native_argv':native_argv, 'retry':'none', 'setup_resume':resume_setup,
                 'input_debit':'full input sizes debited on each setup including any explicit resume',
                 'prompt_sha256':hashlib.sha256(prompt.encode()).hexdigest()}
@@ -361,7 +363,7 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
         _control_write(attempt, attempt/'qualification.json', receipt_path.read_bytes())
         if digest(attempt/'qualification.json') != lock['qualification_sha256']:
             raise RuntimeError('qualification changed during snapshot')
-        check_receipt(attempt/'qualification.json')
+        check_receipt(attempt/'qualification.json') if phase == 'primary' else check_receipt(attempt/'qualification.json', phase)
         _save(attempt, attempt/'lock.json', lock)
         _control_write(attempt, attempt/'model-packet.txt', prompt.encode())
         predebit = {'input_bytes':input_bytes, 'known_input_bytes':known, 'charged_bytes':debit, 'status':'pending'}
@@ -375,7 +377,8 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
                          library_dir=runtime/'fuse-runtime/extracted/lib/x86_64-linux-gnu',
                          allowed_hosts=spec['hosts'], allowed_schemes=('http','https'),
                          case_inputs=mounts, guest_aliases=spec.get('guest_aliases', {}),
-                         disk_bytes=OUTPUT_LIMIT, broker_timeout=10800) as session:
+                         disk_bytes=OUTPUT_LIMIT, broker_timeout=10800,
+                         allow_publisher_cookies=(phase == 'diagnostic')) as session:
             try:
                 _save(attempt, attempt/'input-manifest.json', session.input_manifest['case'])
                 observed = {x['target']: x['sha256'] for x in session.input_manifest['case']}
@@ -441,7 +444,7 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
                 try:
                     status['agent'] = run_agent(prompt, decide=decide, broker=broker,
                                                 max_turns=4, command_timeout=10800)
-                    status['status'] = 'primary_finished_pending_assessment' if calls else 'no_native_invocation'
+                    status['status'] = ('primary_finished_pending_assessment' if phase == 'primary' else 'diagnostic_finished_pending_assessment') if calls else 'no_native_invocation'
                 except Exception as error:
                     status['status'] = 'executor_or_recording_error'
                     status['error'] = type(error).__name__ + ': ' + str(error)
@@ -522,6 +525,17 @@ def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False):
             ledger.close()
     _save(attempt, attempt/'status.json', status)
     return status
+
+
+def run_case(runtime, attempt, receipt_path, spec_path, resume_setup=False, *, phase='primary'):
+    if phase == 'diagnostic':
+        if resume_setup:
+            raise ValueError('diagnostic setup resume is not authorized')
+        from executor.diagnostic import run_diagnostic
+        return run_diagnostic(runtime, attempt, receipt_path, spec_path)
+    if phase != 'primary':
+        raise ValueError('unknown phase')
+    return _run_case(runtime, attempt, receipt_path, spec_path, resume_setup)
 
 
 def main():

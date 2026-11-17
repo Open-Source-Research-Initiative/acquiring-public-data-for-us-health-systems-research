@@ -33,7 +33,7 @@ class CaseSession:
     def __init__(self, *, workspace_parent, state_parent, ledger_path, fuse2fs,
                  library_dir, allowed_hosts, case_inputs=None, reference_inputs=None, guest_aliases=None, reference_aliases=None,
                  disk_bytes=100 * 1024**3, network_bytes=20 * 1024**3,
-                 broker_timeout=15, allowed_schemes=('http', 'https'), budget_options=None, setup_reservation=120, _test_broker_options=None):
+                 broker_timeout=15, allowed_schemes=('http', 'https'), budget_options=None, setup_reservation=120, allow_publisher_cookies=False, _test_broker_options=None):
         self.workspace_parent = Path(workspace_parent).resolve(strict=True)
         self.state_parent = Path(state_parent).resolve(strict=True)
         for path in (self.workspace_parent, self.state_parent):
@@ -58,6 +58,9 @@ class CaseSession:
             raise ValueError('network limit must be between 1 byte and 20 GiB')
         self.ledger_path = Path(ledger_path)
         self.fuse2fs, self.library_dir = fuse2fs, library_dir
+        if not isinstance(allow_publisher_cookies, bool):
+            raise ValueError('cookie policy must be boolean')
+        self.allow_publisher_cookies = allow_publisher_cookies
         self.allowed_hosts = list(allowed_hosts)
         self.case_inputs = dict(case_inputs or {})
         self.reference_inputs = dict(reference_inputs or {})
@@ -139,6 +142,7 @@ class CaseSession:
             self.broker = EgressBroker(sock, self.allowed_hosts, self.network_bytes, timeout=self.broker_timeout,
                                        tls_dir=state / 'private-tls', budget=self.budget,
                                        allowed_schemes=self.allowed_schemes,
+                                       allow_publisher_cookies=self.allow_publisher_cookies,
                                        **self.test_options)
             self.broker.start()
             elapsed = time.monotonic() - started

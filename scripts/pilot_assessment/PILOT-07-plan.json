@@ -1,0 +1,26 @@
+{
+  "schema_version": "1",
+  "case_id": "PILOT-07",
+  "status": "preparation_only_no_source_fixture",
+  "scope": "separate diagnostic window; preserve original primary outcome",
+  "candidate_commit": "48b940be5aef466af86e64b4cf8f799179b0efce",
+  "task": {"geography": "county", "measure": "premature death", "release_year": 2024},
+  "source_files": [
+    {"record": "18332002", "file": "t_category.csv", "purpose": "2025 default mapping joins"},
+    {"record": "18332002", "file": "t_factor.csv", "purpose": "2025 default mapping joins"},
+    {"record": "18332002", "file": "t_focus_area.csv", "purpose": "2025 default mapping joins"},
+    {"record": "18332002", "file": "t_measure_years.csv", "purpose": "2024 mapping year, measure_id, years_used"},
+    {"record": "18332002", "file": "t_measure.csv", "purpose": "2024 measure_name and ID mapping"},
+    {"record": "18331995", "file": "t_measure_data_years_2024.csv", "purpose": "direct annual county observations filtered by independently established measure_id"}
+  ],
+  "source_to_candidate_fields": {
+    "state_fips": "state_fips", "county_fips": "county_fips", "raw_value": "raw_value", "numerator": "numerator", "denominator": "denominator", "ci_low": "ci_low", "ci_high": "ci_high"
+  },
+  "key": ["state_fips", "county_fips"],
+  "candidate_fields": ["state_fips", "county_fips", "raw_value", "numerator", "denominator", "ci_low", "ci_high"],
+  "measure_selection": "2024 mapping, case-insensitive substring premature death; retain ambiguity and duplicate joins; no assumed ID",
+  "source_fixture_status": "unavailable", "selected": [],
+  "numeric_tolerance": {"absolute": 1e-8, "relative": 1e-9, "rule": "either"},
+  "comparison_rule": "No fidelity finding without direct source fixture frozen independently before new output. Missing output or source is unassessable, not empty or incorrect.",
+  "safety": "Read untrusted RDS only under existing confined offline guard; no candidate code or network."
+}

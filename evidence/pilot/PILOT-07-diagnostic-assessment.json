@@ -1,0 +1,86 @@
+{
+  "case_id": "PILOT-07",
+  "phase": "separate diagnostic offline schema assessment",
+  "status": "schema_exported",
+  "candidate_output": {
+    "bytes": 94945,
+    "sha256": "8350679c501d10e4574def49a11add860de208c97003b81307be0493e9b1ce97"
+  },
+  "schema": {
+    "status": "schema_exported",
+    "object_class": [
+      "tbl_df",
+      "tbl",
+      "data.frame"
+    ],
+    "row_count": 3143,
+    "schema": [
+      {
+        "name": "state_fips",
+        "class": "character",
+        "typeof": "character",
+        "atomic": true
+      },
+      {
+        "name": "county_fips",
+        "class": "character",
+        "typeof": "character",
+        "atomic": true
+      },
+      {
+        "name": "raw_value",
+        "class": "numeric",
+        "typeof": "double",
+        "atomic": true
+      },
+      {
+        "name": "numerator",
+        "class": "numeric",
+        "typeof": "double",
+        "atomic": true
+      },
+      {
+        "name": "denominator",
+        "class": "numeric",
+        "typeof": "double",
+        "atomic": true
+      },
+      {
+        "name": "ci_low",
+        "class": "numeric",
+        "typeof": "double",
+        "atomic": true
+      },
+      {
+        "name": "ci_high",
+        "class": "numeric",
+        "typeof": "double",
+        "atomic": true
+      }
+    ],
+    "fields_available": [
+      "state_fips",
+      "county_fips",
+      "raw_value",
+      "numerator",
+      "denominator",
+      "ci_low",
+      "ci_high"
+    ],
+    "fields_unavailable": [],
+    "fidelity": "unassessable",
+    "selected_matches": []
+  },
+  "fidelity": "unassessable; direct source fixture unavailable",
+  "hashes": {
+    "diagnostic_status_sha256": "80c856d3f62fdb6bba0c5d0a15d8d3ac7643cd96092f9eb5ade4263a67bb9bd6",
+    "diagnostic_primary_sha256": "de7580fccc018ca87e2c53daeeb8546cb9513e9c6b7b0ced3c0f5c1486a98a19",
+    "offline_guard_sha256": "0ce4a63dc103189c6e994b765b8ed89773d28577b05e0512840367beb4054b65",
+    "offline_lock_sha256": "a423e1b5783a4a16010b92165247a3a041d1f787b40acfb92cee23f319499c8a",
+    "offline_export_sha256": "c1401c4a17fa7a8536dad9c372eb3eaecfc6236c9d811dfe7bbd62ea9e87e241",
+    "schema_plan_sha256": "8089cdb0bdcfd2d0222618d9acd7054d00a28cea27e95930be22b3f5c4a15aed",
+    "source_first_plan_sha256": "f2c3a8447653467f97d5ee42accf662379045d4fca0605e0a4a3922ec6e13b84",
+    "exporter_sha256": "b949faedea1f358a0605ce6918eac09880107fd357eafd769c5c5ecc75b32976"
+  },
+  "limitations": "No source rows or candidate values compared. Guarded runner uses absolute workspace paths and remains private; RDS must only be read in the confined offline guard."
+}

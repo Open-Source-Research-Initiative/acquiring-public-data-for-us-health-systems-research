@@ -51,6 +51,69 @@ class EgressTests(unittest.TestCase):
             self.assertIn(b'hello', result)
             self.assertGreater(broker.transferred, len(result))
             self.assertNotIn('secret', str(broker.events))
+            connected = next(e for e in broker.events if e['status'] == 'connected')
+            response = next(e for e in broker.events if e['status'] == 'response')
+            self.assertEqual(connected['request_id'], response['request_id'])
+            self.assertEqual(response['response_status'], 200)
+            self.assertIn('timestamp_utc', response)
+            request = next(e for e in broker.events if e['status'] == 'request')
+            transfer = next(e for e in broker.events if e['status'] == 'response_transfer')
+            self.assertEqual(request['body_bytes'], 0)
+            self.assertEqual(transfer['bytes'], len(result))
+            self.assertTrue(transfer['upstream_eof'])
+            self.assertIsNone(transfer['message_complete'])
+
+    def test_rejected_request_reasons_are_specific_and_redacted(self):
+        with EgressBroker(self.path, ['example.test'], 10000, _test_resolver=self.resolver) as broker:
+            for header, reason in ((b'Cookie: session=secret', 'denied_header_cookie'),
+                                   (b'Authorization: secret', 'denied_header_authorization'),
+                                   (b'Transfer-Encoding: chunked', 'denied_header_transfer_encoding')):
+                raw = b'GET http://example.test/private?token=secret HTTP/1.1\r\nHost: example.test\r\n' + header + b'\r\n\r\n'
+                self.assertIn(b'403 Forbidden', self.request(raw))
+                self.assertEqual(broker.events[-1]['reason'], reason)
+            self.assertEqual(len({e['request_id'] for e in broker.events}), 3)
+            self.assertNotIn('secret', str(broker.events))
+
+    def test_https_publisher_cookie_only(self):
+        material = Path(self.tmp.name) / 'tls'
+        bundle = create_tls_material(material, ['example.test'])
+        class CookieUpstream(socketserver.BaseRequestHandler):
+            def handle(self):
+                request = self.request.recv(4096)
+                if not request:
+                    return
+                if b'cookie: session=issued' in request.lower():
+                    body = b'cookie accepted'
+                    self.request.sendall(b'HTTP/1.1 200 OK\r\nContent-Length: 15\r\n\r\n' + body)
+                else:
+                    self.request.sendall(b'HTTP/1.1 103 Early Hints\r\n\r\nHTTP/1.1 200 OK\r\nSet-Cookie: session=issued; Secure\r\nContent-Length: 0\r\n\r\n')
+        self.upstream.shutdown()
+        self.upstream.server_close()
+        self.upstream = socketserver.TCPServer(('127.0.0.1', 0), CookieUpstream)
+        server_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        server_context.load_cert_chain(material / 'example.test.pem', material / 'example.test.key')
+        self.upstream.socket = server_context.wrap_socket(self.upstream.socket, server_side=True)
+        threading.Thread(target=self.upstream.serve_forever, daemon=True).start()
+        trust = ssl.create_default_context(cafile=str(bundle))
+        def request(cookie=''):
+            with socket.socket(socket.AF_UNIX) as raw:
+                raw.settimeout(3)
+                raw.connect(self.path)
+                raw.sendall(b'CONNECT example.test:443 HTTP/1.1\r\nHost: example.test:443\r\n\r\n')
+                self.assertIn(b'200 Connection', raw.recv(4096))
+                with trust.wrap_socket(raw, server_hostname='example.test') as client:
+                    client.sendall(('GET / HTTP/1.1\r\nHost: example.test\r\n' + cookie + '\r\n').encode())
+                    return client.recv(4096)
+        with EgressBroker(self.path, ['example.test'], 10000, tls_dir=material,
+                          _test_resolver=self.resolver, _test_upstream_context=trust,
+                          allow_publisher_cookies=True) as broker:
+            self.assertIn(b'403', request('Cookie: session=forged\r\n'))
+            self.assertIn(b'200 OK', request())
+            self.assertIn(b'cookie accepted', request('Cookie: session=issued\r\n'))
+            self.assertIn(b'403', request('Cookie: session=issued; other=secret\r\n'))
+            self.assertTrue(all(e['response_status'] == 200 for e in broker.events if e['status'] == 'response'))
+            self.assertNotIn('issued', str(broker.events))
+            self.assertNotIn('secret', str(broker.events))
 
     def test_denials_and_no_payload(self):
         with EgressBroker(self.path, ['example.test'], 10000, _test_resolver=self.resolver):
